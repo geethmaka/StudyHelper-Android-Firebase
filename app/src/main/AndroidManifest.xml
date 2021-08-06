@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.madd_project">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icon144x144"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/iconround"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MADDProject">
+        <activity
+            android:name=".TM_Main"
+            android:exported="true" />
+        <activity
+            android:name=".SM_Main"
+            android:exported="true" />
+        <activity
+            android:name=".CH_Main"
+            android:exported="true" />
+        <activity
+            android:name=".CM_Main"
+            android:exported="true" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
