@@ -9,4 +9,8 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="complainTecacher">Complain</string>
+    <string name="Pdfupload">Pdf</string>
+    <string name="Linkupload">Link</string>
+    <string name="Teacher">Teacher</string>
 </resources>
