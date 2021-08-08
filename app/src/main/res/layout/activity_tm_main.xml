@@ -8,13 +8,13 @@
     tools:context=".TM_Main">
 
 
-
     <HorizontalScrollView
-        android:layout_width="match_parent"
+        android:id="@+id/horizontalScrollView4"
+        android:layout_width="434dp"
         android:layout_height="wrap_content"
         android:fillViewport="true"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="601dp">
+        tools:layout_editor_absoluteY="664dp">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
@@ -83,12 +83,14 @@
         app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView4"
+        app:layout_constraintVertical_bias="0.936" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="109dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="117dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/button"
         android:hint="@string/linkupload"
@@ -99,12 +101,14 @@
         app:layout_constraintBottom_toBottomOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView4"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="0dp"
         android:layout_height="57dp"
+        android:layout_marginTop="117dp"
         android:layout_marginEnd="46dp"
         android:layout_marginBottom="17dp"
         android:background="@drawable/button"
@@ -115,18 +119,47 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintStart_toEndOf="@+id/button" />
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView4"
+        app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/txtView_cart"
-        android:layout_width="175dp"
-        android:layout_height="125dp"
-        android:layout_gravity="top|right"
-        android:background="@drawable/circular_text_view"
-        android:paddingRight="10dp"
-        android:text="@string/No_of_pdf"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="135dp" />
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginBottom="116dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView4"
+        tools:layout_editor_absoluteX="-9dp">
+
+        <TextView
+            android:id="@+id/no_pdf"
+            android:layout_width="117dp"
+            android:layout_height="85dp"
+            android:layout_gravity="top|right"
+            android:background="@drawable/circular_text_view"
+            android:gravity="center"
+            android:paddingRight="10dp"
+            android:text="@string/No_of_pdf" />
+
+        <TextView
+            android:id="@+id/no_links"
+            android:layout_width="114dp"
+            android:layout_height="86dp"
+            android:layout_gravity="top|right"
+            android:background="@drawable/circular_text_view"
+            android:gravity="center"
+            android:paddingRight="10dp"
+            android:text="@string/No_of_links" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

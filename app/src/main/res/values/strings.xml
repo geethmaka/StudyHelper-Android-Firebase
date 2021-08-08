@@ -16,5 +16,6 @@
     <string name="Student">Student</string>
     <string name="Complain">Complain</string>
     <string name="Course">Course</string>
-    <string name="No_of_pdf">No_of_pdf</string>
+    <string name="No_of_pdf">No of\npdf</string>
+    <string name="No_of_links">No of\nlinks</string>
 </resources>
