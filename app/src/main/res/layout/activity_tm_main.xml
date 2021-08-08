@@ -7,13 +7,75 @@
     android:background="@drawable/pagebackground"
     tools:context=".TM_Main">
 
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="601dp">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="150dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button One" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button Two" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button Three" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button Four" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button Five" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button Six" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button Seven" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button Eight" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button Nine" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
     <Button
         android:id="@+id/button"
         android:layout_width="98dp"
         android:layout_height="49dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="35dp"
-        android:background="@drawable/pagebackground"
+        android:background="@drawable/button"
         android:hint="@string/complainTecacher"
         android:textColorHint="@color/white"
         android:textSize="10sp"
@@ -29,8 +91,8 @@
         android:layout_height="0dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/button"
-        android:hint="@string/Linkupload"
-        android:text="@string/Linkupload"
+        android:hint="@string/linkupload"
+        android:text="@string/linkupload"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textSize="10sp"
@@ -54,4 +116,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintStart_toEndOf="@+id/button" />
+
+    <TextView
+        android:id="@+id/txtView_cart"
+        android:layout_width="175dp"
+        android:layout_height="125dp"
+        android:layout_gravity="top|right"
+        android:background="@drawable/circular_text_view"
+        android:paddingRight="10dp"
+        android:text="@string/No_of_pdf"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="135dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

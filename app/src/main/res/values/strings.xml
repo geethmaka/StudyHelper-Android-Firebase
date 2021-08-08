@@ -11,9 +11,10 @@
     <string name="login_failed">"Login failed"</string>
     <string name="complainTecacher">Complain</string>
     <string name="Pdfupload">Pdf</string>
-    <string name="Linkupload">Link</string>
+    <string name="linkupload">Link</string>
     <string name="Teacher">Teacher</string>
     <string name="Student">Student</string>
     <string name="Complain">Complain</string>
     <string name="Course">Course</string>
+    <string name="No_of_pdf">No_of_pdf</string>
 </resources>
