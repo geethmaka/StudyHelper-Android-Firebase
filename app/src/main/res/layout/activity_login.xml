@@ -71,10 +71,48 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="8dp"
         android:hint="@string/Teacher"
+        android:onClick="gotoTMProfile"
         android:text="@string/Teacher"
-        android:onClick="gotoProfile"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="470dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/complain"
+        app:layout_constraintEnd_toStartOf="@+id/complain" />
+
+    <Button
+        android:id="@+id/student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="48dp"
+        android:hint="@string/Student"
+        android:onClick="gotoSMProfile"
+        android:text="@string/Student"
+        app:layout_constraintStart_toStartOf="@+id/complain"
+        app:layout_constraintTop_toBottomOf="@+id/complain" />
+
+    <Button
+        android:id="@+id/Course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="40dp"
+        android:hint="@string/Course"
+        android:onClick="gotoCMProfile"
+        android:text="@string/Course"
+        app:layout_constraintStart_toStartOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+    <Button
+        android:id="@+id/complain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="61dp"
+        android:layout_marginBottom="189dp"
+        android:hint="@string/Complain"
+        android:onClick="gotoCHProfile"
+        android:text="@string/Complain"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

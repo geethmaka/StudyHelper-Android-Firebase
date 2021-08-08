@@ -13,4 +13,7 @@
     <string name="Pdfupload">Pdf</string>
     <string name="Linkupload">Link</string>
     <string name="Teacher">Teacher</string>
+    <string name="Student">Student</string>
+    <string name="Complain">Complain</string>
+    <string name="Course">Course</string>
 </resources>

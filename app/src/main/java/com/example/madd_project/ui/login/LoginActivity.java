@@ -24,7 +24,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.madd_project.CH_Main;
 import com.example.madd_project.R;
+import com.example.madd_project.SM_Main;
 import com.example.madd_project.TM_Main;
 import com.example.madd_project.ui.login.LoginViewModel;
 import com.example.madd_project.ui.login.LoginViewModelFactory;
@@ -137,9 +139,24 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
 
-    public void gotoProfile(View view) {
+    public void gotoTMProfile(View view) {
         final Context context = this;
         Intent intent = new Intent(context, TM_Main.class);
+        startActivity(intent);
+    }
+    public void gotoSMProfile(View view) {
+        final Context context = this;
+        Intent intent = new Intent(context, SM_Main.class);
+        startActivity(intent);
+    }
+    public void gotoCHProfile(View view) {
+        final Context context = this;
+        Intent intent = new Intent(context, CH_Main.class);
+        startActivity(intent);
+    }
+    public void gotoCMProfile(View view) {
+        final Context context = this;
+        Intent intent = new Intent(context, CH_Main.class);
         startActivity(intent);
     }
 }
