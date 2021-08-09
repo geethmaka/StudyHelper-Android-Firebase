@@ -10,11 +10,12 @@
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView4"
-        android:layout_width="434dp"
-        android:layout_height="wrap_content"
+        android:layout_width="403dp"
+        android:layout_height="245dp"
+        android:layout_marginBottom="68dp"
         android:fillViewport="true"
-        tools:layout_editor_absoluteX="-23dp"
-        tools:layout_editor_absoluteY="372dp">
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        tools:layout_editor_absoluteX="4dp">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
@@ -71,46 +72,37 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="98dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="35dp"
-        android:background="@drawable/button"
+        android:layout_width="109dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="16dp"
         android:hint="@string/complainTecacher"
         android:textColorHint="@color/white"
         android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button3"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView4"
-        app:layout_constraintVertical_bias="0.936" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="109dp"
         android:layout_height="54dp"
-        android:layout_marginTop="117dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/button"
         android:hint="@string/linkupload"
         android:text="@string/linkupload"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView4"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="0dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="117dp"
-        android:layout_marginEnd="46dp"
-        android:layout_marginBottom="17dp"
+        android:layout_width="109dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/button"
         android:hint="@string/Pdfupload"
         android:text="@string/Pdfupload"
@@ -119,40 +111,8 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView4"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginBottom="144dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView4"
-        tools:layout_editor_absoluteX="0dp">
-
-        <TextView
-            android:id="@+id/no_pdf"
-            android:layout_width="117dp"
-            android:layout_height="85dp"
-            android:layout_gravity="top|right"
-            android:background="@drawable/circular_text_view"
-            android:gravity="center"
-            android:paddingRight="10dp"
-            android:text="@string/No_of_pdf" />
-
-        <TextView
-            android:id="@+id/no_links"
-            android:layout_width="114dp"
-            android:layout_height="86dp"
-            android:layout_gravity="top|right"
-            android:background="@drawable/circular_text_view"
-            android:gravity="center"
-            android:paddingRight="10dp"
-            android:text="@string/No_of_links" />
-    </LinearLayout>
+        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintStart_toEndOf="@+id/button" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -161,5 +121,56 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="20dp" />
 
+    <TextView
+        android:id="@+id/no_pdf"
+        android:layout_width="117dp"
+        android:layout_height="85dp"
+        android:layout_gravity="top|right"
+        android:background="@drawable/circular_text_view"
+        android:gravity="center"
+        android:paddingRight="10dp"
+        android:text="@string/No_of_pdf"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView4"
+        app:layout_constraintEnd_toStartOf="@+id/no_links"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.688" />
+
+    <TextView
+        android:id="@+id/no_links"
+        android:layout_width="114dp"
+        android:layout_height="86dp"
+        android:layout_gravity="top|right"
+        android:layout_marginEnd="56dp"
+        android:background="@drawable/circular_text_view"
+        android:gravity="center"
+        android:paddingRight="10dp"
+        android:text="@string/No_of_links"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.69" />
+
+    <!--        app:srcCompat="@drawable/circularimage"--><![CDATA[
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="26dp" />
+
+    ]]>
+
+    <ImageView
+        android:layout_width="115dp"
+        android:layout_height="86dp"
+        android:src="@drawable/profileimages"
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/teacherName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/TeacherName"
+        android:text="@string/TeacherName"
+        tools:layout_editor_absoluteX="180dp"
+        tools:layout_editor_absoluteY="121dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
