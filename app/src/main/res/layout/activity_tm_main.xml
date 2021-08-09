@@ -13,8 +13,8 @@
         android:layout_width="434dp"
         android:layout_height="wrap_content"
         android:fillViewport="true"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="664dp">
+        tools:layout_editor_absoluteX="-23dp"
+        tools:layout_editor_absoluteY="372dp">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
@@ -127,11 +127,11 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginBottom="116dp"
+        android:layout_marginBottom="144dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView4"
-        tools:layout_editor_absoluteX="-9dp">
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:id="@+id/no_pdf"
