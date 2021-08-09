@@ -7,4 +7,14 @@
     android:background="@drawable/pagebackground"
     tools:context=".SM_Main">
 
+    <Button
+        android:id="@+id/scomplain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:background="@drawable/button"
+        android:hint="@string/Complain"
+        android:text="@string/Complain"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="468dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
