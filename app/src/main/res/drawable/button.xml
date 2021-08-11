@@ -12,6 +12,6 @@
 <!--        android:centerColor="#2196f3"-->
 <!--        android:startColor="#673ab7"-->
 <!--        android:type="linear" />-->
-    <solid android:color="#BCEB3C"></solid>
+
 
 </shape>
