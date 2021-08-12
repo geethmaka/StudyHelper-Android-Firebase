@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADDProject">
         <activity
+            android:name=".sm_complain"
+            android:exported="true" />
+        <activity
             android:name=".tm_complain"
             android:exported="true" />
         <activity

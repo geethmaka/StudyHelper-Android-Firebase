@@ -18,4 +18,10 @@
     <string name="Course">Course</string>
     <string name="No_of_pdf">No of\npdf</string>
     <string name="No_of_links">No of\nlinks</string>
+    <string name="grade_prompt">Choosee a grade</string>
+    <string-array name="smm_grade_arrays">
+        <item>Grade 12</item>
+        <item>Grade 13</item>
+    </string-array>
+
 </resources>
