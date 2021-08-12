@@ -14,6 +14,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.032"
-        app:srcCompat="@drawable/smbook" />
+        app:layout_constraintVertical_bias="0.032"/>
+<!--        app:srcCompat="@drawable/smbook" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>
