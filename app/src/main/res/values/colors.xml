@@ -43,6 +43,10 @@
     <color name="A400">#00E5FF</color>
     <color name="A700">#00B8D4</color>
 
+    <color name="bg_black1">#303030</color>
+    <color name="bg_black2">#1c1c1c</color>
+    <color name="element_black">#494949</color>
+    <color name="element_white">#d3d8e3</color>
 
 
 

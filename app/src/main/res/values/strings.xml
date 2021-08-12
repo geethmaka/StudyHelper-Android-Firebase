@@ -18,10 +18,24 @@
     <string name="reg_phone">Phone Number</string>
     <string name="reg_cpassword">Confirm Password</string>
     <string name="reg_prompt_Stream">Choose Your Stream</string>
+    <string name="upload_pdf">Upload</string>
     <string-array name="reg_stream">
         <item>Choose...</item>
         <item>Science</item>
         <item>Commerce</item>
+    </string-array>
+    <string-array name="stream_subj">
+        <item>Subject</item>
+        <item>Physics</item>
+        <item>Combined Maths</item>
+        <item>Chemistry</item>
+        <item>IT</item>
+        <item>Biology</item>
+        <item>Agriculture</item>
+        <item>Zoology</item>
+        <item>Accounting</item>
+        <item>Business and Management</item>
+        <item>Econ</item>
     </string-array>
 
 
@@ -42,5 +56,6 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="pdf_uplod">Upload</string>
 
 </resources>
