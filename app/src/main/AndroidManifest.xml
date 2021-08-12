@@ -12,9 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADDProject">
         <activity
+<<<<<<< HEAD
+            android:name=".sm_complain"
+            android:exported="true" />
+=======
             android:name=".Registration"
             android:exported="true" />
         <!-- android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"> -->
+>>>>>>> origin/master
         <activity
             android:name=".tm_complain"
             android:exported="true" />
