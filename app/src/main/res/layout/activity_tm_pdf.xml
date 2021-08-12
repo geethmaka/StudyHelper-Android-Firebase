@@ -16,7 +16,7 @@
         android:layout_centerInParent="true"
         android:layout_marginStart="160dp"
         android:layout_marginTop="511dp"
-        android:text="@string/pdf_uplod"
+        android:text="@string/pdf_upload"
         android:textColor="@color/gray"
         android:textSize="24sp" />
 
@@ -72,7 +72,7 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/button"
         android:backgroundTint="@color/d500"
-        android:text="@string/upload_pdf"
+        android:text="@string/pdf_upload"
         android:textColor="@color/gray"
         android:textSize="20dp" />
 

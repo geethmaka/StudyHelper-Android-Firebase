@@ -18,12 +18,25 @@
     <string name="reg_phone">Phone Number</string>
     <string name="reg_cpassword">Confirm Password</string>
     <string name="reg_prompt_Stream">Choose Your Stream</string>
-    <string name="upload_pdf">Upload</string>
+
     <string-array name="reg_stream">
         <item>Choose...</item>
         <item>Science</item>
         <item>Commerce</item>
     </string-array>
+
+    <!-- Student Management-->
+
+    <!-- Teacher Management-->
+
+    <string name="complainTecacher">Complain</string>
+    <string name="Pdfupload">Pdf</string>
+    <string name="linkupload">Link</string>
+    <string name="pdf_upload">Upload</string>
+
+    <string name="No_of_pdf">No of\npdf</string>
+    <string name="No_of_links">No of\nlinks</string>
+
     <string-array name="stream_subj">
         <item>Subject</item>
         <item>Physics</item>
@@ -38,30 +51,32 @@
         <item>Econ</item>
     </string-array>
 
+    <!-- Course Management-->
 
-    <string name="complainTecacher">Complain</string>
-    <string name="Pdfupload">Pdf</string>
-    <string name="linkupload">Link</string>
-    <string name="Complain">Complain</string>
-    <string name="Course">Course</string>
-    <string name="No_of_pdf">No of\npdf</string>
-    <string name="No_of_links">No of\nlinks</string>
-<<<<<<< HEAD
+
+
+
+    <!-- Complain Management-->
+
+
+
+
+
+
+
+
+
     <string name="grade_prompt">Choosee a grade</string>
     <string-array name="smm_grade_arrays">
         <item>Grade 12</item>
         <item>Grade 13</item>
     </string-array>
-=======
-    <string name="title_activity_registration">Registration_Activity</string>
 
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
+
+
+
+    <string name="Complain">Complain</string>
+    <string name="Course">Course</string>
 </resources>
