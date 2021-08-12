@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import com.example.madd_project.CH_Main;
 import com.example.madd_project.R;
+import com.example.madd_project.Registration;
 import com.example.madd_project.SM_Main;
 import com.example.madd_project.TM_Main;
 import com.example.madd_project.ui.login.LoginViewModel;
@@ -137,6 +138,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
+    }
+
+    public void registerAccount(View view) {
+        final Context context = this;
+        Intent intent = new Intent(context, Registration.class);
+        startActivity(intent);
     }
 
     public void gotoTMProfile(View view) {

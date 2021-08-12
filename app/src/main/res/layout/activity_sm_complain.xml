@@ -11,7 +11,9 @@
         android:layout_width="474dp"
         android:layout_height="854dp"
         android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/smbook"
-        tools:layout_editor_absoluteY="165dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.032"
+        app:srcCompat="@drawable/smbook" />
 </androidx.constraintlayout.widget.ConstraintLayout>

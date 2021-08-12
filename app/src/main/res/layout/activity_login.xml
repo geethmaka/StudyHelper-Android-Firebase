@@ -14,17 +14,18 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="228dp"
-        android:layout_height="63dp"
+        android:layout_width="wrap_content"
+        android:layout_height="58dp"
         android:fontFamily="monospace"
         android:text="@string/welcome"
+        android:textColor="@color/harbor_grey"
         android:textSize="48sp"
+        android:gravity="center_horizontal"
         app:layout_constraintBottom_toTopOf="@+id/username"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.518" />
+        app:layout_constraintVertical_bias="0.551" />
 
     <EditText
         android:id="@+id/username"
@@ -38,6 +39,8 @@
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,13 +61,15 @@
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
         android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username" />
 
     <android.widget.Button
         android:id="@+id/login"
-        android:layout_width="312dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_gravity="start"
         android:layout_marginStart="48dp"
@@ -85,8 +90,9 @@
         app:layout_constraintVertical_bias="0.194" />
 
     <android.widget.Button
-        android:id="@+id/register"
-        android:layout_width="312dp"
+        android:id="@+id/btnRegisterAccount"
+        android:onClick="registerAccount"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_gravity="start"
         android:layout_marginStart="48dp"
@@ -95,8 +101,7 @@
         android:layout_marginBottom="64dp"
         android:background="@drawable/button"
         android:backgroundTint="@color/login_brown"
-        android:enabled="false"
-        android:text="@string/register"
+        android:text="@string/sign_up"
         android:textColor="@color/dark_grey"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -136,17 +141,17 @@
             android:id="@+id/button4"
             android:layout_width="93dp"
             android:layout_height="48dp"
-            android:hint="@string/Teacher"
+            android:hint="@string/reg_Teacher"
             android:onClick="gotoTMProfile"
-            android:text="@string/Teacher" />
+            android:text="@string/reg_Teacher" />
 
         <Button
             android:id="@+id/student"
             android:layout_width="89dp"
             android:layout_height="53dp"
-            android:hint="@string/Student"
+            android:hint="@string/reg_Student"
             android:onClick="gotoSMProfile"
-            android:text="@string/Student" />
+            android:text="@string/reg_Student" />
 
         <Button
             android:id="@+id/Course"
@@ -164,6 +169,4 @@
             android:onClick="gotoCHProfile"
             android:text="@string/Complain" />
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

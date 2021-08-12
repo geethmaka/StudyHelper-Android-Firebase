@@ -11,6 +11,9 @@
     <color name="login_brown">#C1AC95</color>
     <color name="dark_grey">#423F3E</color>
     <color name="cream">#F9E0AE</color>
+    <color name="gray">#828282</color>
+    <color name="harbor_grey">#C7C6C1</color>
+    <color name="drop_down">#FDF5CA</color>
     <color name="colorprimary">#FF263E63</color>
     <color name="colorprimaryVariant">#1b4079</color>
     <color name="scrollColor">#2456A3</color>
