@@ -14,8 +14,17 @@
             android:exported="true" />
         <!-- android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"> -->
         <activity
-            android:name=".TM_Main"
+            android:name=".tm_complain"
             android:exported="true" />
+        <activity
+            android:name=".tm_link"
+            android:exported="true" />
+        <activity
+            android:name=".tm_pdf"
+            android:exported="true" /> <!-- android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"> -->
+        <activity
+            android:name=".TM_Main"
+            android:exported="true"/>
         <activity
             android:name=".SM_Main"
             android:exported="true" />
@@ -25,7 +34,8 @@
         <activity
             android:name=".CM_Main"
             android:exported="true" />
-        <activity android:name=".ui.login.LoginActivity">
+        <activity
+            android:name=".ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
