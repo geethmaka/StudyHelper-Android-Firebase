@@ -25,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.madd_project.CH_Main;
+import com.example.madd_project.CM_Main;
 import com.example.madd_project.R;
 import com.example.madd_project.Registration;
 import com.example.madd_project.SM_Main;
@@ -163,7 +164,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void gotoCMProfile(View view) {
         final Context context = this;
-        Intent intent = new Intent(context, CH_Main.class);
+        Intent intent = new Intent(context, CM_Main.class);
         startActivity(intent);
     }
 }
