@@ -22,7 +22,7 @@
 
 
     <string-array name="reg_stream">
-        <item>Choose...</item>
+        <item>Choose…</item>
         <item>Science</item>
         <item>Commerce</item>
     </string-array>
@@ -31,9 +31,9 @@
 
     <!-- Teacher Management-->
 
-    <string name="complainTecacher">Complain</string>
-    <string name="Pdfupload">Pdf</string>
-    <string name="linkupload">Link</string>
+    <string name="complainTeacher">Complain</string>
+    <string name="pdfUpload">Pdf</string>
+    <string name="linkUpload">Link</string>
     <string name="pdf_upload">Upload</string>
 
     <string name="No_of_pdf">No of\npdf</string>
@@ -80,7 +80,7 @@
 
 
 
-    <string name="grade_prompt">Choosee a grade</string>
+    <string name="grade_prompt">Choose a grade</string>
     <string-array name="smm_grade_arrays">
         <item>Grade 12</item>
         <item>Grade 13</item>
