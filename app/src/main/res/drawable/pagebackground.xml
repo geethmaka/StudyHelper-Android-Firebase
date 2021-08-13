@@ -2,11 +2,18 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle" >
 
+<!--    <gradient-->
+<!--        android:angle="18"-->
+<!--        android:endColor="#ACFFAD"-->
+<!--        android:centerColor="#85ff86"-->
+<!--        android:startColor="#50CB93"-->
+<!--        android:type="linear" />-->
+
     <gradient
-        android:angle="135"
-        android:endColor="#ffef00"
-        android:centerColor="#fefe33"
-        android:startColor="#ffc40c"
+        android:angle="18"
+        android:endColor="@color/Cyan50"
+        android:centerColor="@color/a100"
+        android:startColor="@color/a200"
         android:type="linear" />
 
 </shape>

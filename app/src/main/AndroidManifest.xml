@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.madd_project">
+    <uses-permission android:name="android.permission.INTERNET" />                     <!-- Permission for internet -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>        <!-- Permission for accessing storage -->
 
     <application
         android:allowBackup="true"
@@ -11,8 +13,26 @@
         android:theme="@style/Theme.MADDProject">
         <activity
             android:name=".sm_complain"
+<<<<<<< HEAD
             android:exported="true" />
         <!-- android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"> -->
+=======
+            android:exported="true"/>
+        <activity
+            android:name=".Registration"
+            android:exported="true" />
+        <!-- android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"> -->
+
+>>>>>>> master
+        <activity
+            android:name=".tm_complain"
+            android:exported="true" />
+        <activity
+            android:name=".tm_link"
+            android:exported="true" />
+        <activity
+            android:name=".tm_pdf"
+            android:exported="true" /> <!-- android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"> -->
         <activity
             android:name=".TM_Main"
             android:exported="true" />

@@ -1,22 +1,96 @@
 <resources>
     <string name="app_name">Study Helper</string>
     <!-- Strings related to login -->
+    <string name="welcome">Welcome</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
+    <string name="register">Register</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-    <string name="complainTecacher">Complain</string>
-    <string name="Pdfupload">Pdf</string>
-    <string name="linkupload">Link</string>
-    <string name="Teacher">Teacher</string>
-    <string name="Student">Student</string>
-    <string name="Complain">Complain</string>
-    <string name="Course">Course</string>
+    <string name="login_Registration">Registration</string>
+    <string name="reg_fname">First Name</string>
+    <string name="reg_lname">Last Name</string>
+    <string name="reg_Teacher">Teacher</string>
+    <string name="reg_Student">Student</string>
+    <string name="reg_phone">Phone Number</string>
+    <string name="reg_cpassword">Confirm Password</string>
+    <string name="reg_prompt_Stream">Choose Your Stream</string>
+
+
+
+    <string-array name="reg_stream">
+        <item>Choose…</item>
+        <item>Science</item>
+        <item>Commerce</item>
+    </string-array>
+
+    <!-- Student Management-->
+
+    <!-- Teacher Management-->
+
+    <string name="complainTeacher">Complain</string>
+    <string name="pdfUpload">Pdf</string>
+    <string name="linkUpload">Link</string>
+    <string name="pdf_upload">Upload</string>
+
     <string name="No_of_pdf">No of\npdf</string>
     <string name="No_of_links">No of\nlinks</string>
 
+    <string-array name="stream_subj">
+        <item>Subject</item>
+        <item>Physics</item>
+        <item>Combined Maths</item>
+        <item>Chemistry</item>
+        <item>IT</item>
+        <item>Biology</item>
+        <item>Agriculture</item>
+        <item>Zoology</item>
+        <item>Accounting</item>
+        <item>Business and Management</item>
+        <item>Econ</item>
+    </string-array>
+
+    <!-- Course Management-->
+    <string name="noOfAddedCourses">00</string>
+    <string name="noOfResources">00</string>
+    <string name="addedCourses">Added Courses</string>
+    <string name="addedResources">Added Resources</string>
+
+    <string name="plus">+</string>
+    <string name="addCourses">Add Courses</string>
+
+    <string name="addNewCourse">Add New Course</string>
+    <string name="grade">Grade</string>
+    <string name="subject">Subject</string>
+    <string name="description">Description</string>
+    <string name="uploadResources">Upload Resources</string>
+    <string name="availableToStudents">Available To Students</string>
+
+    <string name="editCourse">Edit Course</string>
+    <!-- Complain Management-->
+
+
+
+
+
+
+
+
+
+    <string name="grade_prompt">Choose a grade</string>
+    <string-array name="smm_grade_arrays">
+        <item>Grade 12</item>
+        <item>Grade 13</item>
+    </string-array>
+
+
+
+
+
+
+    <string name="Complain">Complain</string>
+    <string name="Course">Course</string>
 </resources>

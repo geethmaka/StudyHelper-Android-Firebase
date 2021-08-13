@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class CM_Main extends AppCompatActivity {
+public class sm_second extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.course_management);
+        setContentView(R.layout.activity_frogetpassword_second);
     }
 }
