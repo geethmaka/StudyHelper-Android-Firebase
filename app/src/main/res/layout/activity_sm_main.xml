@@ -9,27 +9,15 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_alignParentTop="true"
-        android:background="">
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            app:srcCompat="@drawable/jw">
-
-        </ImageView>
-
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="80dp"
             android:text="Jone Wick"
             android:textSize="60px">
 
@@ -43,7 +31,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="100dp"
             android:layout_marginRight="20dp"
-
+            android:onClick="gotoedit"
             android:text="Edit">
 
         </Button>
@@ -54,11 +42,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="300dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="-1dp"
-        android:layout_marginTop="200dp">
+        android:layout_marginTop="150dp">
 
         <Spinner
             android:layout_width="150dp"
@@ -71,35 +58,66 @@
 
         </Spinner>
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
 
         <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="90dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="90dp"
-            app:srcCompat="@drawable/smbook" />
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="110dp"
+            app:srcCompat="@drawable/sm_books" />
+
         <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="90dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="150dp"
-            android:layout_marginTop="90dp"
-            app:srcCompat="@drawable/smbook" />
+            android:layout_marginTop="110dp"
+            app:srcCompat="@drawable/sm_books" />
+
         <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="90dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="250dp"
-            android:layout_marginTop="90dp"
-            app:srcCompat="@drawable/smbook" />
+            android:layout_marginTop="110dp"
+            app:srcCompat="@drawable/sm_books" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="190dp"
+            android:layout_marginLeft="50dp"
+            android:text="Maths"
+            android:textSize="18dp">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="190dp"
+            android:layout_marginLeft="150dp"
+            android:text="Phyisics"
+            android:textSize="18dp">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="190dp"
+            android:layout_marginLeft="250dp"
+            android:text="chemistry"
+            android:textSize="18dp">
+
+        </TextView>
 
 
     </RelativeLayout>
@@ -109,7 +127,7 @@
         android:layout_height="100dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="600dp">
+        android:layout_marginTop="500dp">
 
         <Button
             android:id="@+id/s_requestquestions"
@@ -119,7 +137,8 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="108dp"
-            android:text="Request Question" />
+            android:text="Request Question"
+            android:onClick="gotorequestquestion"/>
 
 
         <Button
@@ -129,7 +148,8 @@
             android:layout_below="@+id/s_requestquestions"
             android:layout_centerHorizontal="true"
             android:text="Complain"
-            tools:layout_editor_absoluteY="497dp" />
+            tools:layout_editor_absoluteY="497dp"
+            android:onClick="gotosmcompalin"/>
 
     </RelativeLayout>
 

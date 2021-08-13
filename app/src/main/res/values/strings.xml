@@ -20,7 +20,6 @@
     <string name="reg_prompt_Stream">Choose Your Stream</string>
 
 
-
     <string-array name="reg_stream">
         <item>Choose…</item>
         <item>Science</item>
@@ -28,6 +27,23 @@
     </string-array>
 
     <!-- Student Management-->
+    <string name="grade_prompt">Choose a grade</string>
+    <string-array name="smm_grade_arrays">
+        <item>Grade 12</item>
+        <item>Grade 13</item>
+    </string-array>
+
+    <string name="subject_prompt">Choose a subjects</string>
+    <string-array name="smm_subject_arrays">
+        <item>Maths</item>
+        <item>Phisics</item>
+        <item>Chemistry</item>
+        <item>IT</item>
+        <item>Bio</item>
+    </string-array>
+
+
+
 
     <!-- Teacher Management-->
 
@@ -71,21 +87,6 @@
 
     <string name="editCourse">Edit Course</string>
     <!-- Complain Management-->
-
-
-
-
-
-
-
-
-
-    <string name="grade_prompt">Choose a grade</string>
-    <string-array name="smm_grade_arrays">
-        <item>Grade 12</item>
-        <item>Grade 13</item>
-    </string-array>
-
 
 
 
