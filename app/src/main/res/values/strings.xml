@@ -56,6 +56,7 @@
     <!-- Course Management-->
     <string name="plus">+</string>
     <string name="addCourses">Add Courses</string>
+
     <string name="addNewCourse">Add New Course</string>
     <string name="grade">Grade</string>
     <string name="subject">Subject</string>
@@ -63,7 +64,7 @@
     <string name="uploadResources">Upload Resources</string>
     <string name="availableToStudents">Available To Students</string>
 
-
+    <string name="editCourse">Edit Course</string>
     <!-- Complain Management-->
 
 
