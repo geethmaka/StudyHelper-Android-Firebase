@@ -19,6 +19,8 @@
     <string name="reg_cpassword">Confirm Password</string>
     <string name="reg_prompt_Stream">Choose Your Stream</string>
 
+
+
     <string-array name="reg_stream">
         <item>Choose...</item>
         <item>Science</item>
@@ -52,8 +54,14 @@
     </string-array>
 
     <!-- Course Management-->
-
-
+    <string name="plus">+</string>
+    <string name="addCourses">Add Courses</string>
+    <string name="addNewCourse">Add New Course</string>
+    <string name="grade">Grade</string>
+    <string name="subject">Subject</string>
+    <string name="description">Description</string>
+    <string name="uploadResources">Upload Resources</string>
+    <string name="availableToStudents">Available To Students</string>
 
 
     <!-- Complain Management-->
