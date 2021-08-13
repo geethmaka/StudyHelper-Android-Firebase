@@ -54,6 +54,11 @@
     </string-array>
 
     <!-- Course Management-->
+    <string name="noOfAddedCourses">00</string>
+    <string name="noOfResources">00</string>
+    <string name="addedCourses">Added Courses</string>
+    <string name="addedResources">Added Resources</string>
+
     <string name="plus">+</string>
     <string name="addCourses">Add Courses</string>
 

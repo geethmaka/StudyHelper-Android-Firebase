@@ -9,6 +9,6 @@ public class CM_Main extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cm_main);
+        setContentView(R.layout.course_management);
     }
 }
