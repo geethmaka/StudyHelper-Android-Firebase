@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/teacher_nav"
+    app:startDestination="@id/dashBoard">
+
+    <fragment
+        android:id="@+id/dashBoard"
+        android:name="com.example.madd_project.DashBoard"
+        android:label="fragment_dash_board"
+        tools:layout="@layout/fragment_teacher_dash_board" />
+    <fragment
+        android:id="@+id/pdf"
+        android:name="com.example.madd_project.Pdf"
+        android:label="fragment_pdf"
+        tools:layout="@layout/fragment_teacher_pdf" />
+    <fragment
+        android:id="@+id/link"
+        android:name="com.example.madd_project.Link"
+        android:label="fragment_link"
+        tools:layout="@layout/fragment_teacher_link" />
+    <fragment
+        android:id="@+id/tmComplain"
+        android:name="com.example.madd_project.TmComplain"
+        android:label="fragment_tm_complain"
+        tools:layout="@layout/fragment_teacher_complain" />
+</navigation>

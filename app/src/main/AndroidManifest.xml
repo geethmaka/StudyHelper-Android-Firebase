@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADDProject">
         <activity
+            android:name=".TeacherMainActivity"
+            android:exported="true" />
+        <activity
             android:name=".sm_rq"
             android:exported="true" />
         <activity
