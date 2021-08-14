@@ -90,7 +90,10 @@
 
 
 
-
+    <string name="Dashboard">Dashboard</string>
+    <string name="user_details">User Details</string>
+    <string name="Reports">Report</string>
+    <string name="Compalins_hisrtory">Complain History</string>
 
     <string name="Complain">Complain</string>
     <string name="Course">Course</string>
