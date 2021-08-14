@@ -8,6 +8,9 @@ import androidx.navigation.ui.NavigationUI;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -26,8 +29,26 @@ public class TeacherMainActivity extends AppCompatActivity {
         BottomNavigationView teacher_bottomNavigationView = findViewById(R.id.tmbottomNav);
         NavController teacher_navController = Navigation.findNavController(this, R.id.teacherfragmentContainer);
         NavigationUI.setupWithNavController(teacher_bottomNavigationView, teacher_navController);
+        NavigationUI.setupActionBarWithNavController(this, teacher_navController);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options_menu, menu);
+        return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.settings:
+
+            case R.id.Logout:
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+//Pdf Popout view
     public void onButtonShowPdfPopupWindowClick(View view) {
 
         // inflate the layout of the popup window
@@ -54,6 +75,8 @@ public class TeacherMainActivity extends AppCompatActivity {
             }
         });
     }
+
+//Link Popup view
     public void onButtonShowLinkPopupWindowClick(View view) {
 
         // inflate the layout of the popup window
@@ -81,4 +104,6 @@ public class TeacherMainActivity extends AppCompatActivity {
         });
 
     }
+
+
 }
