@@ -66,6 +66,11 @@
         <item>Business and Management</item>
         <item>Econ</item>
     </string-array>
+    <string name="Teacher_dashboard">teacherdashboard</string>
+    <string name="Teacher_Pdf">teacher_pdfuploder</string>
+    <string name="Teacher_Links">teacher_links</string>
+    <string name="Teacher_complain">teacher_complain</string>
+
 
     <!-- Course Management-->
     <string name="noOfAddedCourses">00</string>
@@ -96,4 +101,5 @@
     <string name="Course">Course</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
