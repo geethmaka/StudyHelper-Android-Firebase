@@ -22,23 +22,25 @@
 
         <TextView
             android:id="@+id/no_pdf"
-            android:layout_width="117dp"
+            android:layout_width="137dp"
             android:layout_height="115dp"
             android:layout_gravity="top|right"
             android:background="@drawable/circular_text_view"
             android:gravity="center"
             android:paddingRight="10dp"
-            android:text="@string/No_of_pdf" />
+            android:text="@string/No_of_pdf"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/no_links"
-            android:layout_width="114dp"
+            android:layout_width="140dp"
             android:layout_height="match_parent"
             android:layout_gravity="top|right"
             android:background="@drawable/circular_text_view"
             android:gravity="center"
             android:paddingRight="10dp"
-            android:text="@string/No_of_links" />
+            android:text="@string/No_of_links"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <ImageButton
@@ -82,7 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
-        android:layout_marginBottom="112dp"
+        android:layout_marginBottom="111dp"
         android:text="Add Link"
         android:textColor="@color/gray"
         android:textSize="20sp"
@@ -107,7 +109,7 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="46dp"
+        android:layout_marginBottom="11dp"
         android:text="Teacher_name"
         android:textColor="@color/gray"
         android:textSize="20sp"
