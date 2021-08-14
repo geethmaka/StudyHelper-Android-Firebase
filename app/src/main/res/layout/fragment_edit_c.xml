@@ -13,13 +13,11 @@
 
         <Spinner
             android:id="@+id/spinner2"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="126dp"
+            android:layout_width="197dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="80dp"
             android:layout_marginEnd="67dp"
-            android:layout_marginBottom="123dp"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView12"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView10"
             app:layout_constraintTop_toTopOf="parent" />
@@ -29,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="126dp"
+            android:layout_marginTop="80dp"
             android:layout_marginEnd="58dp"
             android:text="@string/grade"
             app:layout_constraintEnd_toStartOf="@+id/spinner2"
@@ -40,7 +38,7 @@
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:text="@string/availableToStudents"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,23 +46,25 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="284dp"
+            android:layout_height="134dp"
             android:layout_marginStart="61dp"
             android:layout_marginTop="14dp"
             android:layout_marginEnd="61dp"
             android:layout_marginBottom="26dp"
             app:layout_constraintBottom_toTopOf="@+id/switch1"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
+            app:layout_constraintVertical_bias="0.149" />
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="17dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="28dp"
             android:text="@string/editCourse"
             app:layout_constraintStart_toStartOf="@+id/spinner2"
             app:layout_constraintTop_toTopOf="parent" />
@@ -107,12 +107,12 @@
             android:id="@+id/switch1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="11dp"
-            android:layout_marginBottom="18dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="24dp"
             android:minWidth="48dp"
             android:minHeight="48dp"
             app:layout_constraintBottom_toTopOf="@+id/button7"
-            app:layout_constraintStart_toStartOf="@+id/button7" />
+            app:layout_constraintEnd_toEndOf="@+id/button7" />
 
         <EditText
             android:id="@+id/editTextTextPersonName2"
@@ -130,18 +130,18 @@
             android:id="@+id/button7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="11dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="112dp"
             android:text="Button"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView13" />
+            app:layout_constraintEnd_toStartOf="@+id/button8" />
 
         <Button
             android:id="@+id/button8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="140dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginBottom="112dp"
             android:text="Button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView13" />
