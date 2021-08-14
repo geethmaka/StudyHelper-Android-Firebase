@@ -7,4 +7,67 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="login_green">#B5CDA3</color>
+    <color name="login_brown">#C1AC95</color>
+    <color name="dark_grey">#423F3E</color>
+    <color name="cream">#F9E0AE</color>
+    <color name="gray">#828282</color>
+    <color name="harbor_grey">#C7C6C1</color>
+    <color name="drop_down">#FDF5CA</color>
+    <color name="colorprimary">#FF263E63</color>
+    <color name="colorprimaryVariant">#1b4079</color>
+    <color name="scrollColor">#2456A3</color>
+    <color name="Darkgreen">#91C788</color>
+    <color name="Darklightgreen">#DDFFBC</color>
+    <color name="lightgreen">#FEFFDE</color>
+    <color name="a">#64E291</color>
+    <color name="b">#E6E56C</color>
+    <color name="c">#FEC771</color>
+    <color name="d">#EB7070</color>
+    <color name="e">#C0E218</color>
+    <color name="f">#F37121</color>
+    <color name="g">#C70039</color>
+    <color name="h">#111D5E</color>
+    <color name="Cyan50"> #E0F7FA</color>
+    <color name="a100">#B2EBF2</color>
+    <color name="a200">   #80DEEA</color>
+    <color name="b300">  #4DD0E1</color>
+    <color name="c400">#26C6DA</color>
+    <color name="d500">#00BCD4</color>
+    <color name="e600">#00ACC1</color>
+    <color name="d700"> #0097A7</color>
+    <color name="e800">#00838F</color>
+    <color name="f900"> #006064</color>
+    <color name="gA100">  #84FFFF</color>
+    <color name="A200"> #18FFFF</color>
+    <color name="A400">#00E5FF</color>
+    <color name="A700">#00B8D4</color>
+    <color name="a1">#00a78d</color>
+    <color name="a2">#00a79b</color>
+    <color name="a3">#00a5a7</color>
+
+
+    <color name="bg_black1">#303030</color>
+    <color name="bg_black2">#1c1c1c</color>
+    <color name="element_black">#494949</color>
+    <color name="element_white">#d3d8e3</color>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </resources>

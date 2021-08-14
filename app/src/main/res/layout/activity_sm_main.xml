@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,14 +7,124 @@
     android:background="@drawable/pagebackground"
     tools:context=".SM_Main">
 
-    <Button
-        android:id="@+id/scomplain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:background="@drawable/button"
-        android:hint="@string/Complain"
-        android:text="@string/Complain"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="468dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/jw">
+
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="140dp"
+            android:text="Jone Wick">
+
+        </TextView>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="20dp"
+            android:text="Edit">
+
+        </Button>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="-37dp"
+        android:layout_marginTop="211dp">
+
+        <Spinner
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="70dp"
+            android:entries="@array/smm_grade_arrays"
+            android:prompt="@string/grade_prompt">
+
+        </Spinner>
+
+
+<!--&lt;!&ndash;        <ImageButton&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_alignParentLeft="true"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_alignParentTop="true"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginLeft="57dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginTop="97dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:srcCompat="@drawable/smbook"></ImageButton>&ndash;&gt;-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_marginLeft="172dp"-->
+<!--            android:layout_marginTop="96dp"-->
+<!--            app:srcCompat="@drawable/smbook">-->
+
+<!--        </ImageView>-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_lignParentTop="true"-->
+<!--            android:layout_marginLeft="250dp"-->
+<!--            android:layout_marginTop="100dp"-->
+<!--            app:srcCompat="@drawable/smbook">-->
+
+<!--        </ImageView>-->
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="600dp">
+
+        <Button
+            android:id="@+id/s_requestquestions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="108dp"
+            android:text="Request Question" />
+
+        <Button
+            android:id="@+id/scomplain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/s_requestquestions"
+            android:layout_centerHorizontal="true"
+            android:text="Complain"
+            tools:layout_editor_absoluteY="497dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

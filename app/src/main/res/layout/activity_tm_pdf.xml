@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pagebackground"
+    tools:context=".tm_pdf" >
+    <SearchView
+        android:layout_width="157dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="228dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/button"
+        android:backgroundTint="@color/a100" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="92dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="511dp"
+        android:text="@string/pdf_upload"
+        android:textColor="@color/gray"
+        android:textSize="24sp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10sp"
+        android:layout_marginBottom="222dp"
+        android:background="@color/harbor_grey"
+        android:backgroundTint="@color/A400"
+        android:entries="@array/stream_subj"
+        android:gravity="right"
+        android:popupBackground="@color/a200" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="153dp"
+        android:ems="10"
+        android:hint="Title"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textColorHint="@color/gray" />
+
+    <EditText
+        android:id="@+id/edittext"
+        android:layout_width="209dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="105dp"
+        android:layout_marginBottom="80dp"
+        android:color="@color/black"
+        android:hint="Select the file"
+        android:minHeight="48dp"
+        android:textColorHint="@color/gray" />
+
+    <android.widget.Button
+        android:id="@+id/btn_uplodpdf"
+        android:layout_width="127dp"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="218dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button"
+        android:backgroundTint="@color/d500"
+        android:text="@string/pdf_upload"
+        android:textColor="@color/gray"
+        android:textSize="20dp" />
+
+
+
+
+</RelativeLayout>
+
+
+
