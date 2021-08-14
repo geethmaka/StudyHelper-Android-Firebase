@@ -27,12 +27,13 @@
     </string-array>
 
     <!-- Student Management-->
+    <string name="Stpro">Profile</string>
+    <string name="reqQue">Question Request</string>
     <string name="grade_prompt">Choose a grade</string>
     <string-array name="smm_grade_arrays">
         <item>Grade 12</item>
         <item>Grade 13</item>
     </string-array>
-
     <string name="subject_prompt">Choose a subjects</string>
     <string-array name="smm_subject_arrays">
         <item>Maths</item>
@@ -46,7 +47,7 @@
     <!-- Teacher Management-->
 
     <string name="complainTeacher">Complain</string>
-    <string name="pdfUpload">Pdf</string>
+    <string name="pdfUpload">PDF</string>
     <string name="linkUpload">Link</string>
     <string name="pdf_upload">Upload</string>
 
@@ -89,10 +90,8 @@
     <string name="availableToStudents">Available To Students</string>
 
     <string name="editCourse">Edit Course</string>
+
     <!-- Complain Management-->
-
-
-
     <string name="Dashboard">Dashboard</string>
     <string name="user_details">User Details</string>
     <string name="Reports">Report</string>

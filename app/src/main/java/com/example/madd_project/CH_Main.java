@@ -21,12 +21,11 @@ public class CH_Main extends AppCompatActivity {
         setContentView(R.layout.activity_ch_main);
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        //Control the bottom navigation bar
         BottomNavigationView complain_bottomNavigationView = findViewById(R.id.chbottomNav);
         NavController complain_navController = Navigation.findNavController(this,R.id.chfragmentContainerView);
         NavigationUI.setupWithNavController(complain_bottomNavigationView, complain_navController);
-//        NavigationUI.setupActionBarWithNavController(this, complain_navController);
-
-
+        NavigationUI.setupActionBarWithNavController(this, complain_navController);
 //        String appBarConfig = AppBarConfiguration(setOf(R.id.ch_DashboardFragment,R.id.ch_ComplainFragment,R.id.ch_UserDetailsFragment,R.id.ch_ReportFragment));
     }
 
@@ -38,7 +37,7 @@ public class CH_Main extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.Logout:
 
