@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Study Helper</string>
     <!-- Strings related to login -->
+    <string name="loading_src">App from SLIIT 2021 All Rights Reserved</string>
     <string name="welcome">Welcome</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -18,13 +19,12 @@
     <string name="reg_phone">Phone Number</string>
     <string name="reg_cpassword">Confirm Password</string>
     <string name="reg_prompt_Stream">Choose Your Stream</string>
-
-
     <string-array name="reg_stream">
         <item>Choose…</item>
         <item>Science</item>
         <item>Commerce</item>
     </string-array>
+    <string name="app_logo_desc">App logo</string>
 
     <!-- Student Management-->
     <string name="Stpro">Profile</string>
@@ -92,16 +92,19 @@
     <string name="editCourse">Edit Course</string>
 
     <!-- Complain Management-->
-    <string name="Dashboard">Dashboard</string>
-    <string name="user_details">User Details</string>
-    <string name="Reports">Report</string>
-    <string name="Compalins_hisrtory">Complain History</string>
-
+    <string name="nav_Dashboard">Dashboard</string>
+    <string name="nav_userDtails">User Details</string>
+    <string name="nav_Reports">Report</string>
+    <string name="nav_complain_History">Complain History</string>
     <string name="Complain">Complain</string>
     <string name="Course">Course</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Dash_overview">Overview</string>
+    <string name="opt_Logout">Logout</string>
+    <string name="opt_Settings">Settings</string>
+    <string name="New_complain">New Complains</string>
+    <string name="btn_ban">Ban User</string>
+    <string name="search">Search User :</string>
+    <string name="btn_resolved">Mark as Resolved</string>
+    <string name="msg_hint">Type your message</string>
 
-    <string name="Logout">Logout</string>
-    <string name="Settings">Settings</string>
 </resources>

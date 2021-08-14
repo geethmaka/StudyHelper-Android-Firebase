@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/courseMFragment"
         android:name="com.example.madd_project.CourseMFragment"
-        android:label="@string/Dashboard"
+        android:label="@string/nav_Dashboard"
         tools:layout="@layout/fragment_course_m" />
     <fragment
         android:id="@+id/addCFragment"

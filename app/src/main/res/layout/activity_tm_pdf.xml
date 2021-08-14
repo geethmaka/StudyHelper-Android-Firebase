@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/pagebackground"
     tools:context=".tm_pdf" >
+
     <SearchView
         android:layout_width="157dp"
         android:layout_height="33dp"

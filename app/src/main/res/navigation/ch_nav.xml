@@ -8,21 +8,21 @@
     <fragment
         android:id="@+id/ch_DashboardFragment"
         android:name="com.example.madd_project.ch_DashboardFragment"
-        android:label="@string/Dashboard"
+        android:label="@string/nav_Dashboard"
         tools:layout="@layout/fragment_ch__dashboard" />
     <fragment
         android:id="@+id/ch_ComplainFragment"
         android:name="com.example.madd_project.ch_ComplainFragment"
-        android:label="@string/Compalins_hisrtory"
+        android:label="@string/nav_complain_History"
         tools:layout="@layout/fragment_ch__complain" />
     <fragment
         android:id="@+id/ch_UserDetailsFragment"
         android:name="com.example.madd_project.ch_UserDetailsFragment"
-        android:label="@string/user_details"
+        android:label="@string/nav_userDtails"
         tools:layout="@layout/fragment_ch__user_details" />
     <fragment
         android:id="@+id/ch_ReportFragment"
         android:name="com.example.madd_project.ch_ReportFragment"
-        android:label="@string/Reports"
+        android:label="@string/nav_Reports"
         tools:layout="@layout/fragment_ch__report" />
 </navigation>
