@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/course_nav"
+    app:startDestination="@id/courseMFragment">
+
+    <fragment
+        android:id="@+id/courseMFragment"
+        android:name="com.example.madd_project.CourseMFragment"
+        android:label="fragment_course_m"
+        tools:layout="@layout/fragment_course_m" />
+    <fragment
+        android:id="@+id/addCFragment"
+        android:name="com.example.madd_project.AddCFragment"
+        android:label="fragment_add_c"
+        tools:layout="@layout/fragment_add_c" />
+    <fragment
+        android:id="@+id/editCFragment"
+        android:name="com.example.madd_project.EditCFragment"
+        android:label="fragment_edit_c"
+        tools:layout="@layout/fragment_edit_c" />
+</navigation>
