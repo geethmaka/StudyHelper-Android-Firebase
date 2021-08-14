@@ -59,7 +59,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:onClick="pdf_popup_window"
         android:background="@drawable/circluar_button"
         android:src="@drawable/ic_add_pdf"
         app:layout_constraintBottom_toTopOf="@+id/textView3"

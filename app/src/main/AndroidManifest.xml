@@ -29,7 +29,7 @@
             android:name=".tm_pdf"
             android:exported="true" /> <!-- android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"> -->
         <activity
-            android:name=".TM_Main"
+            android:name=".TeacherMainActivity"
             android:exported="true" />
         <activity
             android:name=".CH_Main"
