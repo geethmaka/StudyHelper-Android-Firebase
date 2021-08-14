@@ -18,6 +18,8 @@
     <string name="reg_phone">Phone Number</string>
     <string name="reg_cpassword">Confirm Password</string>
     <string name="reg_prompt_Stream">Choose Your Stream</string>
+
+
     <string-array name="reg_stream">
         <item>Choose…</item>
         <item>Science</item>
@@ -31,7 +33,20 @@
         <item>Grade 13</item>
     </string-array>
 
+    <string name="subject_prompt">Choose a subjects</string>
+    <string-array name="smm_subject_arrays">
+        <item>Maths</item>
+        <item>Phisics</item>
+        <item>Chemistry</item>
+        <item>IT</item>
+        <item>Bio</item>
+    </string-array>
+
+
+
+
     <!-- Teacher Management-->
+
     <string name="complainTeacher">Complain</string>
     <string name="pdfUpload">Pdf</string>
     <string name="linkUpload">Link</string>
@@ -71,12 +86,9 @@
     <string name="availableToStudents">Available To Students</string>
 
     <string name="editCourse">Edit Course</string>
-
     <!-- Complain Management-->
-    <string name="Dashboard">Dashboard</string>
-    <string name="user_details">User Details</string>
-    <string name="Reports">Report</string>
-    <string name="Compalins_hisrtory">Complain History</string>
+
+
 
 
 

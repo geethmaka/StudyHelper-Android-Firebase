@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.madd_project">
-    <uses-permission android:name="android.permission.INTERNET" />                     <!-- Permission for internet -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>        <!-- Permission for accessing storage -->
+
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- Permission for internet -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,13 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADDProject">
         <activity
+            android:name=".sm_rq"
+            android:exported="true" />
+        <activity
+            android:name=".sm_edit"
+            android:exported="true" />
+        <activity
             android:name=".sm_complain"
-            android:exported="true"/>
+            android:exported="true" /> <!-- android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"> -->
         <activity
             android:name=".Registration"
-            android:exported="true" />
-        <!-- android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"> -->
-
+            android:exported="true" /> <!-- android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"> -->
         <activity
             android:name=".tm_complain"
             android:exported="true" />
@@ -30,7 +35,7 @@
             android:exported="true" /> <!-- android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"> -->
         <activity
             android:name=".TM_Main"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".SM_Main"
             android:exported="true" />
@@ -40,8 +45,7 @@
         <activity
             android:name=".CM_Main"
             android:exported="true" />
-        <activity
-            android:name=".ui.login.LoginActivity">
+        <activity android:name=".ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
