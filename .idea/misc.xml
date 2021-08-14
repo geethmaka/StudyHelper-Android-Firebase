@@ -4,39 +4,45 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.225" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/drawable/button.xml" value="0.3880208333333333" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/drawable/ic_dashboard.xml" value="0.3880208333333333" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/drawable/ic_home.xml" value="0.3880208333333333" />
         <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/drawable/ic_launcher_background.xml" value="0.225" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/drawable/ic_report.xml" value="0.3880208333333333" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/drawable/layout.xml" value="0.3880208333333333" />
         <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.13420348058902276" />
         <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout-w936dp/activity_login.xml" value="0.156640625" />
         <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/CH_Main.xml" value="0.2708333333333333" />
         <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_ch_main.xml" value="0.20885416666666667" />
         <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_cm_main.xml" value="0.20885416666666667" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_frogetpassword_second.xml" value="0.371875" />
         <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_login.xml" value="0.2708333333333333" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_registration.xml" value="0.21331521739130435" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_sm_complain.xml" value="0.371875" />
         <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_sm_main.xml" value="0.20885416666666667" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_tm_complain.xml" value="0.371875" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_tm_link.xml" value="0.371875" />
         <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_tm_main.xml" value="0.20885416666666667" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_ch_main.xml" value="0.1453125" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_frogetpassword_second.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_sm_complain.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_sm_edit.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_sm_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_sm_rq.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_tm_complain.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_tm_link.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_tm_main.xml" value="0.12360688956433637" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_tm_pdf.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/add_course.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/course_management.xml" value="0.176" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/edit_course.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/fragment_add_c.xml" value="0.25317028985507245" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/fragment_ch__complain.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/fragment_ch__dashboard.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/fragment_ch__report.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/fragment_ch__user_details.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/fragment_course_m.xml" value="0.4" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/fragment_edit_c.xml" value="0.264" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/fragment_teacher_dash_board.xml" value="0.17135416666666667" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/pdf_popup_window.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/registration.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/GeethmakaDissanayake/Desktop/StudyHelper-Android-Firebase/app/src/main/res/menu/course_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_tm_pdf.xml" value="0.371875" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/add_course.xml" value="0.371875" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/course_management.xml" value="0.371875" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/edit_course.xml" value="0.371875" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/fragment_ch__complain.xml" value="0.371875" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/fragment_ch__dashboard.xml" value="0.371875" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/fragment_ch__report.xml" value="0.371875" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/fragment_ch__user_details.xml" value="0.371875" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/layout/pdf_popup_window.xml" value="0.21331521739130435" />
+        <entry key="..\:/SLIIT/2nd year 2nd sem/Assignments/MADD/StudyHelper-Android-Firebase/app/src/main/res/menu/ch_button_menu.xml" value="0.371875" />
+        <entry key="..\:/Users/Hirosha/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_sm_complain.xml" value="0.26296296296296295" />
+        <entry key="..\:/Users/Hirosha/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_sm_edit.xml" value="0.26296296296296295" />
+        <entry key="..\:/Users/Hirosha/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_sm_main.xml" value="0.1" />
+        <entry key="..\:/Users/Hirosha/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_sm_main2.xml" value="0.2" />
+        <entry key="..\:/Users/Hirosha/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_sm_rq.xml" value="0.26296296296296295" />
+        <entry key="..\:/Users/Hirosha/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/fragment_sm__complain.xml" value="0.3323076923076923" />
+        <entry key="..\:/Users/Hirosha/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/fragment_sm__dash.xml" value="0.3323076923076923" />
+        <entry key="..\:/Users/Hirosha/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/fragment_sm__profile.xml" value="0.3323076923076923" />
+        <entry key="..\:/Users/Hirosha/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/fragment_sm_rq.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/Hirosha/Desktop/StudyHelper-Android-Firebase/app/src/main/res/menu/sm_bottom_menu.xml" value="0.24074074074074073" />
         <entry key="..\:/Users/pamud/Desktop/StudyHelper-Android-Firebase/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/Users/pamud/Desktop/StudyHelper-Android-Firebase/app/src/main/res/drawable/button.xml" value="0.2703125" />
         <entry key="..\:/Users/pamud/Desktop/StudyHelper-Android-Firebase/app/src/main/res/drawable/button1effect.xml" value="0.23020833333333332" />
@@ -44,6 +50,7 @@
         <entry key="..\:/Users/pamud/Desktop/StudyHelper-Android-Firebase/app/src/main/res/drawable/circular_text_view.xml" value="0.26666666666666666" />
         <entry key="..\:/Users/pamud/Desktop/StudyHelper-Android-Firebase/app/src/main/res/drawable/circularimage.xml" value="0.23020833333333332" />
         <entry key="..\:/Users/pamud/Desktop/StudyHelper-Android-Firebase/app/src/main/res/drawable/field.xml" value="0.26666666666666666" />
+        <entry key="..\:/Users/pamud/Desktop/StudyHelper-Android-Firebase/app/src/main/res/drawable/ic_baseline_directions_bike_24.xml" value="0.202734375" />
         <entry key="..\:/Users/pamud/Desktop/StudyHelper-Android-Firebase/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26666666666666666" />
         <entry key="..\:/Users/pamud/Desktop/StudyHelper-Android-Firebase/app/src/main/res/drawable/image_boarder.xml" value="0.26666666666666666" />
         <entry key="..\:/Users/pamud/Desktop/StudyHelper-Android-Firebase/app/src/main/res/drawable/layout.xml" value="0.2703125" />
@@ -62,7 +69,7 @@
         <entry key="..\:/Users/pamud/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_sm_main.xml" value="0.2" />
         <entry key="..\:/Users/pamud/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_tm_complain.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/pamud/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_tm_link.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/pamud/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_tm_main.xml" value="0.264" />
+        <entry key="..\:/Users/pamud/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_tm_main.xml" value="0.2" />
         <entry key="..\:/Users/pamud/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/activity_tm_pdf.xml" value="0.2" />
         <entry key="..\:/Users/pamud/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/pdf_popup_window.xml" value="0.2" />
         <entry key="..\:/Users/pamud/Desktop/StudyHelper-Android-Firebase/app/src/main/res/layout/popup_window.xml" value="0.264" />

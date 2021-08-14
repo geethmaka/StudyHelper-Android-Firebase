@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/sm_DashFragment"
+        android:icon="@drawable/sm_dash"
+        android:title="Dash" />
+    <item
+        android:id="@+id/sm_ProfileFragment"
+        android:icon="@drawable/sm_profile"
+        android:title="profile"/>
+    <item
+        android:id="@+id/sm_ComplainFragment"
+        android:title="compalin"
+        android:icon="@drawable/sm_compalin"/>
+    <item
+        android:id="@+id/sm_rqFragment"
+        android:icon="@drawable/sm_rq"
+        android:title="RQ"/>
+</menu>

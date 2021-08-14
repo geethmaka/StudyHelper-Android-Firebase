@@ -28,11 +28,8 @@ import com.example.madd_project.CH_Main;
 import com.example.madd_project.CM_Main;
 import com.example.madd_project.R;
 import com.example.madd_project.Registration;
-import com.example.madd_project.SM_Main;
+import com.example.madd_project.SM_MainActivity;
 import com.example.madd_project.TM_Main;
-import com.example.madd_project.TeacherMainActivity;
-import com.example.madd_project.ui.login.LoginViewModel;
-import com.example.madd_project.ui.login.LoginViewModelFactory;
 import com.example.madd_project.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
@@ -138,7 +135,7 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }
 
-    private void showLoginFailed(@StringRes Integer errorString) {
+    private void showLoginFailed(@StringRes Integer errorString){
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
 
@@ -150,12 +147,12 @@ public class LoginActivity extends AppCompatActivity {
 
     public void gotoTMProfile(View view) {
         final Context context = this;
-        Intent intent = new Intent(context, TeacherMainActivity.class);
+        Intent intent = new Intent(context, TM_Main.class);
         startActivity(intent);
     }
     public void gotoSMProfile(View view) {
         final Context context = this;
-        Intent intent = new Intent(context, SM_Main.class);
+        Intent intent = new Intent(context, SM_MainActivity.class);
         startActivity(intent);
     }
     public void gotoCHProfile(View view) {
