@@ -97,4 +97,6 @@
 
     <string name="Complain">Complain</string>
     <string name="Course">Course</string>
+    <string name="Logout">Logout</string>
+    <string name="Settings">Settings</string>
 </resources>
