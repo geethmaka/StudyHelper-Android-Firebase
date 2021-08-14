@@ -43,8 +43,6 @@
     </string-array>
 
 
-
-
     <!-- Teacher Management-->
 
     <string name="complainTeacher">Complain</string>
@@ -89,7 +87,6 @@
     <!-- Complain Management-->
 
 
-
     <string name="Dashboard">Dashboard</string>
     <string name="user_details">User Details</string>
     <string name="Reports">Report</string>
@@ -97,4 +94,6 @@
 
     <string name="Complain">Complain</string>
     <string name="Course">Course</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

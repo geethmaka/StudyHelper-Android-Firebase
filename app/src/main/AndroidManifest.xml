@@ -13,14 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADDProject">
         <activity
-            android:name=".sm_rq"
+            android:name=".SM_MainActivity"
             android:exported="true" />
-        <activity
-            android:name=".sm_edit"
-            android:exported="true" />
-        <activity
-            android:name=".sm_complain"
-            android:exported="true" /> <!-- android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"> -->
+        <!-- android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"> -->
         <activity
             android:name=".Registration"
             android:exported="true" /> <!-- android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"> -->
@@ -35,9 +30,6 @@
             android:exported="true" /> <!-- android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"> -->
         <activity
             android:name=".TM_Main"
-            android:exported="true" />
-        <activity
-            android:name=".SM_Main"
             android:exported="true" />
         <activity
             android:name=".CH_Main"
