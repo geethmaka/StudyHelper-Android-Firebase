@@ -11,18 +11,13 @@
         android:label="@string/Dashboard"
         tools:layout="@layout/fragment_sm__dash" />
     <fragment
-        android:id="@+id/sm_ComplainFragment"
-        android:name="com.example.madd_project.sm_ComplainFragment"
-        android:label="@string/Complain"
-        tools:layout="@layout/fragment_sm__complain" />
-    <fragment
         android:id="@+id/sm_ProfileFragment"
         android:name="com.example.madd_project.sm_ProfileFragment"
-        android:label="@string/Stpro"
+        android:label="@string/sm_profile"
         tools:layout="@layout/fragment_sm__profile" />
     <fragment
         android:id="@+id/sm_rqFragment"
         android:name="com.example.madd_project.sm_rqFragment"
-        android:label="@string/reqQue"
+        android:label="@string/sm_reqQue"
         tools:layout="@layout/fragment_sm_rq" />
 </navigation>
