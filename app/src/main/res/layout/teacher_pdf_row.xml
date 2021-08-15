@@ -16,7 +16,7 @@
 
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/pdf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -41,7 +41,7 @@
             android:textSize="22dp"
             app:layout_constraintBottom_toTopOf="@+id/editpdf"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView9"
+            app:layout_constraintStart_toEndOf="@+id/pdf"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -56,7 +56,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/edit"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+            app:layout_constraintTop_toBottomOf="@+id/pdf" />
 
 
         <EditText
@@ -82,7 +82,7 @@
             android:layout_marginTop="59dp"
             android:layout_marginEnd="38dp"
             android:layout_marginBottom="27dp"
-            android:background="#0000000"
+            android:background="@drawable/roundedtext"
             app:layout_constraintBottom_toTopOf="@+id/updatepdf"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/pdf2"
@@ -103,7 +103,8 @@
             android:text="@string/pdfUpload"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit" />
+            app:layout_constraintTop_toBottomOf="@+id/edit"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <ImageButton
             android:id="@+id/update"
@@ -112,7 +113,7 @@
             android:layout_marginStart="173dp"
             android:layout_marginEnd="9dp"
             android:layout_marginBottom="25dp"
-            android:background="#00000000"
+            android:background="@drawable/roundedtext"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/delete"
             app:layout_constraintStart_toStartOf="parent"
@@ -124,7 +125,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="109dp"
-            android:background="#0000000"
+            android:background="@drawable/roundedtext"
             app:layout_constraintBottom_toBottomOf="@+id/update"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/update"
