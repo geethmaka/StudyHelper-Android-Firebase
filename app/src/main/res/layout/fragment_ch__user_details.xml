@@ -26,7 +26,7 @@
             android:id="@+id/user_search"
             android:layout_width="280dp"
             android:layout_height="28sp"
-            android:layout_marginLeft="8sp"
+            android:layout_marginStart="8sp"
             android:background="@drawable/ch_complain_reply_layout" />
 
 

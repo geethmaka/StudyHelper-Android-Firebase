@@ -54,9 +54,9 @@
     <!--    complain management-->
     <color name="status_green">#4ff65c</color>
     <color name="status_blue">#00d8fb</color>
-    <color name="gradient_y1">#ffcb4c</color>
-    <color name="gradient_y2">#fdf848</color>
-
-
+    <color name="btn1_y1">#f7af00</color>
+    <color name="btn1_y2">#fdf848</color>
+    <color name="btn_shade">#e0e0e0</color>
+    <color name="btn2_r">#ff1f1f</color>
 
 </resources>
