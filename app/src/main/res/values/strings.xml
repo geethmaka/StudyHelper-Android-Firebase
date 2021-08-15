@@ -84,6 +84,9 @@
 
     <string name="plus">+</string>
     <string name="addCourses">Add Courses</string>
+    <string name="addCourse">Add Course</string>
+    <string name="updateCourse">Update Course</string>
+    <string name="deleteCourse">Delete Course</string>
 
     <string name="addNewCourse">Add New Course</string>
     <string name="grade">Grade</string>
@@ -93,6 +96,7 @@
     <string name="availableToStudents">Available To Students</string>
 
     <string name="editCourse">Edit Course</string>
+    <string name="download">Download</string>
 
     <!-- Complain Management-->
     <string name="Dashboard">Dashboard</string>

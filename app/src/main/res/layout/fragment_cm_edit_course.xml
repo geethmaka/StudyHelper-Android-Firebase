@@ -97,12 +97,12 @@
             android:id="@+id/switch1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="14dp"
+            android:layout_marginStart="31dp"
             android:layout_marginBottom="24dp"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toTopOf="@+id/button7"
-            app:layout_constraintEnd_toEndOf="@+id/button7" />
+            app:layout_constraintBottom_toTopOf="@+id/button8"
+            app:layout_constraintStart_toEndOf="@+id/button7" />
 
         <EditText
             android:id="@+id/editTextTextPersonName2"
@@ -120,21 +120,21 @@
             android:id="@+id/button7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="28dp"
+            android:layout_marginStart="34dp"
             android:layout_marginBottom="112dp"
-            android:text="Button"
+            android:text="@string/editCourse"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button8" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/button8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="128dp"
+            android:layout_marginStart="13dp"
             android:layout_marginBottom="112dp"
-            android:text="Button"
+            android:text="@string/deleteCourse"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView13" />
+            app:layout_constraintStart_toStartOf="@+id/switch1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
