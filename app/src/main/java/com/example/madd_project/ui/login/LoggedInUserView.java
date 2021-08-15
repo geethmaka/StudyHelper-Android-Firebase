@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
-import com.example.madd_project.TM_Main;
 
 /**
  * Class exposing authenticated user details to the UI.

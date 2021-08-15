@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/dashBoard"
-        android:name="com.example.madd_project.DashBoard"
+        android:name="com.example.madd_project.Teacher_DashBoard"
         android:label="@string/Dashboard"
         tools:layout="@layout/fragment_teacher_dash_board" />
     <fragment
         android:id="@+id/pdf"
-        android:name="com.example.madd_project.Pdf"
+        android:name="com.example.madd_project.Teacher_Pdf"
         android:label="@string/pdfUpload"
         tools:layout="@layout/fragment_teacher_pdf" />
     <fragment
         android:id="@+id/link"
-        android:name="com.example.madd_project.Link"
+        android:name="com.example.madd_project.Teacher_link"
         android:label="@string/linkUpload"
         tools:layout="@layout/fragment_teacher_link" />
     <fragment
         android:id="@+id/tmComplain"
-        android:name="com.example.madd_project.TmComplain"
+        android:name="com.example.madd_project.Teacher_complain"
         android:label="@string/Complain"
         tools:layout="@layout/fragment_teacher_complain" />
 </navigation>

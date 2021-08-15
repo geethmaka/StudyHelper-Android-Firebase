@@ -18,6 +18,8 @@
     <string name="reg_phone">Phone Number</string>
     <string name="reg_cpassword">Confirm Password</string>
     <string name="reg_prompt_Stream">Choose Your Stream</string>
+    <string name="Logout">Logout</string>
+    <string name="Settings">Settings</string>
 
 
     <string-array name="reg_stream">
@@ -73,10 +75,11 @@
         <item>Business and Management</item>
         <item>Econ</item>
     </string-array>
-    <string name="Teacher_dashboard">teacherdashboard</string>
-    <string name="Teacher_Pdf">teacher_pdfuploder</string>
-    <string name="Teacher_Links">teacher_links</string>
-    <string name="Teacher_complain">teacher_complain</string>
+    <string name="Teacher_dashboard">dashboard</string>
+    <string name="Teacher_Pdf">Pdf</string>
+    <string name="Teacher_Links">Links</string>
+    <string name="Teacher_complain">Complain</string>
+    <string name="Title_sub">Title</string>
 
 
     <!-- Course Management-->
@@ -107,7 +110,9 @@
     <string name="Course">Course</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Sub_name">Subject</string>
+    <string name="edit_title">Edit_Title</string>
+    <string name="linkUpdate">Link</string>
 
-    <string name="Logout">Logout</string>
-    <string name="Settings">Settings</string>
+
 </resources>
