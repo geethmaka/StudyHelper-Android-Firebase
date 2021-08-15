@@ -26,6 +26,7 @@
     </string-array>
     <string name="app_logo_desc">App logo</string>
 
+
     <!-- Student Management-->
     <string name="Stpro">Profile</string>
     <string name="reqQue">Question Request</string>
@@ -90,6 +91,7 @@
     <string name="availableToStudents">Available To Students</string>
 
     <string name="editCourse">Edit Course</string>
+
 
     <!-- Complain Management-->
     <string name="nav_Dashboard">Dashboard</string>

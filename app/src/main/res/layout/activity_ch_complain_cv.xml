@@ -89,10 +89,11 @@
                 android:id="@+id/imageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="4dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/btn_transp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/ic_msg_send"
-                tools:layout_editor_absoluteY="5dp" />
+                tools:layout_editor_absoluteY="10dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
