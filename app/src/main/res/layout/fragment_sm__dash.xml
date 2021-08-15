@@ -53,6 +53,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="80dp"
+            android:onClick="gotosubject"
             app:srcCompat="@drawable/sm_books" />
 
         <ImageButton

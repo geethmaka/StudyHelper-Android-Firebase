@@ -13,6 +13,14 @@
     tools:context=".ui.login.LoginActivity">
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Froget password"
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="306dp">
+    </TextView>
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="58dp"
@@ -127,46 +135,46 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:padding="4px"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center_horizontal"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:padding="4px"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent">-->
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="93dp"
-            android:layout_height="48dp"
-            android:hint="@string/reg_Teacher"
-            android:onClick="gotoTMProfile"
-            android:text="@string/reg_Teacher" />
+<!--        <Button-->
+<!--            android:id="@+id/button4"-->
+<!--            android:layout_width="93dp"-->
+<!--            android:layout_height="48dp"-->
+<!--            android:hint="@string/reg_Teacher"-->
+<!--            android:onClick="gotoTMProfile"-->
+<!--            android:text="@string/reg_Teacher" />-->
 
-        <Button
-            android:id="@+id/student"
-            android:layout_width="89dp"
-            android:layout_height="53dp"
-            android:hint="@string/reg_Student"
-            android:onClick="gotoSMProfile"
-            android:text="@string/reg_Student" />
+<!--        <Button-->
+<!--            android:id="@+id/student"-->
+<!--            android:layout_width="89dp"-->
+<!--            android:layout_height="53dp"-->
+<!--            android:hint="@string/reg_Student"-->
+<!--            android:onClick="gotoSMProfile"-->
+<!--            android:text="@string/reg_Student" />-->
 
-        <Button
-            android:id="@+id/Course"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/Course"
-            android:onClick="gotoCMProfile"
-            android:text="@string/Course" />
+<!--        <Button-->
+<!--            android:id="@+id/Course"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="@string/Course"-->
+<!--            android:onClick="gotoCMProfile"-->
+<!--            android:text="@string/Course" />-->
 
-        <Button
-            android:id="@+id/complain"
-            android:layout_width="73dp"
-            android:layout_height="50dp"
-            android:hint="@string/Complain"
-            android:onClick="gotoCHProfile"
-            android:text="@string/Complain" />
-    </LinearLayout>
+<!--        <Button-->
+<!--            android:id="@+id/complain"-->
+<!--            android:layout_width="73dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:hint="@string/Complain"-->
+<!--            android:onClick="gotoCHProfile"-->
+<!--            android:text="@string/Complain" />-->
+<!--    </LinearLayout>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
