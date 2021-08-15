@@ -97,7 +97,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="170dp"
             android:entries="@array/smm_subject_arrays"
-            android:prompt="@string/subject_prompt">
+            android:prompt="@string/sm_subject_prompt">
 
         </Spinner>
 
@@ -109,7 +109,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="220dp"
             android:entries="@array/smm_subject_arrays"
-            android:prompt="@string/subject_prompt">
+            android:prompt="@string/sm_subject_prompt">
 
         </Spinner>
 
@@ -121,7 +121,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="270dp"
             android:entries="@array/smm_subject_arrays"
-            android:prompt="@string/subject_prompt">
+            android:prompt="@string/sm_subject_prompt">
 
         </Spinner>
     </RelativeLayout>
