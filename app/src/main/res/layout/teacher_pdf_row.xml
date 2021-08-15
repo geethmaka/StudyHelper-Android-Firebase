@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="@color/Cyan50">
+        android:background="@drawable/pagebackground">
 
 
         <TextView
@@ -75,6 +75,7 @@
             app:layout_constraintStart_toStartOf="@+id/updatepdf"
             app:layout_constraintTop_toBottomOf="@+id/pdf1" />
 
+
         <ImageButton
             android:id="@+id/edit"
             android:layout_width="wrap_content"
@@ -82,13 +83,12 @@
             android:layout_marginTop="59dp"
             android:layout_marginEnd="38dp"
             android:layout_marginBottom="27dp"
-            android:background="@drawable/roundedtext"
+            android:background="@drawable/btn_transp"
             app:layout_constraintBottom_toTopOf="@+id/updatepdf"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/pdf2"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_edit_course" />
-
 
         <EditText
             android:id="@+id/updatepdf"
@@ -113,7 +113,7 @@
             android:layout_marginStart="173dp"
             android:layout_marginEnd="9dp"
             android:layout_marginBottom="25dp"
-            android:background="@drawable/roundedtext"
+            android:background="@drawable/btn_transp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/delete"
             app:layout_constraintStart_toStartOf="parent"
@@ -125,7 +125,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="109dp"
-            android:background="@drawable/roundedtext"
+            android:background="@drawable/btn_transp"
             app:layout_constraintBottom_toBottomOf="@+id/update"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/update"

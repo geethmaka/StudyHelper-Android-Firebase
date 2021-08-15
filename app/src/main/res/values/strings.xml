@@ -128,6 +128,8 @@
     <string name="search">Search User :</string>
     <string name="btn_resolved">Mark as Resolved</string>
     <string name="msg_hint">Type your message</string>
+    <string name="TitleOfPdfUploder">Pdf</string>
+    <string name="TitleOfLinkUploder">Link</string>
 
 
 </resources>
