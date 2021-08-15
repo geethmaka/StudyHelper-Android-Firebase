@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Study Helper</string>
     <!-- Strings related to login -->
+    <string name="loading_src">App from SLIIT 2021 All Rights Reserved</string>
     <string name="welcome">Welcome</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -27,6 +28,7 @@
         <item>Science</item>
         <item>Commerce</item>
     </string-array>
+    <string name="app_logo_desc">App logo</string>
 
     <!-- Student Management-->
     <string name="sm_profile">Profile</string>
@@ -90,6 +92,9 @@
 
     <string name="plus">+</string>
     <string name="addCourses">Add Courses</string>
+    <string name="addCourse">Add Course</string>
+    <string name="updateCourse">Update Course</string>
+    <string name="deleteCourse">Delete Course</string>
 
     <string name="addNewCourse">Add New Course</string>
     <string name="grade">Grade</string>
@@ -99,13 +104,13 @@
     <string name="availableToStudents">Available To Students</string>
 
     <string name="editCourse">Edit Course</string>
+    <string name="download">Download</string>
 
     <!-- Complain Management-->
-    <string name="Dashboard">Dashboard</string>
-    <string name="user_details">User Details</string>
-    <string name="Reports">Report</string>
-    <string name="Compalins_hisrtory">Complain History</string>
-
+    <string name="nav_Dashboard">Dashboard</string>
+    <string name="nav_userDtails">User Details</string>
+    <string name="nav_Reports">Report</string>
+    <string name="nav_complain_History">Complain History</string>
     <string name="Complain">Complain</string>
     <string name="Course">Course</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -113,6 +118,14 @@
     <string name="Sub_name">Subject</string>
     <string name="edit_title">Edit_Title</string>
     <string name="linkUpdate">Link</string>
+    <string name="Dash_overview">Overview</string>
+    <string name="opt_Logout">Logout</string>
+    <string name="opt_Settings">Settings</string>
+    <string name="New_complain">New Complains</string>
+    <string name="btn_ban">Ban User</string>
+    <string name="search">Search User :</string>
+    <string name="btn_resolved">Mark as Resolved</string>
+    <string name="msg_hint">Type your message</string>
 
 
 </resources>

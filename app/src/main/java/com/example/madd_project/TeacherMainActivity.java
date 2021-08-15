@@ -1,9 +1,11 @@
 package com.example.madd_project;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.Gravity;
@@ -19,17 +21,28 @@ import android.widget.PopupWindow;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class TeacherMainActivity extends AppCompatActivity {
+//    RecyclerView Teacher_recycleView;
+//    Teacher_adapter teacher_adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_main);
 
+//        Teacher_recycleView=findViewById(R.id.recyclerView);
+//        Teacher_recycleView.setLayoutManager(context:this);
+//
+//        teacher_adapter=new Teacher_adapter(c this, getTeacherList());
+
+
+
 //Control Bottom navigation bar
         BottomNavigationView teacher_bottomNavigationView = findViewById(R.id.tmbottomNav);
         NavController teacher_navController = Navigation.findNavController(this, R.id.teacherfragmentContainer);
         NavigationUI.setupWithNavController(teacher_bottomNavigationView, teacher_navController);
         NavigationUI.setupActionBarWithNavController(this, teacher_navController);
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

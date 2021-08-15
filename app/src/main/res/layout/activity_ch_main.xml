@@ -32,5 +32,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/ch_nav" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
