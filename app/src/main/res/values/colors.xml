@@ -20,7 +20,7 @@
     <color name="Darkgreen">#91C788</color>
     <color name="Darklightgreen">#DDFFBC</color>
     <color name="lightgreen">#FEFFDE</color>
-    <color name="a">#64E291</color>
+
     <color name="b">#E6E56C</color>
     <color name="c">#FEC771</color>
     <color name="d">#EB7070</color>
@@ -45,12 +45,11 @@
     <color name="a1">#00a78d</color>
     <color name="a2">#00a79b</color>
     <color name="a3">#00a5a7</color>
-
+    <color name="a">#64E291</color>
     <color name="bg_black1">#303030</color>
     <color name="bg_black2">#1c1c1c</color>
     <color name="element_black">#494949</color>
     <color name="element_white">#d3d8e3</color>
-
     <!--    complain management-->
     <color name="status_green">#4ff65c</color>
     <color name="status_blue">#00d8fb</color>
