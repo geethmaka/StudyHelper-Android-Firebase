@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link TmComplain#newInstance} factory method to
+ * Use the {@link Teacher_Pdf#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TmComplain extends Fragment {
+public class Teacher_Pdf extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ public class TmComplain extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public TmComplain() {
+    public Teacher_Pdf() {
         // Required empty public constructor
     }
 
@@ -34,11 +34,11 @@ public class TmComplain extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment TmComplain.
+     * @return A new instance of fragment Pdf.
      */
     // TODO: Rename and change types and number of parameters
-    public static TmComplain newInstance(String param1, String param2) {
-        TmComplain fragment = new TmComplain();
+    public static Teacher_Pdf newInstance(String param1, String param2) {
+        Teacher_Pdf fragment = new Teacher_Pdf();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +59,6 @@ public class TmComplain extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_teacher_complain, container, false);
+        return inflater.inflate(R.layout.fragment_teacher_pdf, container, false);
     }
 }

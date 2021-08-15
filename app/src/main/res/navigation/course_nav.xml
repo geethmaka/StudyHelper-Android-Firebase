@@ -9,15 +9,15 @@
         android:id="@+id/courseMFragment"
         android:name="com.example.madd_project.CourseMFragment"
         android:label="@string/nav_Dashboard"
-        tools:layout="@layout/fragment_course_m" />
+        tools:layout="@layout/fragment_cm_dashboard" />
     <fragment
         android:id="@+id/addCFragment"
         android:name="com.example.madd_project.AddCFragment"
         android:label="@string/addNewCourse"
-        tools:layout="@layout/fragment_add_c" />
+        tools:layout="@layout/fragment_cm_add_course" />
     <fragment
         android:id="@+id/editCFragment"
         android:name="com.example.madd_project.EditCFragment"
         android:label="@string/editCourse"
-        tools:layout="@layout/fragment_edit_c" />
+        tools:layout="@layout/fragment_cm_edit_course" />
 </navigation>

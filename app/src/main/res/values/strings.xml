@@ -19,6 +19,10 @@
     <string name="reg_phone">Phone Number</string>
     <string name="reg_cpassword">Confirm Password</string>
     <string name="reg_prompt_Stream">Choose Your Stream</string>
+    <string name="Logout">Logout</string>
+    <string name="Settings">Settings</string>
+
+
     <string-array name="reg_stream">
         <item>Choose…</item>
         <item>Science</item>
@@ -28,14 +32,20 @@
 
 
     <!-- Student Management-->
-    <string name="Stpro">Profile</string>
-    <string name="reqQue">Question Request</string>
-    <string name="grade_prompt">Choose a grade</string>
+    <string name="sm_profile">Profile</string>
+    <string name="sm_reqQue">Complain</string>
+    <string name="sm_name">Name-</string>
+    <string name="sm_email">Email-</string>
+    <string name="sm_subject">Subjects-</string>
+    <string name="sm_update">Update</string>
+    <string name="sm_rq">New complain</string>
+
+    <string name="sm_grade_prompt">Choose a grade</string>
     <string-array name="smm_grade_arrays">
         <item>Grade 12</item>
         <item>Grade 13</item>
     </string-array>
-    <string name="subject_prompt">Choose a subjects</string>
+    <string name="sm_subject_prompt">Choose a subjects</string>
     <string-array name="smm_subject_arrays">
         <item>Maths</item>
         <item>Phisics</item>
@@ -68,10 +78,11 @@
         <item>Business and Management</item>
         <item>Econ</item>
     </string-array>
-    <string name="Teacher_dashboard">teacherdashboard</string>
-    <string name="Teacher_Pdf">teacher_pdfuploder</string>
-    <string name="Teacher_Links">teacher_links</string>
-    <string name="Teacher_complain">teacher_complain</string>
+    <string name="Teacher_dashboard">dashboard</string>
+    <string name="Teacher_Pdf">Pdf</string>
+    <string name="Teacher_Links">Links</string>
+    <string name="Teacher_complain">Complain</string>
+    <string name="Title_sub">Title</string>
 
 
     <!-- Course Management-->
@@ -82,6 +93,9 @@
 
     <string name="plus">+</string>
     <string name="addCourses">Add Courses</string>
+    <string name="addCourse">Add Course</string>
+    <string name="updateCourse">Update Course</string>
+    <string name="deleteCourse">Delete Course</string>
 
     <string name="addNewCourse">Add New Course</string>
     <string name="grade">Grade</string>
@@ -91,6 +105,7 @@
     <string name="availableToStudents">Available To Students</string>
 
     <string name="editCourse">Edit Course</string>
+    <string name="download">Download</string>
 
 
     <!-- Complain Management-->
@@ -100,6 +115,11 @@
     <string name="nav_complain_History">Complain History</string>
     <string name="Complain">Complain</string>
     <string name="Course">Course</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Sub_name">Subject</string>
+    <string name="edit_title">Edit_Title</string>
+    <string name="linkUpdate">Link</string>
     <string name="Dash_overview">Overview</string>
     <string name="opt_Logout">Logout</string>
     <string name="opt_Settings">Settings</string>
@@ -108,5 +128,6 @@
     <string name="search">Search User :</string>
     <string name="btn_resolved">Mark as Resolved</string>
     <string name="msg_hint">Type your message</string>
+
 
 </resources>

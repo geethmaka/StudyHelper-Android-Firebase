@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pdfUploder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Cyan50">
+
+    <TextView
+        android:id="@+id/link_heading"
+        android:layout_width="92dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="48dp"
+        android:text="@string/pdf_upload"
+        android:textColor="@color/gray"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="213dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="88dp"
+        android:background="@color/harbor_grey"
+        android:backgroundTint="@color/A400"
+        android:entries="@array/stream_subj"
+        android:gravity="right"
+        android:popupBackground="@color/a200"
+        app:layout_constraintBottom_toTopOf="@+id/link_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/link_heading" />
+
+    <EditText
+        android:id="@+id/link_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="105dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Title"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textColorHint="@color/gray"
+        app:layout_constraintBottom_toTopOf="@+id/link_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <EditText
+        android:id="@+id/link_add"
+        android:layout_width="172dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="121dp"
+        android:hint="Add the link"
+        android:minHeight="48dp"
+        android:textColorHint="@color/gray"
+        app:layout_constraintBottom_toTopOf="@+id/btn_uploadlink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/link_title" />
+
+    <android.widget.Button
+        android:id="@+id/btn_uploadlink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="124dp"
+        android:background="@drawable/button"
+        android:backgroundTint="@color/d500"
+        android:text="@string/pdf_upload"
+        android:textColor="@color/gray"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/link_add" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

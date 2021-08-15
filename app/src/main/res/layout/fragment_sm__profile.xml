@@ -11,14 +11,16 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
-            android:text="Edit Profile"
+            android:text="@string/sm_profile"
             android:textSize="30dp">
+
         </TextView>
 
     </RelativeLayout>
@@ -36,7 +38,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="Name-"
+            android:text="@string/sm_name"
             android:textSize="20dp">
 
         </TextView>
@@ -59,7 +61,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="80dp"
-            android:text="Email-"
+            android:text="@string/sm_email"
             android:textSize="20dp">
 
         </TextView>
@@ -82,7 +84,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="140dp"
-            android:text="Subjects"
+            android:text="@string/sm_subject"
             android:textSize="20dp">
 
         </TextView>
@@ -95,9 +97,10 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="170dp"
             android:entries="@array/smm_subject_arrays"
-            android:prompt="@string/subject_prompt">
+            android:prompt="@string/sm_subject_prompt">
 
         </Spinner>
+
         <Spinner
             android:layout_width="150dp"
             android:layout_height="50dp"
@@ -106,9 +109,10 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="220dp"
             android:entries="@array/smm_subject_arrays"
-            android:prompt="@string/subject_prompt">
+            android:prompt="@string/sm_subject_prompt">
 
         </Spinner>
+
         <Spinner
             android:layout_width="150dp"
             android:layout_height="50dp"
@@ -117,7 +121,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="270dp"
             android:entries="@array/smm_subject_arrays"
-            android:prompt="@string/subject_prompt">
+            android:prompt="@string/sm_subject_prompt">
 
         </Spinner>
     </RelativeLayout>
@@ -131,7 +135,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
-            android:text="Update">
+            android:text="@string/sm_update">
 
         </Button>
 
