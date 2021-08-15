@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:paddingTop="2sp"
-            android:paddingLeft="6sp"
+            android:paddingStart="6sp"
             android:paddingEnd="5dp">
 
             <TextView
@@ -83,6 +83,7 @@
                 android:textSize="14sp"
                 app:layout_constraintEnd_toStartOf="@+id/imageButton"
                 app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="TouchTargetSizeCheck"
                 tools:layout_editor_absoluteY="5dp" />
 
             <ImageButton
@@ -93,6 +94,7 @@
                 android:background="@drawable/btn_transp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/ic_msg_send"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
                 tools:layout_editor_absoluteY="10dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
