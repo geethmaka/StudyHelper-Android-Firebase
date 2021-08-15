@@ -8,12 +8,14 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-     android:layout_width="match_parent"
-     android:layout_height="match_parent"
-      android:id="@+id/uploadRecycle"
+        android:id="@+id/uploadRecycle"
+        android:layout_width="399dp"
+        android:layout_height="607dp"
 
 
-        />
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="164dp"
+        tools:listitem="@layout/teacher_pdf_row" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
