@@ -6,10 +6,13 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -43,5 +46,10 @@ public class SM_MainActivity extends AppCompatActivity {
 
         }
         return super.onOptionsItemSelected(item);
+    }
+    public void gotostudentdash(View view) {
+        final Context context = this;
+        Intent intent = new Intent(context, SM_MainActivity.class);
+        startActivity(intent);
     }
 }

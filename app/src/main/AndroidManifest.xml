@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADDProject">
         <activity
+            android:name=".Sm_Subject_viwes"
+            android:exported="true" />
+        <activity
             android:name=".LoadingActivity"
             android:exported="true">
             <intent-filter>

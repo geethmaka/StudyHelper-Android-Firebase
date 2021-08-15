@@ -38,7 +38,8 @@
     <string name="sm_subject">Subjects-</string>
     <string name="sm_update">Update</string>
     <string name="sm_rq">New complain</string>
-
+    <string name="sm_back">Back</string>
+    <string name="sm_search">Search</string>
     <string name="sm_grade_prompt">Choose a grade</string>
     <string-array name="smm_grade_arrays">
         <item>Grade 12</item>

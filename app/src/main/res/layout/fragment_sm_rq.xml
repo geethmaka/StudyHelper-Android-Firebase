@@ -65,29 +65,66 @@
             android:prompt="@string/sm_subject_prompt">
 
         </Spinner>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ch_complain_reply_layout"
+                android:orientation="horizontal"
+                android:paddingStart="4sp"
+                android:paddingEnd="4dp">
+
+                <EditText
+                    android:id="@+id/et_reply_msg"
+                    android:layout_width="320sp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="4sp"
+                    android:hint="@string/msg_hint"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageButton"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="5dp" />
+
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="4dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/ic_msg_send"
+                    tools:layout_editor_absoluteY="5dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="350dp"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:layout_alignParentTop="true"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="350dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="320dp"
         android:background="@drawable/sm_square">
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
             android:layout_marginLeft="50dp"
+            android:layout_marginTop="150dp"
             android:text="Delete">
 
         </Button>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
             android:layout_marginLeft="200dp"
+            android:layout_marginTop="150dp"
             android:text="Update">
 
         </Button>
