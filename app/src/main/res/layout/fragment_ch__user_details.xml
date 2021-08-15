@@ -20,13 +20,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="3sp"
             android:gravity="center_vertical"
-            android:text="@string/search" />
+            android:text="@string/search"
+            android:textSize="15sp"/>
 
         <SearchView
             android:id="@+id/user_search"
             android:layout_width="280dp"
             android:layout_height="28sp"
             android:layout_marginStart="8sp"
+            android:backgroundTint="@color/btn_shade"
             android:background="@drawable/ch_complain_reply_layout" />
 
 
@@ -35,12 +37,15 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/complainRV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="1dp" />
+            tools:layout_editor_absoluteY="1dp"
+            tools:listitem="@layout/fragment_ch__user_details" />
+
     </ScrollView>
 
 </LinearLayout>
