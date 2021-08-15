@@ -8,40 +8,39 @@
     tools:context=".Teacher_complain">
 
 
+    /
+
     <TextView
         android:id="@+id/textView16"
         android:layout_width="139dp"
         android:layout_height="50dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginBottom="12dp"
         android:text="@string/Teacher_complain"
         android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    /
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="-2dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16">
+        android:layout_width="409dp"
+        android:layout_height="267dp"
+        android:background="@color/b300"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="91dp">
+
+        <TextView
+            android:layout_width="96dp"
+            android:layout_height="0dp"
+            android:text="@string/Recivedtm"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="165dp"
+            tools:layout_editor_absoluteY="6dp" />
 
         <ScrollView
             android:id="@+id/scrollView2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_width="408dp"
+            android:layout_height="238dp"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="29dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="399dp"
@@ -55,20 +54,24 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="37dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+        android:layout_width="411dp"
+        android:layout_height="267dp"
+        tools:layout_editor_absoluteY="367dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sent"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="185dp"
+            tools:layout_editor_absoluteY="9dp" />
 
         <ScrollView
             android:id="@+id/scrollView5"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="2dp"
-            tools:layout_editor_absoluteY="384dp">
+            android:layout_width="406dp"
+            android:layout_height="231dp"
+            tools:layout_editor_absoluteX="5dp"
+            tools:layout_editor_absoluteY="36dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
@@ -84,17 +87,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
-        android:layout_width="0dp"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/ch_complain_reply_layout"
         android:orientation="horizontal"
         android:paddingStart="4sp"
         android:paddingEnd="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+        tools:layout_editor_absoluteY="671dp">
 
         <EditText
             android:id="@+id/et_reply_msg"

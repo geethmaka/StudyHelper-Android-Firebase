@@ -130,6 +130,8 @@
     <string name="msg_hint">Type your message</string>
     <string name="TitleOfPdfUploder">Pdf</string>
     <string name="TitleOfLinkUploder">Link</string>
+    <string name="Recivedtm">Received</string>
+    <string name="sent">Sent</string>
 
 
 </resources>
