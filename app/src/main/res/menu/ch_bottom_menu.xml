@@ -3,18 +3,18 @@
 
     <item
         android:id="@+id/ch_DashboardFragment"
-        android:title="@string/Dashboard"
+        android:title="@string/nav_Dashboard"
         android:icon="@drawable/ic_dashboard"/>
     <item
         android:id="@+id/ch_ComplainFragment"
-        android:title="@string/Compalins_hisrtory"
+        android:title="@string/nav_complain_History"
         android:icon="@drawable/ic_complain"/>
     <item
         android:id="@+id/ch_UserDetailsFragment"
-        android:title="@string/user_details"
+        android:title="@string/nav_userDtails"
         android:icon="@drawable/ic_user_details"/>
     <item
         android:id="@+id/ch_ReportFragment"
-        android:title="@string/Reports"
+        android:title="@string/nav_Reports"
         android:icon="@drawable/ic_report"/>
 </menu>
