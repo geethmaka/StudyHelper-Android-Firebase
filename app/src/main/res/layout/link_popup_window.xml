@@ -11,8 +11,8 @@
         android:id="@+id/link_heading"
         android:layout_width="92dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginBottom="23dp"
         android:text="@string/pdf_upload"
         android:textColor="@color/gray"
         android:textSize="24sp"
@@ -21,11 +21,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="213dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="88dp"
+        android:layout_width="265dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="49dp"
         android:background="@color/harbor_grey"
         android:backgroundTint="@color/A400"
         android:entries="@array/stream_subj"
@@ -38,38 +41,50 @@
 
     <EditText
         android:id="@+id/link_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="105dp"
+        android:layout_width="278dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="35dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Title"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColorHint="@color/gray"
+        app:layout_constraintBottom_toTopOf="@+id/calendarView"
+        app:layout_constraintEnd_toEndOf="@+id/calendarView"
+        app:layout_constraintStart_toStartOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="73dp"
+        android:layout_marginEnd="73dp"
+        android:layout_marginBottom="19dp"
         app:layout_constraintBottom_toTopOf="@+id/link_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/link_title" />
 
     <EditText
         android:id="@+id/link_add"
-        android:layout_width="172dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="121dp"
+        android:layout_width="244dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="44dp"
         android:hint="Add the link"
         android:minHeight="48dp"
         android:textColorHint="@color/gray"
         app:layout_constraintBottom_toTopOf="@+id/btn_uploadlink"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/link_title" />
+        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
     <android.widget.Button
         android:id="@+id/btn_uploadlink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="124dp"
+        android:layout_width="131dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="44dp"
         android:background="@drawable/button"
         android:backgroundTint="@color/d500"
         android:text="@string/pdf_upload"

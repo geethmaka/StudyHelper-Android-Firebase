@@ -130,6 +130,8 @@
     <string name="btn_com_delete">Delete Resolved Complains</string>
     <string name="TitleOfPdfUploder">Pdf</string>
     <string name="TitleOfLinkUploder">Link</string>
+    <string name="Recivedtm">Received</string>
+    <string name="sent">Sent</string>
 
 
 </resources>
