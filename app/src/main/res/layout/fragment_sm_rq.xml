@@ -57,7 +57,7 @@
 
         <Spinner
             android:layout_width="150dp"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="80dp"
@@ -110,6 +110,31 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="320dp"
         android:background="@drawable/sm_square">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="10dp"
+
+            android:text="1m 35s">
+
+        </TextView>
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:text="Grade 12 Maths">
+
+        </TextView>
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
+            android:text="PDF are not clear">
+        </TextView>
 
         <Button
             android:layout_width="wrap_content"

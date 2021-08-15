@@ -144,25 +144,25 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(context, Registration.class);
         startActivity(intent);
     }
-
-    public void gotoTMProfile(View view) {
-        final Context context = this;
-        Intent intent = new Intent(context, TeacherMainActivity.class);
-        startActivity(intent);
-    }
-    public void gotoSMProfile(View view) {
-        final Context context = this;
-        Intent intent = new Intent(context, SM_MainActivity.class);
-        startActivity(intent);
-    }
-    public void gotoCHProfile(View view) {
-        final Context context = this;
-        Intent intent = new Intent(context, CH_Main.class);
-        startActivity(intent);
-    }
-    public void gotoCMProfile(View view) {
-        final Context context = this;
-        Intent intent = new Intent(context, CM_Main.class);
-        startActivity(intent);
-    }
+//
+//    public void gotoTMProfile(View view) {
+//        final Context context = this;
+//        Intent intent = new Intent(context, TeacherMainActivity.class);
+//        startActivity(intent);
+//    }
+//    public void gotoSMProfile(View view) {
+//        final Context context = this;
+//        Intent intent = new Intent(context, SM_MainActivity.class);
+//        startActivity(intent);
+//    }
+//    public void gotoCHProfile(View view) {
+//        final Context context = this;
+//        Intent intent = new Intent(context, CH_Main.class);
+//        startActivity(intent);
+//    }
+//    public void gotoCMProfile(View view) {
+//        final Context context = this;
+//        Intent intent = new Intent(context, CM_Main.class);
+//        startActivity(intent);
+//    }
 }
