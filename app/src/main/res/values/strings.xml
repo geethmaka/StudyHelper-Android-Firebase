@@ -29,14 +29,20 @@
     </string-array>
 
     <!-- Student Management-->
-    <string name="Stpro">Profile</string>
-    <string name="reqQue">Question Request</string>
-    <string name="grade_prompt">Choose a grade</string>
+    <string name="sm_profile">Profile</string>
+    <string name="sm_reqQue">Complain</string>
+    <string name="sm_name">Name-</string>
+    <string name="sm_email">Email-</string>
+    <string name="sm_subject">Subjects-</string>
+    <string name="sm_update">Update</string>
+    <string name="sm_rq">New complain</string>
+
+    <string name="sm_grade_prompt">Choose a grade</string>
     <string-array name="smm_grade_arrays">
         <item>Grade 12</item>
         <item>Grade 13</item>
     </string-array>
-    <string name="subject_prompt">Choose a subjects</string>
+    <string name="sm_subject_prompt">Choose a subjects</string>
     <string-array name="smm_subject_arrays">
         <item>Maths</item>
         <item>Phisics</item>

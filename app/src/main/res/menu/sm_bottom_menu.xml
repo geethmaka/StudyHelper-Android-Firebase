@@ -10,10 +10,6 @@
         android:icon="@drawable/ic_baseline_person_24"
         android:title="profile"/>
     <item
-        android:id="@+id/sm_ComplainFragment"
-        android:title="compalin"
-        android:icon="@drawable/ic_complain"/>
-    <item
         android:id="@+id/sm_rqFragment"
         android:icon="@drawable/sm_rq"
         android:title="RQ"/>

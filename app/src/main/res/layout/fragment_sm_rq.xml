@@ -12,22 +12,25 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_alignParentTop="true">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
-            android:text="Request Questions"
+            android:text="@string/sm_reqQue"
             android:textSize="30dp">
 
         </TextView>
+
+
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="350dp"
         android:layout_height="200dp"
         android:layout_alignParentTop="true"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
         android:layout_marginTop="100dp"
         android:background="@drawable/sm_square">
 
@@ -36,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="New Request"
+            android:text="@string/sm_rq"
             android:textSize="20dp">
 
         </TextView>
@@ -45,10 +48,10 @@
             android:layout_width="150dp"
             android:layout_height="30dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="50dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
             android:entries="@array/smm_grade_arrays"
-            android:prompt="@string/grade_prompt">
+            android:prompt="@string/sm_grade_prompt">
 
         </Spinner>
 
@@ -56,10 +59,11 @@
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="80dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
             android:entries="@array/smm_subject_arrays"
-            android:prompt="@string/subject_prompt">
+            android:prompt="@string/sm_subject_prompt">
+
         </Spinner>
     </RelativeLayout>
 
