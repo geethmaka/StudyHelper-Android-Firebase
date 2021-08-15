@@ -27,14 +27,6 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="91dp">
 
-        <TextView
-            android:layout_width="96dp"
-            android:layout_height="0dp"
-            android:text="@string/Recivedtm"
-            android:textSize="20dp"
-            tools:layout_editor_absoluteX="165dp"
-            tools:layout_editor_absoluteY="6dp" />
-
         <ScrollView
             android:id="@+id/scrollView2"
             android:layout_width="408dp"
@@ -57,14 +49,6 @@
         android:layout_width="411dp"
         android:layout_height="267dp"
         tools:layout_editor_absoluteY="367dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sent"
-            android:textSize="20dp"
-            tools:layout_editor_absoluteX="185dp"
-            tools:layout_editor_absoluteY="9dp" />
 
         <ScrollView
             android:id="@+id/scrollView5"
@@ -111,12 +95,12 @@
             android:id="@+id/imageButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/btn_transp"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/ic_msg_send"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
-            tools:layout_editor_absoluteY="10dp" />
+            tools:layout_editor_absoluteY="16dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
