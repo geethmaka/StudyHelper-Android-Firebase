@@ -116,8 +116,6 @@
     <string name="nav_complain_History">Complain History</string>
     <string name="Complain">Complain</string>
     <string name="Course">Course</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Sub_name">Subject</string>
     <string name="edit_title">Edit_Title</string>
     <string name="linkUpdate">Link</string>
@@ -129,6 +127,7 @@
     <string name="search">Search User :</string>
     <string name="btn_resolved">Mark as Resolved</string>
     <string name="msg_hint">Type your message</string>
+    <string name="btn_com_delete">Delete Resolved Complains</string>
     <string name="TitleOfPdfUploder">Pdf</string>
     <string name="TitleOfLinkUploder">Link</string>
 
