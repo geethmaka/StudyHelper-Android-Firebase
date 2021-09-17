@@ -29,8 +29,8 @@ public class LoadingActivity extends AppCompatActivity {
             @Override
             public void run() {
                 for(int i =0; i<10; i++){
-                    progressBar.incrementProgressBy(10);
-                    SystemClock.sleep(500);
+                    progressBar.incrementProgressBy(20);
+                    SystemClock.sleep(1000);
                 }
             }
         });
