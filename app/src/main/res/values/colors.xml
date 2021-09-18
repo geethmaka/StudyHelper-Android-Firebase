@@ -17,6 +17,8 @@
     <color name="whiteTextColor">#fff</color>
     <color name="primaryTextColor">#00a5ff</color>
     <color name="loginBkColor">#f0f0f0</color>
+    <color name="bottomnav">#CB34A0FF</color>
+<!--    0066FF-->
 
     <!--colros for card-->
     <color name="whiteCardColor">#fff</color>
