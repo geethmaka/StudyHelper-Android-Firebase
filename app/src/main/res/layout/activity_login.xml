@@ -46,29 +46,12 @@
                 <TextView
                     style="@style/headerText"
                     android:layout_gravity="center"
-                    android:layout_marginTop="40dp"
-                    android:text="App Snipp" />
-
-                <include layout="@layout/layout_login" />
-
-                <Button
-                    android:id="@+id/btn_complain"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="469dp"
-                    android:text="Button"
-                    android:onClick="gotoCHProfile"/>
+                    android:text="Study Helper"
+                    android:layout_marginTop="40dp"/>
+                <include
+                    layout="@layout/layout_login"/>
 
             </LinearLayout>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="10dp"
-                android:src="@android:drawable/ic_menu_close_clear_cancel" />
-
         </RelativeLayout>
 
     </ScrollView>
