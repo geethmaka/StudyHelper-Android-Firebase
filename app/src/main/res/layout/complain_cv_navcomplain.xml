@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@color/btn_shade"
+        android:paddingLeft="8sp"
+        android:paddingRight="8sp"
+        android:paddingTop="1sp"
+        android:paddingBottom="1sp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="5dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            tools:layout_editor_absoluteY="1dp">
+
+            <TextView
+                android:id="@+id/tv_complain_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ch_pending_layout"
+                android:paddingStart="6sp"
+                android:paddingTop="2sp"
+                android:paddingEnd="6sp"
+                android:paddingBottom="2sp"
+                android:text="Pending"
+                android:textSize="12sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tv_complain_name"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:paddingTop="2sp"
+            android:paddingStart="6sp"
+            android:paddingEnd="5dp">
+
+            <TextView
+                android:id="@+id/user_complain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="14sp"
+                />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ch_complain_reply_layout"
+            android:orientation="horizontal"
+            android:paddingStart="4sp"
+            android:paddingEnd="4dp">
+
+            <EditText
+                android:id="@+id/et_reply_msg"
+                android:layout_width="320sp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4sp"
+                android:hint="@string/msg_hint"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/imageButton"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:layout_editor_absoluteY="5dp" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/btn_transp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_msg_send"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+                tools:layout_editor_absoluteY="10dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingTop="5sp"
+            android:paddingBottom="5sp"
+            android:paddingStart="2sp"
+            android:paddingEnd="2sp">
+
+            <android.widget.Button
+                android:id="@+id/btn_complain_resolve"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/button1"
+                android:text="@string/btn_resolved"
+                android:textSize="20dp"
+                android:textAllCaps="false"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
