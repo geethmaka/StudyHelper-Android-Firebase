@@ -11,4 +11,19 @@
     <string name="login_password_hint">Password</string>
     <string name="signup_login_hint">Already have an account? Sign In</string>
     <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="No_of_pdf">no_pdf</string>
+
+
+    <!-- Teacher Management -->
+    <string name="No_of_links">No_Links</string>
+    <string name="TitleOfPdfUploder">Pdfs</string>
+    <string name="TitleOfLinkUploder">Links</string>
+    <string name="Teacher_complain">Teacher complain</string>
+    <string name="msg_hint">example</string>
+    <string name="Teacher_dashboard">DashBoard</string>
+    <string name="Teacher_Pdf">PDF</string>
+    <string name="Teacher_Links">LINK</string>
+
 </resources>

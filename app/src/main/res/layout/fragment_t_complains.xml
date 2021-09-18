@@ -1,0 +1,107 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".t_complains">
+
+
+
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="139dp"
+            android:layout_height="50dp"
+            android:text="@string/Teacher_complain"
+            android:textSize="30dp"
+            tools:layout_editor_absoluteX="136dp"
+            tools:layout_editor_absoluteY="-2dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="409dp"
+            android:layout_height="267dp"
+            android:background="@color/white"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="91dp">
+
+            <ScrollView
+                android:id="@+id/scrollView2"
+                android:layout_width="408dp"
+                android:layout_height="238dp"
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="29dp">
+
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:layout_width="399dp"-->
+<!--                    android:layout_height="288dp"-->
+<!--                    tools:layout_editor_absoluteX="1dp"-->
+<!--                    tools:layout_editor_absoluteY="2dp"-->
+<!--                    tools:listitem="@layout/teacher_complain_reciver_row" />-->
+            </ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="411dp"
+            android:layout_height="267dp"
+            tools:layout_editor_absoluteY="367dp">
+
+            <ScrollView
+                android:id="@+id/scrollView5"
+                android:layout_width="406dp"
+                android:layout_height="231dp"
+                tools:layout_editor_absoluteX="5dp"
+                tools:layout_editor_absoluteY="36dp">
+
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    tools:listitem="@layout/teacher_complain_send_row">-->
+
+<!--                </androidx.recyclerview.widget.RecyclerView>-->
+
+            </ScrollView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search"
+            android:orientation="horizontal"
+            android:paddingStart="4sp"
+            android:paddingEnd="4dp"
+            tools:layout_editor_absoluteY="671dp">
+
+            <EditText
+                android:id="@+id/et_reply_msg"
+                android:layout_width="320sp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4sp"
+                android:hint="@string/msg_hint"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/imageButton"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:layout_editor_absoluteY="5dp" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/btn_transp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_msg_send"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+                tools:layout_editor_absoluteY="16dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
