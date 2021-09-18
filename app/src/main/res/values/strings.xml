@@ -11,4 +11,24 @@
     <string name="login_password_hint">Password</string>
     <string name="signup_login_hint">Already have an account? Sign In</string>
     <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
+
+
+<!--    complain-->
+    <string name="nav_Dashboard">Dashboard</string>
+    <string name="nav_userDtails">User Details</string>
+    <string name="nav_Reports">Report</string>
+    <string name="nav_complain_History">Complain History</string>
+    <string name="Complain">Complain</string>
+    <string name="Course">Course</string>
+    <string name="pending">Pending</string>
+    <string name="maintained">Maintained</string>
+    <string name="Dash_overview">Overview</string>
+    <string name="opt_Logout">Logout</string>
+    <string name="opt_Settings">Settings</string>
+    <string name="New_complain">New Complains</string>
+    <string name="btn_ban">Ban User</string>
+    <string name="search">Search User :</string>
+    <string name="btn_resolved">Mark as Resolved</string>
+    <string name="msg_hint">Type your message</string>
+    <string name="btn_com_delete">Delete Resolved Complains</string>
 </resources>

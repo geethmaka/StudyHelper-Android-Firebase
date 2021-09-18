@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/complain_nav"
+    app:startDestination="@id/CH_DashboardFragment">
+
+    <fragment
+        android:id="@+id/CH_DashboardFragment"
+        android:name="com.example.studyhelper_android_firebase.CH_Dashboard"
+        android:label="@string/nav_Dashboard"
+        tools:layout="@layout/fragment_ch_dashboard" />
+    <fragment
+        android:id="@+id/CH_ComplainFragment"
+        android:name="com.example.studyhelper_android_firebase.CH_ComplainFragment"
+        android:label="@string/nav_complain_History"
+        tools:layout="@layout/fragment_ch_complain" />
+    <fragment
+        android:id="@+id/CH_UserDetailsFragment"
+        android:name="com.example.studyhelper_android_firebase.CH_UserDetailsFragment"
+        android:label="@string/nav_userDtails"
+        tools:layout="@layout/fragment_ch_user_details" />
+    <fragment
+        android:id="@+id/CH_ReportFragment"
+        android:name="com.example.studyhelper_android_firebase.CH_ReportFragment"
+        android:label="@string/nav_Reports"
+        tools:layout="@layout/fragment_ch_report" />
+</navigation>
