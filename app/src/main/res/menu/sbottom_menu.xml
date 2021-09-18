@@ -4,7 +4,7 @@
     <item
         android:id="@+id/sdashboardFragment"
         android:title="DashBoard"
-          android:icon="@drawable/ic_sdashboard"
+        android:icon="@drawable/ic_sdashboard"
         />
     <item
         android:id="@+id/SProfileFragment"
