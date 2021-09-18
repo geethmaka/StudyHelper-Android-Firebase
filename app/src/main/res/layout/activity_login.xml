@@ -37,19 +37,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
-                android:orientation="vertical"
+                android:layout_marginLeft="30dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginLeft="30dp">
+                android:orientation="vertical">
 
 
                 <TextView
                     style="@style/headerText"
                     android:layout_gravity="center"
-                    android:text="App Snipp"
-                    android:layout_marginTop="40dp"/>
-                <include
-                    layout="@layout/layout_login"/>
+                    android:layout_marginTop="40dp"
+                    android:text="App Snipp" />
+
+                <include layout="@layout/layout_login" />
+
+                <Button
+                    android:id="@+id/btn_complain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="469dp"
+                    android:text="Button"
+                    android:onClick="gotoCHProfile"/>
 
             </LinearLayout>
             <ImageView
@@ -60,6 +68,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="10dp"
                 android:src="@android:drawable/ic_menu_close_clear_cancel" />
+
         </RelativeLayout>
 
     </ScrollView>
