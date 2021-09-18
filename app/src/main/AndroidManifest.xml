@@ -15,6 +15,12 @@
         <activity
             android:name=".StudentMainActivity"
             android:exported="true" />
+              <activity
+            android:name=".Course_manager_home"
+            android:exported="true" />
+              <activity
+            android:name=".ComplainMain"
+            android:exported="true" />
         <!-- <activity -->
         <!-- android:name=".Register" -->
         <!-- android:exported="true" /> -->
