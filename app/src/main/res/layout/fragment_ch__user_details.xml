@@ -21,7 +21,7 @@
             android:layout_marginTop="3sp"
             android:gravity="center_vertical"
             android:text="@string/search"
-            android:textSize="15sp"/>
+            android:textSize="24sp"/>
 
         <SearchView
             android:id="@+id/user_search"
