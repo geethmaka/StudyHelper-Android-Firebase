@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/student_nav"
+    app:startDestination="@id/sdashboardFragment">
+
+    <fragment
+        android:id="@+id/sdashboardFragment"
+        android:name="com.example.studyhelper_android_firebase.SDashboardFragment"
+        android:label="fragment_sdashboard"
+        tools:layout="@layout/fragment_sdashboard" />
+    <fragment
+        android:id="@+id/SProfileFragment"
+        android:name="com.example.studyhelper_android_firebase.SProfileFragment"
+        android:label="fragment_s_profile"
+        tools:layout="@layout/fragment_s_profile" />
+    <fragment
+        android:id="@+id/SComplainFragment"
+        android:name="com.example.studyhelper_android_firebase.SComplainFragment"
+        android:label="fragment_s_complain"
+        tools:layout="@layout/fragment_s_complain" />
+</navigation>

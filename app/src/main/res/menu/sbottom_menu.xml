@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/sdashboardFragment"
+        android:title="DashBoard"
+          android:icon="@drawable/ic_sdashboard"
+        />
+    <item
+        android:id="@+id/SProfileFragment"
+        android:title="Profile"
+        android:icon="@drawable/ic_sprofile"/>
+    <item
+        android:id="@+id/SComplainFragment"
+        android:title="Complain"
+        android:icon="@drawable/ic_scomplain"
+        />
+</menu>
