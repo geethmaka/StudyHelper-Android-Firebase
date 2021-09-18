@@ -13,13 +13,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyHelperAndroidFirebase">
         <activity
+            android:name=".TeacherMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PdfView"
+            android:exported="true" /> <!-- <activity -->
+        <!-- android:name=".Register" -->
+        <!-- android:exported="true" /> -->
+        <activity
             android:name=".StudentMainActivity"
+            android:exported="true" />
+              <activity
+            android:name=".Course_manager_home"
+            android:exported="true" />
+              <activity
+            android:name=".ComplainMain"
             android:exported="true" />
         <!-- <activity -->
         <!-- android:name=".Register" -->
         <!-- android:exported="true" /> -->
         <activity
-            android:name=".Login"
+            android:name=".LoadingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,6 +41,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Login"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
