@@ -29,10 +29,19 @@ public class Login extends AppCompatActivity {
                             EditText Email= findViewById(R.id.editTextEmail);
                 EditText Password= findViewById(R.id.editTextPassword);
 
-                if((Email.getText().toString().equals("course"))&&(Password.getText().toString().equals("course"))){
+                if((Email.getText().toString().equals("c"))&&(Password.getText().toString().equals("c"))){
                     Intent start = new Intent(this,Course_manager_home.class);
                     startActivity(start);
-                }
+                }    else            if((Email.getText().toString().equals("t"))&&(Password.getText().toString().equals("t"))){
+                Intent start = new Intent(this,Course_manager_home.class);
+                startActivity(start);
+            }else                 if((Email.getText().toString().equals("ch"))&&(Password.getText().toString().equals("ch"))){
+                    Intent start = new Intent(this,ComplainMain.class);
+                    startActivity(start);
+                }else                if((Email.getText().toString().equals("s"))&&(Password.getText().toString().equals("s"))){
+                Intent start = new Intent(this,StudentMainActivity.class);
+                startActivity(start);
+            }
         });
     }
 

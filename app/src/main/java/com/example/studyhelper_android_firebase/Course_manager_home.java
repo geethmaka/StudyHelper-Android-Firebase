@@ -32,7 +32,7 @@ public class Course_manager_home extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             Log.d(TAG, document.getId() + " => " + document.getData());
-                            text.setText(document.getData().toString());
+                            text.append(document.getData().toString());
                         }
                     } else {
                         Log.w(TAG, "Error getting documents.", task.getException());
