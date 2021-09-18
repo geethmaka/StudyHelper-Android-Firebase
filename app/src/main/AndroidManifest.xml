@@ -13,6 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyHelperAndroidFirebase">
         <activity
+            android:name=".TeacherMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PdfView"
+            android:exported="true" /> <!-- <activity -->
+        <!-- android:name=".Register" -->
+        <!-- android:exported="true" /> -->
+        <activity
             android:name=".StudentMainActivity"
             android:exported="true" />
               <activity

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/teacher_nav"
+    app:startDestination="@id/t_dashboard">
+
+    <fragment
+        android:id="@+id/t_dashboard"
+        android:name="com.example.studyhelper_android_firebase.t_dashboard"
+        android:label="fragment_t_dashboard"
+        tools:layout="@layout/fragment_t_dashboard" />
+    <fragment
+        android:id="@+id/pdfs_added"
+        android:name="com.example.studyhelper_android_firebase.pdfs_added"
+        android:label="fragment_pdfs_added"
+        tools:layout="@layout/fragment_pdfs_added" />
+    <fragment
+        android:id="@+id/links_added"
+        android:name="com.example.studyhelper_android_firebase.links_added"
+        android:label="fragment_links_added"
+        tools:layout="@layout/fragment_links_added" />
+    <fragment
+        android:id="@+id/t_complains"
+        android:name="com.example.studyhelper_android_firebase.t_complains"
+        android:label="fragment_t_complains"
+        tools:layout="@layout/fragment_t_complains" />
+</navigation>
