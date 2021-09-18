@@ -26,7 +26,6 @@ public class ComplainMain extends AppCompatActivity {
         NavController complain_navController = Navigation.findNavController(this,R.id.chfragmentContainerView);
         NavigationUI.setupWithNavController(complain_bottomNavigationView, complain_navController);
         NavigationUI.setupActionBarWithNavController(this, complain_navController);
-
     }
 
     @Override
