@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:text="@string/pending"
                 android:textColor="@color/black"
@@ -124,7 +124,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginBottom="5dp"
             android:text="@string/New_complain"
-            android:textSize="18dp"
+            android:textSize="24dp"
             android:textColor="@color/black"/>
 
         <HorizontalScrollView

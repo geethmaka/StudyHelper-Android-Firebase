@@ -22,7 +22,7 @@
             android:textColor="@color/white"
             android:text="@string/btn_com_delete"
             android:textAllCaps="false"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textAlignment="center"/>
 
     </LinearLayout>
