@@ -30,6 +30,16 @@ public class User {
         this.email = email;
     }
 
+    public User(String username, String type, String stream, boolean status, String password, String mobile, String email) {
+        this.username = username;
+        this.type = type;
+        this.stream = stream;
+        this.status = status;
+        this.password = password;
+        this.mobile = mobile;
+        this.email = email;
+    }
+
     public String getId() {
         return id;
     }

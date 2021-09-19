@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10sp"
-        android:paddingBottom="5sp"
+        android:paddingBottom="10sp"
         android:paddingRight="10sp"
         android:paddingLeft="10sp">
 
@@ -36,8 +36,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="1dp"
-            tools:listitem="@layout/complain_cv_navcomplain" />
+            tools:layout_editor_absoluteY="1dp" />
+
+<!--        tools:listitem="@layout/complain_cv_navcomplain"-->
 
     </ScrollView>
 

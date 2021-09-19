@@ -22,6 +22,14 @@ public class Complain {
         this.complain = complain;
     }
 
+    public Complain(String userId, String type, String status, String date, String complain) {
+        this.userId = userId;
+        this.type = type;
+        this.status = status;
+        this.date = date;
+        this.complain = complain;
+    }
+
     //getters and setters
     public String getComplainId() {
         return complainId;
