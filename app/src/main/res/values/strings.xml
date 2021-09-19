@@ -54,6 +54,11 @@
 
 
     <string name="title_activity_studentprifile">StudentprifileActivity</string>
+
+    <!-- Teacher Management -->
+    <string name="student_details">Student detials</string>
+    <string name="scomplaint_details">New Complaint</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
