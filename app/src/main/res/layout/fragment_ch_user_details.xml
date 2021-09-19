@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="5sp"
         android:padding="5sp"
+        android:layout_marginStart="3dp"
         android:orientation="horizontal">
 
         <TextView

@@ -11,9 +11,7 @@
     <string name="login_password_hint">Password</string>
     <string name="signup_login_hint">Already have an account? Sign In</string>
     <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
-
     <string name="No_of_pdf">no_pdf</string>
-
 
     <!-- Teacher Management -->
     <string name="No_of_links">No_Links</string>
@@ -55,26 +53,12 @@
     <string name="pdf_upload">Upload</string>
 
 
-
-
-
-
-
-
-
-
-
-
     <string name="title_activity_studentprifile">StudentprifileActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-
 
 <!--    complain-->
     <string name="nav_Dashboard">Dashboard</string>
@@ -94,6 +78,6 @@
     <string name="btn_resolved">Mark as Resolved</string>
     <string name="msg_hint">Type your message</string>
     <string name="btn_com_delete">Delete Resolved Complains</string>
-
-
+    <string name="teacher">Teacher</string>
+    <string name="student">Student</string>
 </resources>
