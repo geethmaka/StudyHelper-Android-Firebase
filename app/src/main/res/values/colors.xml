@@ -34,5 +34,6 @@
     <color name="btn_shade">#e0e0e0</color>
     <color name="btn2_r">#ff1f1f</color>
     <color name="harbor_grey">#C7C6C1</color>
+    <color name="btn_red">#FFFF0000</color>
 
 </resources>

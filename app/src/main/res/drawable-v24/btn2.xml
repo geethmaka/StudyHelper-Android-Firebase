@@ -9,8 +9,8 @@
                 />
             <gradient
                 android:angle="55"
-                android:startColor="@color/btn2_r"
-                android:endColor="@color/btn1_y1"
+                android:startColor="@color/btn_red"
+                android:endColor="@color/white"
                 android:type="linear"
                 />
             <padding
