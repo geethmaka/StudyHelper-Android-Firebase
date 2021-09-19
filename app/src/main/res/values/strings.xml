@@ -17,12 +17,53 @@
 
     <!-- Teacher Management -->
     <string name="No_of_links">No_Links</string>
-    <string name="TitleOfPdfUploder">Pdfs</string>
-    <string name="TitleOfLinkUploder">Links</string>
-    <string name="Teacher_complain">Teacher complain</string>
-    <string name="Teacher_dashboard">DashBoard</string>
-    <string name="Teacher_Pdf">PDF</string>
-    <string name="Teacher_Links">LINK</string>
+    <string name="teacher_details">Teacher detials</string>
+    <string name="complainTeacher">Complain</string>
+    <string name="pdfUpload">PDF</string>
+    <string name="linkUpload">Link</string>
+
+    <string-array name="stream_subj">
+        <item>Subject</item>
+        <item>Physics</item>
+        <item>Combined Maths</item>
+        <item>Chemistry</item>
+        <item>IT</item>
+        <item>Biology</item>
+        <item>Agriculture</item>
+        <item>Zoology</item>
+        <item>Accounting</item>
+        <item>Business and Management</item>
+        <item>Econ</item>
+    </string-array>
+
+    <string-array name="stream_time">
+        <item>AM</item>
+        <item>PM</item>
+    </string-array>
+    <string name="Teacher_dashboard">dashboard</string>
+    <string name="Teacher_Pdf">Pdf</string>
+    <string name="Teacher_Links">Links</string>
+    <string name="Teacher_complain">Complain</string>
+    <string name="Title_sub">Title</string>
+    <string name="TitleOfPdfUploder">Pdf</string>
+    <string name="TitleOfLinkUploder">Link</string>
+    <string name="Recivedtm">Received</string>
+    <string name="sent">Sent</string>
+    <string name="Sub_name">Subject</string>
+    <string name="edit_title">Edit_Title</string>
+    <string name="linkUpdate">Link</string>
+    <string name="pdf_upload">Upload</string>
+
+
+
+
+
+
+
+
+
+
+
 
     <string name="title_activity_studentprifile">StudentprifileActivity</string>
     <!-- Strings used for fragments for navigation -->
@@ -53,4 +94,6 @@
     <string name="btn_resolved">Mark as Resolved</string>
     <string name="msg_hint">Type your message</string>
     <string name="btn_com_delete">Delete Resolved Complains</string>
+
+
 </resources>
