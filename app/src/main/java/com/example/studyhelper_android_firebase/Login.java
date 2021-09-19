@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.studyhelper_android_firebase.complain.ComplainMain;
+import com.example.studyhelper_android_firebase.course.Course_manager_home;
 import com.example.studyhelper_android_firebase.student.StudentMainActivity;
 import com.example.studyhelper_android_firebase.teacher.TeacherMainActivity;
 
@@ -28,7 +29,7 @@ public class Login extends AppCompatActivity {
                 EditText Password= findViewById(R.id.editTextPassword);
 
                 if((Email.getText().toString().equals("c"))&&(Password.getText().toString().equals("c"))){
-                    Intent start = new Intent(this,Course_manager_home.class);
+                    Intent start = new Intent(this, Course_manager_home.class);
                     startActivity(start);
                 }    else            if((Email.getText().toString().equals("t"))&&(Password.getText().toString().equals("t"))){
                 Intent start = new Intent(this, TeacherMainActivity.class);
