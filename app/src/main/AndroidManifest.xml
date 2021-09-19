@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyHelperAndroidFirebase">
         <activity
+            android:name=".Teacher_popup_Link"
+            android:exported="true" />
+        <activity
             android:name=".teacher.TeacherMainActivity"
             android:exported="true" />
         <activity
@@ -23,13 +26,12 @@
         <activity
             android:name=".student.StudentMainActivity"
             android:exported="true" />
-              <activity
+        <activity
             android:name=".course.Course_manager_home"
             android:exported="true" />
-              <activity
+        <activity
             android:name=".complain.ComplainMain"
-            android:exported="true" />
-        <!-- <activity -->
+            android:exported="true" /> <!-- <activity -->
         <!-- android:name=".Register" -->
         <!-- android:exported="true" /> -->
         <activity
@@ -44,7 +46,7 @@
         <activity
             android:name=".Login"
             android:exported="true"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
