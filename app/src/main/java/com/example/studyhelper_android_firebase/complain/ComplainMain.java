@@ -1,4 +1,4 @@
-package com.example.studyhelper_android_firebase;
+package com.example.studyhelper_android_firebase.complain;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
+import com.example.studyhelper_android_firebase.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ComplainMain extends AppCompatActivity {

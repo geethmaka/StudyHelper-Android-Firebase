@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyHelperAndroidFirebase">
         <activity
-            android:name=".TeacherMainActivity"
+            android:name=".teacher.TeacherMainActivity"
             android:exported="true" />
         <activity
             android:name=".PdfView"
@@ -27,7 +27,7 @@
             android:name=".Course_manager_home"
             android:exported="true" />
               <activity
-            android:name=".ComplainMain"
+            android:name=".complain.ComplainMain"
             android:exported="true" />
         <!-- <activity -->
         <!-- android:name=".Register" -->

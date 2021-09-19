@@ -1,4 +1,4 @@
-package com.example.studyhelper_android_firebase;
+package com.example.studyhelper_android_firebase.complain;
 
 import android.os.Bundle;
 
@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class CH_ComplainFragment extends Fragment {
+import com.example.studyhelper_android_firebase.R;
+
+public class CH_ReportFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -16,7 +18,7 @@ public class CH_ComplainFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public CH_ComplainFragment() {
+    public CH_ReportFragment() {
         // Required empty public constructor
     }
 
@@ -33,6 +35,6 @@ public class CH_ComplainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ch_complain, container, false);
+        return inflater.inflate(R.layout.fragment_ch_report, container, false);
     }
 }

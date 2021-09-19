@@ -1,4 +1,4 @@
-package com.example.studyhelper_android_firebase;
+package com.example.studyhelper_android_firebase.classes;
 
 public class User {
 

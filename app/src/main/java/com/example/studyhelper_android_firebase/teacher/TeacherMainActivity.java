@@ -1,4 +1,4 @@
-package com.example.studyhelper_android_firebase;
+package com.example.studyhelper_android_firebase.teacher;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
 
+import com.example.studyhelper_android_firebase.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class TeacherMainActivity extends AppCompatActivity {

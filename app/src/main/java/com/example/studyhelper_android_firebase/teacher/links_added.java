@@ -1,4 +1,4 @@
-package com.example.studyhelper_android_firebase;
+package com.example.studyhelper_android_firebase.teacher;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.studyhelper_android_firebase.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link t_complains#newInstance} factory method to
+ * Use the {@link links_added#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class t_complains extends Fragment {
+public class links_added extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class t_complains extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public t_complains() {
+    public links_added() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class t_complains extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment t_complains.
+     * @return A new instance of fragment links_added.
      */
     // TODO: Rename and change types and number of parameters
-    public static t_complains newInstance(String param1, String param2) {
-        t_complains fragment = new t_complains();
+    public static links_added newInstance(String param1, String param2) {
+        links_added fragment = new links_added();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,7 @@ public class t_complains extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_t_complains, container, false);
+        return inflater.inflate(R.layout.fragment_links_added, container, false);
     }
+
 }
