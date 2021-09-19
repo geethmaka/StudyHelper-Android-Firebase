@@ -1,4 +1,4 @@
-package com.example.studyhelper_android_firebase;
+package com.example.studyhelper_android_firebase.student;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -8,6 +8,7 @@ import androidx.navigation.ui.NavigationUI;
 import android.os.Bundle;
 
 
+import com.example.studyhelper_android_firebase.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class StudentMainActivity extends AppCompatActivity {
