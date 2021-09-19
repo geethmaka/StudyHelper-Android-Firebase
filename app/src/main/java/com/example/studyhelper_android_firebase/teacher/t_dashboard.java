@@ -2,13 +2,24 @@ package com.example.studyhelper_android_firebase.teacher;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.EditText;
 
 import com.example.studyhelper_android_firebase.R;
+import com.example.studyhelper_android_firebase.classes.Course;
+import com.example.studyhelper_android_firebase.classes.Link;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,7 +71,41 @@ public class t_dashboard extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_t_dashboard, container, false);
+
+        View root = inflater.inflate(R.layout.link_popup_teacher, container, false);
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Button uploadButton = root.findViewById(R.id.btn_uploadlink);
+        uploadButton.setOnClickListener((View v) -> {
+
+
+
+            String Subject =  root.findViewById(R.id.spinner).toString();
+            String Title = root.findViewById(R.id.link_title).toString();
+            View Date = root.findViewById(R.id.calendarView);
+            String Time = root.findViewById(R.id.Time).toString();
+            String AmPm = root.findViewById(R.id.spinner2).toString();
+            String Link = root.findViewById(R.id.link_add).toString();
+
+            Link link=new Link(Subject,Title,Date.toString(),Time,AmPm,Link);
+
+            db.collection("link")
+                    .add(link)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w("TAG", "Error adding document", e);
+                        }
+                    });
+        });
+        return root;
+
+
+
     }
 }
