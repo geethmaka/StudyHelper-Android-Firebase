@@ -111,7 +111,7 @@
         app:layout_constraintTop_toBottomOf="@+id/link_add" />
 
     <EditText
-        android:id="@+id/editTextTime"
+        android:id="@+id/Time"
         android:layout_width="201dp"
         android:layout_height="47dp"
         android:layout_marginBottom="12dp"

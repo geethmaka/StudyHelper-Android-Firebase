@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -27,15 +28,27 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class TeacherMainActivity extends AppCompatActivity {
 //    RecyclerView Teacher_recycleView;
 //    Teacher_adapter teacher_adapter;
-private EditText title,date,time,link;
-private Spinner subject;
+private EditText title,time,link;
+private Spinner subject,ampm;
 private Button upload;
+private CalendarView date;
+
+
 
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_teacher_main);
+
+    subject=findViewById(R.id.spinner);
+    title=findViewById(R.id.link_title);
+    date=findViewById(R.id.calendarView);
+    time=findViewById(R.id.Time);
+    link=findViewById(R.id.link_add);
+    ampm=findViewById(R.id.spinner2);
+    upload=findViewById(R.id.btn_uploadlink);
+
 
 //        Teacher_recycleView=findViewById(R.id.recyclerView);
 //        Teacher_recycleView.setLayoutManager(context:this);
