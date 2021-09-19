@@ -8,7 +8,6 @@ import androidx.navigation.ui.NavigationUI;
 import android.os.Bundle;
 
 
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class StudentMainActivity extends AppCompatActivity {
@@ -23,8 +22,6 @@ public class StudentMainActivity extends AppCompatActivity {
         NavController student_navController = Navigation.findNavController(this,R.id.sfragmentContainerView);
         NavigationUI.setupWithNavController(student_bottomNavigationView, student_navController);
         NavigationUI.setupActionBarWithNavController(this, student_navController);
-
-
     }
 
 }

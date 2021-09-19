@@ -28,7 +28,7 @@ public class Login extends AppCompatActivity {
                     Intent start = new Intent(this,Course_manager_home.class);
                     startActivity(start);
                 }    else            if((Email.getText().toString().equals("t"))&&(Password.getText().toString().equals("t"))){
-                Intent start = new Intent(this,Course_manager_home.class);
+                Intent start = new Intent(this,TeacherMainActivity.class);
                 startActivity(start);
             }else                 if((Email.getText().toString().equals("ch"))&&(Password.getText().toString().equals("ch"))){
                     Intent start = new Intent(this,ComplainMain.class);
