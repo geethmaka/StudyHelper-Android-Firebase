@@ -10,7 +10,7 @@
         android:id="@+id/tmbottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/purple_200"
+        android:background="@color/bottomnav"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
