@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.studyhelper_android_firebase.complain.ComplainMain;
+import com.example.studyhelper_android_firebase.student.StudentMainActivity;
 import com.example.studyhelper_android_firebase.teacher.TeacherMainActivity;
 
 
@@ -36,7 +37,7 @@ public class Login extends AppCompatActivity {
                     Intent start = new Intent(this, ComplainMain.class);
                     startActivity(start);
                 }else                if((Email.getText().toString().equals("s"))&&(Password.getText().toString().equals("s"))){
-                Intent start = new Intent(this,StudentMainActivity.class);
+                Intent start = new Intent(this, StudentMainActivity.class);
                 startActivity(start);
             }
         });

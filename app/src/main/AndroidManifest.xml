@@ -21,7 +21,7 @@
         <!-- android:name=".Register" -->
         <!-- android:exported="true" /> -->
         <activity
-            android:name=".StudentMainActivity"
+            android:name=".student.StudentMainActivity"
             android:exported="true" />
               <activity
             android:name=".Course_manager_home"
