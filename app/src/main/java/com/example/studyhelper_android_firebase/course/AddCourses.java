@@ -2,13 +2,21 @@ package com.example.studyhelper_android_firebase.course;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.studyhelper_android_firebase.R;
+import com.example.studyhelper_android_firebase.classes.Course;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,7 +68,29 @@ public class AddCourses extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_courses, container, false);
+
+        View root = inflater.inflate(R.layout.fragment_add_courses, container, false);
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Button addButton = root.findViewById(R.id.addButton);
+        addButton.setOnClickListener((View v) -> {
+
+            Course user = new Course("subject", 10, false);
+
+            db.collection("courses")
+                    .add(user)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w("TAG", "Error adding document", e);
+                        }
+                    });
+        });
+        return root;
     }
 }
