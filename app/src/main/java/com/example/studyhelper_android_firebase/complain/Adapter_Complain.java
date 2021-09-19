@@ -57,8 +57,8 @@ public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.View
 //        });
 
 //        holder.username.setText();
-        holder.status.setText(c.status);
-        holder.complain.setText(c.complain);
+        holder.status.setText(c.Status);
+        holder.complain.setText(c.Complain);
     }
 
     @Override
@@ -82,7 +82,7 @@ public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.View
             itemView.findViewById(R.id.btn_complain_resolve).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    
                 }
             });
         }
