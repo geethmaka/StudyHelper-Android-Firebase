@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TeacherMainActivity">
+    tools:context=".teacher.TeacherMainActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/tmbottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/purple_200"
+        android:background="@color/bottomnav"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp"
         app:layout_constraintBottom_toBottomOf="parent"

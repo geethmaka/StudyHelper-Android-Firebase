@@ -8,12 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
+import com.example.studyhelper_android_firebase.complain.ComplainMain;
+import com.example.studyhelper_android_firebase.teacher.TeacherMainActivity;
 
 
 public class Login extends AppCompatActivity {
@@ -33,21 +30,15 @@ public class Login extends AppCompatActivity {
                     Intent start = new Intent(this,Course_manager_home.class);
                     startActivity(start);
                 }    else            if((Email.getText().toString().equals("t"))&&(Password.getText().toString().equals("t"))){
-                Intent start = new Intent(this,Course_manager_home.class);
+                Intent start = new Intent(this, TeacherMainActivity.class);
                 startActivity(start);
             }else                 if((Email.getText().toString().equals("ch"))&&(Password.getText().toString().equals("ch"))){
-                    Intent start = new Intent(this,ComplainMain.class);
+                    Intent start = new Intent(this, ComplainMain.class);
                     startActivity(start);
                 }else                if((Email.getText().toString().equals("s"))&&(Password.getText().toString().equals("s"))){
                 Intent start = new Intent(this,StudentMainActivity.class);
                 startActivity(start);
             }
         });
-    }
-
-    public void gotoCHProfile(View view) {
-        final Context context = this;
-        Intent intent = new Intent(context, ComplainMain.class);
-        startActivity(intent);
     }
 }

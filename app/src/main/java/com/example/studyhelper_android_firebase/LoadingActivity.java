@@ -24,7 +24,7 @@ public class LoadingActivity extends AppCompatActivity {
             public void run() {
                 for(int i =0; i<10; i++){
                     progressBar.incrementProgressBy(20);
-                    SystemClock.sleep(1000);
+                    SystemClock.sleep(100);
                 }
             }
         });
