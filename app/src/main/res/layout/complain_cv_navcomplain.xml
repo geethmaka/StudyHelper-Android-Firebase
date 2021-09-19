@@ -21,8 +21,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="24dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
             tools:layout_editor_absoluteY="1dp">
@@ -31,9 +32,10 @@
                 android:id="@+id/tv_complain_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="H.G.Geethamaka"/>
 
             <TextView
                 android:id="@+id/tv_status"
@@ -45,7 +47,7 @@
                 android:paddingEnd="6sp"
                 android:paddingBottom="2sp"
                 android:text="Pending"
-                android:textSize="12sp"
+                android:textSize="15sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/tv_complain_name"
                 app:layout_constraintRight_toRightOf="parent" />
 
@@ -62,43 +64,10 @@
                 android:id="@+id/user_complain"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="14sp"
-                />
+                android:textSize="17sp"
+                android:text="The app is working perfectly"/>
 
         </LinearLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ch_complain_reply_layout"
-            android:orientation="horizontal"
-            android:paddingStart="4sp"
-            android:paddingEnd="4dp">
-
-            <EditText
-                android:id="@+id/et_reply_msg"
-                android:layout_width="320sp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="4sp"
-                android:hint="@string/msg_hint"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toStartOf="@+id/imageButton"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="TouchTargetSizeCheck"
-                tools:layout_editor_absoluteY="5dp" />
-
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/btn_transp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/ic_msg_send"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
-                tools:layout_editor_absoluteY="10dp" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
