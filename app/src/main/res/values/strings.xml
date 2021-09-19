@@ -80,4 +80,5 @@
     <string name="btn_com_delete">Delete Resolved Complains</string>
     <string name="teacher">Teacher</string>
     <string name="student">Student</string>
+    <string name="subject">Subject</string>
 </resources>
