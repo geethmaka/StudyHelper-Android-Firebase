@@ -51,9 +51,15 @@
     <string name="edit_title">Edit_Title</string>
     <string name="linkUpdate">Link</string>
     <string name="pdf_upload">Upload</string>
+    <string name="subject">Subject</string>
 
 
     <string name="title_activity_studentprifile">StudentprifileActivity</string>
+
+    <!-- Teacher Management -->
+    <string name="student_details">Student detials</string>
+    <string name="scomplaint_details">New Complaint</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -80,6 +86,4 @@
     <string name="btn_com_delete">Delete Resolved Complains</string>
     <string name="teacher">Teacher</string>
     <string name="student">Student</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

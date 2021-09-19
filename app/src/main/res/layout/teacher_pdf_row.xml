@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="3dp"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="3dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@color/white">
+
+
+        <TextView
+            android:id="@+id/pdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Sub_name"
+            android:textSize="22dp"
+            tools:layout_editor_absoluteX="10dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <TextView
+            android:id="@+id/pdf1"
+            android:layout_width="212dp"
+            android:layout_height="31dp"
+            android:text="@string/subject"
+            android:textSize="22dp"
+            tools:layout_editor_absoluteX="157dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <TextView
+            android:id="@+id/pdf2"
+            android:layout_width="91dp"
+            android:layout_height="27dp"
+            android:text="@string/Title_sub"
+            android:textSize="22dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="66dp" />
+
+
+        <EditText
+            android:id="@+id/editpdf"
+            android:layout_width="223dp"
+            android:layout_height="38dp"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="text"
+            android:text="@string/edit_title"
+            tools:layout_editor_absoluteX="146dp"
+            tools:layout_editor_absoluteY="68dp" />
+
+        <ImageButton
+            android:id="@+id/edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_transp"
+            tools:layout_editor_absoluteX="365dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <EditText
+            android:id="@+id/updatepdf"
+            android:layout_width="225dp"
+            android:layout_height="36dp"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="text"
+            android:text="@string/pdfUpload"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="146dp"
+            tools:layout_editor_absoluteY="127dp" />
+
+        <ImageButton
+            android:id="@+id/update"
+            android:layout_width="53dp"
+            android:layout_height="50dp"
+            android:background="@color/status_green"
+            app:srcCompat="@drawable/ic_baseline_check_circle_24"
+            tools:layout_editor_absoluteX="173dp"
+            tools:layout_editor_absoluteY="175dp" />
+
+        <ImageButton
+            android:id="@+id/delete"
+            android:layout_width="49dp"
+            android:layout_height="47dp"
+            android:background="@color/btn2_r"
+
+            app:srcCompat="@drawable/ic_baseline_delete_24"
+            tools:layout_editor_absoluteX="236dp"
+            tools:layout_editor_absoluteY="175dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
