@@ -11,6 +11,7 @@ public class Course {
         this.availability = availability;
     }
 
+    public Course(){}
     public String getSubject() {
         return subject;
     }
