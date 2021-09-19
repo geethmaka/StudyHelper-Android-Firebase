@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/course_nav"
+    app:startDestination="@id/viewCourses">
+
+    <fragment
+        android:id="@+id/viewCourses"
+        android:name="com.example.studyhelper_android_firebase.course.ViewCourses"
+        android:label="fragment_view_courses"
+        tools:layout="@layout/fragment_view_courses" />
+    <fragment
+        android:id="@+id/addCourses"
+        android:name="com.example.studyhelper_android_firebase.course.AddCourses"
+        android:label="fragment_add_courses"
+        tools:layout="@layout/fragment_add_courses" />
+    <fragment
+        android:id="@+id/updateCourses"
+        android:name="com.example.studyhelper_android_firebase.course.UpdateCourses"
+        android:label="fragment_update_courses"
+        tools:layout="@layout/fragment_update_courses" />
+</navigation>

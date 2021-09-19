@@ -51,6 +51,7 @@
     <string name="edit_title">Edit_Title</string>
     <string name="linkUpdate">Link</string>
     <string name="pdf_upload">Upload</string>
+    <string name="subject">Subject</string>
 
 
     <string name="title_activity_studentprifile">StudentprifileActivity</string>
@@ -60,7 +61,7 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-<!--    complain-->
+    <!--    complain-->
     <string name="nav_Dashboard">Dashboard</string>
     <string name="nav_userDtails">User Details</string>
     <string name="nav_Reports">Report</string>
@@ -80,5 +81,4 @@
     <string name="btn_com_delete">Delete Resolved Complains</string>
     <string name="teacher">Teacher</string>
     <string name="student">Student</string>
-    <string name="subject">Subject</string>
 </resources>
