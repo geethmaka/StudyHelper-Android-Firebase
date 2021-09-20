@@ -12,10 +12,10 @@ import com.example.studyhelper_android_firebase.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link links_added#newInstance} factory method to
+ * Use the {@link T_dashboard#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class links_added extends Fragment {
+public class T_dashboard extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class links_added extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public links_added() {
+    public T_dashboard() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class links_added extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment links_added.
+     * @return A new instance of fragment t_dashboard.
      */
     // TODO: Rename and change types and number of parameters
-    public static links_added newInstance(String param1, String param2) {
-        links_added fragment = new links_added();
+    public static T_dashboard newInstance(String param1, String param2) {
+        T_dashboard fragment = new T_dashboard();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -56,12 +56,10 @@ public class links_added extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_links_added, container, false);
+        return inflater.inflate(R.layout.fragment_t_dashboard, container, false);
     }
-
 }
