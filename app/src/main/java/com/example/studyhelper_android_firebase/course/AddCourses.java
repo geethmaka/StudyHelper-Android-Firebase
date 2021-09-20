@@ -10,21 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Switch;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Course;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -83,7 +77,10 @@ public class AddCourses extends Fragment {
         Button addButton = root.findViewById(R.id.addButton);
         addButton.setOnClickListener((View v) -> {
 
-            Course user = new Course("subject", 10, false);
+            EditText subject =  root.findViewById(R.id.addSubject);
+            Switch availability = root.findViewById(R.id.addAvailability);
+
+            Course user = new Course(subject.getText().toString(), 10, availability.isChecked());
 
             db.collection("courses")
                     .add(user)

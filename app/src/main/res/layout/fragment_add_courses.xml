@@ -45,6 +45,7 @@
                     android:layout_marginTop="@dimen/signup_text_margin_top">
 
                     <EditText
+                        android:id="@+id/addSubject"
                         android:layout_width="319dp"
                         android:layout_height="50dp"
                         android:hint="Subject"
@@ -73,10 +74,17 @@
 
                     <EditText
                         android:layout_width="315dp"
-                        android:layout_height="150dp"
+                        android:layout_height="40dp"
                         android:hint="@string/login_email_hint"
                         android:inputType="textEmailAddress"
                         android:maxLines="1" />
+
+                    <Switch
+                        android:id="@+id/addAvailability"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Switch" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
