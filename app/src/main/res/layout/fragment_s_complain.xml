@@ -12,105 +12,104 @@
         android:layout_height="match_parent"
         android:gravity="center">
 
-    <RelativeLayout
-        android:background="@color/white"
-        android:layout_width="370dp"
-        android:layout_height="680dp">
+        <RelativeLayout
+            android:layout_width="370dp"
+            android:layout_height="680dp"
+            android:background="@color/white">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            style="@style/linearParent"
-            android:layout_gravity="center"
-            android:layout_marginTop="83dp"
-            android:gravity="center"
-            android:padding="@dimen/loginViewsMargin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="73dp">
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                style="@style/linearParent"
+                android:layout_gravity="center"
+                android:layout_marginTop="83dp"
+                android:gravity="center"
+                android:padding="@dimen/loginViewsMargin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="73dp">
 
-            <TextView
-                style="@style/headerTextPrimary"
-                android:layout_marginTop="@dimen/loginViewsMargin"
-                android:text="@string/scomplaint_details" />
+                <TextView
+                    style="@style/headerTextPrimary"
+                    android:layout_marginTop="@dimen/loginViewsMargin"
+                    android:text="@string/scomplaint_details" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/parent"
-                android:layout_marginTop="@dimen/signup_text_margin_top" />
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/parent"
+                    android:layout_marginTop="@dimen/signup_text_margin_top" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="321dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="@dimen/signup_text_margin_top">
-
-                <EditText
-                    android:layout_width="319dp"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="321dp"
                     android:layout_height="50dp"
-                    android:hint="Subject"
-                    android:inputType="text"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginTop="@dimen/signup_text_margin_top">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="315dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="@dimen/signup_text_margin_top">
+                    <EditText
+                        android:layout_width="319dp"
+                        android:layout_height="50dp"
+                        android:hint="Subject"
+                        android:inputType="text"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="315dp"
                     android:layout_height="50dp"
-                    android:hint="Steam"
-                    android:inputType="text"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginTop="@dimen/signup_text_margin_top">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="315dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="@dimen/signup_text_margin_top">
+                    <EditText
 
-                <EditText
+                        android:layout_width="315dp"
+                        android:layout_height="50dp"
+                        android:hint="Steam"
+                        android:inputType="text"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="315dp"
                     android:layout_height="150dp"
-                    android:hint="@string/login_email_hint"
-                    android:inputType="textEmailAddress"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginTop="@dimen/signup_text_margin_top">
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/parent"
-                android:layout_marginTop="@dimen/signup_text_margin_top" />
+                    <EditText
+                        android:layout_width="315dp"
+                        android:layout_height="150dp"
+                        android:hint="@string/login_email_hint"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/parent"
+                    android:layout_marginTop="@dimen/signup_text_margin_top" />
 
 
-            <Button
-                style="@style/loginButton"
-                android:layout_gravity="center"
-                android:text="Submit" />
+                <Button
+                    style="@style/loginButton"
+                    android:layout_gravity="center"
+                    android:text="Submit" />
 
-        </LinearLayout>
+            </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="600dp"
-            android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            app:layout_constraintVertical_bias="0.672">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="600dp"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                app:layout_constraintVertical_bias="0.672">
 
-            <Button
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="complains">
-            </Button>
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:text="complains"></Button>
 
+            </RelativeLayout>
         </RelativeLayout>
-    </RelativeLayout>
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
