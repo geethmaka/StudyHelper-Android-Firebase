@@ -19,79 +19,113 @@
             android:id="@+id/pdf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="73dp"
+            android:layout_marginBottom="20dp"
             android:text="@string/Sub_name"
             android:textSize="22dp"
-            tools:layout_editor_absoluteX="10dp"
-            tools:layout_editor_absoluteY="16dp" />
+            app:layout_constraintBottom_toTopOf="@+id/pdf2"
+            app:layout_constraintEnd_toStartOf="@+id/pdf1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/pdf1"
-            android:layout_width="212dp"
-            android:layout_height="31dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="34dp"
+            android:layout_marginBottom="11dp"
             android:text="@string/subject"
             android:textSize="22dp"
-            tools:layout_editor_absoluteX="157dp"
-            tools:layout_editor_absoluteY="16dp" />
+            app:layout_constraintBottom_toTopOf="@+id/edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pdf"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/pdf2"
-            android:layout_width="91dp"
-            android:layout_height="27dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="39dp"
+            android:layout_marginBottom="157dp"
             android:text="@string/Title_sub"
             android:textSize="22dp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="66dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editpdf"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pdf" />
 
 
         <EditText
             android:id="@+id/editpdf"
-            android:layout_width="223dp"
-            android:layout_height="38dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="34dp"
+            android:layout_marginBottom="21dp"
             android:ems="10"
             android:gravity="center"
             android:inputType="text"
             android:text="@string/edit_title"
-            tools:layout_editor_absoluteX="146dp"
-            tools:layout_editor_absoluteY="68dp" />
+            app:layout_constraintBottom_toTopOf="@+id/updatepdf"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pdf2"
+            app:layout_constraintTop_toBottomOf="@+id/edit" />
 
         <ImageButton
             android:id="@+id/edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/btn_transp"
-            tools:layout_editor_absoluteX="365dp"
-            tools:layout_editor_absoluteY="59dp" />
+            app:layout_constraintBottom_toTopOf="@+id/editpdf"
+            app:layout_constraintEnd_toEndOf="@+id/editpdf"
+            app:layout_constraintTop_toBottomOf="@+id/pdf1" />
 
         <EditText
             android:id="@+id/updatepdf"
             android:layout_width="225dp"
-            android:layout_height="36dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="12dp"
             android:ems="10"
             android:gravity="center"
             android:inputType="text"
             android:text="@string/pdfUpload"
-            tools:ignore="TouchTargetSizeCheck"
-            tools:layout_editor_absoluteX="146dp"
-            tools:layout_editor_absoluteY="127dp" />
+            app:layout_constraintBottom_toTopOf="@+id/update"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editpdf"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <ImageButton
             android:id="@+id/update"
-            android:layout_width="53dp"
-            android:layout_height="50dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="173dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="25dp"
             android:background="@color/status_green"
-            app:srcCompat="@drawable/ic_baseline_check_circle_24"
-            tools:layout_editor_absoluteX="173dp"
-            tools:layout_editor_absoluteY="175dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/delete"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/updatepdf"
+            app:srcCompat="@drawable/ic_baseline_check_circle_24" />
 
         <ImageButton
             android:id="@+id/delete"
-            android:layout_width="49dp"
-            android:layout_height="47dp"
-            android:background="@color/btn2_r"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="118dp"
 
-            app:srcCompat="@drawable/ic_baseline_delete_24"
-            tools:layout_editor_absoluteX="236dp"
-            tools:layout_editor_absoluteY="175dp" />
+            android:background="@color/btn2_r"
+            app:layout_constraintBottom_toBottomOf="@+id/update"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/update"
+            app:layout_constraintTop_toTopOf="@+id/update"
+            app:srcCompat="@drawable/ic_baseline_delete_24" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
