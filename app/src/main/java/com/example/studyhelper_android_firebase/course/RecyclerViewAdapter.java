@@ -4,6 +4,7 @@ import com.example.studyhelper_android_firebase.R;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +44,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         String animal = mData.get(position);
         holder.myTextView.setText(animal);
 
-        holder.parentLayout.setOnClickListener(view -> Toast.makeText(mContext, "Clicked on " + mData.get(position), Toast.LENGTH_SHORT).show());
+        holder.parentLayout.setOnClickListener(view -> {
+            Toast.makeText(mContext, "Clicked on " + mData.get(position), Toast.LENGTH_SHORT).show();
+            Intent i=new Intent(mContext,UpdateCourse.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.putExtra("id", animal);
+            mContext.startActivity(i);
+        });
         //holder.button.setonclick listner
     }
 

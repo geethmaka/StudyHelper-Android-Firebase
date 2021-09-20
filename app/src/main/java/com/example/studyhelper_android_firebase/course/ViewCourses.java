@@ -97,7 +97,7 @@ public class ViewCourses extends Fragment{
                                 Log.d("TAG", document.getId() + " => " + document.getData());
                                 Course course=document.toObject(Course.class);
                                 coursesL.add(course);
-                                courses.add(course.getSubject());
+                                courses.add(document.getId());
                             }
                             RecyclerViewAdapter mAdapter = new RecyclerViewAdapter(courses,requireActivity().getApplicationContext());
                             recyclerView.setAdapter(mAdapter);
