@@ -58,7 +58,7 @@ public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.View
 
         holder.username.setText(c.getUserID());
         holder.status.setText(c.getStatus());
-        holder.complain.setText(c.getComplain());
+        holder.complain.setText(c.getContent());
     }
 
     @Override

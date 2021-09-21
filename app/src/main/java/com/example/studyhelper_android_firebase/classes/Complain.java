@@ -8,7 +8,7 @@ public class Complain {
     private String Type;
     private String Status;
     private String Date;
-    private String Complain;
+    private String content;
 
     public Complain() {
         // Default constructor needed for call to DataSnapshot.getValue(User.class
