@@ -36,7 +36,6 @@ public class UpdateCourse extends AppCompatActivity {
         EditText subject = findViewById(R.id.updateSubject);
 
         Intent intent = getIntent();
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         String id = intent.getStringExtra("id");
         Switch availability = findViewById(R.id.updateAvailability);
@@ -84,8 +83,22 @@ public class UpdateCourse extends AppCompatActivity {
             alertDialog.setTitle("hi");
             alertDialog.setMessage("this is my app");
             alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes",new DialogInterface.OnClickListener(){
-                public void onClick(DialogInterface dialog, int id) {
-                    // delete record and redirect to viewcourse
+                public void onClick(DialogInterface dialog, int ID) {
+                    db.collection("courses").document(id)
+                            .delete()
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Intent i=new Intent(v.getContext(),ViewCourses.class);
+                                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    v.getContext().startActivity(i);
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                }
+                            });
                 }
 
             });

@@ -45,7 +45,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.myTextView.setText(animal);
 
         holder.parentLayout.setOnClickListener(view -> {
-            Toast.makeText(mContext, "Clicked on " + mData.get(position), Toast.LENGTH_SHORT).show();
             Intent i=new Intent(mContext,UpdateCourse.class);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             i.putExtra("id", animal);
