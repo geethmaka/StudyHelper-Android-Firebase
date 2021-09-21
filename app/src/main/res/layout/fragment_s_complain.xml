@@ -84,6 +84,7 @@
                 android:gravity="center">
 
                 <Button
+                    android:id="@+id/scomplains"
                     android:layout_width="140dp"
                     android:layout_height="50dp"
                     android:text="complaints">
