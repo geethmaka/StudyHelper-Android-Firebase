@@ -13,7 +13,7 @@ public class Complain {
     }
 
     //overloaded constructor
-    public Complain(String complainId, String userId, String type, String status, String date, String complain) {
+    public Complain(String complainId, String userId, String type, String status, Long  date, String complain) {
         this.complainId = complainId;
         this.userID = userId;
         this.Type = type;

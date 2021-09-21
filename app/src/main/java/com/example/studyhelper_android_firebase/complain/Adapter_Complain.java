@@ -30,6 +30,7 @@ public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.View
     public Adapter_Complain.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_navcomplain,parent,false);
+
         return new ViewHolder(v);
     }
 
@@ -84,6 +85,7 @@ public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.View
 //
 //                }
 //            });
+
         }
     }
 }

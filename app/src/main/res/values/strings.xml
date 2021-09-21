@@ -56,9 +56,14 @@
 
     <string name="title_activity_studentprifile">StudentprifileActivity</string>
 
-    <!-- Teacher Management -->
+    <!-- Student Management -->
     <string name="student_details">Student detials</string>
     <string name="scomplaint_details">New Complaint</string>
+    <string name="sm_subject_prompt">Type</string>
+    <string-array name="smm_subject_arrays">
+        <item>Complaint</item>
+        <item>Request</item>
+    </string-array>
 
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

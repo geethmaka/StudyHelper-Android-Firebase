@@ -1,21 +1,36 @@
 package com.example.studyhelper_android_firebase.course;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.studyhelper_android_firebase.R;
+import com.example.studyhelper_android_firebase.classes.Course;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ViewCourses#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ViewCourses extends Fragment {
+public class ViewCourses extends Fragment{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,10 +72,43 @@ public class ViewCourses extends Fragment {
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        List<Course> coursesL = new LinkedList<>();
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_view_courses, container, false);
+        View root = inflater.inflate(R.layout.fragment_view_courses, container, false);
+        ArrayList<String> courses = new ArrayList<>();
+        Context currentContext = this.getContext();
+
+        RecyclerView recyclerView = root.findViewById(R.id.recycleList);
+        recyclerView.setLayoutManager(new LinearLayoutManager(currentContext));
+
+        db.collection("courses")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d("TAG", document.getId() + " => " + document.getData());
+                                Course course=document.toObject(Course.class);
+                                coursesL.add(course);
+                                courses.add(document.getId());
+                            }
+                            RecyclerViewAdapter mAdapter = new RecyclerViewAdapter(courses,requireActivity().getApplicationContext());
+                            recyclerView.setAdapter(mAdapter);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity().getApplicationContext()));
+                        } else {
+                            Log.d("TAG", "Error getting documents: ", task.getException());
+                        }
+                    }
+
+                });
+
+        return root;
     }
 }

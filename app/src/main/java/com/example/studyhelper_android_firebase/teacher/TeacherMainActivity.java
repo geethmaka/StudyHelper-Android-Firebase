@@ -170,7 +170,7 @@ public class TeacherMainActivity extends AppCompatActivity {
         // inflate the layout of the popup window
         LayoutInflater inflater = (LayoutInflater)
                 getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popupView = inflater.inflate(R.layout.link_popup_teacher, null);
+        View popupView = inflater.inflate(R.layout.teacher_popup_link, null);
         // create the popup window
         int width = LinearLayout.LayoutParams.MATCH_PARENT;
         int height = LinearLayout.LayoutParams.MATCH_PARENT;
