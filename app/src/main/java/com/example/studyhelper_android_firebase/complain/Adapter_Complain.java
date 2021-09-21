@@ -1,6 +1,7 @@
 package com.example.studyhelper_android_firebase.complain;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Complain;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.ViewHolder> {
-
+    //creating an instance of the database
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     Context context;
     ArrayList<Complain> complainArrayList;
 
@@ -38,27 +44,28 @@ public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.View
     public void onBindViewHolder(@NonNull Adapter_Complain.ViewHolder holder, int position) {
         Complain c = complainArrayList.get(position);
 
-//        DocumentReference docRef = db.collection("cities").document("SF");
-//        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                if (task.isSuccessful()) {
-//                    DocumentSnapshot document = task.getResult();
-//                    if (document.exists()) {
-//                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-//                    }
-//                    else {
-//                        Log.d(TAG, "No such document");
-//                    }
-//                } else {
-//                    Log.d(TAG, "get failed with ", task.getException());
-//                }
-//            }
-//        });
+        db.collection("complain")
+                .document(id)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            Complain c = document.toObject(Complain.class);
+
+                            subject.setText(course.getSubject());
+                            availability.setChecked(course.isAvailability());
+                        } else {
+                            Log.d("TAG", "No such document");
+                        }
+                    } else {
+                        Log.d("TAG", "get failed with ", task.getException());
+                    }
+                });
 
         holder.username.setText(c.getUserID());
         holder.status.setText(c.getStatus());
-        holder.complain.setText(c.getComplain());
+        holder.complain.setText(c.getContent());
     }
 
     @Override
@@ -71,13 +78,14 @@ public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.View
         TextView username;
         TextView status;
         TextView complain;
-        Button mark_resolved;
+//        Button mark_resolved;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             username = itemView.findViewById(R.id.tv_complain_name);
             status = itemView.findViewById(R.id.tv_status);
             complain = itemView.findViewById(R.id.user_complain);
+            TextView btn = itemView.findViewById(R.id.btn_banUser);
 
 //            itemView.findViewById(R.id.btn_complain_resolve).setOnClickListener(new View.OnClickListener() {
 //                @Override

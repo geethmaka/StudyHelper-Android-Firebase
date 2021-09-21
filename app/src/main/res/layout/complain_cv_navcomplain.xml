@@ -95,8 +95,8 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:paddingTop="5sp"
-            android:paddingBottom="5sp"
-            android:paddingStart="2sp"
+            android:paddingBottom="3sp"
+            android:paddingStart="3sp"
             android:paddingEnd="2sp">
 
             <android.widget.Button
