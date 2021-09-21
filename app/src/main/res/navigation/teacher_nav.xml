@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/t_dashboard"
-        android:name="com.example.studyhelper_android_firebase.teacher.t_dashboard"
+        android:name="com.example.studyhelper_android_firebase.teacher.T_dashboard"
         android:label="fragment_t_dashboard"
         tools:layout="@layout/fragment_t_dashboard" />
     <fragment
         android:id="@+id/pdfs_added"
-        android:name="com.example.studyhelper_android_firebase.teacher.pdfs_added"
+        android:name="com.example.studyhelper_android_firebase.teacher.Pdfs_added"
         android:label="fragment_pdfs_added"
         tools:layout="@layout/fragment_pdfs_added" />
     <fragment
         android:id="@+id/links_added"
-        android:name="com.example.studyhelper_android_firebase.teacher.links_added"
+        android:name="com.example.studyhelper_android_firebase.teacher.Links_added"
         android:label="fragment_links_added"
         tools:layout="@layout/fragment_links_added" />
     <fragment
         android:id="@+id/t_complains"
-        android:name="com.example.studyhelper_android_firebase.teacher.t_complains"
+        android:name="com.example.studyhelper_android_firebase.teacher.T_complains"
         android:label="fragment_t_complains"
         tools:layout="@layout/fragment_t_complains" />
 </navigation>

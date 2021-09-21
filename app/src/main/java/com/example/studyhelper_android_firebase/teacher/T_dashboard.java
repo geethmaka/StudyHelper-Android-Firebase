@@ -23,10 +23,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link t_dashboard#newInstance} factory method to
+ * Use the {@link T_dashboard#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class t_dashboard extends Fragment {
+public class T_dashboard extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,7 +37,7 @@ public class t_dashboard extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public t_dashboard() {
+    public T_dashboard() {
         // Required empty public constructor
     }
 
@@ -50,8 +50,8 @@ public class t_dashboard extends Fragment {
      * @return A new instance of fragment t_dashboard.
      */
     // TODO: Rename and change types and number of parameters
-    public static t_dashboard newInstance(String param1, String param2) {
-        t_dashboard fragment = new t_dashboard();
+    public static T_dashboard newInstance(String param1, String param2) {
+        T_dashboard fragment = new T_dashboard();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -72,7 +72,7 @@ public class t_dashboard extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.link_popup_teacher, container, false);
+        View root = inflater.inflate(R.layout.teacher_popup_link, container, false);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Button uploadButton = root.findViewById(R.id.btn_uploadlink);

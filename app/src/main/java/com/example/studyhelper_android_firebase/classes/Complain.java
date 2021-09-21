@@ -2,24 +2,38 @@ package com.example.studyhelper_android_firebase.classes;
 
 public class Complain {
     public String complainId;
-    public String userId;
-    public String type;
-    public String status;
-    public String date;
-    public String complain;
+    public String userID;
+    public String Type;
+    public String Status;
+    public Long Date;
+    public String Complain;
 
     public Complain() {
         // Default constructor needed for call to DataSnapshot.getValue(User.class
     }
 
     //overloaded constructor
-    public Complain(String complainId, String userId, String type, String status, String date, String complain) {
+    public Complain(String complainId, String userId, String type, String status, Long  date, String complain) {
         this.complainId = complainId;
-        this.userId = userId;
-        this.type = type;
-        this.status = status;
-        this.date = date;
-        this.complain = complain;
+        this.userID = userId;
+        this.Type = type;
+        this.Status = status;
+        this.Date = date;
+        this.Complain = complain;
+    }
+
+    public Complain(String userId, String type, String status, Long date, String complain) {
+        this.userID = userId;
+        this.Type = type;
+        this.Status = status;
+        this.Date = date;
+        this.Complain = complain;
+    }
+
+    public Complain(String type, long date, String complain) {
+        this.Type = type;
+        this.Date = date;
+        this.Complain = complain;
     }
 
     //getters and setters
@@ -31,43 +45,43 @@ public class Complain {
         this.complainId = complainId;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUserID() {
+        return userID;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getType() {
-        return type;
+        return Type;
     }
 
     public void setType(String type) {
-        this.type = type;
+        this.Type = type;
     }
 
     public String getStatus() {
-        return status;
+        return Status;
     }
 
     public void setStatus(String status) {
-        this.status = status;
+        this.Status = status;
     }
 
-    public String getDate() {
-        return date;
+    public Long  getDate() {
+        return Date;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDate(Long  date) {
+        this.Date = date;
     }
 
     public String getComplain() {
-        return complain;
+        return Complain;
     }
 
     public void setComplain(String complain) {
-        this.complain = complain;
+        this.Complain = complain;
     }
 }
