@@ -3,18 +3,35 @@ package com.example.studyhelper_android_firebase.teacher;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.studyhelper_android_firebase.R;
+import com.example.studyhelper_android_firebase.classes.Link;
 import com.example.studyhelper_android_firebase.classes.Pdf;
+import com.example.studyhelper_android_firebase.classes.User;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
+
 
 import java.util.ArrayList;
 
@@ -55,10 +72,13 @@ public class Pdfs_added extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     RecyclerView recyclerView;
     ArrayList<Pdf> pdfArrayList;
     PdfAdapter pdfAdapter;
-    FirebaseFirestore db;
+    String[] subject;
+    String[] title;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,9 +106,41 @@ public class Pdfs_added extends Fragment {
 
         pdfArrayList=new ArrayList<Pdf>();
         pdfAdapter= new PdfAdapter(pdfArrayList, this.getContext());
+        recyclerView.setAdapter(pdfAdapter);
+        EventChangeListener();
+
         return root;
+
+
+
     }
 
+    private void EventChangeListener() {
+        db.collection("pdf")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        if(error != null) {
+                            //dismiss progress dialog
+//                            if(progressDialog.isShowing())
+//                                progressDialog.dismiss();
+                            Log.e("Firestore Error",error.getMessage());
+                            return;
+                        }
 
+                        //fetching the data from the firestore database
+                        for(DocumentChange dc : value.getDocumentChanges()){
+                            if(dc.getType() == DocumentChange.Type.ADDED) {
+                                pdfArrayList.add(dc.getDocument().toObject(Pdf.class));
+                            }
+                            pdfAdapter.notifyDataSetChanged();
+                            //dismiss progress dialog
+//                            if(progressDialog.isShowing())
+//                                progressDialog.dismiss();
+                        }
 
+                    }
+                });
+    }
 }
+

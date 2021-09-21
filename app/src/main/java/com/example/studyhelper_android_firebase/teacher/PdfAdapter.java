@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -43,7 +44,7 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.PdfViewHolder> {
 
             holder.subject.setText(pdf.subject);
             holder.Title.setText(pdf.title);
-//            holder.uppdf.setFile(pdf.uppdf);
+            holder.uppdf.setText(pdf.uppdf);
     }
     @Override
     public int getItemCount() {
@@ -51,14 +52,17 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.PdfViewHolder> {
     }
 
     public static class PdfViewHolder extends RecyclerView.ViewHolder{
-
-        TextView subject,Title;
-//        File uppdf;
+        TextView subject;
+        EditText Title,uppdf;
 
 
 
         public PdfViewHolder(@NonNull View itemView) {
             super(itemView);
+            subject = itemView.findViewById(R.id.pdf1);
+            Title = itemView.findViewById(R.id.editpdf);
+            uppdf = itemView.findViewById(R.id.updatepdf);
+//            TextView btn_banUser = itemView.findViewById(R.id.btn_banUser);
         }
     }
 

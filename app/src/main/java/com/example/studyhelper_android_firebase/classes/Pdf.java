@@ -6,9 +6,12 @@ public class Pdf {
 
      public String subject;
      public String title;
-     public File uppdf;
+     public String uppdf;
 
-    public Pdf(String subject, String title, File pdf) {
+    public Pdf() {
+    }
+
+    public Pdf(String subject, String title, String pdf) {
         this.subject = subject;
         this.title = title;
         this.uppdf = pdf;
@@ -30,11 +33,11 @@ public class Pdf {
         this.title = title;
     }
 
-    public File getPdf() {
+    public String getPdf() {
         return uppdf;
     }
 
-    public void setPdf(File pdf) {
+    public void setPdf(String pdf) {
         this.uppdf = pdf;
     }
 }
