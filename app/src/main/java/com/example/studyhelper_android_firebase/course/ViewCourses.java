@@ -77,11 +77,13 @@ public class ViewCourses extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        List<Course> coursesL = new LinkedList<>();
 
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_view_courses, container, false);
-        ArrayList<String> courses = new ArrayList<>();
+
+        ArrayList<Course>courseList = new ArrayList<>();
+
+
         Context currentContext = this.getContext();
 
         RecyclerView recyclerView = root.findViewById(R.id.recycleList);
@@ -89,24 +91,20 @@ public class ViewCourses extends Fragment{
 
         db.collection("courses")
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d("TAG", document.getId() + " => " + document.getData());
-                                Course course=document.toObject(Course.class);
-                                coursesL.add(course);
-                                courses.add(document.getId());
-                            }
-                            RecyclerViewAdapter mAdapter = new RecyclerViewAdapter(courses,requireActivity().getApplicationContext());
-                            recyclerView.setAdapter(mAdapter);
-                            recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity().getApplicationContext()));
-                        } else {
-                            Log.d("TAG", "Error getting documents: ", task.getException());
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            Log.d("TAG", document.getId() + " => " + document.getData());
+                            Course course=document.toObject(Course.class);
+                            Course courseWithId=new Course(document.getId(),course);
+                            courseList.add(courseWithId);
                         }
+                        RecyclerViewAdapter mAdapter = new RecyclerViewAdapter(courseList,requireActivity().getApplicationContext());
+                        recyclerView.setAdapter(mAdapter);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity().getApplicationContext()));
+                    } else {
+                        Log.d("TAG", "Error getting documents: ", task.getException());
                     }
-
                 });
 
         return root;
