@@ -18,11 +18,11 @@ import java.util.ArrayList;
 public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.ViewHolder> {
 
     Context context;
-    ArrayList<Complain> newArrayList;
+    ArrayList<Complain> complainArrayList;
 
     public Adapter_Complain(Context context, ArrayList<Complain> newArrayList) {
         this.context = context;
-        this.newArrayList = newArrayList;
+        this.complainArrayList = newArrayList;
     }
 
     @NonNull
@@ -30,13 +30,12 @@ public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.View
     public Adapter_Complain.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_navcomplain,parent,false);
-
         return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull Adapter_Complain.ViewHolder holder, int position) {
-        Complain c = newArrayList.get(position);
+        Complain c = complainArrayList.get(position);
 
 //        DocumentReference docRef = db.collection("cities").document("SF");
 //        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -56,14 +55,14 @@ public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.View
 //            }
 //        });
 
-//        holder.username.setText();
+        holder.username.setText(c.userID);
         holder.status.setText(c.Status);
         holder.complain.setText(c.Complain);
     }
 
     @Override
     public int getItemCount() {
-        return newArrayList.size();
+        return complainArrayList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -79,12 +78,12 @@ public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.View
             status = itemView.findViewById(R.id.tv_status);
             complain = itemView.findViewById(R.id.user_complain);
 
-            itemView.findViewById(R.id.btn_complain_resolve).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    
-                }
-            });
+//            itemView.findViewById(R.id.btn_complain_resolve).setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//
+//                }
+//            });
         }
     }
 }
