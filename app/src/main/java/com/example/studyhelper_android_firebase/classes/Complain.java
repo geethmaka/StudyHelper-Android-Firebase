@@ -1,5 +1,7 @@
 package com.example.studyhelper_android_firebase.classes;
 
+import java.util.Date;
+
 public class Complain {
     private String complainId;
     private String userID;
@@ -13,13 +15,13 @@ public class Complain {
     }
 
     //overloaded constructor
-    public Complain(String complainId, String userId, String type, String status, Long  date, String complain) {
+    public Complain(String complainId, String userId, String type, String status, String  date, String complain) {
         this.complainId = complainId;
         this.userID = userId;
         this.Type = type;
         this.Status = status;
         this.Date = date;
-        this.Complain = complain;
+        this.content = complain;
     }
 
     public Complain(String userId, String type, String status, String date, String complain) {
@@ -27,7 +29,13 @@ public class Complain {
         this.Type = type;
         this.Status = status;
         this.Date = date;
-        this.Complain = complain;
+        this.content = complain;
+    }
+
+    public Complain(String type, String date, String complain) {
+        this.Type = type;
+        this.Date = date;
+        this.content = complain;
     }
 
     //getters and setters
@@ -68,14 +76,15 @@ public class Complain {
     }
 
     public void setDate(String date) {
+
         this.Date = date;
     }
 
-    public String getComplain() {
-        return Complain;
+    public String getContent() {
+        return content;
     }
 
-    public void setComplain(String complain) {
-        this.Complain = complain;
+    public void setContent(String complain) {
+        this.content = complain;
     }
 }
