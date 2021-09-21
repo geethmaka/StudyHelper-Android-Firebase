@@ -1,12 +1,12 @@
 package com.example.studyhelper_android_firebase.classes;
 
 public class Complain {
-    public String complainId;
-    public String userID;
-    public String Type;
-    public String Status;
-    public String Date;
-    public String Complain;
+    private String complainId;
+    private String userID;
+    private String Type;
+    private String Status;
+    private String Date;
+    private String Complain;
 
     public Complain() {
         // Default constructor needed for call to DataSnapshot.getValue(User.class
