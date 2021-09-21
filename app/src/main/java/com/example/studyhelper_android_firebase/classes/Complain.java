@@ -5,7 +5,7 @@ public class Complain {
     public String userID;
     public String Type;
     public String Status;
-    public String Date;
+    public Long Date;
     public String Complain;
 
     public Complain() {
@@ -13,7 +13,7 @@ public class Complain {
     }
 
     //overloaded constructor
-    public Complain(String complainId, String userId, String type, String status, String date, String complain) {
+    public Complain(String complainId, String userId, String type, String status, Long  date, String complain) {
         this.complainId = complainId;
         this.userID = userId;
         this.Type = type;
@@ -22,10 +22,16 @@ public class Complain {
         this.Complain = complain;
     }
 
-    public Complain(String userId, String type, String status, String date, String complain) {
+    public Complain(String userId, String type, String status, Long date, String complain) {
         this.userID = userId;
         this.Type = type;
         this.Status = status;
+        this.Date = date;
+        this.Complain = complain;
+    }
+
+    public Complain(String type, long date, String complain) {
+        this.Type = type;
         this.Date = date;
         this.Complain = complain;
     }
@@ -63,11 +69,11 @@ public class Complain {
         this.Status = status;
     }
 
-    public String getDate() {
+    public Long  getDate() {
         return Date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Long  date) {
         this.Date = date;
     }
 
