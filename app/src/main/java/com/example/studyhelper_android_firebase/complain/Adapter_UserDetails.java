@@ -37,9 +37,9 @@ public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetail
         //create user object and get the array list
         User user = userArrayList.get(position);
 
-        holder.username.setText(user.username);
-        holder.type.setText(String.valueOf(user.type));
-        holder.email.setText(user.email);
+        holder.username.setText(user.getUsername());
+        holder.type.setText(String.valueOf(user.getType()));
+        holder.email.setText(user.getEmail());
     }
 
     @Override
