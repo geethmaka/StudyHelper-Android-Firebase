@@ -87,6 +87,7 @@
                     android:layout_width="140dp"
                     android:layout_height="50dp"
                     android:text="complaints">
+
                 </Button>
 
             </RelativeLayout>
@@ -94,6 +95,5 @@
             </RelativeLayout>
         </RelativeLayout>
 
-    </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
