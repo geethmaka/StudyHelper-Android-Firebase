@@ -28,7 +28,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 
 public class CH_UserDetailsFragment extends Fragment {
-
     //creating an instance of the database
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     //defining the variables
@@ -51,6 +50,7 @@ public class CH_UserDetailsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_ch_user_details, container, false);
         //getting the current context
         Context current = this.getContext();

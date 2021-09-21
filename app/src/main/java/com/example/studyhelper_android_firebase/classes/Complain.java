@@ -8,7 +8,7 @@ public class Complain {
     private String Type;
     private String Status;
     private String Date;
-    private String content;
+    private String Complain;
 
     public Complain() {
         // Default constructor needed for call to DataSnapshot.getValue(User.class
@@ -37,7 +37,6 @@ public class Complain {
         this.Date = date;
         this.content = complain;
     }
-
 
     //getters and setters
     public String getComplainId() {
@@ -72,11 +71,12 @@ public class Complain {
         this.Status = status;
     }
 
-    public String  getDate() {
+    public String getDate() {
         return Date;
     }
 
-    public void setDate(String  date) {
+    public void setDate(String date) {
+
         this.Date = date;
     }
 
