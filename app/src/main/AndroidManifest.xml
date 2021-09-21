@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyHelperAndroidFirebase">
         <activity
+            android:name=".Teacher_popup_Pdf"
+            android:exported="true" />
+        <activity
             android:name=".teacher.Teacher_popup_Link"
             android:exported="true" />
         <activity

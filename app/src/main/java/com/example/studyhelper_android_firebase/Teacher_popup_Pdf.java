@@ -1,52 +1,45 @@
-package com.example.studyhelper_android_firebase.teacher;
+package com.example.studyhelper_android_firebase;
 
-import android.app.Activity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CalendarView;
-import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Link;
+import com.example.studyhelper_android_firebase.classes.Pdf;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class Teacher_popup_Link extends Activity {
+public class Teacher_popup_Pdf extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.teacher_popup_link);
+        setContentView(R.layout.activity_teacher_popup_pdf);
 
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        Button uploadButton = findViewById(R.id.btn_uploadlink);
+        Button uploadButton = findViewById(R.id.btn_uplodpdf);
         uploadButton.setOnClickListener((View v) -> {
 
-            Spinner Subject =findViewById(R.id.spinner);
-            EditText Title =findViewById(R.id.link_title);
-            CalendarView Date =findViewById(R.id.calendarView);
-            EditText Time =findViewById(R.id.Time);
-            Spinner AmPm =findViewById(R.id.spinner2);
-            EditText Link =findViewById(R.id.link_add);
-            String time=Time.getText().toString()+AmPm.getSelectedItem().toString();
-            com.example.studyhelper_android_firebase.classes.Link link=new Link(Subject.getSelectedItem().toString(),Title.getText().toString(),Date.getDate(),time,Link.getText().toString());
+            Spinner Subject =findViewById(R.id.spinnerpdf);
+            TextView Title =findViewById(R.id.editTextPdf);
+            TextView Pdfupload =findViewById(R.id.editTextselect);
+
+
+            com.example.studyhelper_android_firebase.classes.Pdf pdf=new Pdf(Subject.getSelectedItem().toString(),Title.getText().toString(),Pdfupload.getText().toString());
 
 
 
-            db.collection("link")
-                    .add(link)
+            db.collection("pdf")
+                    .add(pdf)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
@@ -60,7 +53,5 @@ public class Teacher_popup_Link extends Activity {
                     });
         });
 
-
     }
-
 }
