@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Course;
@@ -31,7 +30,7 @@ import java.util.List;
  * Use the {@link ViewCourses#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ViewCourses extends Fragment {
+public class ViewCourses extends Fragment{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -73,7 +72,6 @@ public class ViewCourses extends Fragment {
         }
     }
 
-    Adapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -99,19 +97,18 @@ public class ViewCourses extends Fragment {
                                 Log.d("TAG", document.getId() + " => " + document.getData());
                                 Course course=document.toObject(Course.class);
                                 coursesL.add(course);
-                                courses.add(course.getSubject());
+                                courses.add(document.getId());
                             }
-                            adapter = new Adapter(currentContext, courses);
-                            recyclerView.setAdapter(adapter);
-
+                            RecyclerViewAdapter mAdapter = new RecyclerViewAdapter(courses,requireActivity().getApplicationContext());
+                            recyclerView.setAdapter(mAdapter);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity().getApplicationContext()));
                         } else {
                             Log.d("TAG", "Error getting documents: ", task.getException());
                         }
                     }
+
                 });
 
-        //adapter.setClickListener(this.getContext());
         return root;
     }
-
 }
