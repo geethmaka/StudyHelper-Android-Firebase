@@ -1,123 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".teacher.T_complains">
+    tools:context=".student.SComplainFragment">
 
+    <RelativeLayout
+        android:background="@drawable/profile_up"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="139dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="43dp"
-        android:text="@string/Teacher_complain"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <RelativeLayout
+            android:layout_width="370dp"
+            android:layout_height="680dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="24dp"
+            android:background="@color/white">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="9dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="60dp"
+                android:text="@string/scomplaint_details"
+                android:textColor="@color/colorAccent"
+                android:textSize="25sp" />
 
-        <ScrollView
-            android:id="@+id/scrollView2"
-            android:layout_width="0dp"
-            android:layout_height="238dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            <Spinner
+                android:id="@+id/stype"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="115dp"
+                android:layout_marginTop="219dp"
+                android:entries="@array/smm_subject_arrays"
+                android:prompt="@string/sm_subject_prompt">
 
-            <!--                <androidx.recyclerview.widget.RecyclerView-->
-            <!--                    android:layout_width="399dp"-->
-            <!--                    android:layout_height="288dp"-->
-            <!--                    tools:layout_editor_absoluteX="1dp"-->
-            <!--                    tools:layout_editor_absoluteY="2dp"-->
-            <!--                    tools:listitem="@layout/teacher_complain_reciver_row" />-->
-        </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </Spinner>
 
+            <EditText
+                android:id="@+id/smassage"
+                android:layout_width="315dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="367dp"
+                android:hint="massage"
+                android:inputType="text" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="37dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+            <Button
+                android:id="@+id/scomplaintadd"
+                style="@style/loginButton"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center"
+                android:layout_marginStart="94dp"
+                android:layout_marginTop="493dp"
+                android:text="Submit" />
 
-        <ScrollView
-            android:id="@+id/scrollView5"
-            android:layout_width="0dp"
-            android:layout_height="231dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="-2dp"
+                android:layout_marginTop="576dp"
+                android:gravity="center">
 
-            <!--                <androidx.recyclerview.widget.RecyclerView-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="match_parent"-->
-            <!--                    tools:listitem="@layout/teacher_complain_send_row">-->
+                <Button
+                    android:id="@+id/scomplains"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="complaints">
 
-            <!--                </androidx.recyclerview.widget.RecyclerView>-->
+                </Button>
 
-        </ScrollView>
+            </RelativeLayout>
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/search"
-        android:orientation="horizontal"
-        android:paddingStart="4sp"
-        android:paddingEnd="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
-
-        <EditText
-            android:id="@+id/et_reply_msg"
-            android:layout_width="320sp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="4sp"
-            android:hint="@string/msg_hint"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="TouchTargetSizeCheck"
-            tools:layout_editor_absoluteY="5dp" />
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/btn_transp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_msg_send"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
-            tools:layout_editor_absoluteY="16dp" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
