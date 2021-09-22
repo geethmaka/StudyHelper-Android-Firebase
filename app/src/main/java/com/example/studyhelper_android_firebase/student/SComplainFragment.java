@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -15,6 +16,7 @@ import com.example.studyhelper_android_firebase.R;
 import android.util.Log;
 import com.example.studyhelper_android_firebase.classes.Complain;
 import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -83,17 +85,19 @@ public class SComplainFragment extends Fragment {
 
             Spinner cType =  root.findViewById(R.id.stype);
             EditText massage = root.findViewById(R.id.smassage);
-            Date currentTime = Calendar.getInstance().getTime();
-            Log.w("DATE", currentTime.toString());
 
-           Complain complain =new Complain(cType.getSelectedItem().toString(),currentTime.toString(),massage.getText().toString());
+            Date currentTime = Calendar.getInstance().getTime();
+
+           Complain c =new Complain("VUORF7G4KHXZNcsX6W7Q",cType.getSelectedItem().toString(),"Pending",currentTime.toString(),massage.getText().toString());
 
             db.collection("complain")
-                    .add(complain)
+                    .add(c)
                     .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))
                     .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
         });
         return root;
+
+
 
     }
 }
