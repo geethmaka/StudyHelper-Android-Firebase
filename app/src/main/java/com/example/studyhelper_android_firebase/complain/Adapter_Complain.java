@@ -36,7 +36,6 @@ public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.View
     public Adapter_Complain.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_navcomplain,parent,false);
-
         return new ViewHolder(v);
     }
 
@@ -44,24 +43,23 @@ public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.View
     public void onBindViewHolder(@NonNull Adapter_Complain.ViewHolder holder, int position) {
         Complain c = complainArrayList.get(position);
 
-        db.collection("complain")
-                .document(id)
-                .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
-                            Complain c = document.toObject(Complain.class);
-
-                            subject.setText(course.getSubject());
-                            availability.setChecked(course.isAvailability());
-                        } else {
-                            Log.d("TAG", "No such document");
-                        }
-                    } else {
-                        Log.d("TAG", "get failed with ", task.getException());
-                    }
-                });
+//        db.collection("complain")
+//                .get()
+//                .addOnCompleteListener(task -> {
+//                    if (task.isSuccessful()) {
+//                        DocumentSnapshot document = task.getResult();
+//                        if (document.exists()) {
+//                            Complain c = document.toObject(Complain.class);
+//
+//                            subject.setText(course.getSubject());
+//                            availability.setChecked(course.isAvailability());
+//                        } else {
+//                            Log.d("TAG", "No such document");
+//                        }
+//                    } else {
+//                        Log.d("TAG", "get failed with ", task.getException());
+//                    }
+//                });
 
         holder.username.setText(c.getUserID());
         holder.status.setText(c.getStatus());
