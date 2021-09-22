@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Link;
@@ -76,8 +77,8 @@ public class Pdfs_added extends Fragment {
     RecyclerView recyclerView;
     ArrayList<Pdf> pdfArrayList;
     PdfAdapter pdfAdapter;
-    String[] subject;
-    String[] title;
+    Button update;
+    EditText title,pdf;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -98,7 +99,7 @@ public class Pdfs_added extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_pdfs_added, container, false);
-
+//        update= (Button) root.findViewById(update);
         Context current=this.getContext();
         recyclerView=root.findViewById(R.id.uploadPdfRecycle);
         recyclerView.setHasFixedSize(true);
