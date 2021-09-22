@@ -15,6 +15,9 @@ import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Complain;
 import com.example.studyhelper_android_firebase.classes.Course;
 import com.example.studyhelper_android_firebase.classes.User;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -45,7 +48,7 @@ public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.View
     public void onBindViewHolder(@NonNull Adapter_Complain.ViewHolder holder, int position) {
         Complain complain = complainArrayList.get(position);
 
-
+        //getting the username from the database giving the userid in complain
         db.collection("complain")
                 .document(complain.getComplainId())
                 .get()
@@ -62,6 +65,7 @@ public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.View
                                             DocumentSnapshot doc = task1.getResult();
                                             if (doc.exists()) {
                                                 User u = doc.toObject(User.class);
+                                                //setting the username
                                                 holder.username.setText(u.getUsername());
                                             } else {
                                                 Log.d("TAG", "No such document");
@@ -80,6 +84,26 @@ public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.View
 
         holder.status.setText(complain.getComplain().getStatus());
         holder.complain.setText(complain.getComplain().getContent());
+
+        holder.btn_cResolve.setOnClickListener(v -> {
+            DocumentReference complainRef = db.collection("complain").document(complain.getComplainId());
+
+            complainRef.update("Status", "Resolved")
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d("TAG", "The complain is marked resolved successfully!");
+                        }
+                    })
+
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w("TAG", "Error updating status", e);
+                        }
+                    });
+        });
+
     }
 
     @Override
@@ -92,14 +116,14 @@ public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.View
         TextView username;
         TextView status;
         TextView complain;
-//        Button mark_resolved;
+        Button btn_cResolve;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             username = itemView.findViewById(R.id.tv_complain_name);
             status = itemView.findViewById(R.id.tv_status);
             complain = itemView.findViewById(R.id.user_complain);
-            TextView btn = itemView.findViewById(R.id.btn_banUser);
+            btn_cResolve = itemView.findViewById(R.id.btn_complain_resolve);
 
 //            itemView.findViewById(R.id.btn_complain_resolve).setOnClickListener(new View.OnClickListener() {
 //                @Override
