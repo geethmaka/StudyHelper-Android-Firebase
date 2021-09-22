@@ -13,13 +13,13 @@ import androidx.fragment.app.Fragment;
 
 import com.example.studyhelper_android_firebase.R;
 
-import androidx.annotation.NonNull;
 import android.util.Log;
 import com.example.studyhelper_android_firebase.classes.Complain;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link SComplainFragment#newInstance} factory method to
@@ -34,7 +34,7 @@ public class SComplainFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    //inisialize/ variables
+    //initialize/ variables
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -87,22 +87,14 @@ public class SComplainFragment extends Fragment {
             CalendarView date = root.findViewById(R.id.scalendarView);
             EditText massage = root.findViewById(R.id.smassage);
 
-
-           Complain complain =new Complain(cType.getSelectedItem().toString(),date.getDate(),massage.getText().toString());
+            Date currentTime = Calendar.getInstance().getTime();
+            Log.w("DATE", currentTime.toString());
+           Complain complain =new Complain(cType.getSelectedItem().toString(),currentTime.toString(),massage.getText().toString());
 
             db.collection("complain")
                     .add(complain)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w("TAG", "Error adding document", e);
-                        }
-                    });
+                    .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))
+                    .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
         });
         return root;
 

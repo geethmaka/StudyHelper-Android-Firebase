@@ -1,6 +1,7 @@
 package com.example.studyhelper_android_firebase.complain;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,58 +13,78 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Complain;
+import com.example.studyhelper_android_firebase.classes.Course;
+import com.example.studyhelper_android_firebase.classes.User;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.ViewHolder> {
-
+    //creating an instance of the database
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     Context context;
-    ArrayList<Complain> newArrayList;
+    ArrayList<Complain> complainArrayList;
 
     public Adapter_Complain(Context context, ArrayList<Complain> newArrayList) {
         this.context = context;
-        this.newArrayList = newArrayList;
+        this.complainArrayList = newArrayList;
     }
 
     @NonNull
     @Override
     public Adapter_Complain.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_navcomplain,parent,false);
-
+        View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_navcomplain, parent, false);
         return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull Adapter_Complain.ViewHolder holder, int position) {
-        Complain c = newArrayList.get(position);
+        Complain complain = complainArrayList.get(position);
 
-//        DocumentReference docRef = db.collection("cities").document("SF");
-//        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                if (task.isSuccessful()) {
-//                    DocumentSnapshot document = task.getResult();
-//                    if (document.exists()) {
-//                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-//                    }
-//                    else {
-//                        Log.d(TAG, "No such document");
-//                    }
-//                } else {
-//                    Log.d(TAG, "get failed with ", task.getException());
-//                }
-//            }
-//        });
 
-//        holder.username.setText();
-        holder.status.setText(c.Status);
-        holder.complain.setText(c.Complain);
+        db.collection("complain")
+                .document(complain.getComplainId())
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            Complain c = document.toObject(Complain.class);
+                            db.collection("users")
+                                    .document(c.getUserID())
+                                    .get()
+                                    .addOnCompleteListener(task1 -> {
+                                        if (task1.isSuccessful()) {
+                                            DocumentSnapshot doc = task1.getResult();
+                                            if (doc.exists()) {
+                                                User u = doc.toObject(User.class);
+                                                holder.username.setText(u.getUsername());
+                                            } else {
+                                                Log.d("TAG", "No such document");
+                                            }
+                                        } else {
+                                            Log.d("TAG", "get failed with ", task.getException());
+                                        }
+                                    });
+                        } else {
+                            Log.d("TAG", "No such document");
+                        }
+                    } else {
+                        Log.d("TAG", "get failed with ", task.getException());
+                    }
+                });
+
+        holder.status.setText(complain.getComplain().getStatus());
+        holder.complain.setText(complain.getComplain().getContent());
     }
 
     @Override
     public int getItemCount() {
-        return newArrayList.size();
+        return complainArrayList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -71,20 +92,22 @@ public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.View
         TextView username;
         TextView status;
         TextView complain;
-        Button mark_resolved;
+//        Button mark_resolved;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             username = itemView.findViewById(R.id.tv_complain_name);
             status = itemView.findViewById(R.id.tv_status);
             complain = itemView.findViewById(R.id.user_complain);
+            TextView btn = itemView.findViewById(R.id.btn_banUser);
 
-            itemView.findViewById(R.id.btn_complain_resolve).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    
-                }
-            });
+//            itemView.findViewById(R.id.btn_complain_resolve).setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//
+//                }
+//            });
+
         }
     }
 }

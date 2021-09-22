@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -28,7 +31,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 
 public class CH_UserDetailsFragment extends Fragment {
-
     //creating an instance of the database
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     //defining the variables
@@ -51,6 +53,7 @@ public class CH_UserDetailsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_ch_user_details, container, false);
         //getting the current context
         Context current = this.getContext();
@@ -92,7 +95,8 @@ public class CH_UserDetailsFragment extends Fragment {
                         //fetching the data from the firestore database
                         for(DocumentChange dc : value.getDocumentChanges()){
                             if(dc.getType() == DocumentChange.Type.ADDED) {
-                                userArrayList.add(dc.getDocument().toObject(User.class));
+                                User n = new User(dc.getDocument().getId(), dc.getDocument().toObject(User.class));
+                                userArrayList.add(n);
                             }
                             userAdapter.notifyDataSetChanged();
                             //dismiss progress dialog
@@ -103,4 +107,10 @@ public class CH_UserDetailsFragment extends Fragment {
                     }
                 });
     }
+
+//    @Override
+//    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+//        super.onCreateOptionsMenu(menu, inflater);
+//        get
+//    }
 }
