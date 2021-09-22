@@ -1,14 +1,12 @@
 package com.example.studyhelper_android_firebase.classes;
 
-import java.util.Date;
-
 public class Complain {
     private String complainId;
     private String userID;
-    private String Type;
-    private String Status;
-    private String Date;
-    private String Content;
+    private String type;
+    private String status;
+    private String date;
+    private String content;
 
     private Complain complain;
 
@@ -17,28 +15,29 @@ public class Complain {
     }
 
     //overloaded constructor
-    public Complain(String complainId, String userId, String type, String status, String date, String content) {
-        this.complainId = complainId;
-        this.userID = userId;
-        this.Type = type;
-        this.Status = status;
-        this.Date = date;
-        this.Content = content;
-    }
+
+//    public Complain(String complainId, String userId, String type, String status, String date, String content) {
+//        this.complainId = complainId;
+//        this.userID = userId;
+//        this.Type = type;
+//        this.Status = status;
+//        this.Date = date;
+//        this.Content = content;
+//    }
 
     public Complain(String userId, String type, String status, String date, String content) {
         this.userID = userId;
-        this.Type = type;
-        this.Status = status;
-        this.Date = date;
-        this.Content = content;
+        this.type = type;
+        this.status = status;
+        this.date = date;
+        this.content = content;
     }
 
-    public Complain(String type, String date, String complain) {
-        this.Type = type;
-        this.Date = date;
-        this.Content = complain;
-    }
+//    public Complain(String type, String date, String complain) {
+//        this.Type = type;
+//        this.Date = date;
+//        this.Content = complain;
+//    }
 
     public Complain(String ID, Complain complain) {
         this.complainId = ID;
@@ -60,20 +59,20 @@ public class Complain {
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
 
     public String getStatus() {
-        return Status;
+        return status;
     }
 
     public String getDate() {
-        return Date;
+        return date;
     }
 
     public String getContent() {
-        return Content;
+        return content;
     }
 
 }
