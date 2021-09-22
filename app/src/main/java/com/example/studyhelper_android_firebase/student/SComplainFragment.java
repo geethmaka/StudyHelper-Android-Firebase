@@ -15,8 +15,10 @@ import com.example.studyhelper_android_firebase.R;
 
 import android.util.Log;
 import com.example.studyhelper_android_firebase.classes.Complain;
+import com.example.studyhelper_android_firebase.classes.IComplain;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -87,8 +89,10 @@ public class SComplainFragment extends Fragment {
             EditText massage = root.findViewById(R.id.smassage);
 
             Date currentTime = Calendar.getInstance().getTime();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            sdf.format(currentTime);
 
-           Complain c =new Complain("VUORF7G4KHXZNcsX6W7Q",cType.getSelectedItem().toString(),"Pending",currentTime.toString(),massage.getText().toString());
+           IComplain c =new IComplain("VUORF7G4KHXZNcsX6W7Q",cType.getSelectedItem().toString(),"Pending",sdf.format(currentTime).toString(),massage.getText().toString());
 
             db.collection("complain")
                     .add(c)
