@@ -13,13 +13,8 @@
     <fragment
         android:id="@+id/CH_ComplainFragment"
         android:name="com.example.studyhelper_android_firebase.complain.CH_ComplainFragment"
-        android:label="@string/nav_complain_History"
+        android:label="@string/complaint_menu"
         tools:layout="@layout/fragment_ch_complain" />
-    <fragment
-        android:id="@+id/CH_UserDetailsFragment"
-        android:name="com.example.studyhelper_android_firebase.complain.CH_UserDetailsFragment"
-        android:label="@string/nav_userDtails"
-        tools:layout="@layout/fragment_ch_user_details" />
     <fragment
         android:id="@+id/CH_ReportFragment"
         android:name="com.example.studyhelper_android_firebase.complain.CH_ReportFragment"

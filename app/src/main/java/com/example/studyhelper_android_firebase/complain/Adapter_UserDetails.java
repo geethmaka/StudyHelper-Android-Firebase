@@ -123,7 +123,6 @@ public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetail
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        LinearLayout parent_layout;
         TextView username;
         TextView type;
         TextView email;
@@ -136,7 +135,6 @@ public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetail
             type = itemView.findViewById(R.id.user_type);
             email = itemView.findViewById(R.id.user_email);
             btn_banUser = itemView.findViewById(R.id.btn_banUser);
-            parent_layout = itemView.findViewById(R.id.parent_layout);
         }
     }
 
