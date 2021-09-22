@@ -105,7 +105,7 @@ public class UpdateCourse extends AppCompatActivity {
                 }
 
             });
-            alertDialog.show();  //<-- See This!
+            alertDialog.show();
         });
     }
 }
