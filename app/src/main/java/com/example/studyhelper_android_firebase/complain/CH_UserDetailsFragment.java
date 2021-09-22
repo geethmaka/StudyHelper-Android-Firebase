@@ -95,7 +95,8 @@ public class CH_UserDetailsFragment extends Fragment {
                         //fetching the data from the firestore database
                         for(DocumentChange dc : value.getDocumentChanges()){
                             if(dc.getType() == DocumentChange.Type.ADDED) {
-                                userArrayList.add(dc.getDocument().toObject(User.class));
+                                User n = new User(dc.getDocument().getId(), dc.getDocument().toObject(User.class));
+                                userArrayList.add(n);
                             }
                             userAdapter.notifyDataSetChanged();
                             //dismiss progress dialog

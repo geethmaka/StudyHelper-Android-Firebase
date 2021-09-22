@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Complain;
+import com.example.studyhelper_android_firebase.classes.Course;
+import com.example.studyhelper_android_firebase.classes.User;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -35,35 +37,49 @@ public class Adapter_Complain extends RecyclerView.Adapter<Adapter_Complain.View
     @Override
     public Adapter_Complain.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_navcomplain,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_navcomplain, parent, false);
         return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull Adapter_Complain.ViewHolder holder, int position) {
-        Complain c = complainArrayList.get(position);
+        Complain complain = complainArrayList.get(position);
 
-//        db.collection("complain")
-//                .get()
-//                .addOnCompleteListener(task -> {
-//                    if (task.isSuccessful()) {
-//                        DocumentSnapshot document = task.getResult();
-//                        if (document.exists()) {
-//                            Complain c = document.toObject(Complain.class);
-//
-//                            subject.setText(course.getSubject());
-//                            availability.setChecked(course.isAvailability());
-//                        } else {
-//                            Log.d("TAG", "No such document");
-//                        }
-//                    } else {
-//                        Log.d("TAG", "get failed with ", task.getException());
-//                    }
-//                });
 
-        holder.username.setText(c.getUserID());
-        holder.status.setText(c.getStatus());
-        holder.complain.setText(c.getContent());
+        db.collection("complain")
+                .document(complain.getComplainId())
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            Complain c = document.toObject(Complain.class);
+                            db.collection("users")
+                                    .document(c.getUserID())
+                                    .get()
+                                    .addOnCompleteListener(task1 -> {
+                                        if (task1.isSuccessful()) {
+                                            DocumentSnapshot doc = task1.getResult();
+                                            if (doc.exists()) {
+                                                User u = doc.toObject(User.class);
+                                                holder.username.setText(u.getUsername());
+                                            } else {
+                                                Log.d("TAG", "No such document");
+                                            }
+                                        } else {
+                                            Log.d("TAG", "get failed with ", task.getException());
+                                        }
+                                    });
+                        } else {
+                            Log.d("TAG", "No such document");
+                        }
+                    } else {
+                        Log.d("TAG", "get failed with ", task.getException());
+                    }
+                });
+
+        holder.status.setText(complain.getComplain().getStatus());
+        holder.complain.setText(complain.getComplain().getContent());
     }
 
     @Override

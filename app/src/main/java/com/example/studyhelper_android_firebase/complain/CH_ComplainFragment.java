@@ -73,29 +73,27 @@ public class CH_ComplainFragment extends Fragment {
 
     private void EventChangeListener() {
         db.collection("complain").orderBy("Date", Query.Direction.ASCENDING)
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                        if(error != null) {
-                            //dismiss progress dialog
-                            if(progressDialog.isShowing())
-                                progressDialog.dismiss();
-                            Log.e("Firestore Error",error.getMessage());
-                            return;
-                        }
-
-                        //fetching the data from the firestore database
-                        for(DocumentChange dc : value.getDocumentChanges()){
-                            if(dc.getType() == DocumentChange.Type.ADDED) {
-                                complainArrayList.add(dc.getDocument().toObject(Complain.class));
-                            }
-                            complainAdapter.notifyDataSetChanged();
-                            //dismiss progress dialog
-                            if(progressDialog.isShowing())
-                                progressDialog.dismiss();
-                        }
-
+                .addSnapshotListener((value, error) -> {
+                    if(error != null) {
+                        //dismiss progress dialog
+                        if(progressDialog.isShowing())
+                            progressDialog.dismiss();
+                        Log.e("Firestore Error",error.getMessage());
+                        return;
                     }
+
+                    //fetching the data from the firestore database
+                    for(DocumentChange dc : value.getDocumentChanges()){
+                        if(dc.getType() == DocumentChange.Type.ADDED) {
+                            Complain c = new Complain(dc.getDocument().getId(),dc.getDocument().toObject(Complain.class));
+                            complainArrayList.add(c);
+                        }
+                        complainAdapter.notifyDataSetChanged();
+                        //dismiss progress dialog
+                        if(progressDialog.isShowing())
+                            progressDialog.dismiss();
+                    }
+
                 });
     }
 }

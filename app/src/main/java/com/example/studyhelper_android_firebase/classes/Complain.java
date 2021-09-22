@@ -10,6 +10,8 @@ public class Complain {
     private String Date;
     private String Content;
 
+    private Complain complain;
+
     public Complain() {
         // Default constructor needed for call to DataSnapshot.getValue(User.class
     }
@@ -38,7 +40,17 @@ public class Complain {
         this.Content = complain;
     }
 
+    public Complain(String ID,Complain complain){
+        this.complainId = ID;
+        this.complain=complain;
+    }
     //getters and setters
+
+
+
+    public Complain getComplain(){
+        return complain;
+    }
     public String getComplainId() {
         return complainId;
     }

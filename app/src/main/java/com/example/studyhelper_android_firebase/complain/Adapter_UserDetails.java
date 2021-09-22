@@ -98,15 +98,23 @@ public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetail
         //create user object and get the array list
         User user = userArrayList.get(position);
 
-        holder.username.setText(user.getUsername());
-        holder.type.setText(String.valueOf(user.getType()));
-        holder.email.setText(user.getEmail());
-//        holder.btn_banUser.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                updateStatus(user.getId());
-//            }
-//        });
+        holder.username.setText(user.getUser().getUsername());
+        holder.type.setText(String.valueOf(user.getUser().getType()));
+        holder.email.setText(user.getUser().getEmail());
+
+        holder.btn_banUser.setOnClickListener(v -> {
+            DocumentReference washingtonRef = db.collection("courses").document(user.getId());
+
+            washingtonRef
+                    .update("status", "inactive")
+                    .addOnSuccessListener(aVoid -> Log.d("TAG", "DocumentSnapshot successfully updated!"))
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w("TAG", "Error updating document", e);
+                        }
+                    });
+        });
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -118,32 +126,12 @@ public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetail
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
             username = itemView.findViewById(R.id.username);
             type = itemView.findViewById(R.id.user_type);
             email = itemView.findViewById(R.id.user_email);
             btn_banUser = itemView.findViewById(R.id.btn_banUser);
             parent_layout = itemView.findViewById(R.id.parent_layout);
-            itemView.findViewById(R.id.btn_banUser).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    DocumentReference washingtonRef = db.collection("User").document(id);
-
-                    washingtonRef
-                            .update("subject", subject.getText().toString(), "grade", 10, "availability", availability.isChecked())
-                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Log.d("TAG", "DocumentSnapshot successfully updated!");
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.w("TAG", "Error updating document", e);
-                                }
-                            });
-                }
-            });
         }
     }
 
