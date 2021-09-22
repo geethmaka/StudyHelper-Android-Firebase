@@ -59,19 +59,14 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
                 DocumentReference washingtonRef = db.collection("link").document(link.getId());
 
                 washingtonRef
-                        .update("subject",  link.getObj().getSubject(), "title",link.getObj().getTitle(), "date", link.getObj().getDate(),"time",link.getObj().getTime())
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Log.d("TAG", "DocumentSnapshot successfully updated!");
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.w("TAG", "Error updating document", e);
-                            }
-                        });
+                        .update("subject",  holder.subject.getText().toString(), "title",holder.title.getText().toString(), "date", holder.date.getDate(),"time",holder.time.getText().toString())
+                        .addOnSuccessListener(aVoid ->{ Log.d("TAG", "DocumentSnapshot successfully updated!"+link.getId());
+                            holder.subject.setText(link.getObj().getSubject());
+                            holder.title.setText(holder.title.getText().toString());
+                            holder.date.setDate(holder.date.getDate());
+                            holder.time.setText(holder.time.getText().toString());
+                            holder.link.setText(holder.link.getText().toString());})
+                        .addOnFailureListener(e -> Log.w("TAG", "Error updating document", e));
             });
         }
 
