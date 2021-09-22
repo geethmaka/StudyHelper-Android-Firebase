@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/loginCard"
     app:cardCornerRadius="@dimen/loginCardRadius"
     android:elevation="5dp"
@@ -26,8 +27,9 @@
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="53dp"
             android:layout_marginBottom="8dp"
-             android:onClick="onButtonShowLinkPopupWindowClick"
-            android:text="Links" />
+            android:onClick="gotoTmLink"
+            android:text="Links"
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:id="@+id/button"
@@ -37,8 +39,9 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="53dp"
             android:layout_marginBottom="8dp"
-            android:onClick="onButtonShowPdfPopupWindowClick"
-            android:text="Pdfs" />
+            android:onClick="gotoTmPdf"
+            android:text="Pdfs"
+            tools:ignore="UsingOnClickInXml" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

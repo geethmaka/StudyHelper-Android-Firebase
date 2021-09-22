@@ -6,7 +6,7 @@ public class Pdf {
 
      public String subject;
      public String title;
-     public String uppdf;
+     public String pdf;
 
     public Pdf() {
     }
@@ -14,7 +14,7 @@ public class Pdf {
     public Pdf(String subject, String title, String pdf) {
         this.subject = subject;
         this.title = title;
-        this.uppdf = pdf;
+        this.pdf = pdf;
     }
 
     public String getSubject() {
@@ -34,10 +34,10 @@ public class Pdf {
     }
 
     public String getPdf() {
-        return uppdf;
+        return pdf;
     }
 
     public void setPdf(String pdf) {
-        this.uppdf = pdf;
+        this.pdf = pdf;
     }
 }

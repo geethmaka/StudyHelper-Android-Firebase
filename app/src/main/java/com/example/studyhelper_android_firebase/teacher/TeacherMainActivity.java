@@ -1,35 +1,23 @@
 package com.example.studyhelper_android_firebase.teacher;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.example.studyhelper_android_firebase.Teacher_popup_Pdf;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.example.studyhelper_android_firebase.R;
-import com.example.studyhelper_android_firebase.classes.User;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.Date;
-import java.util.HashMap;
-import java.util.UUID;
 
 public class TeacherMainActivity extends AppCompatActivity {
     //    RecyclerView Teacher_recycleView;
@@ -46,12 +34,23 @@ public class TeacherMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_teacher_main);
 
 
-
         //Control Bottom navigation bar
         BottomNavigationView teacher_bottomNavigationView = findViewById(R.id.tmbottomNav);
         NavController teacher_navController = Navigation.findNavController(this, R.id.teacherfragmentContainer);
         NavigationUI.setupWithNavController(teacher_bottomNavigationView, teacher_navController);
         NavigationUI.setupActionBarWithNavController(this, teacher_navController);
+
+    }
+        public void gotoTmLink(View view) {
+            final Context context = this;
+            Intent intent = new Intent(context,Teacher_popup_Link.class);
+            startActivity(intent);
+        }
+    public void gotoTmPdf(View view) {
+        final Context context = this;
+        Intent intent = new Intent(context, Teacher_popup_Pdf.class);
+        startActivity(intent);
+    }
 
 
 
@@ -139,59 +138,60 @@ public class TeacherMainActivity extends AppCompatActivity {
 //    }
 //    return super.onOptionsItemSelected(item);
 //Pdf Popout view
-    public void onButtonShowPdfPopupWindowClick(View view) {
+//    public void onButtonShowPdfPopupWindowClick(View view) {
+//
+//        // inflate the layout of the popup window
+//        LayoutInflater inflater = (LayoutInflater)
+//                getSystemService(LAYOUT_INFLATER_SERVICE);
+//        View popupView = inflater.inflate(R.layout.pdf_links_teacher, null);
+//        // create the popup window
+//        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+//        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+//        boolean focusable = true; // lets taps outside the popup also dismiss it
+//        final PopupWindow pdfPopupWindow = new PopupWindow(popupView, width, height, focusable);
+//        // show the popup window
+//        // which view you pass in doesn't matter, it is only used for the window token
+//        pdfPopupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+//        // dismiss the popup window when touched
+//        popupView.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                pdfPopupWindow.dismiss();
+//                return true;
+//            }
+//        });
+//    }
+//
+//
+//    //Link Popup view
+//    public void onButtonShowLinkPopupWindowClick(View view) {
+//
+//        // inflate the layout of the popup window
+//        LayoutInflater inflater = (LayoutInflater)
+//                getSystemService(LAYOUT_INFLATER_SERVICE);
+//        View popupView = inflater.inflate(R.layout.teacher_popup_link, null);
+//        // create the popup window
+//        int width = LinearLayout.LayoutParams.MATCH_PARENT;
+//        int height = LinearLayout.LayoutParams.MATCH_PARENT;
+//        boolean focusable = true; // lets taps outside the popup also dismiss it
+//        final PopupWindow linkPopupWindow = new PopupWindow(popupView, width, height, focusable);
+//        // show the popup window
+//        // which view you pass in doesn't matter, it is only used for the window token
+//        linkPopupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+//        // dismiss the popup window when touched
+//        popupView.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                linkPopupWindow.dismiss();
+//                return true;
+//            }
+//        });
+//
+//    }
 
-        // inflate the layout of the popup window
-        LayoutInflater inflater = (LayoutInflater)
-                getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popupView = inflater.inflate(R.layout.pdf_links_teacher, null);
-        // create the popup window
-        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
-        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-        boolean focusable = true; // lets taps outside the popup also dismiss it
-        final PopupWindow pdfPopupWindow = new PopupWindow(popupView, width, height, focusable);
-        // show the popup window
-        // which view you pass in doesn't matter, it is only used for the window token
-        pdfPopupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
-        // dismiss the popup window when touched
-        popupView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                pdfPopupWindow.dismiss();
-                return true;
-            }
-        });
-    }
 
 
-    //Link Popup view
-    public void onButtonShowLinkPopupWindowClick(View view) {
 
-        // inflate the layout of the popup window
-        LayoutInflater inflater = (LayoutInflater)
-                getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popupView = inflater.inflate(R.layout.teacher_popup_link, null);
-        // create the popup window
-        int width = LinearLayout.LayoutParams.MATCH_PARENT;
-        int height = LinearLayout.LayoutParams.MATCH_PARENT;
-        boolean focusable = true; // lets taps outside the popup also dismiss it
-        final PopupWindow linkPopupWindow = new PopupWindow(popupView, width, height, focusable);
-        // show the popup window
-        // which view you pass in doesn't matter, it is only used for the window token
-        linkPopupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
-        // dismiss the popup window when touched
-        popupView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                linkPopupWindow.dismiss();
-                return true;
-            }
-        });
-
-    }
-
-
-}
 
 
 
