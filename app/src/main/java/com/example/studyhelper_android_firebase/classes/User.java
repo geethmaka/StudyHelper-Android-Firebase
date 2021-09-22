@@ -1,14 +1,16 @@
 package com.example.studyhelper_android_firebase.classes;
 
 public class User {
-    public String id;
-    public String username;
-    public String type;
-    public String stream;
-    public boolean status;
-    public String password;
-    public long mobile;
-    public String email;
+    private String id;
+    private String username;
+    private String type;
+    private String stream;
+    private boolean status;
+    private String password;
+    private long mobile;
+    private String email;
+
+    private User user;
 
     public User() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
@@ -38,6 +40,15 @@ public class User {
         this.password = password;
         this.mobile = mobile;
         this.email = email;
+    }
+
+    public User(String id,User user){
+        this.id=id;
+        this.user=user;
+    }
+
+    public User getUser(){
+        return this.user;
     }
 
     public String getId() {

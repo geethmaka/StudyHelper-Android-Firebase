@@ -45,7 +45,7 @@
                     android:layout_marginTop="@dimen/signup_text_margin_top">
 
                     <EditText
-                        android:id="@+id/addSubject"
+                        android:id="@+id/updateSubject"
                         android:layout_width="319dp"
                         android:layout_height="50dp"
                         android:hint="Subject"
@@ -80,7 +80,7 @@
                         android:maxLines="1" />
 
                     <Switch
-                        android:id="@+id/addAvailability"
+                        android:id="@+id/updateAvailability"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -93,10 +93,15 @@
 
 
                 <Button
-                    android:id="@+id/addButton"
+                    android:id="@+id/updateButton"
                     style="@style/loginButton"
                     android:layout_gravity="center"
                     android:text="Submit" />
+                <Button
+                    android:id="@+id/deleteButton"
+                    style="@style/loginButton"
+                    android:layout_gravity="center"
+                    android:text="Delete" />
 
             </LinearLayout>
 
