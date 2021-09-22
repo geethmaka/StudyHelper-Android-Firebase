@@ -1,6 +1,7 @@
 package com.example.studyhelper_android_firebase.teacher;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Link;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -42,16 +47,31 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
         public void onBindViewHolder (@NonNull LinkAdapter.LinkViewHolder holder,int position){
 
             Link link = linkArrayList.get(position);
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-            holder.subject.setText(link.getSubject());
-            holder.title.setText(link.getTitle());
-            holder.date.setDate(link.getDate());
-            holder.time.setText(link.getTime());
-//            holder.ampm.setText(link.getAmPm());
-            holder.link.setText(link.getLink());
+            holder.subject.setText(link.getObj().getSubject());
+            holder.title.setText(link.getObj().getTitle());
+            holder.date.setDate(link.getObj().getDate());
+            holder.time.setText(link.getObj().getTime());
+            holder.link.setText(link.getObj().getLink());
 
             holder.updateLink.setOnClickListener(v ->{
+                DocumentReference washingtonRef = db.collection("link").document(link.getId());
 
+//                washingtonRef
+//                        .update("subject", subject.getText().toString(), "grade", 10, "availability", availability.isChecked())
+//                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                            @Override
+//                            public void onSuccess(Void aVoid) {
+//                                Log.d("TAG", "DocumentSnapshot successfully updated!");
+//                            }
+//                        })
+//                        .addOnFailureListener(new OnFailureListener() {
+//                            @Override
+//                            public void onFailure(@NonNull Exception e) {
+//                                Log.w("TAG", "Error updating document", e);
+//                            }
+//                        });
             });
         }
 

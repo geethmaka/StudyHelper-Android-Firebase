@@ -113,7 +113,8 @@ public class Links_added extends Fragment {
                         //fetching the data from the firestore database
                         for(DocumentChange dc : value.getDocumentChanges()){
                             if(dc.getType() == DocumentChange.Type.ADDED) {
-                                linkArrayList.add(dc.getDocument().toObject(Link.class));
+                                Link l = new Link(dc.getDocument().getId(),dc.getDocument().toObject(Link.class));
+                                linkArrayList.add(l);
                             }
                             linkAdapter.notifyDataSetChanged();
                             //dismiss progress dialog

@@ -31,6 +31,14 @@ public class Link {
     }
 //getters and setters
 
+    public Link getObj(){
+        return obj;
+    }
+
+    public String getId() {
+        return id;
+    }
+
     public String getSubject() {
         return Subject;
     }
