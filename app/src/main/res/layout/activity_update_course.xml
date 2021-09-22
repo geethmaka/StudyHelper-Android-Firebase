@@ -7,113 +7,100 @@
     tools:context=".course.AddCourses">
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/profile_up"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center">
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
             android:layout_width="370dp"
             android:layout_height="680dp"
             android:background="@color/white">
 
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                style="@style/linearParent"
-                android:layout_gravity="center"
-                android:layout_marginTop="83dp"
-                android:gravity="center"
-                android:padding="@dimen/loginViewsMargin"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="73dp">
-
-                <TextView
-                    style="@style/headerTextPrimary"
-                    android:layout_marginTop="@dimen/loginViewsMargin"
-                    android:text="@string/scomplaint_details" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/parent"
-                    android:layout_marginTop="@dimen/signup_text_margin_top" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="321dp"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="@dimen/signup_text_margin_top">
-
-                    <EditText
-                        android:id="@+id/updateSubject"
-                        android:layout_width="319dp"
-                        android:layout_height="50dp"
-                        android:hint="Subject"
-                        android:inputType="text"
-                        android:maxLines="1" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="315dp"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="@dimen/signup_text_margin_top">
-
-                    <Spinner
-                        android:id="@+id/updateStream"
-                        android:layout_width="230dp"
-                        android:layout_height="44dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="80dp"
-                        android:layout_marginTop="340dp"
-                        android:entries="@array/StreamArray" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="315dp"
-                    android:layout_height="150dp"
-                    android:layout_marginTop="@dimen/signup_text_margin_top">
-
-                    <Switch
-                        android:id="@+id/updateAvailability"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Switch" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/parent"
-                    android:layout_marginTop="@dimen/signup_text_margin_top" />
+            <!--<Switch
+                    android:id="@+id/addAvailability"
+                    android:layout_width="wrap_content"
+                    android:layout_height="152dp" />-->
 
 
-                <Button
-                    android:id="@+id/updateButton"
-                    style="@style/loginButton"
-                    android:layout_gravity="center"
-                    android:text="Submit" />
-                <Button
-                    android:id="@+id/deleteButton"
-                    style="@style/loginButton"
-                    android:layout_gravity="center"
-                    android:text="Delete" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="84dp"
+                android:layout_marginTop="69dp"
+                android:text="Update Details"
+                android:textColor="@color/status_blue"
+                android:textSize="34sp" />
 
-            </LinearLayout>
+            <Button
+                android:id="@+id/addButton"
+                style="@style/loginButton"
+                android:layout_width="103dp"
+                android:layout_height="67dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="77dp"
+                android:layout_marginTop="547dp"
+                android:text="Update"
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="600dp"
-                android:gravity="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                app:layout_constraintVertical_bias="0.672">
+                />
+
+            <Button
+                android:id="@+id/addButton2"
+                style="@style/loginButton"
+                android:layout_width="103dp"
+                android:layout_height="67dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="223dp"
+                android:layout_marginTop="547dp"
+                android:text="Delete"
+
+                />
+
+            <EditText
+                android:id="@+id/addSubject"
+                android:layout_width="299dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="225dp"
+                android:layout_marginEnd="31dp"
+                android:hint="Subject"
+                android:inputType="text"
+                android:maxLines="1" />
+
+            <Spinner
+                android:id="@+id/spinner3"
+                android:layout_width="230dp"
+                android:layout_height="44dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="340dp"
+                android:entries="@array/StreamArray" />
+
+            <Switch
+                android:id="@+id/addAvailability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="120dp"
+                android:layout_marginBottom="220dp"
+                android:text="@string/Availability"
+                android:textSize="20dp" />
 
 
-            </RelativeLayout>
         </RelativeLayout>
 
     </RelativeLayout>
