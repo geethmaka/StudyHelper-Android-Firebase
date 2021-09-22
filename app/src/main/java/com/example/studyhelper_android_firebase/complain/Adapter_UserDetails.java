@@ -108,12 +108,7 @@ public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetail
             washingtonRef
                     .update("status", "inactive")
                     .addOnSuccessListener(aVoid -> Log.d("TAG", "DocumentSnapshot successfully updated!"))
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w("TAG", "Error updating document", e);
-                        }
-                    });
+                    .addOnFailureListener(e -> Log.w("TAG", "Error updating document", e));
         });
     }
 
