@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".complain.CH_UserDetailsFragment">
+    tools:context=".complain.CH_UserDetailsFragment"
+    android:id="@+id/parent_layout">
 
     <LinearLayout
         android:layout_width="match_parent"

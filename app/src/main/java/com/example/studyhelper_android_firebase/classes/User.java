@@ -10,6 +10,8 @@ public class User {
     private long mobile;
     private String email;
 
+    private User user;
+
     public User() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
@@ -38,6 +40,15 @@ public class User {
         this.password = password;
         this.mobile = mobile;
         this.email = email;
+    }
+
+    public User(String id,User user){
+        this.id=id;
+        this.user=user;
+    }
+
+    public User getUser(){
+        return this.user;
     }
 
     public String getId() {
