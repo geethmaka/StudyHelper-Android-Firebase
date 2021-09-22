@@ -21,6 +21,8 @@ public class Link {
 //        Link = link;
 //    }
 
+    public Link(){}
+
     public Link(String subject, String title, Long date, String time, String link) {
         Subject = subject;
         Title = title;
