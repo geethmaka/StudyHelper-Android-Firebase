@@ -5,12 +5,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.studyhelper_android_firebase.R;
-import com.example.studyhelper_android_firebase.classes.Course;
 import com.example.studyhelper_android_firebase.classes.ICourse;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -22,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Switch;
 
 public class UpdateCourse extends AppCompatActivity {
@@ -35,6 +33,7 @@ public class UpdateCourse extends AppCompatActivity {
         Button updateButton = findViewById(R.id.updateButton);
         Button deleteButton = findViewById(R.id.deleteButton);
         EditText subject = findViewById(R.id.updateSubject);
+        Spinner stream = findViewById(R.id.updateStream);
 
         Intent intent = getIntent();
 
@@ -62,7 +61,7 @@ public class UpdateCourse extends AppCompatActivity {
             DocumentReference washingtonRef = db.collection("courses").document(id);
 
             washingtonRef
-                    .update("subject", subject.getText().toString(), "stream", "Maths", "availability", availability.isChecked())
+                    .update("subject", subject.getText().toString(), "stream", stream.getSelectedItem().toString(), "availability", availability.isChecked())
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {

@@ -11,10 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Switch;
 
 import com.example.studyhelper_android_firebase.R;
-import com.example.studyhelper_android_firebase.classes.Course;
+import com.example.studyhelper_android_firebase.classes.ICourse;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
@@ -72,17 +73,19 @@ public class AddCourses extends Fragment {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Button addButton = root.findViewById(R.id.addButton);
+        Spinner stream = root.findViewById(R.id.addStream);
+
         addButton.setOnClickListener((View v) -> {
 
             EditText subject = root.findViewById(R.id.addSubject);
-            Switch availability = root.findViewById(R.id.addAvailability);
+            Switch availability = root.findViewById(R.id.updateAvailability);
 
 
 
-            Course user = new Course(subject.getText().toString(), 10, availability.isChecked());
+            ICourse c = new ICourse(subject.getText().toString(),stream.getSelectedItem().toString() , availability.isChecked());
 
             db.collection("courses")
-                    .add(user)
+                    .add(c)
                     .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))
                     .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
         });

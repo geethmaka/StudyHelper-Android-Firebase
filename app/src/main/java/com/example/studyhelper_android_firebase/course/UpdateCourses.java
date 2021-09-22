@@ -22,8 +22,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -78,8 +76,8 @@ public class UpdateCourses extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_update_courses, container, false);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        Button updateButton = root.findViewById(R.id.updateButton);
-        EditText subject = root.findViewById(R.id.updateSubject);
+        Button updateButton = root.findViewById(R.id.addButton);
+        EditText subject = root.findViewById(R.id.addSubject);
         Switch availability = root.findViewById(R.id.updateAvailability);
         db.collection("courses")
                 .document("tYi3hGR7aNUDmfTC1we0")
