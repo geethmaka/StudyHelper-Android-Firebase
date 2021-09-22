@@ -99,6 +99,7 @@
 
     <string name="CoursePrompt">Stream</string>
     <string-array name="StreamArray">
+        <item>Select Stream</item>
         <item>Maths</item>
         <item>Bio</item>
         <item>Art</item>
