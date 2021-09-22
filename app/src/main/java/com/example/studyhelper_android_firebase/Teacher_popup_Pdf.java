@@ -1,5 +1,9 @@
 package com.example.studyhelper_android_firebase;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +12,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -16,12 +21,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.studyhelper_android_firebase.classes.Link;
 import com.example.studyhelper_android_firebase.classes.Pdf;
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -40,7 +47,7 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
     FirebaseStorage storage;
     Uri pdfUri;
     ProgressDialog progressDialog;
-
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,30 +55,34 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
         setContentView(R.layout.activity_teacher_popup_pdf);
 
         storage=FirebaseStorage.getInstance();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
         Button selectPdf=findViewById(R.id.selectPdf);
         notifyPdf=findViewById(R.id.notifyPdf);
         Button uploadButton = findViewById(R.id.btn_uplodpdf);
+        ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        // There are no request codes
+                        Intent data = result.getData();
+                        pdfUri=data.getData();
+                        notifyPdf.setText("A file is selected"+data.getData().getLastPathSegment());
+                    }
+                });
+        selectPdf.setOnClickListener(v -> {
 
-        selectPdf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            if(ContextCompat.checkSelfPermission(Teacher_popup_Pdf.this, Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
 
-                if(ContextCompat.checkSelfPermission(Teacher_popup_Pdf.this, Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
-
-                    selectPdf();
-
-                }
-                else
-                    ActivityCompat.requestPermissions(Teacher_popup_Pdf.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},9);
+                Intent intent = new Intent();
+                intent.setType("application/pdf");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                someActivityResultLauncher.launch(intent);
 
             }
+            else
+                ActivityCompat.requestPermissions(Teacher_popup_Pdf.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},9);
+
         });
-
-
-
-
-
 
         uploadButton.setOnClickListener((View v) -> {
 
@@ -83,35 +94,6 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
             }
             else
                 Toast.makeText(Teacher_popup_Pdf.this,"Select a pdf",Toast.LENGTH_SHORT).show();
-
-
-            Spinner Subject =findViewById(R.id.spinnerpdf);
-            TextView Title =findViewById(R.id.editTextPdf);
-            TextView Pdfupload =findViewById(R.id.editTextselect);
-
-
-
-            Pdf pdf=new Pdf(Subject.getSelectedItem().toString(),Title.getText().toString(),Pdfupload.getText().toString());
-
-
-
-            db.collection("pdf")
-                    .add(pdf)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w("TAG", "Error adding document", e);
-                        }
-                    });
-
-
-
-
         });
 
     }
@@ -125,41 +107,38 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
         progressDialog.show();
         String fileName=System.currentTimeMillis()+"";
         StorageReference storageReference= storage.getReference();
-        storageReference.child("Uploads").child(fileName).putFile(pdfUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-                String url=taskSnapshot.getDownloadUrl().toSting();
-
-                DatabaseReference reference=db.getReference();
-
-                reference.child(fileName).setValue(url).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(Teacher_popup_Pdf.this,"File successfully uploaded",Toast.LENGTH_LONG).show();
-                        }
-                        else
-                            Toast.makeText(Teacher_popup_Pdf.this,"File not successfully uploaded",Toast.LENGTH_LONG).show();
-
-                    }
-                });
-
+        EditText filename = findViewById(R.id.editTextPdf);
+        StorageReference ref = storageReference.child(filename.getText().toString());
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        UploadTask  uploadTask = ref.putFile(pdfUri);
+        Task<Uri> urlTask = uploadTask.continueWithTask(task -> {
+            if (!task.isSuccessful()) {
+                throw task.getException();
             }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
 
-                Toast.makeText(Teacher_popup_Pdf.this,"File not successfully uploaded",Toast.LENGTH_LONG).show();
-            }
-        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+            return ref.getDownloadUrl();
+        }).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Uri downloadUri = task.getResult();
+                Toast.makeText(Teacher_popup_Pdf.this,"File successfully uploaded"+downloadUri,Toast.LENGTH_LONG).show();
+                Spinner Subject =findViewById(R.id.spinnerpdf);
+                TextView Title =findViewById(R.id.editTextPdf);
 
-                int currentProgress=100*taskSnapshot.getBytesTransferred()/taskSnapShot.getTotalByteCount();
-                progressDialog.setProgress(currentProgress);
-
-
+                Pdf pdf=new Pdf(Subject.getSelectedItem().toString(),Title.getText().toString(),downloadUri.toString());
+                db.collection("pdf")
+                        .add(pdf)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w("TAG", "Error adding document", e);
+                            }
+                        });
+            } else {
             }
         });
     }
@@ -170,35 +149,28 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if(requestCode==9 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
-            selectPdf();;
+            selectPdf();
         }
         else
             Toast.makeText(Teacher_popup_Pdf.this,"please proivde permission..",Toast.LENGTH_SHORT).show();
     }
 
     private void selectPdf() {
-
-        Intent intent=new Intent();
+        ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        // There are no request codes
+                        Intent data = result.getData();
+                        pdfUri=data.getData();
+                        notifyPdf.setText("A file is selected"+data.getData().getLastPathSegment());
+                    }
+                });
+        Intent intent = new Intent();
         intent.setType("application/pdf");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, 86);
-
-
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode==86 && resultCode==RESULT_OK && data!=null){
-
-            pdfUri=data.getData();
-            notifyPdf.setText("A file is selected"+data.getData().getLastPathSegment());
-
-        }
-        else{
-            Toast.makeText(Teacher_popup_Pdf.this,"Please select a file",Toast.LENGTH_SHORT).show();
-        }
+        someActivityResultLauncher.launch(intent);
 
     }
+
 }
