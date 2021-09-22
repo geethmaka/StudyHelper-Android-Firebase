@@ -58,26 +58,21 @@
                     android:layout_height="50dp"
                     android:layout_marginTop="@dimen/signup_text_margin_top">
 
-                    <EditText
-
-                        android:layout_width="315dp"
-                        android:layout_height="50dp"
-                        android:hint="Steam"
-                        android:inputType="text"
-                        android:maxLines="1" />
+                    <Spinner
+                        android:id="@+id/updateStream"
+                        android:layout_width="230dp"
+                        android:layout_height="44dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="80dp"
+                        android:layout_marginTop="340dp"
+                        android:entries="@array/StreamArray" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="315dp"
                     android:layout_height="150dp"
                     android:layout_marginTop="@dimen/signup_text_margin_top">
-
-                    <EditText
-                        android:layout_width="315dp"
-                        android:layout_height="40dp"
-                        android:hint="@string/login_email_hint"
-                        android:inputType="textEmailAddress"
-                        android:maxLines="1" />
 
                     <Switch
                         android:id="@+id/updateAvailability"
