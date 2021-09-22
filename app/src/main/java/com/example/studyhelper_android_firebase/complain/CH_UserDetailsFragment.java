@@ -17,7 +17,6 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ProgressBar;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.User;
@@ -75,7 +74,6 @@ public class CH_UserDetailsFragment extends Fragment {
         recyclerView.setAdapter(userAdapter);
 
         EventChangeListener();
-
         return root;
     }
 

@@ -65,7 +65,6 @@
                 android:paddingTop="2sp"
                 android:paddingEnd="6sp"
                 android:paddingBottom="2sp"
-                android:text="Pending"
                 android:textSize="15sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/tv_complain_name"
                 app:layout_constraintRight_toRightOf="parent" />
@@ -84,8 +83,7 @@
                 android:id="@+id/user_complain"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="17sp"
-                android:text="The app is working perfectly"/>
+                android:textSize="17sp"/>
 
         </LinearLayout>
 
@@ -100,13 +98,10 @@
 
             <android.widget.Button
                 android:id="@+id/btn_complain_resolve"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:background="@drawable/button1"
-                android:paddingStart="40dp"
-                android:paddingEnd="40sp"
+                style="@style/loginButton"
                 android:text="@string/btn_resolved"
-                android:textAllCaps="false"
                 android:textSize="20sp" />
 
         </LinearLayout>
