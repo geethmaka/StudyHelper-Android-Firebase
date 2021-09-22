@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -49,6 +50,9 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
 //            holder.ampm.setText(link.getAmPm());
             holder.link.setText(link.getLink());
 
+            holder.updateLink.setOnClickListener(v ->{
+
+            });
         }
 
         @Override
@@ -60,6 +64,7 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
         TextView subject;
         EditText title,link,time;
         CalendarView date;
+        ImageButton updateLink;
 //        EditText ampm;
 
 
@@ -71,6 +76,8 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
             time= itemView.findViewById(R.id.amPm);
 //            ampm=itemView.findViewById(R.id.spinner2);
             link = itemView.findViewById(R.id.updatelink);
+
+            updateLink = itemView.findViewById(R.id.update_link);
         }
     }
 }
