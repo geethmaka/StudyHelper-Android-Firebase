@@ -5,81 +5,104 @@
     android:id="@+id/pdfUploder"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".Teacher_popup_Pdf">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="92dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="49dp"
         android:text="@string/pdfUpload"
         android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerpdf"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinnerpdf"
         android:layout_width="213dp"
-        android:layout_height="48dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="88dp"
         android:background="@color/harbor_grey"
         android:backgroundTint="@color/white"
         android:entries="@array/stream_subj"
         android:gravity="right"
         android:popupBackground="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextPdf"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextPdf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="97dp"
-        android:layout_marginEnd="97dp"
-        android:layout_marginBottom="105dp"
+        android:layout_marginBottom="107dp"
         android:ems="10"
-        android:hint="Title"
         android:gravity="center"
+        android:hint="Title"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/edittext"
+        app:layout_constraintBottom_toTopOf="@+id/editTextselect"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerpdf" />
 
     <EditText
-        android:id="@+id/edittext"
+        android:id="@+id/editTextselect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="121dp"
+        android:layout_marginBottom="49dp"
         android:hint="Select the file"
         android:minHeight="48dp"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/btn_uplodpdf"
+        app:layout_constraintBottom_toTopOf="@+id/selectPdf"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPdf" />
 
     <android.widget.Button
         android:id="@+id/btn_uplodpdf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="132dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="35dp"
         android:background="@color/status_blue"
         android:backgroundTint="@color/status_blue"
         android:text="@string/pdf_upload"
         android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/notifyPdf"
+        app:layout_constraintTop_toBottomOf="@+id/notifyPdf" />
+
+    <Button
+        android:id="@+id/selectPdf"
+        android:layout_width="208dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="32dp"
+        android:background="@color/white"
+        android:text="Select File"
+        app:layout_constraintBottom_toTopOf="@+id/notifyPdf"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittext" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextselect" />
+
+    <TextView
+        android:id="@+id/notifyPdf"
+        android:layout_width="98dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="38dp"
+        android:text="No file upload"
+        app:layout_constraintBottom_toTopOf="@+id/btn_uplodpdf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectPdf" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

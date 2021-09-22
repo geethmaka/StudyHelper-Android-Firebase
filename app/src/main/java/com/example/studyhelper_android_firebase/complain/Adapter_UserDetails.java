@@ -103,12 +103,22 @@ public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetail
         holder.email.setText(user.getUser().getEmail());
 
         holder.btn_banUser.setOnClickListener(v -> {
-            DocumentReference washingtonRef = db.collection("courses").document(user.getId());
+            DocumentReference userRef = db.collection("users").document(user.getId());
 
-            washingtonRef
-                    .update("status", "inactive")
-                    .addOnSuccessListener(aVoid -> Log.d("TAG", "DocumentSnapshot successfully updated!"))
-                    .addOnFailureListener(e -> Log.w("TAG", "Error updating document", e));
+            userRef.update("status", "inactive")
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Log.d("TAG", "DocumentSnapshot successfully updated!");
+                        }
+                    })
+
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w("TAG", "Error updating document", e);
+                        }
+                    });
         });
     }
 

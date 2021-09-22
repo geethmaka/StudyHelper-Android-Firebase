@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.PdfViewHolder> {
 
     Context context;
-    ArrayList< Pdf>pdfArrayList;
+    ArrayList<Pdf>pdfArrayList;
 
     public PdfAdapter(ArrayList<Pdf> pdfArrayList,Context context ) {
         this.context = context;
@@ -44,7 +44,7 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.PdfViewHolder> {
 
             holder.subject.setText(pdf.subject);
             holder.Title.setText(pdf.title);
-            holder.uppdf.setText(pdf.uppdf);
+            holder.pdf.setText(pdf.pdf);
     }
     @Override
     public int getItemCount() {
@@ -53,7 +53,7 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.PdfViewHolder> {
 
     public static class PdfViewHolder extends RecyclerView.ViewHolder{
         TextView subject;
-        EditText Title,uppdf;
+        EditText Title,pdf;
 
 
 
@@ -61,7 +61,7 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.PdfViewHolder> {
             super(itemView);
             subject = itemView.findViewById(R.id.pdf1);
             Title = itemView.findViewById(R.id.editpdf);
-            uppdf = itemView.findViewById(R.id.updatepdf);
+            pdf = itemView.findViewById(R.id.updatepdf);
 //            TextView btn_banUser = itemView.findViewById(R.id.btn_banUser);
         }
     }

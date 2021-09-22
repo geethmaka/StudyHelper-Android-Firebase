@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="250dp"
+    android:layout_height="650dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="3dp"
     app:cardUseCompatPadding="true"
@@ -11,7 +11,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="720dp"
         android:background="@color/white">
 
 
@@ -19,95 +19,151 @@
             android:id="@+id/textView_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="91dp"
+            android:layout_marginBottom="17dp"
             android:text="@string/Sub_name"
             android:textSize="22dp"
-            tools:layout_editor_absoluteX="19dp"
-            tools:layout_editor_absoluteY="16dp" />
+            app:layout_constraintBottom_toTopOf="@+id/link2"
+            app:layout_constraintEnd_toStartOf="@+id/link1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
             android:id="@+id/link1"
-            android:layout_width="109dp"
-            android:layout_height="29dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="110dp"
+            android:layout_marginBottom="14dp"
             android:text="@string/subject"
             android:textSize="22dp"
-            tools:layout_editor_absoluteX="184dp"
-            tools:layout_editor_absoluteY="17dp" />
+            app:layout_constraintBottom_toTopOf="@+id/editlinktitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView_link"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/link2"
-            android:layout_width="67dp"
-            android:layout_height="27dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="630dp"
             android:text="@string/Title_sub"
             android:textSize="22dp"
-            tools:layout_editor_absoluteX="25dp"
-            tools:layout_editor_absoluteY="63dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editlinktitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_link" />
 
         <EditText
             android:id="@+id/editlinktitle"
-            android:layout_width="219dp"
-            android:layout_height="30dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="59dp"
+            android:layout_marginBottom="355dp"
             android:ems="10"
             android:gravity="center"
             android:inputType="text"
             android:text="@string/edit_title"
-            tools:layout_editor_absoluteX="146dp"
-            tools:layout_editor_absoluteY="60dp" />
+            app:layout_constraintBottom_toTopOf="@+id/amPm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/link2"
+            app:layout_constraintTop_toBottomOf="@+id/link1" />
 
         <ImageButton
             android:id="@+id/editlink_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="73dp"
             android:background="@drawable/btn_transp"
-            tools:layout_editor_absoluteX="341dp"
-            tools:layout_editor_absoluteY="60dp" />
+            app:layout_constraintBottom_toTopOf="@+id/calendarView"
+            app:layout_constraintEnd_toEndOf="@+id/editlinktitle"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <CalendarView
             android:id="@+id/calendarView"
-            android:layout_width="263dp"
-            android:layout_height="52dp"
-            android:layout_marginEnd="16dp"
+            android:layout_width="236dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="273dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:layout_editor_absoluteY="90dp" />
+            app:layout_constraintHorizontal_bias="0.736"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editlink_title"
+            app:layout_constraintVertical_bias="0.327" />
 
         <ImageButton
             android:id="@+id/editlink"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="151dp"
+            android:layout_marginEnd="27dp"
+            android:layout_marginBottom="315dp"
             android:background="@drawable/btn_transp"
-            tools:layout_editor_absoluteX="332dp"
-            tools:layout_editor_absoluteY="148dp" />
+            app:layout_constraintBottom_toTopOf="@+id/amPm"
+            app:layout_constraintEnd_toEndOf="@+id/calendarView"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/updatelink"
-            android:layout_width="219dp"
-            android:layout_height="30dp"
+            android:layout_width="221dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="55dp"
+            android:layout_marginBottom="24dp"
             android:background="@color/white"
             android:ems="10"
             android:gravity="center"
             android:inputType="text"
             android:text="@string/linkUpdate"
-            tools:layout_editor_absoluteX="146dp"
-            tools:layout_editor_absoluteY="148dp" />
+            app:layout_constraintBottom_toTopOf="@+id/update_link"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/amPm" />
 
         <ImageButton
             android:id="@+id/update_link"
-            android:layout_width="60dp"
-            android:layout_height="52dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="158dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginBottom="90dp"
             android:background="@color/status_green"
-            app:srcCompat="@drawable/ic_baseline_check_circle_24"
-            tools:layout_editor_absoluteX="157dp"
-            tools:layout_editor_absoluteY="191dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/delete_link"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/updatelink"
+            app:srcCompat="@drawable/ic_baseline_check_circle_24" />
 
         <ImageButton
             android:id="@+id/delete_link"
-            android:layout_width="55dp"
-            android:layout_height="57dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="94dp"
             android:background="@color/btn2_r"
-            app:srcCompat="@drawable/ic_baseline_delete_24"
-            tools:layout_editor_absoluteX="238dp"
-            tools:layout_editor_absoluteY="186dp" />
+            app:layout_constraintBottom_toBottomOf="@+id/update_link"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/update_link"
+            app:layout_constraintTop_toTopOf="@+id/update_link"
+            app:srcCompat="@drawable/ic_baseline_delete_24" />
+
+        <EditText
+            android:id="@+id/amPm"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="216dp"
+            android:ems="10"
+            android:inputType="time"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/calendarView"
+            app:layout_constraintStart_toStartOf="@+id/updatelink"
+            app:layout_constraintTop_toBottomOf="@+id/editlink" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

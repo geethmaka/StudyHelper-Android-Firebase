@@ -91,4 +91,18 @@
     <string name="btn_com_delete">Delete Resolved Complains</string>
     <string name="teacher">Teacher</string>
     <string name="student">Student</string>
+
+
+    <!-- Course -->
+    <string name="AddNewCourse">Add New Course</string>
+    <string name="Availability">Availability</string>
+
+    <string name="CoursePrompt">Stream</string>
+    <string-array name="StreamArray">
+        <item>Maths</item>
+        <item>Bio</item>
+        <item>Art</item>
+        <item>Commerce</item>
+        <item>Common</item>
+    </string-array>
 </resources>

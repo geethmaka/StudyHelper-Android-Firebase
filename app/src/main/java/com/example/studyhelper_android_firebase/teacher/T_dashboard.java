@@ -1,5 +1,7 @@
 package com.example.studyhelper_android_firebase.teacher;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -72,40 +74,10 @@ public class T_dashboard extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.teacher_popup_link, container, false);
+        View root = inflater.inflate(R.layout.fragment_t_dashboard, container, false);
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        Button uploadButton = root.findViewById(R.id.btn_uploadlink);
-        uploadButton.setOnClickListener((View v) -> {
-
-
-
-            String Subject =  root.findViewById(R.id.spinner).toString();
-            String Title = root.findViewById(R.id.link_title).toString();
-            View Date = root.findViewById(R.id.calendarView);
-            String Time = root.findViewById(R.id.Time).toString();
-            String AmPm = root.findViewById(R.id.spinner2).toString();
-            String Link = root.findViewById(R.id.link_add).toString();
-
-            Link link=new Link(Subject,Title,Date.toString(),Time,AmPm,Link);
-
-            db.collection("link")
-                    .add(link)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w("TAG", "Error adding document", e);
-                        }
-                    });
-        });
         return root;
-
-
 
     }
 }
+
