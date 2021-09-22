@@ -58,20 +58,20 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
             holder.updateLink.setOnClickListener(v ->{
                 DocumentReference washingtonRef = db.collection("link").document(link.getId());
 
-//                washingtonRef
-//                        .update("subject", subject.getText().toString(), "grade", 10, "availability", availability.isChecked())
-//                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                            @Override
-//                            public void onSuccess(Void aVoid) {
-//                                Log.d("TAG", "DocumentSnapshot successfully updated!");
-//                            }
-//                        })
-//                        .addOnFailureListener(new OnFailureListener() {
-//                            @Override
-//                            public void onFailure(@NonNull Exception e) {
-//                                Log.w("TAG", "Error updating document", e);
-//                            }
-//                        });
+                washingtonRef
+                        .update("subject",  link.getObj().getSubject(), "title",link.getObj().getTitle(), "date", link.getObj().getDate(),"time",link.getObj().getTime())
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Log.d("TAG", "DocumentSnapshot successfully updated!");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w("TAG", "Error updating document", e);
+                            }
+                        });
             });
         }
 
