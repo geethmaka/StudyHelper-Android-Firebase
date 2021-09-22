@@ -53,7 +53,7 @@
                 />
 
             <Button
-                android:id="@+id/addButton2"
+                android:id="@+id/deleteButton"
                 style="@style/loginButton"
                 android:layout_width="103dp"
                 android:layout_height="67dp"

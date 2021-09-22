@@ -76,6 +76,7 @@
                     android:id="@+id/scomplains"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
+                    android:onClick="gotoTmComplain"
                     android:text="complaints">
 
                 </Button>
