@@ -84,15 +84,14 @@ public class SComplainFragment extends Fragment {
         uploadButton.setOnClickListener((View v) -> {
 
             Spinner cType =  root.findViewById(R.id.stype);
-            CalendarView date = root.findViewById(R.id.scalendarView);
             EditText massage = root.findViewById(R.id.smassage);
 
             Date currentTime = Calendar.getInstance().getTime();
-            Log.w("DATE", currentTime.toString());
-           Complain complain =new Complain(cType.getSelectedItem().toString(),currentTime.toString(),massage.getText().toString());
+
+           Complain c =new Complain("VUORF7G4KHXZNcsX6W7Q",cType.getSelectedItem().toString(),"Pending",currentTime.toString(),massage.getText().toString());
 
             db.collection("complain")
-                    .add(complain)
+                    .add(c)
                     .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))
                     .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
         });

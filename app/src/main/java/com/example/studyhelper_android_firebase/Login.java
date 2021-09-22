@@ -43,4 +43,9 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+/*    public void gotoTmPdf(View view) {
+        final Context context = this;
+        Intent intent = new Intent(context, Register.class);
+        startActivity(intent);
+    }*/
 }
