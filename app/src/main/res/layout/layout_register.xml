@@ -33,6 +33,48 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/parent">
+            <RadioGroup
+                android:layout_width="337dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20sp"
+                    android:buttonTint="@color/white"
+                    android:text="Student"
+                    android:textColor="@color/status_blue"
+                    android:textSize="20sp"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20sp"
+                    android:buttonTint="@color/white"
+                    android:text="Teacher"
+                    android:textColor="@color/status_blue"
+                    android:textSize="20sp"/>
+            </RadioGroup>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Spinner
+            android:id="@+id/stype"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:entries="@array/smm_subject_arrays"
+            android:prompt="@string/sm_subject_prompt"
+            android:textColor="@color/status_blue">
+
+        </Spinner>
+
+        <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
             <EditText

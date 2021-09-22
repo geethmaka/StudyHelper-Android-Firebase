@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -28,7 +27,7 @@
                 android:layout_marginTop="60dp"
                 android:text="@string/scomplaint_details"
                 android:textColor="@color/colorAccent"
-                android:textSize="25dp" />
+                android:textSize="25sp" />
 
             <Spinner
                 android:id="@+id/stype"
@@ -43,15 +42,6 @@
 
             </Spinner>
 
-            <CalendarView
-                android:id="@+id/scalendarView"
-                android:layout_width="263dp"
-                android:layout_height="52dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="180dp" />
-
             <EditText
                 android:id="@+id/smassage"
                 android:layout_width="315dp"
@@ -61,7 +51,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="260dp"
                 android:hint="massage"
-                android:inputType="text" />
+                android:inputType="text"/>
 
             <Button
                 android:id="@+id/scomplaintadd"
@@ -78,7 +68,6 @@
                 android:layout_height="100dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="458dp"
                 android:gravity="center">

@@ -17,7 +17,7 @@ public class Complain {
     }
 
     //overloaded constructor
-    public Complain(String complainId, String userId, String type, String status, String  date, String content) {
+    public Complain(String complainId, String userId, String type, String status, String date, String content) {
         this.complainId = complainId;
         this.userID = userId;
         this.Type = type;
@@ -40,60 +40,40 @@ public class Complain {
         this.Content = complain;
     }
 
-    public Complain(String ID,Complain complain){
+    public Complain(String ID, Complain complain) {
         this.complainId = ID;
-        this.complain=complain;
+        this.complain = complain;
     }
     //getters and setters
 
 
-
-    public Complain getComplain(){
+    public Complain getComplain() {
         return complain;
     }
+
     public String getComplainId() {
         return complainId;
-    }
-
-    public void setComplainId(String complainId) {
-        this.complainId = complainId;
     }
 
     public String getUserID() {
         return userID;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
-
     public String getType() {
         return Type;
     }
 
-    public void setType(String type) {
-        this.Type = type;
-    }
 
     public String getStatus() {
         return Status;
-    }
-
-    public void setStatus(String status) {
-        this.Status = status;
     }
 
     public String getDate() {
         return Date;
     }
 
-    public void setDate(String date) { this.Date = date;}
-
     public String getContent() {
         return Content;
     }
 
-    public void setContent(String complain) {
-        this.Content = complain;
-    }
 }
