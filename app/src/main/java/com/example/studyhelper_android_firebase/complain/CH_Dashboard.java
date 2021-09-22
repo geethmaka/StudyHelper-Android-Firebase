@@ -71,31 +71,29 @@ public class CH_Dashboard extends Fragment {
     }
 
     private void EventChangeListener() {
-        db.collection("complain").orderBy("Date", Query.Direction.ASCENDING)
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                        if(error != null) {
-                            //dismiss progress dialog
-                            if(progressDialog.isShowing())
-                                progressDialog.dismiss();
-                            Log.e("Firestore Error",error.getMessage());
-                            return;
-                        }
-
-                        //fetching the data from the firestore database
-                        for(DocumentChange dc : value.getDocumentChanges()){
-                            Complain c = dc.getDocument().toObject(Complain.class);
-                            if(dc.getType() == DocumentChange.Type.ADDED && c.getStatus().equals("Pending")) {
-                                complainArrayList.add(c);
-                            }
-                            dashAdapter.notifyDataSetChanged();
-                            //dismiss progress dialog
-                            if(progressDialog.isShowing())
-                                progressDialog.dismiss();
-                        }
-
+        db.collection("complain").orderBy("date", Query.Direction.ASCENDING)
+                .addSnapshotListener((value, error) -> {
+                    if(error != null) {
+                        //dismiss progress dialog
+                        if(progressDialog.isShowing())
+                            progressDialog.dismiss();
+                        Log.e("Firestore Error",error.getMessage());
+                        return;
                     }
+
+                    //fetching the data from the firestore database
+                    for(DocumentChange dc : value.getDocumentChanges()){
+                        Complain c = dc.getDocument().toObject(Complain.class);
+
+                        if(dc.getType() == DocumentChange.Type.ADDED && c.getStatus().equals("Pending")) {
+                            complainArrayList.add(c);
+                        }
+                        dashAdapter.notifyDataSetChanged();
+                        //dismiss progress dialog
+                        if(progressDialog.isShowing())
+                            progressDialog.dismiss();
+                    }
+
                 });
     }
 }
