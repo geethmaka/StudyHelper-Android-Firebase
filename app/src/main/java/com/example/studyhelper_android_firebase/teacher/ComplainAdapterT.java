@@ -41,8 +41,8 @@ public class ComplainAdapterT extends RecyclerView.Adapter<ComplainAdapterT.View
     @Override
     public ComplainAdapterT.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_navcomplain, parent, false);
-        return new ViewHolder();
+        View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_resolved, parent, false);
+        return new ViewHolder(v);
     }
 
     @Override
@@ -90,12 +90,7 @@ public class ComplainAdapterT extends RecyclerView.Adapter<ComplainAdapterT.View
             DocumentReference complainRef = db.collection("complain").document(complain.getComplainId());
 
             complainRef.update("Status", "Resolved")
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Log.d("TAG", "The complain is marked resolved successfully!");
-                        }
-                    })
+                    .addOnSuccessListener(aVoid -> Log.d("TAG", "The complain is marked resolved successfully!"))
 
                     .addOnFailureListener(new OnFailureListener() {
                         @Override

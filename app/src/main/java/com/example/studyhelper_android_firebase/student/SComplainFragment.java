@@ -1,6 +1,8 @@
 package com.example.studyhelper_android_firebase.student;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,7 +94,11 @@ public class SComplainFragment extends Fragment {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
             sdf.format(currentTime);
 
-           IComplain c =new IComplain("VUORF7G4KHXZNcsX6W7Q",cType.getSelectedItem().toString(),"Pending",sdf.format(currentTime).toString(),massage.getText().toString());
+    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
+    String id =preferences.getString("uid","l");
+
+
+           IComplain c =new IComplain(id,cType.getSelectedItem().toString(),"Pending",sdf.format(currentTime).toString(),massage.getText().toString());
 
             db.collection("complain")
                     .add(c)
