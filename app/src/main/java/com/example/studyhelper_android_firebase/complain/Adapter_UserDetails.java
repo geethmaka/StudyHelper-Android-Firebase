@@ -1,6 +1,8 @@
 package com.example.studyhelper_android_firebase.complain;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +11,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.User;
+import com.example.studyhelper_android_firebase.course.ViewCourses;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -100,21 +104,33 @@ public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetail
             DocumentReference userRef = db.collection("users").document(user.getId());
 
             userRef.update("status", "inactive")
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            Log.d("TAG", "DocumentSnapshot successfully updated!");
-                        }
-                    })
+                    .addOnSuccessListener(unused -> Log.d("TAG", "DocumentSnapshot successfully updated!"))
 
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w("TAG", "Error updating document", e);
-                        }
-                    });
+                    .addOnFailureListener(e -> Log.w("TAG", "Error updating document", e));
         });
     }
+//        deleteButton.setOnClickListener((View v) -> {
+//        AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
+//        alertDialog.setTitle("hi");
+//        alertDialog.setMessage("this is my app");
+//        alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> db.collection("courses").document(id)
+//                .delete()
+//                .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void aVoid) {
+//                        Intent i=new Intent(v.getContext(), ViewCourses.class);
+//                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                        v.getContext().startActivity(i);
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                    }
+//                }));
+//        alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id1) -> dialog.dismiss());
+//        alertDialog.show();
+//    });
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView username;

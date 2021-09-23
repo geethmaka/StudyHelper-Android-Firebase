@@ -60,32 +60,27 @@ public class ActiveUsers extends AppCompatActivity {
 
     private void EventChangeListener() {
         db.collection("users").orderBy("username", Query.Direction.ASCENDING)
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                        if(error != null) {
-                            //dismiss progress dialog
-                            if(progressDialog.isShowing())
-                                progressDialog.dismiss();
-                            Log.e("Firestore Error",error.getMessage());
-                            return;
-                        }
-
-                        //fetching the data from the firestore database
-                        for(DocumentChange dc : value.getDocumentChanges()){
-                            if(dc.getType() == DocumentChange.Type.ADDED) {
-                                User n = new User(dc.getDocument().getId(), dc.getDocument().toObject(User.class));
-//                                if(n.getUser().isStatus()) {
-                                    userArrayList.add(n);
-//                                }
-                            }
-                            userAdapter.notifyDataSetChanged();
-                            //dismiss progress dialog
-                            if(progressDialog.isShowing())
-                                progressDialog.dismiss();
-                        }
-
+                .addSnapshotListener((value, error) -> {
+                    if(error != null) {
+                        //dismiss progress dialog
+                        if(progressDialog.isShowing())
+                            progressDialog.dismiss();
+                        Log.e("Firestore Error",error.getMessage());
+                        return;
                     }
+
+                    //fetching the data from the firestore database
+                    for(DocumentChange dc : value.getDocumentChanges()){
+                        User n = new User(dc.getDocument().getId(), dc.getDocument().toObject(User.class));
+                        if(dc.getType() == DocumentChange.Type.ADDED && n.getUser().getStatus().equals("active")) {
+                                userArrayList.add(n);
+                        }
+                        userAdapter.notifyDataSetChanged();
+                        //dismiss progress dialog
+                        if(progressDialog.isShowing())
+                            progressDialog.dismiss();
+                    }
+
                 });
     }
 }
