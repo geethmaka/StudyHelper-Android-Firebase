@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyHelperAndroidFirebase">
               <activity
-            android:name=".Added_complain_T"
+            android:name=".teacher.Added_complain_T"
             android:exported="true" />
         <activity
             android:name=".complain.ResolvedComplaints"

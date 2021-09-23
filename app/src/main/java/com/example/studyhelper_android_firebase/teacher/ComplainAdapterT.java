@@ -40,7 +40,6 @@ public class ComplainAdapterT extends RecyclerView.Adapter<ComplainAdapterT.View
     @NonNull
     @Override
     public ComplainAdapterT.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_resolved, parent, false);
         return new ViewHolder(v);
     }
@@ -85,21 +84,6 @@ public class ComplainAdapterT extends RecyclerView.Adapter<ComplainAdapterT.View
 
         holder.status.setText(complain.getComplain().getStatus());
         holder.complain.setText(complain.getComplain().getContent());
-
-        holder.btn_cResolve.setOnClickListener(v -> {
-            DocumentReference complainRef = db.collection("complain").document(complain.getComplainId());
-
-            complainRef.update("Status", "Resolved")
-                    .addOnSuccessListener(aVoid -> Log.d("TAG", "The complain is marked resolved successfully!"))
-
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w("TAG", "Error updating status", e);
-                        }
-                    });
-        });
-
     }
 
     @Override
@@ -108,20 +92,15 @@ public class ComplainAdapterT extends RecyclerView.Adapter<ComplainAdapterT.View
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
         TextView username;
         TextView status;
         TextView complain;
-        Button btn_cResolve;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             username = itemView.findViewById(R.id.tv_complain_name);
             status = itemView.findViewById(R.id.tv_status);
             complain = itemView.findViewById(R.id.user_complain);
-            btn_cResolve = itemView.findViewById(R.id.btn_complain_resolve);
-
-
         }
     }
 }

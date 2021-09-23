@@ -103,6 +103,9 @@
     <string name="Availability">Availability</string>
 
     <string name="CoursePrompt">Stream</string>
+    <string name="complaints">complaints</string>
+    <string name="submit">Submit</string>
+    <string name="message">message</string>
     <string-array name="StreamArray">
         <item>Select Stream</item>
         <item>Maths</item>
