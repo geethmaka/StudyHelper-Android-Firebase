@@ -80,25 +80,14 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
                 alertDialog.setMessage("Are you sure you want to delete this link");
                 alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> db.collection("link").document(link.getId())
                         .delete()
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Intent i=new Intent(v.getContext(), ViewCourses.class);
-                                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                v.getContext().startActivity(i);
-                            }
+                        .addOnSuccessListener(aVoid -> {
+                            Intent i=new Intent(v.getContext(), ViewCourses.class);
+                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            v.getContext().startActivity(i);
                         })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                            }
+                        .addOnFailureListener(e -> {
                         }));
-                alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No",new DialogInterface.OnClickListener(){
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.dismiss();
-                    }
-
-                });
+                alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id) -> dialog.dismiss());
                 alertDialog.show();
             });
 

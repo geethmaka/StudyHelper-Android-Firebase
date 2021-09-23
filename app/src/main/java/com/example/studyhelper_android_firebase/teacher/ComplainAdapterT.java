@@ -93,12 +93,7 @@ public class ComplainAdapterT extends RecyclerView.Adapter<ComplainAdapterT.View
             complainRef.update("Status", "Resolved")
                     .addOnSuccessListener(aVoid -> Log.d("TAG", "The complain is marked resolved successfully!"))
 
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w("TAG", "Error updating status", e);
-                        }
-                    });
+                    .addOnFailureListener(e -> Log.w("TAG", "Error updating status", e));
         });
 
     }

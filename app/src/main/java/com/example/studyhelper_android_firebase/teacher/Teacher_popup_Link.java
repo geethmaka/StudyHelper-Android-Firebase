@@ -46,11 +46,6 @@ public class Teacher_popup_Link extends Activity {
             Spinner AmPm =findViewById(R.id.spinner2);
             EditText Link =findViewById(R.id.link_add);
             String time=Time.getText().toString()+AmPm.getSelectedItem().toString();
-
-            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-            String id =preferences.getString("uid","");
-
-            ILink link=new ILink(id,Subject.getSelectedItem().toString(),Title.getText().toString(),Date.getDate(),time,Link.getText().toString());
             String Name= Subject.getSelectedItem().toString();
             Long date=Date.getDate();
             if(Name == null) {
@@ -64,8 +59,12 @@ public class Teacher_popup_Link extends Activity {
             else if(TextUtils.isEmpty(Link.getText().toString()))
                 Toast.makeText(getApplicationContext(),"Please enter link",Toast.LENGTH_LONG).show();
             else {
-                com.example.studyhelper_android_firebase.classes.Link link = new Link(Subject.getSelectedItem().toString(), Title.getText().toString(), Date.getDate(), time, Link.getText().toString());
 
+            }
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+            String id =preferences.getString("uid","");
+
+            ILink link=new ILink(id,Subject.getSelectedItem().toString(),Title.getText().toString(),Date.getDate(),time,Link.getText().toString());
 
 
             db.collection("link")

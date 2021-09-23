@@ -112,9 +112,3 @@ public class Login extends AppCompatActivity {
         });
     }
 }
-
-
-
-//    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
-//    String tee =preferences.getString("uid","l");
-//        Log.d("tee",tee);
