@@ -1,6 +1,7 @@
 package com.example.studyhelper_android_firebase.complain;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Complain;
 import com.example.studyhelper_android_firebase.classes.User;
+import com.example.studyhelper_android_firebase.course.UpdateCourse;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -84,20 +86,14 @@ public class Adapter_newComplaint extends RecyclerView.Adapter<Adapter_newCompla
         holder.btn_cResolve.setOnClickListener(v -> {
             DocumentReference complainRef = db.collection("complain").document(complain.getComplainId());
 
-            complainRef.update("Status", "Resolved")
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Log.d("TAG", "The complain is marked resolved successfully!");
-                        }
+            complainRef.update("status", "Resolved")
+                    .addOnSuccessListener(aVoid ->{
+                        Intent i=new Intent(this.context.getApplicationContext(), NewComplaint.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        this.context.startActivity(i);
                     })
 
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w("TAG", "Error updating status", e);
-                        }
-                    });
+                    .addOnFailureListener(e -> Log.w("TAG", "Error updating status", e));
         });
 
     }

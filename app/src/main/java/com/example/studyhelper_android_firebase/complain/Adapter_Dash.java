@@ -49,6 +49,7 @@ public class Adapter_Dash extends RecyclerView.Adapter<Adapter_Dash.ViewHolder> 
                         DocumentSnapshot document = task.getResult();
                         if (document.exists()) {
                             Complain c = document.toObject(Complain.class);
+                            Log.d("id",c.getUserID());
                             db.collection("users")
                                     .document(c.getUserID())
                                     .get()
@@ -60,7 +61,7 @@ public class Adapter_Dash extends RecyclerView.Adapter<Adapter_Dash.ViewHolder> 
                                                 //setting the username
                                                 holder.username.setText(u.getUsername());
                                             } else {
-                                                Log.d("TAG", "No such document");
+                                                Log.d("TAG", "No such document*");
                                             }
                                         } else {
                                             Log.d("TAG", "get failed with ", task.getException());
@@ -74,8 +75,8 @@ public class Adapter_Dash extends RecyclerView.Adapter<Adapter_Dash.ViewHolder> 
                     }
                 });
 
-        holder.status.setText(complain.getStatus());
-        holder.complain.setText(complain.getContent());
+        holder.status.setText(complain.getComplain().getStatus());
+        holder.complain.setText(complain.getComplain().getContent());
 
     }
 

@@ -79,32 +79,22 @@ public class UpdateCourse extends AppCompatActivity {
             AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
             alertDialog.setTitle("hi");
             alertDialog.setMessage("this is my app");
-            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes",new DialogInterface.OnClickListener(){
-                public void onClick(DialogInterface dialog, int ID) {
-                    db.collection("courses").document(id)
-                            .delete()
-                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Intent i=new Intent(v.getContext(),ViewCourses.class);
-                                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    v.getContext().startActivity(i);
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                }
-                            });
-                }
-
-            });
-            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No",new DialogInterface.OnClickListener(){
-                public void onClick(DialogInterface dialog, int id) {
-                    dialog.dismiss();
-                }
-
-            });
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> db.collection("courses").document(id)
+                    .delete()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Intent i=new Intent(v.getContext(),ViewCourses.class);
+                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            v.getContext().startActivity(i);
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                        }
+                    }));
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id1) -> dialog.dismiss());
             alertDialog.show();
         });
     }
