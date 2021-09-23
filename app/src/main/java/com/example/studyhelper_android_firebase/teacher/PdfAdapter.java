@@ -42,9 +42,9 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.PdfViewHolder> {
 
             Pdf pdf= pdfArrayList.get(position);
 
-            holder.subject.setText(pdf.subject);
-            holder.Title.setText(pdf.title);
-            holder.pdf.setText(pdf.pdf);
+            holder.subject.setText(pdf.getObj().subject);
+            holder.Title.setText(pdf.getObj().title);
+            holder.pdf.setText(pdf.getObj().pdf);
     }
     @Override
     public int getItemCount() {
