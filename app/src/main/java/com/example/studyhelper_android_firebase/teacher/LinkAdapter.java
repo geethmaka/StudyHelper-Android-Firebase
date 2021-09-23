@@ -81,7 +81,7 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
                 alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> db.collection("link").document(link.getId())
                         .delete()
                         .addOnSuccessListener(aVoid -> {
-                            Intent i=new Intent(v.getContext(), ViewCourses.class);
+                            Intent i=new Intent(v.getContext(), Links_added.class);
                             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             v.getContext().startActivity(i);
                         })
