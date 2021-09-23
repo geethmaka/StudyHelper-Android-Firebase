@@ -62,12 +62,7 @@ public class UpdateCourse extends AppCompatActivity {
 
             washingtonRef
                     .update("subject", subject.getText().toString(), "stream", stream.getSelectedItem().toString(), "availability", availability.isChecked())
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Log.d("TAG", "DocumentSnapshot successfully updated!");
-                        }
-                    })
+                    .addOnSuccessListener(aVoid -> Log.d("TAG", "DocumentSnapshot successfully updated!"))
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
@@ -82,25 +77,14 @@ public class UpdateCourse extends AppCompatActivity {
             alertDialog.setMessage("this is my app");
             alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> db.collection("courses").document(id)
                     .delete()
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Intent i=new Intent(v.getContext(),ViewCourses.class);
-                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            v.getContext().startActivity(i);
-                        }
+                    .addOnSuccessListener(aVoid -> {
+                        Intent i=new Intent(v.getContext(),ViewCourses.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        v.getContext().startActivity(i);
                     })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                        }
+                    .addOnFailureListener(e -> {
                     }));
-            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No",new DialogInterface.OnClickListener(){
-                public void onClick(DialogInterface dialog, int id) {
-                    dialog.dismiss();
-                }
-
-            });
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id1) -> dialog.dismiss());
             alertDialog.show();
         });
     }
