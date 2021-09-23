@@ -78,7 +78,7 @@ public class AddCourses extends Fragment {
         addButton.setOnClickListener((View v) -> {
 
             EditText subject = root.findViewById(R.id.addSubject);
-            Switch availability = root.findViewById(R.id.updateAvailability);
+            Switch availability = root.findViewById(R.id.addAvailability);
 
 
 
