@@ -1,6 +1,7 @@
 package com.example.studyhelper_android_firebase.teacher;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -99,30 +101,30 @@ public class Links_added extends Fragment {
 
     private void EventChangeListener() {
         db.collection("link")
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                        if(error != null) {
-                            //dismiss progress dialog
+                .addSnapshotListener((value, error) -> {
+                    if(error != null) {
+                        //dismiss progress dialog
 //                            if(progressDialog.isShowing())
 //                                progressDialog.dismiss();
-                            Log.e("Firestore Error",error.getMessage());
-                            return;
-                        }
-
-                        //fetching the data from the firestore database
-                        for(DocumentChange dc : value.getDocumentChanges()){
-                            if(dc.getType() == DocumentChange.Type.ADDED) {
-                                Link l = new Link(dc.getDocument().getId(),dc.getDocument().toObject(Link.class));
-                                linkArrayList.add(l);
-                            }
-                            linkAdapter.notifyDataSetChanged();
-                            //dismiss progress dialog
-//                            if(progressDialog.isShowing())
-//                                progressDialog.dismiss();
-                        }
-
+                        Log.e("Firestore Error",error.getMessage());
+                        return;
                     }
+
+                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+                    String id =preferences.getString("uid","");
+
+                    //fetching the data from the firestore database
+                    for(DocumentChange dc : value.getDocumentChanges()){
+                        Link l = new Link(dc.getDocument().getId(),dc.getDocument().toObject(Link.class));
+                        if(dc.getType() == DocumentChange.Type.ADDED && id.equals(l.getObj().getTid())) {
+                            linkArrayList.add(l);
+                        }
+                        linkAdapter.notifyDataSetChanged();
+                        //dismiss progress dialog
+//                            if(progressDialog.isShowing())
+//                                progressDialog.dismiss();
+                    }
+
                 });
     }
 }
