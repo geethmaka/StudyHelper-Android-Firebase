@@ -13,9 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Complain;
 import com.example.studyhelper_android_firebase.classes.User;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -40,7 +37,7 @@ public class Adapter_ResolvedComplaint extends RecyclerView.Adapter<Adapter_Reso
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Adapter_ResolvedComplaint.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Complain complain = complainArrayList.get(position);
 
         //getting the username from the database giving the userid in complain

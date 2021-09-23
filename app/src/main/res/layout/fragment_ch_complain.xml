@@ -33,7 +33,7 @@
             android:orientation="vertical">
 
             <include
-                layout="@layout/complain_user_details"/>
+                layout="@layout/complain_cv_complain_menu"/>
 
         </LinearLayout>
     </RelativeLayout>
