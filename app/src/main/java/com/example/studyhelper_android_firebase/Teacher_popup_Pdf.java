@@ -16,9 +16,11 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.icu.text.CaseMap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -105,8 +107,8 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
         progressDialog.show();
         String fileName=System.currentTimeMillis()+"";
         StorageReference storageReference= storage.getReference();
-        EditText filename = findViewById(R.id.editTextPdf);
-        StorageReference ref = storageReference.child(filename.getText().toString());
+        EditText Title = findViewById(R.id.editTextPdf);
+        StorageReference ref = storageReference.child(Title.getText().toString());
 //        FirebaseFirestore db = FirebaseFirestore.getInstance();
         UploadTask  uploadTask = ref.putFile(pdfUri);
         Task<Uri> urlTask = uploadTask.continueWithTask(task -> {
@@ -120,6 +122,14 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
                 Uri downloadUri = task.getResult();
                 Toast.makeText(Teacher_popup_Pdf.this,"File successfully uploaded"+downloadUri,Toast.LENGTH_LONG).show();
                 Spinner Subject =findViewById(R.id.spinnerpdf);
+//                TextView Title =findViewById(R.id.editTextPdf);
+                String name= Subject.getSelectedItem().toString();
+                 if(name == null) {
+                    Toast.makeText(getApplicationContext(),"Please select subject",Toast.LENGTH_LONG).show();}
+                else if(TextUtils.isEmpty(Title.getText().toString()))
+                    Toast.makeText(getApplicationContext(),"Please enter title",Toast.LENGTH_LONG).show();
+                else {
+                Pdf pdf=new Pdf(Subject.getSelectedItem().toString(),Title.getText().toString(),downloadUri.toString());
                 TextView Title =findViewById(R.id.editTextPdf);
 
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -128,6 +138,18 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
                 IPdf pdf=new IPdf(id,Subject.getSelectedItem().toString(),Title.getText().toString(),downloadUri.toString());
                 db.collection("pdf")
                         .add(pdf)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w("TAG", "Error adding document", e);
+                            }
+                        });
+            } }
                         .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))
                         .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
             } else {

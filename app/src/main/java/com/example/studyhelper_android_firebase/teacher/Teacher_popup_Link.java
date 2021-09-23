@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
@@ -49,6 +51,20 @@ public class Teacher_popup_Link extends Activity {
             String id =preferences.getString("uid","");
 
             ILink link=new ILink(id,Subject.getSelectedItem().toString(),Title.getText().toString(),Date.getDate(),time,Link.getText().toString());
+            String Name= Subject.getSelectedItem().toString();
+            Long date=Date.getDate();
+            if(Name == null) {
+                Toast.makeText(getApplicationContext(),"Please select subject",Toast.LENGTH_LONG).show();}
+            else if(TextUtils.isEmpty(Title.getText().toString()))
+                Toast.makeText(getApplicationContext(),"Please enter title",Toast.LENGTH_LONG).show();
+            else if(date==null)
+                Toast.makeText(getApplicationContext(),"Please select date",Toast.LENGTH_LONG).show();
+            else if(TextUtils.isEmpty(Time.getText().toString()))
+                Toast.makeText(getApplicationContext(),"Please enter time",Toast.LENGTH_LONG).show();
+            else if(TextUtils.isEmpty(Link.getText().toString()))
+                Toast.makeText(getApplicationContext(),"Please enter link",Toast.LENGTH_LONG).show();
+            else {
+                com.example.studyhelper_android_firebase.classes.Link link = new Link(Subject.getSelectedItem().toString(), Title.getText().toString(), Date.getDate(), time, Link.getText().toString());
 
 
 
