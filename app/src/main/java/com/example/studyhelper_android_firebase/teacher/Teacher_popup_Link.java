@@ -2,12 +2,14 @@ package com.example.studyhelper_android_firebase.teacher;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
@@ -41,26 +43,40 @@ public class Teacher_popup_Link extends Activity {
             Spinner AmPm =findViewById(R.id.spinner2);
             EditText Link =findViewById(R.id.link_add);
             String time=Time.getText().toString()+AmPm.getSelectedItem().toString();
-            com.example.studyhelper_android_firebase.classes.Link link=new Link(Subject.getSelectedItem().toString(),Title.getText().toString(),Date.getDate(),time,Link.getText().toString());
+            String Name= Subject.getSelectedItem().toString();
+            Long date=Date.getDate();
+            if(Name == null) {
+                Toast.makeText(getApplicationContext(),"Please select subject",Toast.LENGTH_LONG).show();}
+            else if(TextUtils.isEmpty(Title.getText().toString()))
+                Toast.makeText(getApplicationContext(),"Please enter title",Toast.LENGTH_LONG).show();
+            else if(date==null)
+                Toast.makeText(getApplicationContext(),"Please select date",Toast.LENGTH_LONG).show();
+            else if(TextUtils.isEmpty(Time.getText().toString()))
+                Toast.makeText(getApplicationContext(),"Please enter time",Toast.LENGTH_LONG).show();
+            else if(TextUtils.isEmpty(Link.getText().toString()))
+                Toast.makeText(getApplicationContext(),"Please enter link",Toast.LENGTH_LONG).show();
+            else {
+                com.example.studyhelper_android_firebase.classes.Link link = new Link(Subject.getSelectedItem().toString(), Title.getText().toString(), Date.getDate(), time, Link.getText().toString());
 
 
-
-            db.collection("link")
-                    .add(link)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w("TAG", "Error adding document", e);
-                        }
-                    });
+                db.collection("link")
+                        .add(link)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w("TAG", "Error adding document", e);
+                            }
+                        });
+            }
         });
 
 
     }
+    }
 
-}
+
