@@ -92,7 +92,7 @@ public class SComplainFragment extends Fragment {
             sdf.format(currentTime);
 
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
-    String id =preferences.getString("uid","l");
+    String id =preferences.getString("uid","");
 
 
            IComplain c =new IComplain(id,cType.getSelectedItem().toString(),"Pending",sdf.format(currentTime).toString(),massage.getText().toString());

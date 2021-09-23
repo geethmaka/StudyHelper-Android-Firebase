@@ -1,6 +1,9 @@
 package com.example.studyhelper_android_firebase.student;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -51,48 +54,41 @@ public class S_adptercomplain extends RecyclerView.Adapter<S_adptercomplain.Hold
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
-       holder.scvstatus.setText(cp.getComplain().getStatus());
-       holder.scvdate.setText(cp.getComplain().getDate());
-       holder.scvmassage.setText(cp.getComplain().getContent());
+        holder.scvstatus.setText(cp.getComplain().getStatus());
+        holder.scvdate.setText(cp.getComplain().getDate());
+        holder.scvmassage.setText(cp.getComplain().getContent());
 
         holder.btn_scvupdate.setOnClickListener(view ->{
-            DocumentReference washingtonRef = db.collection("Complain").document(cp.getComplainId());
+            DocumentReference washingtonRef = db.collection("complain").document(cp.getComplainId());
 
             washingtonRef
-                    .update("subject",  holder.scvstatus.getText().toString(), "title",holder.scvdate.getText().toString(), "date", holder.scvdate.getText().toString())
+                    .update( "content",holder.scvmassage.getText().toString())
                     .addOnSuccessListener(aVoid ->{ Log.d("TAG", "DocumentSnapshot successfully updated!"+cp.getComplainId());
-                        holder.scvstatus.setText(holder.scvstatus.getText().toString());
-                        holder.scvdate.setText(holder.scvdate.getText().toString());
-                        holder.scvmassage.setText(holder.scvmassage.getText().toString());})
+                    Intent i=new Intent(view.getContext(), Student_complaint.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        view.getContext().startActivity(i);})
                     .addOnFailureListener(e -> Log.w("TAG", "Error updating document", e));
         });
 
-//        holder.btn_scvdelete.setOnClickListener((View ) -> {
-//            AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
-//            alertDialog.setTitle("Delete");
-//            alertDialog.setMessage("Are you sure you want to delete this complain");
-//            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> db.collection("Complain").document(Complain.getComplainId())
-//                    .delete()
-//                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                        @Override
-//                        public void onSuccess(Void aVoid) {
-//                            Intent i=new Intent(v.getContext(), Links_added.class);
-//                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                            v.getContext().startActivity(i);
-//                        }
-//                    })
-//                    .addOnFailureListener(new OnFailureListener() {
-//                        @Override
-//                        public void onFailure(@NonNull Exception e) {
-//                        }
-//                    }));
-//            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No",new DialogInterface.OnClickListener(){
-//                public void onClick(DialogInterface dialog, int id) {
-//                    dialog.dismiss();
-//                }
-//            });
-//            alertDialog.show();
-//        });
+        holder.btn_scvdelete.setOnClickListener((v) -> {
+            AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
+            alertDialog.setTitle("Delete");
+            alertDialog.setMessage("Are you sure you want to delete this complain");
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> db.collection("complain").document(cp.getComplainId())
+                    .delete()
+                    .addOnSuccessListener(aVoid -> {
+                        Intent i=new Intent(v.getContext(), Student_complaint.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        v.getContext().startActivity(i);
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                        }
+                    }));
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id) -> dialog.dismiss());
+            alertDialog.show();
+        });
 
     }
 
@@ -120,7 +116,6 @@ public class S_adptercomplain extends RecyclerView.Adapter<S_adptercomplain.Hold
     }
 
 }
-
 
 
 
