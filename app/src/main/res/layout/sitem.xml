@@ -21,21 +21,21 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/scvdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="First Name"
                 android:textColor="@color/black"
                 android:textSize="26sp"
                 android:textStyle="bold"/>
-
             <TextView
+                android:id="@+id/scvstatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/sfirstname"
-                android:layout_marginStart="8dp"
-                android:text="Arya"
+                android:text="Status"
                 android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:textSize="26sp"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -45,22 +45,13 @@
             android:layout_gravity="center_vertical"
             android:orientation="horizontal">
 
-            <TextView
+            <EditText
+                android:id="@+id/scvmassage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Last Name"
                 android:textColor="@color/black"
-                android:textSize="26sp"
-                android:textStyle="bold"/>
+                android:textSize="26sp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/slastname"
-                android:layout_marginStart="8dp"
-                android:text="kamal"
-                android:textColor="@color/black"
-                android:textSize="20sp"/>
 
         </LinearLayout>
 
@@ -70,22 +61,19 @@
             android:layout_gravity="center_vertical"
             android:orientation="horizontal">
 
-            <TextView
+            <Button
+                android:id="@+id/scvupdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Age"
-                android:textColor="@color/black"
-                android:textSize="26sp"
-                android:textStyle="bold"/>
+                android:text="UPDATE"
+                />
 
-            <TextView
+            <Button
+                android:id="@+id/scvdelete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/sage"
-                android:layout_marginStart="8dp"
-                android:text="18"
-                android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:text="Delete"/>
+
 
         </LinearLayout>
 

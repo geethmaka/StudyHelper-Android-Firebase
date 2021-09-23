@@ -33,11 +33,10 @@ public class Complain {
         this.content = content;
     }
 
-//    public Complain(String type, String date, String complain) {
-//        this.Type = type;
-//        this.Date = date;
-//        this.Content = complain;
-//    }
+    public Complain(String type, String date, String complain) {
+        this.type = type;
+       this.date = date;
+       this.content = complain; }
 
     public Complain(String ID, Complain complain) {
         this.complainId = ID;
