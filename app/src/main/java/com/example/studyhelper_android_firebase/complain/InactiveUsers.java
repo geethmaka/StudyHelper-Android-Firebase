@@ -1,22 +1,13 @@
 package com.example.studyhelper_android_firebase.complain;
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.os.Bundle;
-
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
+import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.User;
@@ -29,52 +20,38 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-public class CH_UserDetailsFragment extends Fragment {
+public class InactiveUsers extends AppCompatActivity {
+
     //creating an instance of the database
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     //defining the variables
     ProgressDialog progressDialog;
     ArrayList<User> userArrayList;
     Adapter_UserDetails userAdapter;
-    String[] username;
-    String[] type;
-    String[] email;
-    Button banUser;
-
-    public CH_UserDetailsFragment() {
-        // Required empty public constructor
-    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_ch_user_details, container, false);
+        setContentView(R.layout.complain_inactive_users);
         //getting the current context
-        Context current = this.getContext();
 
         //creating progress dialog until fetching the data
-        progressDialog = new ProgressDialog(getContext());
+        progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Fetching the Data...");
         progressDialog.show();
 
         //defining the variables
-        RecyclerView recyclerView = root.findViewById(R.id.RVactiveUser);
+        RecyclerView recyclerView = findViewById(R.id.RVinactiveUser);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(current));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //initialize the array list
         userArrayList = new ArrayList<User>();
         //initialize the adapter
-        userAdapter = new Adapter_UserDetails(this.getContext(),userArrayList);
+        userAdapter = new Adapter_UserDetails(this,userArrayList);
         recyclerView.setAdapter(userAdapter);
 
         EventChangeListener();
-        return root;
     }
 
     private void EventChangeListener() {
@@ -94,8 +71,9 @@ public class CH_UserDetailsFragment extends Fragment {
                         for(DocumentChange dc : value.getDocumentChanges()){
                             if(dc.getType() == DocumentChange.Type.ADDED) {
                                 User n = new User(dc.getDocument().getId(), dc.getDocument().toObject(User.class));
-                                //get the status through if condition
-                                userArrayList.add(n);
+//                                if(!n.getUser().isStatus()) {
+                                    userArrayList.add(n);
+//                                }
                             }
                             userAdapter.notifyDataSetChanged();
                             //dismiss progress dialog
@@ -106,10 +84,4 @@ public class CH_UserDetailsFragment extends Fragment {
                     }
                 });
     }
-
-//    @Override
-//    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-//        super.onCreateOptionsMenu(menu, inflater);
-//        get
-//    }
 }
