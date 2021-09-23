@@ -5,7 +5,7 @@ public class User {
     private String username;
     private String type;
     private String stream;
-    private boolean status;
+    private String status;
     private String password;
     private long mobile;
     private String email;
@@ -32,7 +32,7 @@ public class User {
 //        this.email = email;
 //    }
 
-    public User(String username, String type, String stream, boolean status, String password, long mobile, String email) {
+    public User(String username, String type, String stream, String status, String password, long mobile, String email) {
         this.username = username;
         this.type = type;
         this.stream = stream;
@@ -55,59 +55,32 @@ public class User {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getUsername() {
         return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getStream() {
         return stream;
     }
 
-    public void setStream(String stream) {
-        this.stream = stream;
-    }
-
-    public boolean isStatus() {
+    public String getStatus() {
         return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) { this.password = password; }
-
     public long getMobile() {
         return mobile;
     }
-
-    public void setMobile(long mobile) { this.mobile = mobile; }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }

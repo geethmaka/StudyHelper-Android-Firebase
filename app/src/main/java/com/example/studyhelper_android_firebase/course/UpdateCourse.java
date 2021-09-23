@@ -5,11 +5,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.studyhelper_android_firebase.R;
-import com.example.studyhelper_android_firebase.classes.Course;
-import com.google.android.gms.tasks.OnCompleteListener;
+import com.example.studyhelper_android_firebase.classes.ICourse;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -21,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Switch;
 
 public class UpdateCourse extends AppCompatActivity {
@@ -34,6 +33,7 @@ public class UpdateCourse extends AppCompatActivity {
         Button updateButton = findViewById(R.id.updateButton);
         Button deleteButton = findViewById(R.id.deleteButton);
         EditText subject = findViewById(R.id.updateSubject);
+        Spinner stream = findViewById(R.id.updateStream);
 
         Intent intent = getIntent();
 
@@ -46,7 +46,7 @@ public class UpdateCourse extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         DocumentSnapshot document = task.getResult();
                         if (document.exists()) {
-                            Course course = document.toObject(Course.class);
+                            ICourse course = document.toObject(ICourse.class);
                             subject.setText(course.getSubject());
                             availability.setChecked(course.isAvailability());
                         } else {
@@ -56,11 +56,12 @@ public class UpdateCourse extends AppCompatActivity {
                         Log.d("TAG", "get failed with ", task.getException());
                     }
                 });
+
         updateButton.setOnClickListener((View v) -> {
             DocumentReference washingtonRef = db.collection("courses").document(id);
 
             washingtonRef
-                    .update("subject", subject.getText().toString(), "grade", 10, "availability", availability.isChecked())
+                    .update("subject", subject.getText().toString(), "stream", stream.getSelectedItem().toString(), "availability", availability.isChecked())
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
@@ -79,26 +80,21 @@ public class UpdateCourse extends AppCompatActivity {
             AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
             alertDialog.setTitle("hi");
             alertDialog.setMessage("this is my app");
-            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes",new DialogInterface.OnClickListener(){
-                public void onClick(DialogInterface dialog, int ID) {
-                    db.collection("courses").document(id)
-                            .delete()
-                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Intent i=new Intent(v.getContext(),ViewCourses.class);
-                                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    v.getContext().startActivity(i);
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                }
-                            });
-                }
-
-            });
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> db.collection("courses").document(id)
+                    .delete()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Intent i=new Intent(v.getContext(),ViewCourses.class);
+                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            v.getContext().startActivity(i);
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                        }
+                    }));
             alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No",new DialogInterface.OnClickListener(){
                 public void onClick(DialogInterface dialog, int id) {
                     dialog.dismiss();

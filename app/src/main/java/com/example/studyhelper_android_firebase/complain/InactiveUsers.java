@@ -69,11 +69,9 @@ public class InactiveUsers extends AppCompatActivity {
 
                         //fetching the data from the firestore database
                         for(DocumentChange dc : value.getDocumentChanges()){
-                            if(dc.getType() == DocumentChange.Type.ADDED) {
-                                User n = new User(dc.getDocument().getId(), dc.getDocument().toObject(User.class));
-//                                if(!n.getUser().isStatus()) {
+                            User n = new User(dc.getDocument().getId(), dc.getDocument().toObject(User.class));
+                            if(dc.getType() == DocumentChange.Type.ADDED && n.getUser().getStatus().equals("inactive")) {
                                     userArrayList.add(n);
-//                                }
                             }
                             userAdapter.notifyDataSetChanged();
                             //dismiss progress dialog
