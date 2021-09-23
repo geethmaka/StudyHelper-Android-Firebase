@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,8 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -35,7 +32,7 @@ public class CH_UserDetailsFragment extends Fragment {
     //defining the variables
     ProgressDialog progressDialog;
     ArrayList<User> userArrayList;
-    Adapter_UserDetails userAdapter;
+    Adapter_activeUser userAdapter;
     String[] username;
     String[] type;
     String[] email;
@@ -70,7 +67,7 @@ public class CH_UserDetailsFragment extends Fragment {
         //initialize the array list
         userArrayList = new ArrayList<User>();
         //initialize the adapter
-        userAdapter = new Adapter_UserDetails(this.getContext(),userArrayList);
+        userAdapter = new Adapter_activeUser(this.getContext(),userArrayList);
         recyclerView.setAdapter(userAdapter);
 
         EventChangeListener();

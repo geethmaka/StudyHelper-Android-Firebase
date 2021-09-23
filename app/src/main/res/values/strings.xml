@@ -88,7 +88,7 @@
     <string name="active_users">Active Users</string>
     <string name="inactive_users">Inactive Users</string>
     <string name="btn_ban">Ban User</string>
-    <string name="btn_delete">Delete User</string>
+    <string name="btn_delete">Remove</string>
     <string name="search">Search User :</string>
     <string name="btn_resolved">Mark as Resolved</string>
     <string name="msg_hint">Type your message</string>

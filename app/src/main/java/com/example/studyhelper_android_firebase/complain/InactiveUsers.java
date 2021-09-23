@@ -27,7 +27,7 @@ public class InactiveUsers extends AppCompatActivity {
     //defining the variables
     ProgressDialog progressDialog;
     ArrayList<User> userArrayList;
-    Adapter_UserDetails userAdapter;
+    Adapter_inactiveUsers userAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class InactiveUsers extends AppCompatActivity {
         //initialize the array list
         userArrayList = new ArrayList<User>();
         //initialize the adapter
-        userAdapter = new Adapter_UserDetails(this,userArrayList);
+        userAdapter = new Adapter_inactiveUsers(this,userArrayList);
         recyclerView.setAdapter(userAdapter);
 
         EventChangeListener();
