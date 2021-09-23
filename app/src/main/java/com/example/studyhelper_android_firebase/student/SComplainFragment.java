@@ -5,19 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
-
 import androidx.fragment.app.Fragment;
-
 import com.example.studyhelper_android_firebase.R;
-
 import android.util.Log;
-import com.example.studyhelper_android_firebase.classes.Complain;
 import com.example.studyhelper_android_firebase.classes.IComplain;
 import com.google.firebase.firestore.FirebaseFirestore;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -101,7 +95,45 @@ public class SComplainFragment extends Fragment {
         });
         return root;
 
+//
+//        Button scomplains =root.findViewById(R.id.scomplains);
+//
+//        scomplains.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //load products
+//                showComplainUI();
+//            }
+//        };
 
 
     }
+
+  /*  private void showComplainUI() {
+
+        List= new ArrayList<>();
+        //get all products
+        DatabaseReference reference= FirebaseDatabase.getInstance().getReference("Users");
+        reference.child(firebaseAuth.getUid()).child("Products")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        //before getting reset list
+                        productList.clear();
+                        for(DataSnapshot ds: snapshot.getChildren()){
+                            ModelProduct modelProduct= ds.getValue(ModelProduct.class);
+                            productList.add(modelProduct);
+                        }
+                        //setup adapter
+                        adapterProductSeller = new AdapterProductSeller(Seller.this, productList);
+                        //set adapter
+                        productrv.setAdapter(adapterProductSeller);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+
+    }*/
 }
