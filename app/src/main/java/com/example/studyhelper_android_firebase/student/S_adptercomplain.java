@@ -2,6 +2,7 @@ package com.example.studyhelper_android_firebase.student;
 
 import android.content.Context;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,23 +19,24 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
 
 public class S_adptercomplain extends RecyclerView.Adapter<S_adptercomplain.HolderComplain>{
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    Context context;
+    ArrayList<Complain> complainList;
 
-    private Context context;
-    public ArrayList<Complain> complainList;
-//    private Filtercomplain filter;
-
-    public S_adptercomplain(Context context, ArrayList<Complain> productList) {
+    public S_adptercomplain(Context context, ArrayList<Complain> complainList) {
         this.context = context;
         this.complainList = complainList;
     }
 
     @NonNull
     @Override
-    public HolderComplain onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
-        //inflate layout
+    public S_adptercomplain.HolderComplain onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(context).inflate(R.layout.sitem,parent,false);
         return new HolderComplain(view);
     }
@@ -44,100 +46,44 @@ public class S_adptercomplain extends RecyclerView.Adapter<S_adptercomplain.Hold
         // get data
         Complain cp= complainList.get(position);
 
-        String date= cp.getDate();
-        String content= cp.getContent();
-        String status= cp.getStatus();
 
-        //set data
-        holder.scvdate.setText(date);
-        holder.scvmassage.setText(content);
-        holder.scvstatus.setText(status);
+       holder.scvstatus.setText(cp.getComplain().getStatus());
+       holder.scvdate.setText(cp.getComplain().getDate());
+       holder.scvmassage.setText(cp.getComplain().getContent());
+
+//        holder.scvupdate.setOnClickListener(v -> {
+//
+//            DocumentReference complainRef = db.collection("complain").document(complain.getComplainId());
+//
+//            complainRef.update("Status", "Resolved")
+//                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                        @Override
+//                        public void onSuccess(Void aVoid) {
+//                            Log.d("TAG", "The complain is marked resolved successfully!");
+//                        }
+//                    })
+//
+//                    .addOnFailureListener(new OnFailureListener() {
+//                        @Override
+//                        public void onFailure(@NonNull Exception e) {
+//                            Log.w("TAG", "Error updating status", e);
+//                        }
+//                    });
+//        });
 
     }
 
-//
-//
-//        //show dialog
-//        bottomSheetDialog.show();
-//
-//        //edit click
-//        editbtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                bottomSheetDialog.dismiss();
-//                //open edit product actitvity
-//                Intent intent = new Intent(context, EditProduct.class);
-//                intent.putExtra("productId", id);
-//                context.startActivity(intent);
-//            }
-//        });
-//
-//        //delete click
-//        deletebtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                bottomSheetDialog.dismiss();
-//                //show delete confirm dialog
-//                AlertDialog.Builder builder= new AlertDialog.Builder(context);
-//                builder.setTitle("Delete")
-//                        .setMessage("Are you sure you want to delete item? "+title+" ?")
-//                        .setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                //delete
-//                                deleteProduct(id);//id is the product id
-//                            }
-//                        })
-//                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                //cancel deletion
-//                                dialog.dismiss();
-//                            }
-//                        })
-//                        .show();
-//            }
-//        });
-//
-//    }
- //delete part
-//    private void deleteProduct(String id) {
-//        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-//        DatabaseReference ref= FirebaseDatabase.getInstance().getReference("Users");
-//        ref.child(firebaseAuth.getUid()).child("Products").child(id).removeValue()
-//                .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                    @Override
-//                    public void onSuccess(Void unused) {
-//                        Toast.makeText(context, "Product Deleted...", Toast.LENGTH_SHORT).show();
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        //failed
-//                        Toast.makeText(context, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//    }
 
     @Override
     public int getItemCount() {
         return complainList.size();
     }
-//
-//    @Override
-//    public Filter getFilter() {
-//        if(filter==null){
-//            filter= new FilterProduct(this,filterList);
-//        }
-//        return filter;
-//    }
 
-    class HolderComplain extends RecyclerView.ViewHolder{
+    static class HolderComplain extends RecyclerView.ViewHolder{
         //holds views of recyclerview
 
-        private TextView scvdate,scvstatus;
-        private EditText scvmassage;
+        TextView scvdate,scvstatus;
+        EditText scvmassage;
 
         public HolderComplain(@NonNull View itemView) {
             super(itemView);
