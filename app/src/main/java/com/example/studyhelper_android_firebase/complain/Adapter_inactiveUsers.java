@@ -49,6 +49,7 @@ public class Adapter_inactiveUsers extends RecyclerView.Adapter<Adapter_inactive
         User user = userArrayList.get(position);
 
         holder.username.setText(user.getUser().getUsername());
+//        Log.w("TAG", user.getUser().getUsername());
         holder.type.setText(String.valueOf(user.getUser().getType()));
         holder.email.setText(user.getUser().getEmail());
 
@@ -56,15 +57,15 @@ public class Adapter_inactiveUsers extends RecyclerView.Adapter<Adapter_inactive
             AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
             alertDialog.setTitle("Delete User confirmation");
             alertDialog.setMessage("Do you want to Delete the User");
-            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> db.collection("users").document(user.getId())
-                    .delete()
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) ->
+                    db.collection("users").document(user.getId()).delete()
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
+                            Toast.makeText(context.getApplicationContext(), "The user is Deleted Successfully!!!",Toast.LENGTH_LONG).show();
                             Intent i=new Intent(v.getContext(), InactiveUsers.class);
                             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             v.getContext().startActivity(i);
-                            Toast.makeText(context.getApplicationContext(), "The user is Deleted Successfully!!!",Toast.LENGTH_LONG);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -79,7 +80,7 @@ public class Adapter_inactiveUsers extends RecyclerView.Adapter<Adapter_inactive
 
     @Override
     public int getItemCount() {
-        return 0;
+        return userArrayList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

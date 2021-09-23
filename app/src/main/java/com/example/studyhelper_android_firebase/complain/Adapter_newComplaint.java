@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -88,14 +89,17 @@ public class Adapter_newComplaint extends RecyclerView.Adapter<Adapter_newCompla
 
             complainRef.update("status", "Resolved")
                     .addOnSuccessListener(aVoid ->{
+                        Toast.makeText(context.getApplicationContext(), "Complaint Resolve Successful!!!",Toast.LENGTH_LONG).show();
                         Intent i=new Intent(this.context.getApplicationContext(), NewComplaint.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         this.context.startActivity(i);
                     })
 
-                    .addOnFailureListener(e -> Log.w("TAG", "Error updating status", e));
+                    .addOnFailureListener(e ->{
+                        Log.w("TAG", "Error updating status", e);
+                        Toast.makeText(context.getApplicationContext(), "Error!!!",Toast.LENGTH_LONG).show();
+                    });
         });
-
     }
 
     @Override

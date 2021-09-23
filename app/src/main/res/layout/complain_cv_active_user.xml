@@ -71,8 +71,8 @@
                 android:background="@drawable/btn2"
                 android:text="@string/btn_ban"
                 android:textAllCaps="false"
-                android:textSize="15sp"
-                android:padding="0sp"/>
+                android:textColor="#000000"
+                android:textSize="15sp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

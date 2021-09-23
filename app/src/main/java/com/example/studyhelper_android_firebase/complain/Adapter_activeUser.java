@@ -1,6 +1,7 @@
 package com.example.studyhelper_android_firebase.complain;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.User;
+import com.example.studyhelper_android_firebase.course.ViewCourses;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -37,9 +39,39 @@ public class Adapter_activeUser extends RecyclerView.Adapter<Adapter_activeUser.
     @NonNull
     @Override
     public Adapter_activeUser.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_active_user,parent,false);
         return new ViewHolder(v);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        //create user object and get the array list
+        User user = userArrayList.get(position);
+
+        holder.username.setText(user.getUser().getUsername());
+        holder.type.setText(String.valueOf(user.getUser().getType()));
+        holder.email.setText(user.getUser().getEmail());
+
+        holder.btn_banUser.setOnClickListener(v -> {
+            DocumentReference userRef = db.collection("users").document(user.getId());
+            userRef.update("status", "inactive")
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(context.getApplicationContext(), "User Deactivated Successfully!!!",Toast.LENGTH_LONG).show();
+                            Intent i=new Intent(v.getContext(), ActiveUsers.class);
+                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            v.getContext().startActivity(i);
+                        }
+                    })
+
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(context.getApplicationContext(), "User Deactivation unsuccessfully!!!",Toast.LENGTH_LONG).show();
+                        }
+                    });
+        });
     }
 
     @Override
@@ -87,34 +119,6 @@ public class Adapter_activeUser extends RecyclerView.Adapter<Adapter_activeUser.
 //            notifyDataSetChanged();
 //        }
 //    };
-
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        //create user object and get the array list
-        User user = userArrayList.get(position);
-
-        holder.username.setText(user.getUser().getUsername());
-        holder.type.setText(String.valueOf(user.getUser().getType()));
-        holder.email.setText(user.getUser().getEmail());
-
-        holder.btn_banUser.setOnClickListener(v -> {
-            DocumentReference userRef = db.collection("users").document(user.getId());
-            userRef.update("status", "inactive")
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            Toast.makeText(context.getApplicationContext(), "User Deactivated Successfully!!!",Toast.LENGTH_LONG);
-                        }
-                    })
-
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(context.getApplicationContext(), "User Deactivation unsuccessfully!!!",Toast.LENGTH_LONG);
-                        }
-                    });
-        });
-    }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView username;
