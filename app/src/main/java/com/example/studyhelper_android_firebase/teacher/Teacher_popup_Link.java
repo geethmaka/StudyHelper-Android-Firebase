@@ -1,7 +1,9 @@
 package com.example.studyhelper_android_firebase.teacher;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +17,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.studyhelper_android_firebase.R;
+import com.example.studyhelper_android_firebase.classes.ILink;
 import com.example.studyhelper_android_firebase.classes.Link;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -41,23 +44,18 @@ public class Teacher_popup_Link extends Activity {
             Spinner AmPm =findViewById(R.id.spinner2);
             EditText Link =findViewById(R.id.link_add);
             String time=Time.getText().toString()+AmPm.getSelectedItem().toString();
-            com.example.studyhelper_android_firebase.classes.Link link=new Link(Subject.getSelectedItem().toString(),Title.getText().toString(),Date.getDate(),time,Link.getText().toString());
+
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+            String id =preferences.getString("uid","");
+
+            ILink link=new ILink(id,Subject.getSelectedItem().toString(),Title.getText().toString(),Date.getDate(),time,Link.getText().toString());
 
 
 
             db.collection("link")
                     .add(link)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w("TAG", "Error adding document", e);
-                        }
-                    });
+                    .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))
+                    .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
         });
 
 
