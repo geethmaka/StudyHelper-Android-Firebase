@@ -83,9 +83,9 @@ public class CH_Dashboard extends Fragment {
 
                     //fetching the data from the firestore database
                     for(DocumentChange dc : value.getDocumentChanges()){
-                        Complain c = dc.getDocument().toObject(Complain.class);
+                        Complain c = new Complain(dc.getDocument().getId(),dc.getDocument().toObject(Complain.class));
 
-                        if(dc.getType() == DocumentChange.Type.ADDED && c.getStatus().equals("Pending")) {
+                        if(dc.getType() == DocumentChange.Type.ADDED && c.getComplain().getStatus().equals("Pending")) {
                             complainArrayList.add(c);
                         }
                         dashAdapter.notifyDataSetChanged();

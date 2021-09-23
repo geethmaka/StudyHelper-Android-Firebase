@@ -94,7 +94,6 @@ public class ViewCourses extends Fragment{
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
-                            Log.d("TAG", document.getId() + " => " + document.getData());
                             Course course=document.toObject(Course.class);
                             Course courseWithId=new Course(document.getId(),course);
                             courseList.add(courseWithId);

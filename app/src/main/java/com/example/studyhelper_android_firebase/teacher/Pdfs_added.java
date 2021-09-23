@@ -1,6 +1,7 @@
 package com.example.studyhelper_android_firebase.teacher;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -99,6 +101,7 @@ public class Pdfs_added extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_pdfs_added, container, false);
+
 //        update= (Button) root.findViewById(update);
         Context current=this.getContext();
         recyclerView=root.findViewById(R.id.uploadPdfRecycle);

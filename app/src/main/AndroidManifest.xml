@@ -16,7 +16,7 @@
               <activity
             android:name=".Added_complain_T"
             android:exported="true" />
-      
+        <activity
             android:name=".complain.ResolvedComplaints"
             android:exported="true" />
         <activity
@@ -41,13 +41,16 @@
         <activity
             android:name=".teacher.TeacherMainActivity"
             android:exported="true" />
-        <activity
-            android:name=".PdfView"
-            android:exported="true" /> <!-- <activity -->
+<!--        <activity-->
+<!--            android:name=".PdfView"-->
+<!--            android:exported="true" /> &lt;!&ndash; <activity &ndash;&gt;-->
         <!-- android:name=".Register" -->
         <!-- android:exported="true" /> -->
         <activity
             android:name=".student.StudentMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".student.Student_complaint"
             android:exported="true" />
         <activity
             android:name=".course.Course_manager_home"
