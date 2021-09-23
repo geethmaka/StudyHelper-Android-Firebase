@@ -3,17 +3,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.studyhelper_android_firebase.Added_complain_T;
 import com.example.studyhelper_android_firebase.Teacher_popup_Pdf;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.example.studyhelper_android_firebase.R;
@@ -33,7 +36,6 @@ public class TeacherMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_main);
 
-
         //Control Bottom navigation bar
         BottomNavigationView teacher_bottomNavigationView = findViewById(R.id.tmbottomNav);
         NavController teacher_navController = Navigation.findNavController(this, R.id.teacherfragmentContainer);
@@ -51,6 +53,13 @@ public class TeacherMainActivity extends AppCompatActivity {
         Intent intent = new Intent(context, Teacher_popup_Pdf.class);
         startActivity(intent);
     }
+
+    public void gotoTmComplain(View view) {
+        final Context context = this;
+        Intent intent = new Intent(context, Added_complain_T.class);
+        startActivity(intent);
+    }
+
 
 
 
