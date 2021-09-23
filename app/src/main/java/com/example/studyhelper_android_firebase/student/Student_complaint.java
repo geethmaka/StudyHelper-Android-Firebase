@@ -45,7 +45,7 @@ public class Student_complaint extends AppCompatActivity {
     }
 
     private void EventChangeListener() {
-        db.collection("complain").orderBy("date", Query.Direction.ASCENDING)
+        db.collection("complain")
                 .addSnapshotListener((value, error) -> {
                     if(error != null) {
                         //dismiss progress dialog
