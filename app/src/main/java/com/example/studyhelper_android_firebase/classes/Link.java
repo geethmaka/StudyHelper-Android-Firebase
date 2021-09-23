@@ -3,12 +3,12 @@ package com.example.studyhelper_android_firebase.classes;
 //creating link class
 public class Link {
 
-    private String LinkID;
     private String Subject;
     private String Title;
     private Long Date;
     private String Time;
     private String Link;
+    private String Tid;
 
     private Link obj;
     private String id;
@@ -16,7 +16,8 @@ public class Link {
     public Link() {
     }
 
-    public Link(String subject, String title, Long date, String time, String link) {
+    public Link(String tid, String subject, String title, Long date, String time, String link) {
+        Tid = tid;
         Subject = subject;
         Title = title;
         Date = date;
@@ -31,7 +32,10 @@ public class Link {
     }
 //getters and setters
 
-    public Link getObj(){
+    public String getTid(){
+        return Tid;
+    }
+    public Link getObj() {
         return obj;
     }
 
@@ -43,47 +47,45 @@ public class Link {
         return Subject;
     }
 
-    public void setSubject(String subject) {
-        Subject = subject;
-    }
-
     public String getTitle() {
         return Title;
-    }
-
-    public void setTitle(String title) {
-        Title = title;
     }
 
     public Long getDate() {
         return Date;
     }
 
-    public void setDate(Long date) {
-        Date = date;
+    public void setSubject(String subject) {
+        Subject = subject;
     }
 
-    public String getTime() {
-        return Time;
+    public void setTitle(String title) {
+        Title = title;
+    }
+
+    public void setDate(Long date) {
+        Date = date;
     }
 
     public void setTime(String time) {
         Time = time;
     }
 
-//    public String getAmPm() {
-//        return AmPm;
-//    }
-//
-//    public void setAmPm(String amPm) {
-//        AmPm = amPm;
-//    }
+    public void setLink(String link) {
+        Link = link;
+    }
+
+    public void setTid(String tid) {
+        Tid = tid;
+    }
+
+
+    public String getTime() {
+        return Time;
+    }
 
     public String getLink() {
         return Link;
     }
 
-    public void setLink(String link) {
-        Link = link;
-    }
 }
