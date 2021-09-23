@@ -58,19 +58,13 @@ public class Adapter_inactiveUsers extends RecyclerView.Adapter<Adapter_inactive
             alertDialog.setMessage("Do you want to Delete the User");
             alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> db.collection("users").document(user.getId())
                     .delete()
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Intent i=new Intent(v.getContext(), InactiveUsers.class);
-                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            v.getContext().startActivity(i);
-                            Toast.makeText(context.getApplicationContext(), "The user is Deleted Successfully!!!",Toast.LENGTH_LONG);
-                        }
+                    .addOnSuccessListener(aVoid -> {
+                        Intent i=new Intent(v.getContext(), InactiveUsers.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        v.getContext().startActivity(i);
+                        Toast.makeText(context.getApplicationContext(), "The user is Deleted Successfully!!!",Toast.LENGTH_LONG);
                     })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                        }
+                    .addOnFailureListener(e -> {
                     }));
             alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id1) -> dialog.dismiss());
             alertDialog.show();

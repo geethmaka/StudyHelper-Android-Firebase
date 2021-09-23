@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.studyhelper_android_firebase.classes.User;
 import com.example.studyhelper_android_firebase.complain.ComplainMain;
 
+import com.example.studyhelper_android_firebase.course.Course_manager_home;
 import com.example.studyhelper_android_firebase.student.StudentMainActivity;
 import com.example.studyhelper_android_firebase.teacher.TeacherMainActivity;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -72,35 +73,41 @@ public class Login extends AppCompatActivity {
                     });
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
             SharedPreferences.Editor editor = preferences.edit();
-
+            boolean userFound = false;
             for(User u : userList){
                 if ((Email.getText().toString().equals(u.getUser().getEmail())) && (Password.getText().toString().equals(u.getUser().getPassword()))) {
                     if(u.getUser().getType().equals("Teacher")){
 
                         saveSession(editor,u.getUser().getEmail(), u.getUser().getPassword(), u.getId());
                         gotoIntent(TeacherMainActivity.class);
+                        userFound=true;
                         break;
 
                     }else if(u.getUser().getType().equals("Student")){
 
                         saveSession(editor,u.getUser().getEmail(), u.getUser().getPassword(), u.getId());
                         gotoIntent(StudentMainActivity.class);
+                        userFound=true;
                         break;
 
                     }
 
-                } else if ((Email.getText().toString().equals("t")) && (Password.getText().toString().equals("t"))) {
-                    Intent start = new Intent(this, TeacherMainActivity.class);
-                    startActivity(start);
-                } else if ((Email.getText().toString().equals("ch")) && (Password.getText().toString().equals("ch"))) {
-                    Intent start = new Intent(this, ComplainMain.class);
-                    startActivity(start);
-                } else if ((Email.getText().toString().equals("s")) && (Password.getText().toString().equals("s"))) {
-                    Intent start = new Intent(this, StudentMainActivity.class);
-                    startActivity(start);
                 }
             }
-
+            if ((Email.getText().toString().equals("t")) && (Password.getText().toString().equals("t"))) {
+                Intent start = new Intent(this, TeacherMainActivity.class);
+                startActivity(start);
+            } else if ((Email.getText().toString().equals("ch")) && (Password.getText().toString().equals("ch"))) {
+                Intent start = new Intent(this, ComplainMain.class);
+                startActivity(start);
+            } else if ((Email.getText().toString().equals("s")) && (Password.getText().toString().equals("s"))) {
+                Intent start = new Intent(this, StudentMainActivity.class);
+                startActivity(start);
+            }else if((Email.getText().toString().equals("c")) && (Password.getText().toString().equals("c"))){
+                Intent start = new Intent(this, Course_manager_home.class);
+                startActivity(start);
+            }
+            if(!userFound)
                 Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
         });
     }
