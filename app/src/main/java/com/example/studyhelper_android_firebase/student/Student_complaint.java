@@ -55,18 +55,15 @@ public class Student_complaint extends AppCompatActivity {
                         Log.e("Firestore Error",error.getMessage());
                         return;
                     }
-                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                    String id =preferences.getString("uid","");
+
+                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+                    String id =preferences.getString("uid","l");
 
                     //fetching the data from the firestore database
                     for(DocumentChange dc : value.getDocumentChanges()){
-<<<<<<< HEAD
-                        if(dc.getType() == DocumentChange.Type.ADDED ) {
-                            Complain c = new Complain(dc.getDocument().getId(),dc.getDocument().toObject(Complain.class));
-=======
                         Complain c = new Complain(dc.getDocument().getId(),dc.getDocument().toObject(Complain.class));
                         if(dc.getType() == DocumentChange.Type.ADDED && c.getComplain().getUserID().equals(id)) {
->>>>>>> d99e34b2d875012d166a431991b30c60e6d9b9c4
+
                             complainArrayList.add(c);
                         }
                         complainAdapter.notifyDataSetChanged();
