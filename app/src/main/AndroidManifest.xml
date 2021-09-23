@@ -3,7 +3,7 @@
     package="com.example.studyhelper_android_firebase">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name=" android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -14,19 +14,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyHelperAndroidFirebase">
         <activity
-
+            android:name=".complain.ResolvedComplaints"
+            android:exported="true" />
+        <activity
+            android:name=".complain.InactiveUsers"
+            android:exported="true" />
+        <activity
+            android:name=".complain.ActiveUsers"
+            android:exported="true" />
+        <activity
+            android:name=".complain.NewComplaint"
+            android:exported="true" />
+        <activity
             android:name=".Teacher_popup_Pdf"
             android:exported="true" />
-
-                  <activity
+        <activity
             android:name=".course.UpdateCourse"
             android:exported="true"
-            android:theme="@style/AppTheme"/>
-
-      <activity
+            android:theme="@style/AppTheme" />
+        <activity
             android:name=".teacher.Teacher_popup_Link"
             android:exported="true" />
-
         <activity
             android:name=".teacher.TeacherMainActivity"
             android:exported="true" />
@@ -58,8 +66,7 @@
         <activity
             android:name=".Login"
             android:exported="true"
-            android:theme="@style/AppTheme.NoActionBar"
-             />
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

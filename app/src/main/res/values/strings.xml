@@ -79,18 +79,23 @@
     <string name="Complain">Complain</string>
     <string name="Course">Course</string>
     <string name="pending">Pending</string>
-    <string name="maintained">Maintained</string>
+    <string name="maintained">Resolved</string>
     <string name="Dash_overview">Overview</string>
     <string name="opt_Logout">Logout</string>
     <string name="opt_Settings">Settings</string>
     <string name="New_complain">New Complains</string>
+    <string name="Resolved_complain">Resolved Complains</string>
+    <string name="active_users">Active Users</string>
+    <string name="inactive_users">Inactive Users</string>
     <string name="btn_ban">Ban User</string>
+    <string name="btn_delete">Delete User</string>
     <string name="search">Search User :</string>
     <string name="btn_resolved">Mark as Resolved</string>
     <string name="msg_hint">Type your message</string>
     <string name="btn_com_delete">Delete Resolved Complains</string>
     <string name="teacher">Teacher</string>
     <string name="student">Student</string>
+    <string name="complaint_menu">Menu</string>
 
 
     <!-- Course -->
