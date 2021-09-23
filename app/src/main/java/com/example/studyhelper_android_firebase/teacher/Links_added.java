@@ -110,7 +110,7 @@ public class Links_added extends Fragment {
                         return;
                     }
 
-                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
                     String id =preferences.getString("uid","");
 
                     //fetching the data from the firestore database
