@@ -22,6 +22,7 @@ public class Student_complaint extends AppCompatActivity {
     //defining the variables
     ArrayList<Complain> complainArrayList;
     S_adptercomplain complainAdapter;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +56,8 @@ public class Student_complaint extends AppCompatActivity {
 
                     //fetching the data from the firestore database
                     for(DocumentChange dc : value.getDocumentChanges()){
-                        Complain c = new Complain(dc.getDocument().getId(),dc.getDocument().toObject(Complain.class));
-                        if(dc.getType() == DocumentChange.Type.ADDED && c.getComplain().getUserID().equals("xC2rMzLzCyTZLx5Y4w7W")) {
+                        if(dc.getType() == DocumentChange.Type.ADDED ) {
+                            Complain c = new Complain(dc.getDocument().getId(),dc.getDocument().toObject(Complain.class));
                             complainArrayList.add(c);
                         }
                         complainAdapter.notifyDataSetChanged();
