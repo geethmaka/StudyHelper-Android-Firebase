@@ -6,11 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Filter;
-import android.widget.Filterable;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,9 +18,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetails.ViewHolder> {
     //creating an instance of the database
@@ -43,7 +37,7 @@ public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetail
     @Override
     public Adapter_UserDetails.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_userdetails,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_active_user,parent,false);
         return new ViewHolder(v);
     }
 

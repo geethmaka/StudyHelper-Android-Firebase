@@ -14,9 +14,9 @@ import android.widget.Button;
 import com.example.studyhelper_android_firebase.R;
 
 
-public class CH_ComplainFragment extends Fragment {
+public class CH_ComplainMenu extends Fragment {
 
-    public CH_ComplainFragment() {
+    public CH_ComplainMenu() {
         // Required empty public constructor
     }
 
