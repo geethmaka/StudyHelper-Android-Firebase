@@ -1,22 +1,19 @@
 package com.example.studyhelper_android_firebase.complain;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.User;
-import com.example.studyhelper_android_firebase.course.ViewCourses;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -24,14 +21,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
-public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetails.ViewHolder> {
+public class Adapter_activeUser extends RecyclerView.Adapter<Adapter_activeUser.ViewHolder> {
     //creating an instance of the database
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Context context;
     ArrayList<User> userArrayList;
     ArrayList<User> searchArrayList;
 
-    public Adapter_UserDetails(Context context, ArrayList<User> newArrayList) {
+    public Adapter_activeUser(Context context, ArrayList<User> newArrayList) {
         this.context = context;
         this.userArrayList = newArrayList;
 //        this.searchArrayList = new ArrayList<>(searchArrayList);
@@ -39,7 +36,7 @@ public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetail
 
     @NonNull
     @Override
-    public Adapter_UserDetails.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Adapter_activeUser.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_active_user,parent,false);
         return new ViewHolder(v);
@@ -92,7 +89,7 @@ public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetail
 //    };
 
     @Override
-    public void onBindViewHolder(@NonNull Adapter_UserDetails.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //create user object and get the array list
         User user = userArrayList.get(position);
 
@@ -102,35 +99,22 @@ public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetail
 
         holder.btn_banUser.setOnClickListener(v -> {
             DocumentReference userRef = db.collection("users").document(user.getId());
-
             userRef.update("status", "inactive")
-                    .addOnSuccessListener(unused -> Log.d("TAG", "DocumentSnapshot successfully updated!"))
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(context.getApplicationContext(), "User Deactivated Successfully!!!",Toast.LENGTH_LONG);
+                        }
+                    })
 
-                    .addOnFailureListener(e -> Log.w("TAG", "Error updating document", e));
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(context.getApplicationContext(), "User Deactivation unsuccessfully!!!",Toast.LENGTH_LONG);
+                        }
+                    });
         });
     }
-//        deleteButton.setOnClickListener((View v) -> {
-//        AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
-//        alertDialog.setTitle("hi");
-//        alertDialog.setMessage("this is my app");
-//        alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> db.collection("courses").document(id)
-//                .delete()
-//                .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                    @Override
-//                    public void onSuccess(Void aVoid) {
-//                        Intent i=new Intent(v.getContext(), ViewCourses.class);
-//                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                        v.getContext().startActivity(i);
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                    }
-//                }));
-//        alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id1) -> dialog.dismiss());
-//        alertDialog.show();
-//    });
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView username;
@@ -147,8 +131,4 @@ public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetail
             btn_banUser = itemView.findViewById(R.id.btn_banUser);
         }
     }
-
-//    private void updateStatus(String id) {
-//        db.collection("complain").document(id)
-//    }
 }

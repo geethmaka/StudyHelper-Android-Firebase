@@ -1,25 +1,18 @@
 package com.example.studyhelper_android_firebase.complain;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.User;
 import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -30,7 +23,7 @@ public class ActiveUsers extends AppCompatActivity {
     //defining the variables
     ProgressDialog progressDialog;
     ArrayList<User> userArrayList;
-    Adapter_UserDetails userAdapter;
+    Adapter_activeUser userAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +45,7 @@ public class ActiveUsers extends AppCompatActivity {
         //initialize the array list
         userArrayList = new ArrayList<User>();
         //initialize the adapter
-        userAdapter = new Adapter_UserDetails(this,userArrayList);
+        userAdapter = new Adapter_activeUser(this,userArrayList);
         recyclerView.setAdapter(userAdapter);
 
         EventChangeListener();
