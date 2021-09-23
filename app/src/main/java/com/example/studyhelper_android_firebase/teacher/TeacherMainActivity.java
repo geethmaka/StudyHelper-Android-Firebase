@@ -14,6 +14,7 @@ import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.studyhelper_android_firebase.Added_complain_T;
 import com.example.studyhelper_android_firebase.Teacher_popup_Pdf;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.example.studyhelper_android_firebase.R;
@@ -51,6 +52,13 @@ public class TeacherMainActivity extends AppCompatActivity {
         Intent intent = new Intent(context, Teacher_popup_Pdf.class);
         startActivity(intent);
     }
+
+    public void gotoTmComplain(View view) {
+        final Context context = this;
+        Intent intent = new Intent(context, Added_complain_T.class);
+        startActivity(intent);
+    }
+
 
 
 

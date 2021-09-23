@@ -1,38 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".complain.CH_ComplainFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".student.SProfileFragment">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="10sp"
-        android:paddingBottom="10sp"
-        android:paddingRight="10sp"
-        android:paddingLeft="10sp">
+        android:layout_height="match_parent">
 
-        <android.widget.Button
-            android:id="@+id/delete_resolved"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn2"
-            android:textColor="@color/black"
-            android:text="@string/btn_com_delete"
-            android:textAllCaps="false"
-            android:textSize="18sp"
-            android:textAlignment="center"/>
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:weightSum="12">
 
-    </LinearLayout>
+            <LinearLayout
+                style="@style/parent"
+                android:layout_weight="3"
+                android:background="@drawable/profile_up"
+                android:orientation="vertical" />
+        </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RVcomplain"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="480dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="30dp"
+            android:orientation="vertical">
 
-<!--        tools:listitem="@layout/complain_cv_navcomplain"-->
-</LinearLayout>
+            <include
+                layout="@layout/complain_cv_complain_menu"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

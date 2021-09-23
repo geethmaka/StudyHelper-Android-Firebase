@@ -21,16 +21,16 @@ public class User {
         this.email = email;
     }
 
-    public User(String id, String username, String type, String stream, boolean status, String password, long mobile, String email) {
-        this.id = id;
-        this.username = username;
-        this.type = type;
-        this.stream = stream;
-        this.status = status;
-        this.password = password;
-        this.mobile = mobile;
-        this.email = email;
-    }
+//    public User(String id, String username, String type, String stream, boolean status, String password, long mobile, String email) {
+//        this.id = id;
+//        this.username = username;
+//        this.type = type;
+//        this.stream = stream;
+//        this.status = status;
+//        this.password = password;
+//        this.mobile = mobile;
+//        this.email = email;
+//    }
 
     public User(String username, String type, String stream, boolean status, String password, long mobile, String email) {
         this.username = username;

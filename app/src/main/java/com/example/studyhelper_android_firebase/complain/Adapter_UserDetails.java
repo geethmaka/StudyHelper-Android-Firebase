@@ -6,11 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Filter;
-import android.widget.Filterable;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,9 +18,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetails.ViewHolder> {
     //creating an instance of the database
@@ -43,7 +37,7 @@ public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetail
     @Override
     public Adapter_UserDetails.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_userdetails,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_active_user,parent,false);
         return new ViewHolder(v);
     }
 
@@ -123,7 +117,6 @@ public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetail
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        LinearLayout parent_layout;
         TextView username;
         TextView type;
         TextView email;
@@ -136,7 +129,6 @@ public class Adapter_UserDetails extends RecyclerView.Adapter<Adapter_UserDetail
             type = itemView.findViewById(R.id.user_type);
             email = itemView.findViewById(R.id.user_email);
             btn_banUser = itemView.findViewById(R.id.btn_banUser);
-            parent_layout = itemView.findViewById(R.id.parent_layout);
         }
     }
 
