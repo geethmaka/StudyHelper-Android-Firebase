@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ import java.util.ArrayList;
 
 public class S_adptercomplain extends RecyclerView.Adapter<S_adptercomplain.HolderComplain>{
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+
     Context context;
     ArrayList<Complain> complainList;
 
@@ -36,7 +38,8 @@ public class S_adptercomplain extends RecyclerView.Adapter<S_adptercomplain.Hold
 
     @NonNull
     @Override
-    public S_adptercomplain.HolderComplain onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
+    public HolderComplain onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
+
         View view= LayoutInflater.from(context).inflate(R.layout.sitem,parent,false);
         return new HolderComplain(view);
     }
@@ -45,45 +48,62 @@ public class S_adptercomplain extends RecyclerView.Adapter<S_adptercomplain.Hold
     public void onBindViewHolder(@NonNull S_adptercomplain.HolderComplain holder, int position) {
         // get data
         Complain cp= complainList.get(position);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
        holder.scvstatus.setText(cp.getComplain().getStatus());
        holder.scvdate.setText(cp.getComplain().getDate());
        holder.scvmassage.setText(cp.getComplain().getContent());
 
-//        holder.scvupdate.setOnClickListener(v -> {
-//
-//            DocumentReference complainRef = db.collection("complain").document(complain.getComplainId());
-//
-//            complainRef.update("Status", "Resolved")
+        holder.btn_scvupdate.setOnClickListener(view ->{
+            DocumentReference washingtonRef = db.collection("Complain").document(cp.getComplainId());
+
+            washingtonRef
+                    .update("subject",  holder.scvstatus.getText().toString(), "title",holder.scvdate.getText().toString(), "date", holder.scvdate.getText().toString())
+                    .addOnSuccessListener(aVoid ->{ Log.d("TAG", "DocumentSnapshot successfully updated!"+cp.getComplainId());
+                        holder.scvstatus.setText(holder.scvstatus.getText().toString());
+                        holder.scvdate.setText(holder.scvdate.getText().toString());
+                        holder.scvmassage.setText(holder.scvmassage.getText().toString());})
+                    .addOnFailureListener(e -> Log.w("TAG", "Error updating document", e));
+        });
+
+//        holder.btn_scvdelete.setOnClickListener((View ) -> {
+//            AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
+//            alertDialog.setTitle("Delete");
+//            alertDialog.setMessage("Are you sure you want to delete this complain");
+//            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> db.collection("Complain").document(Complain.getComplainId())
+//                    .delete()
 //                    .addOnSuccessListener(new OnSuccessListener<Void>() {
 //                        @Override
 //                        public void onSuccess(Void aVoid) {
-//                            Log.d("TAG", "The complain is marked resolved successfully!");
+//                            Intent i=new Intent(v.getContext(), Links_added.class);
+//                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                            v.getContext().startActivity(i);
 //                        }
 //                    })
-//
 //                    .addOnFailureListener(new OnFailureListener() {
 //                        @Override
 //                        public void onFailure(@NonNull Exception e) {
-//                            Log.w("TAG", "Error updating status", e);
 //                        }
-//                    });
+//                    }));
+//            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No",new DialogInterface.OnClickListener(){
+//                public void onClick(DialogInterface dialog, int id) {
+//                    dialog.dismiss();
+//                }
+//            });
+//            alertDialog.show();
 //        });
 
     }
 
-
     @Override
-    public int getItemCount() {
-        return complainList.size();
-    }
+    public int getItemCount() { return complainList.size();}
 
     static class HolderComplain extends RecyclerView.ViewHolder{
-        //holds views of recyclerview
 
         TextView scvdate,scvstatus;
         EditText scvmassage;
+        Button btn_scvupdate,btn_scvdelete;
 
         public HolderComplain(@NonNull View itemView) {
             super(itemView);
@@ -91,6 +111,9 @@ public class S_adptercomplain extends RecyclerView.Adapter<S_adptercomplain.Hold
             scvdate= itemView.findViewById(R.id.scvdate);
             scvmassage= itemView.findViewById(R.id.scvmassage);
             scvstatus=itemView.findViewById(R.id.scvstatus);
+
+            btn_scvupdate=itemView.findViewById(R.id.btn_scvupdate);
+            btn_scvdelete=itemView.findViewById(R.id.btn_scvdelete);
 
         }
 
