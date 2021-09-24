@@ -45,8 +45,7 @@ import java.util.ArrayList;
  */
 public class Pdfs_added extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -123,8 +122,8 @@ public class Pdfs_added extends Fragment {
         db.collection("pdf")
                 .addSnapshotListener((value, error) -> {
                     if(error != null) {
-                        //dismiss progress dialog
-//                            if(progressDialog.isShowing())
+//                        dismiss progress dialog
+//                           if(progressDialog.isShowing())
 //                                progressDialog.dismiss();
                         Log.e("Firestore Error",error.getMessage());
                         return;
@@ -132,15 +131,16 @@ public class Pdfs_added extends Fragment {
                     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
                     String id =preferences.getString("uid","");
                     //fetching the data from the firestore database
-                    for(DocumentChange dc : value.getDocumentChanges()){
+                   for(DocumentChange dc : value.getDocumentChanges()){
                         Pdf p = new Pdf(dc.getDocument().getId(),dc.getDocument().toObject(Pdf.class));
+
                         if(dc.getType() == DocumentChange.Type.ADDED && id.equals(p.getObj().getTid())) {
                             pdfArrayList.add(p);
                         }
                         pdfAdapter.notifyDataSetChanged();
                         //dismiss progress dialog
-//                            if(progressDialog.isShowing())
-//                                progressDialog.dismiss();
+//                          if(progressDialog.isShowing())
+//                           progressDialog.dismiss();
                     }
 
                 });

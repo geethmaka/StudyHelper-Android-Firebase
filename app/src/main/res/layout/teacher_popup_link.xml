@@ -1,139 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linkUploder"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/colorAccent"
     tools:context=".teacher.Teacher_popup_Link">
 
-    <TextView
-        android:id="@+id/link_heading"
-        android:layout_width="92dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:layout_marginBottom="23dp"
-        android:text="@string/linkUpload"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/spinner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <Spinner
-        android:id="@+id/spinner"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginEnd="65dp"
-        android:layout_marginBottom="15dp"
-        android:background="@color/harbor_grey"
-        android:backgroundTint="@color/white"
-        android:entries="@array/stream_subj"
-        android:gravity="right"
-        android:popupBackground="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/link_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/link_heading" />
-
-    <!--    <Button-->
-    <!--        android:id="@+id/datePickerButton"-->
-    <!--        style="?android:spinnerStyle"-->
-    <!--        android:layout_width="250dp"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:onClick="openDatePicker"-->
-    <!--        android:text="JAN 01 2020"-->
-    <!--        android:textColor="@color/black"-->
-    <!--        android:textSize="30sp"-->
-    <!--        tools:layout_editor_absoluteX="81dp"-->
-    <!--        tools:layout_editor_absoluteY="243dp" />-->
-
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="281dp"
-        android:layout_height="301dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-    <EditText
-        android:id="@+id/link_title"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="59dp"
-        android:layout_marginEnd="59dp"
-        android:layout_marginBottom="352dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Title"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/Time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="44dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="47dp"
-        android:background="@color/harbor_grey"
-        android:backgroundTint="@color/white"
-        android:entries="@array/stream_time"
-        android:gravity="right"
-        android:popupBackground="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/link_add"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/Time"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView"
-        app:layout_constraintVertical_bias="0.6" />
+        <!--    <Button-->
+        <!--        android:id="@+id/datePickerButton"-->
+        <!--        style="?android:spinnerStyle"-->
+        <!--        android:layout_width="250dp"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:onClick="openDatePicker"-->
+        <!--        android:text="JAN 01 2020"-->
+        <!--        android:textColor="@color/black"-->
+        <!--        android:textSize="30sp"-->
+        <!--        tools:layout_editor_absoluteX="81dp"-->
+        <!--        tools:layout_editor_absoluteY="243dp" />-->
 
-    <EditText
-        android:id="@+id/link_add"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="64dp"
-        android:hint="Add the link"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_uploadlink"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Time" />
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="105dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="61dp"
+            android:layout_marginBottom="12dp"
+            android:background="@color/harbor_grey"
+            android:backgroundTint="@color/white"
+            android:entries="@array/stream_subj"
+            android:gravity="right"
+            android:popupBackground="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/link_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <android.widget.Button
-        android:id="@+id/btn_uploadlink"
-        android:layout_width="106dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="13dp"
-        android:background="@color/status_green"
-        android:backgroundTint="@color/status_blue"
-        android:text="@string/pdf_upload"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/link_add" />
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="281dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="183dp"
+            android:layout_marginBottom="17dp"
+            app:layout_constraintBottom_toTopOf="@+id/spinner2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/Time"
-        android:layout_width="252dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginBottom="13dp"
-        android:ems="10"
-        android:hint="Enter the time"
-        android:inputType="time"
-        app:layout_constraintBottom_toTopOf="@+id/link_add"
-        app:layout_constraintEnd_toStartOf="@+id/spinner2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/link_title" />
+        <EditText
+            android:id="@+id/link_title"
+            android:layout_width="240dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="21dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Title"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/calendarView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="66dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="158dp"
+            android:background="@color/harbor_grey"
+            android:backgroundTint="@color/white"
+            android:entries="@array/stream_time"
+            android:gravity="right"
+            android:popupBackground="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
+        <EditText
+            android:id="@+id/link_add"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="46dp"
+            android:layout_marginEnd="46dp"
+            android:layout_marginBottom="71dp"
+            android:hint="                    Add the link"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/link_heading" />
+
+        <android.widget.Button
+            android:id="@+id/btn_uploadlink"
+            android:layout_width="119dp"
+            android:layout_height="34dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/status_green"
+            android:backgroundTint="@color/status_blue"
+            android:text="@string/pdf_upload"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/link_add" />
+
+        <EditText
+            android:id="@+id/Time"
+            android:layout_width="182dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="83dp"
+            android:layout_marginTop="514dp"
+            android:layout_marginEnd="39dp"
+            android:layout_marginBottom="23dp"
+            android:ems="10"
+            android:hint="Enter the time"
+            android:inputType="time"
+            app:layout_constraintBottom_toTopOf="@+id/link_add"
+            app:layout_constraintEnd_toStartOf="@+id/spinner2"
+            app:layout_constraintHorizontal_bias="0.733"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/link_heading"
+            android:layout_width="58dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="548dp"
+            android:text="@string/linkUpload"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/link_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

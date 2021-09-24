@@ -61,17 +61,35 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
             holder.link.setText(link.getObj().getLink());
 
             holder.updateLink.setOnClickListener(v ->{
-                DocumentReference washingtonRef = db.collection("link").document(link.getId());
+                AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
+                alertDialog.setTitle("Update");
+                alertDialog.setMessage("Are you sure you want to update this link");
+                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> db.collection("link").document(link.getId()).
 
-                washingtonRef
-                        .update("subject",  holder.subject.getText().toString(), "title",holder.title.getText().toString(), "date", holder.date.getDate(),"time",holder.time.getText().toString())
+                        update("subject",  holder.subject.getText().toString(), "title",holder.title.getText().toString(), "date", holder.date.getDate(),"time",holder.time.getText().toString())
                         .addOnSuccessListener(aVoid ->{ Log.d("TAG", "DocumentSnapshot successfully updated!"+link.getId());
                             holder.subject.setText(link.getObj().getSubject());
                             holder.title.setText(holder.title.getText().toString());
                             holder.date.setDate(holder.date.getDate());
                             holder.time.setText(holder.time.getText().toString());
                             holder.link.setText(holder.link.getText().toString());})
-                        .addOnFailureListener(e -> Log.w("TAG", "Error updating document", e));
+                        .addOnSuccessListener(aVoid -> {
+                            Intent i=new Intent(v.getContext(), Links_added.class);
+                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            v.getContext().startActivity(i);
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                            }
+                        }));
+                alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No",new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+
+                });
+                alertDialog.show();
             });
 
             holder.deleteLink.setOnClickListener((View v) -> {
@@ -80,14 +98,25 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
                 alertDialog.setMessage("Are you sure you want to delete this link");
                 alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> db.collection("link").document(link.getId())
                         .delete()
-                        .addOnSuccessListener(aVoid -> {
-                            Intent i=new Intent(v.getContext(), Links_added.class);
-                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            v.getContext().startActivity(i);
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Intent i=new Intent(v.getContext(), Links_added.class);
+                                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                v.getContext().startActivity(i);
+                            }
                         })
-                        .addOnFailureListener(e -> {
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                            }
                         }));
-                alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id) -> dialog.dismiss());
+                alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No",new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+
+                });
                 alertDialog.show();
             });
 

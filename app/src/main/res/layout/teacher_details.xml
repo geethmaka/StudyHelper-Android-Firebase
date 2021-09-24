@@ -19,44 +19,51 @@
 
         <TextView
             style="@style/headerTextPrimary"
-            android:text="@string/teacher_details"
-            android:layout_marginTop="@dimen/loginViewsMargin"/>
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:text="@string/teacher_details" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
+
             <EditText
+                android:id="@+id/name"
                 style="@style/modifiedEditText"
+                android:hint="Name"
                 android:inputType="text"
-                android:maxLines="1"
-                android:hint="Name"/>
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
+
             <EditText
+                android:id="@+id/mobile"
                 style="@style/modifiedEditText"
+                android:hint="Mobile Number"
                 android:inputType="text"
-                android:maxLines="1"
-                android:hint="Mobile Number"/>
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
+
             <EditText
+                android:id="@+id/email"
                 style="@style/modifiedEditText"
+                android:hint="@string/login_email_hint"
                 android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:hint="@string/login_email_hint"/>
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"
-            android:layout_marginTop="@dimen/signup_text_margin_top"/>
+            android:layout_marginTop="@dimen/signup_text_margin_top" />
 
         <Button
+            android:id="@+id/update_btn"
             style="@style/loginButton"
             android:layout_gravity="center"
             android:text="Update" />
