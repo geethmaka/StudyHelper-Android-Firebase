@@ -10,6 +10,40 @@ public class Pdf {
     private Link obj;
     private String id;
 
+    public String getTid() {
+        return Tid;
+    }
+
+    public void setTid(String tid) {
+        Tid = tid;
+    }
+
+    public void setObj(Pdf obj) {
+        this.obj = obj;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    private String Tid;
+
+     private Pdf obj;
+     private String id;
+
+    public Pdf getObj() {
+        return obj;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public Pdf(String id, Pdf obj){
+         this.id=id;
+         this.obj=obj;
+     }
+
     public Pdf() {
     }
 

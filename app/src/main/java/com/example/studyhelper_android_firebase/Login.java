@@ -54,44 +54,39 @@ public class Login extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         ArrayList<User> userList = new ArrayList<>();
-
+        db.collection("users")
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            User u=new User(document.getId(),document.toObject(User.class));
+                            userList.add(u);
+                        }
+                    } else {
+                        Log.d("TAG", "Error getting documents: ", task.getException());
+                    }
+                });
 
         login.setOnClickListener((View v) -> {
             EditText Email = findViewById(R.id.editTextEmail);
             EditText Password = findViewById(R.id.editTextPassword);
-            db.collection("users")
-                    .get()
-                    .addOnCompleteListener(task -> {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                User u=new User(document.getId(),document.toObject(User.class));
-                                userList.add(u);
-                            }
-                        } else {
-                            Log.d("TAG", "Error getting documents: ", task.getException());
-                        }
-                    });
+
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
             SharedPreferences.Editor editor = preferences.edit();
             boolean userFound = false;
             for(User u : userList){
                 if ((Email.getText().toString().equals(u.getUser().getEmail())) && (Password.getText().toString().equals(u.getUser().getPassword()))) {
                     if(u.getUser().getType().equals("Teacher")){
-
+                        userFound=true;
                         saveSession(editor,u.getUser().getEmail(), u.getUser().getPassword(), u.getId());
                         gotoIntent(TeacherMainActivity.class);
-                        userFound=true;
                         break;
-
                     }else if(u.getUser().getType().equals("Student")){
-
+                        userFound=true;
                         saveSession(editor,u.getUser().getEmail(), u.getUser().getPassword(), u.getId());
                         gotoIntent(StudentMainActivity.class);
-                        userFound=true;
                         break;
-
                     }
-
                 }
             }
             if ((Email.getText().toString().equals("t")) && (Password.getText().toString().equals("t"))) {
@@ -106,15 +101,12 @@ public class Login extends AppCompatActivity {
             }else if((Email.getText().toString().equals("c")) && (Password.getText().toString().equals("c"))){
                 Intent start = new Intent(this, Course_manager_home.class);
                 startActivity(start);
-            }
-            if(!userFound)
+            }else{
                 Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+            }
+
+//            if(!userFound){
+//                Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();}
         });
     }
 }
-
-
-
-//    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
-//    String tee =preferences.getString("uid","l");
-//        Log.d("tee",tee);

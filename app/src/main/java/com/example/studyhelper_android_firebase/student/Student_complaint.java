@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.example.studyhelper_android_firebase.R;
@@ -22,6 +24,7 @@ public class Student_complaint extends AppCompatActivity {
     //defining the variables
     ArrayList<Complain> complainArrayList;
     S_adptercomplain complainAdapter;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +56,14 @@ public class Student_complaint extends AppCompatActivity {
                         return;
                     }
 
+                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+                    String id =preferences.getString("uid","l");
+
                     //fetching the data from the firestore database
                     for(DocumentChange dc : value.getDocumentChanges()){
                         Complain c = new Complain(dc.getDocument().getId(),dc.getDocument().toObject(Complain.class));
-                        if(dc.getType() == DocumentChange.Type.ADDED && c.getComplain().getUserID().equals("xC2rMzLzCyTZLx5Y4w7W")) {
+                        if(dc.getType() == DocumentChange.Type.ADDED && c.getComplain().getUserID().equals(id)) {
+
                             complainArrayList.add(c);
                         }
                         complainAdapter.notifyDataSetChanged();

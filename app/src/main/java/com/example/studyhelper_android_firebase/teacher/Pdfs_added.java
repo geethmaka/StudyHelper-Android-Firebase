@@ -121,29 +121,28 @@ public class Pdfs_added extends Fragment {
 
     private void EventChangeListener() {
         db.collection("pdf")
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                        if(error != null) {
-                            //dismiss progress dialog
+                .addSnapshotListener((value, error) -> {
+                    if(error != null) {
+                        //dismiss progress dialog
 //                            if(progressDialog.isShowing())
 //                                progressDialog.dismiss();
-                            Log.e("Firestore Error",error.getMessage());
-                            return;
-                        }
-
-                        //fetching the data from the firestore database
-                        for(DocumentChange dc : value.getDocumentChanges()){
-                            if(dc.getType() == DocumentChange.Type.ADDED) {
-                                pdfArrayList.add(dc.getDocument().toObject(Pdf.class));
-                            }
-                            pdfAdapter.notifyDataSetChanged();
-                            //dismiss progress dialog
-//                            if(progressDialog.isShowing())
-//                                progressDialog.dismiss();
-                        }
-
+                        Log.e("Firestore Error",error.getMessage());
+                        return;
                     }
+                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    String id =preferences.getString("uid","");
+                    //fetching the data from the firestore database
+                    for(DocumentChange dc : value.getDocumentChanges()){
+                        Pdf p = new Pdf(dc.getDocument().getId(),dc.getDocument().toObject(Pdf.class));
+                        if(dc.getType() == DocumentChange.Type.ADDED && id.equals(p.getObj().getTid())) {
+                            pdfArrayList.add(p);
+                        }
+                        pdfAdapter.notifyDataSetChanged();
+                        //dismiss progress dialog
+//                            if(progressDialog.isShowing())
+//                                progressDialog.dismiss();
+                    }
+
                 });
     }
 }
