@@ -10,9 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,10 +43,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         //loading data
 
-        String animal = courseList.get(position).getCourse().getSubject();
+        String subject = courseList.get(position).getCourse().getSubject();
         String Cid = courseList.get(position).getId();
 
-        holder.myTextView.setText(animal);
+        holder.myTextView.setText(subject);
 
         holder.parentLayout.setOnClickListener(view -> {
             Intent i=new Intent(mContext,UpdateCourse.class);
@@ -70,7 +68,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            myTextView = itemView.findViewById(R.id.tvAnimalName);
+            myTextView = itemView.findViewById(R.id.courseName);
             parentLayout = itemView.findViewById(R.id.parent_layout);
         }
     }
