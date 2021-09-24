@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -19,7 +17,7 @@
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
@@ -37,39 +35,46 @@
         <!--        tools:layout_editor_absoluteX="81dp"-->
         <!--        tools:layout_editor_absoluteY="243dp" />-->
 
+        <ImageView
+            android:id="@+id/back_btn_pdf_up"
+            android:layout_width="41dp"
+            android:layout_height="43dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.049"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.023"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+
         <Spinner
             android:id="@+id/spinner"
-            android:layout_width="105dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="61dp"
-            android:layout_marginBottom="12dp"
-            android:background="@color/harbor_grey"
-            android:backgroundTint="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:entries="@array/stream_subj"
-            android:gravity="right"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             android:popupBackground="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/link_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/link_heading" />
 
         <CalendarView
             android:id="@+id/calendarView"
-            android:layout_width="281dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="183dp"
-            android:layout_marginBottom="17dp"
-            app:layout_constraintBottom_toTopOf="@+id/spinner2"
+            android:layout_width="263dp"
+            android:layout_height="335dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/link_heading"
+            app:layout_constraintVertical_bias="0.447" />
 
         <EditText
             android:id="@+id/link_title"
-            android:layout_width="240dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="21dp"
+            android:layout_width="256dp"
+            android:layout_height="44dp"
+            android:layout_marginBottom="20dp"
             android:ems="10"
             android:gravity="center"
             android:hint="Title"
@@ -77,16 +82,14 @@
             android:minHeight="48dp"
             app:layout_constraintBottom_toTopOf="@+id/calendarView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner" />
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Spinner
             android:id="@+id/spinner2"
-            android:layout_width="66dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="158dp"
+            android:layout_width="53dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="224dp"
             android:background="@color/harbor_grey"
             android:backgroundTint="@color/white"
             android:entries="@array/stream_time"
@@ -94,27 +97,26 @@
             android:popupBackground="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.802" />
 
         <EditText
             android:id="@+id/link_add"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="46dp"
-            android:layout_marginEnd="46dp"
-            android:layout_marginBottom="71dp"
+            android:layout_width="273dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="24dp"
             android:hint="                    Add the link"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/link_heading" />
+            app:layout_constraintTop_toBottomOf="@+id/Time" />
 
         <android.widget.Button
             android:id="@+id/btn_uploadlink"
             android:layout_width="119dp"
             android:layout_height="34dp"
-            android:layout_marginBottom="15dp"
             android:background="@color/status_green"
             android:backgroundTint="@color/status_blue"
             android:text="@string/pdf_upload"
@@ -127,35 +129,31 @@
 
         <EditText
             android:id="@+id/Time"
-            android:layout_width="182dp"
-            android:layout_height="59dp"
-            android:layout_marginStart="83dp"
-            android:layout_marginTop="514dp"
-            android:layout_marginEnd="39dp"
-            android:layout_marginBottom="23dp"
+            android:layout_width="215dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="28dp"
             android:ems="10"
             android:hint="Enter the time"
             android:inputType="time"
-            app:layout_constraintBottom_toTopOf="@+id/link_add"
-            app:layout_constraintEnd_toStartOf="@+id/spinner2"
-            app:layout_constraintHorizontal_bias="0.733"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/calendarView"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/link_heading"
             android:layout_width="58dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="548dp"
+            android:layout_height="48dp"
             android:text="@string/linkUpload"
             android:textColor="@color/black"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/link_add"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.023" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
