@@ -11,6 +11,11 @@
         android:label="fragment_sdashboard"
         tools:layout="@layout/fragment_sdashboard" />
     <fragment
+        android:id="@+id/SLinkFragment"
+        android:name="com.example.studyhelper_android_firebase.student.SLinkFragment"
+        android:label="fragment_s_complain"
+        tools:layout="@layout/fragment_slink" />
+    <fragment
         android:id="@+id/SProfileFragment"
         android:name="com.example.studyhelper_android_firebase.student.SProfileFragment"
         android:label="fragment_s_profile"

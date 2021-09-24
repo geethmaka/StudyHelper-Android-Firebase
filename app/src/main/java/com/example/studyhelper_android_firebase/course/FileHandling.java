@@ -3,7 +3,7 @@ package com.example.studyhelper_android_firebase.course;
 import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,25 +12,26 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Switch;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Course;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.example.studyhelper_android_firebase.classes.ICourse;
+import com.example.studyhelper_android_firebase.classes.Pdf;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ViewCourses#newInstance} factory method to
+ * Use the {@link AddCourses#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ViewCourses extends Fragment{
+public class FileHandling extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,7 +42,7 @@ public class ViewCourses extends Fragment{
     private String mParam1;
     private String mParam2;
 
-    public ViewCourses() {
+    public FileHandling() {
         // Required empty public constructor
     }
 
@@ -51,11 +52,11 @@ public class ViewCourses extends Fragment{
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ViewCourses.
+     * @return A new instance of fragment AddCourses.
      */
     // TODO: Rename and change types and number of parameters
-    public static ViewCourses newInstance(String param1, String param2) {
-        ViewCourses fragment = new ViewCourses();
+    public static AddCourses newInstance(String param1, String param2) {
+        AddCourses fragment = new AddCourses();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -72,33 +73,28 @@ public class ViewCourses extends Fragment{
         }
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-        // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_view_courses, container, false);
-
-        ArrayList<Course>courseList = new ArrayList<>();
+        View root = inflater.inflate(R.layout.fragment_file_handling, container, false);
+        ArrayList<Pdf> pdfList = new ArrayList<>();
 
 
         Context currentContext = this.getContext();
 
-        RecyclerView recyclerView = root.findViewById(R.id.recycleList);
+        RecyclerView recyclerView = root.findViewById(R.id.fileList);
         recyclerView.setLayoutManager(new LinearLayoutManager(currentContext));
 
-        db.collection("courses")
+        db.collection("pdf")
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        Log.d("TAG", "Error getting documents: ", task.getException());
                         for (QueryDocumentSnapshot document : task.getResult()) {
-                            Course courseWithId=new Course(document.getId(),document.toObject(Course.class));
-                            courseList.add(courseWithId);
+                            Pdf pdfWithId=new Pdf(document.getId(),document.toObject(Pdf.class));
+                            pdfList.add(pdfWithId);
                         }
-                        RecyclerViewAdapter mAdapter = new RecyclerViewAdapter(courseList,requireActivity().getApplicationContext());
+                        FileHandlerAdapter mAdapter = new FileHandlerAdapter(pdfList,requireActivity().getApplicationContext());
                         recyclerView.setAdapter(mAdapter);
                         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity().getApplicationContext()));
                     } else {

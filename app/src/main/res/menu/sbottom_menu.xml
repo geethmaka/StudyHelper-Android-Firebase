@@ -7,9 +7,14 @@
         android:icon="@drawable/ic_sdashboard"
         />
     <item
-        android:id="@+id/SProfileFragment"
+        android:id="@+id/SLinkFragment"
         android:title="Profile"
         android:icon="@drawable/ic_sprofile"/>
+    <item
+        android:id="@+id/SProfileFragment"
+        android:title="Complain"
+        android:icon="@drawable/ic_scomplain"
+        />
     <item
         android:id="@+id/SComplainFragment"
         android:title="Complain"
