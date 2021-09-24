@@ -41,11 +41,6 @@
         <activity
             android:name=".teacher.TeacherMainActivity"
             android:exported="true" />
-<!--        <activity-->
-<!--            android:name=".PdfView"-->
-<!--            android:exported="true" /> &lt;!&ndash; <activity &ndash;&gt;-->
-        <!-- android:name=".Register" -->
-        <!-- android:exported="true" /> -->
         <activity
             android:name=".student.StudentMainActivity"
             android:exported="true" />
@@ -57,9 +52,7 @@
             android:exported="true" />
         <activity
             android:name=".complain.ComplainMain"
-            android:exported="true" /> <!-- <activity -->
-        <!-- android:name=".Register" -->
-        <!-- android:exported="true" /> -->
+            android:exported="true" />
         <activity
             android:name=".LoadingActivity"
             android:exported="true">
