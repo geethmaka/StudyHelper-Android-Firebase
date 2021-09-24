@@ -26,6 +26,7 @@
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
             <EditText
+                android:id="@+id/reg_name"
                 style="@style/modifiedEditText"
                 android:inputType="text"
                 android:maxLines="1"
@@ -35,6 +36,7 @@
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent">
             <RadioGroup
+                android:id="@+id/reg_rediogrp"
                 android:layout_width="337dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
@@ -42,6 +44,7 @@
                 android:gravity="center_horizontal">
 
                 <RadioButton
+                    android:id="@+id/reg_rediobtns"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="20sp"
@@ -51,6 +54,7 @@
                     android:textSize="20sp"/>
 
                 <RadioButton
+                    android:id="@+id/reg_rediobtnt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20sp"
@@ -62,14 +66,14 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Spinner
-            android:id="@+id/stype"
+            android:id="@+id/reg_Stream"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="10dp"
-            android:entries="@array/smm_subject_arrays"
-            android:prompt="@string/sm_subject_prompt"
+            android:entries="@array/reg_st_arrays"
+            android:prompt="@string/reg_st"
             android:textColor="@color/status_blue">
 
         </Spinner>
@@ -78,6 +82,7 @@
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
             <EditText
+                android:id="@+id/reg_mn"
                 style="@style/modifiedEditText"
                 android:inputType="text"
                 android:maxLines="1"
@@ -88,6 +93,7 @@
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
             <EditText
+                android:id="@+id/reg_email"
                 style="@style/modifiedEditText"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
@@ -98,6 +104,7 @@
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
             <EditText
+                android:id="@+id/reg_pw"
                 style="@style/modifiedEditText"
                 android:hint="@string/login_password_hint"
                 android:maxLines="1"
@@ -105,6 +112,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+            android:id="@+id/reg_btn"
             style="@style/loginButton"
             android:layout_gravity="center"
             android:text="Register" />

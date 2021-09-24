@@ -13,6 +13,13 @@
     <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
     <string name="No_of_pdf">no_pdf</string>
 
+    <!--Registation -->
+    <string name="reg_st">Type</string>
+    <string-array name="reg_st_arrays">
+        <item>Science Stream</item>
+        <item>Commerce Stream</item>
+    </string-array>
+
     <!-- Teacher Management -->
     <string name="No_of_links">No_Links</string>
     <string name="teacher_details">Teacher detials</string>

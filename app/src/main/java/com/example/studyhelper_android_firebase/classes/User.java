@@ -12,7 +12,7 @@ public class User {
 
     private User user;
 
-    public User() {
+    public User(String trim, String s, String trim1, String s1) {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
