@@ -20,20 +20,26 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Course;
+import com.example.studyhelper_android_firebase.classes.IComplain;
 import com.example.studyhelper_android_firebase.classes.Link;
 import com.example.studyhelper_android_firebase.classes.Pdf;
 import com.example.studyhelper_android_firebase.classes.User;
+import com.example.studyhelper_android_firebase.student.Student_complaint;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -73,14 +79,16 @@ public class T_dashboard extends Fragment {
         return fragment;
     }
 
-    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
-    String id =preferences.getString("uid","");
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+
+
         }
     }
 
@@ -90,40 +98,36 @@ public class T_dashboard extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_t_dashboard, container, false);
 
-        return root;
-
-
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        EditText username, mobile, email;
-        ImageButton update;
+        Button update = root.findViewById(R.id.update_btn);
 
 
-        username = root.findViewById(R.id.name);
-        mobile = root.findViewById(R.id.mobile);
-        email = root.findViewById(R.id.email);
-        update = root.findViewById(R.id.update_btn);
-        db.collection("users").get( "username","mobile","email")
-                .addSnapshotListener((value, error) -> {
-                    username.setText(user.getUsername());
-                    mobile.setText((int) user.getMobile());
-                    email.setText(user.getEmail());
+        update.setOnClickListener((View v) -> {
 
-                    update.setOnClickListener(v -> {
-                        AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
+          EditText  username = root.findViewById(R.id.name);
+          EditText mobile = root.findViewById(R.id.mobile);
+          EditText  email = root.findViewById(R.id.email);
+
+
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
+            String id =preferences.getString("uid","");
+
+            AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
                         alertDialog.setTitle("Update");
                         alertDialog.setMessage("Are you sure you want to update this link");
-                        alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) -> db.collection("user").document(user.getId()).
+                        alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) -> db.collection("user").document(id).
 
-                                update("username", holder.username.getText().toString(), "mobile", holder.mobile.getText().toString(), "email", holder.email.getText().toString())
+                                update("username", username.getText().toString(), "mobile", mobile.getText().toString(), "email",email.getText().toString())
                                 .addOnSuccessListener(aVoid -> {
-                                    Log.d("TAG", "DocumentSnapshot successfully updated!" + user.getId());
+                                    Log.d("TAG", "DocumentSnapshot successfully updated!" + id);
 
-                                    holder.username.setText(holder.username.getText().toString());
-                                    holder.mobile.setText(holder.mobile.getText().toString());
-                                    holder.email.setText(holder.email.getText().toString());
+                                    username.setText(username.getText().toString());
+                                    mobile.setText(mobile.getText().toString());
+                                    email.setText(email.getText().toString());
+
                                 })
                                 .addOnSuccessListener(aVoid -> {
-                                    Intent i = new Intent(v.getContext(), Links_added.class);
+                                    Intent i = new Intent(v.getContext(),T_dashboard.class);
                                     i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     v.getContext().startActivity(i);
                                 })
@@ -141,9 +145,9 @@ public class T_dashboard extends Fragment {
                         alertDialog.show();
                     });
 
-
-//            TextView btn_banUser = itemView.findViewById(R.id.btn_banUser);
-                });
+        return  root;
     }
 
 }
+
+

@@ -7,8 +7,12 @@ public class Pdf {
      public String subject;
      public String title;
      public String pdf;
-    private Link obj;
     private String id;
+
+    private String Tid;
+
+    private Pdf obj;
+
 
     public String getTid() {
         return Tid;
@@ -22,22 +26,9 @@ public class Pdf {
         this.obj = obj;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
-    private String Tid;
 
-     private Pdf obj;
-     private String id;
 
-    public Pdf getObj() {
-        return obj;
-    }
-
-    public String getId() {
-        return id;
-    }
 
     public Pdf(String id, Pdf obj){
          this.id=id;
@@ -47,7 +38,7 @@ public class Pdf {
     public Pdf() {
     }
 
-    public Pdf(String subject, String title, String pdf,Link obj,String id) {
+    public Pdf(String subject, String title, String pdf,Pdf obj,String id) {
         this.subject = subject;
         this.title = title;
         this.pdf = pdf;
@@ -82,13 +73,10 @@ public class Pdf {
         this.pdf = pdf;
     }
 
-    public Link getObj() {
+    public Pdf getObj() {
         return obj;
     }
 
-    public void setObj(Link obj) {
-        this.obj = obj;
-    }
 
     public String getId() {
         return id;

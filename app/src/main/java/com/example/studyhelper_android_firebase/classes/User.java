@@ -47,6 +47,14 @@ public class User {
         this.user=user;
     }
 
+    public User(String username,  Long mobile, String email) {
+
+        this.username = username;
+        this.mobile = mobile;
+        this.email = email;
+
+    }
+
     public User getUser(){
         return this.user;
     }
