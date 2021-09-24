@@ -76,7 +76,6 @@ public class InactiveUsers extends AppCompatActivity {
                         if(progressDialog.isShowing())
                             progressDialog.dismiss();
                     }
-
                 });
     }
 }

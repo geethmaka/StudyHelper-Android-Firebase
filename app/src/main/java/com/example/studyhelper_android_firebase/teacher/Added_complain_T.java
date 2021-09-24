@@ -34,7 +34,7 @@ public class Added_complain_T extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.t_added_complain);
-        Log.d("TAG",id);
+
         //creating progress dialog until fetching the data
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
@@ -56,7 +56,7 @@ public class Added_complain_T extends AppCompatActivity {
 
     private void EventChangeListener() {
 
-        db.collection("complain").orderBy("date", Query.Direction.ASCENDING)
+        db.collection("complain")
                 .addSnapshotListener((value, error) -> {
                     if(error != null) {
                         //dismiss progress dialog

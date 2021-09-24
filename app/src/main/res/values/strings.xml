@@ -106,6 +106,9 @@
     <string name="complaints">complaints</string>
     <string name="submit">Submit</string>
     <string name="message">message</string>
+    <string name="date">Date :- </string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
     <string-array name="StreamArray">
         <item>Select Stream</item>
         <item>Maths</item>

@@ -39,7 +39,7 @@ public class Adapter_inactiveUsers extends RecyclerView.Adapter<Adapter_inactive
     @NonNull
     @Override
     public Adapter_inactiveUsers.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.complain_inactive_users,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_inactive_user,parent,false);
         return new ViewHolder(v);
     }
 
@@ -49,7 +49,7 @@ public class Adapter_inactiveUsers extends RecyclerView.Adapter<Adapter_inactive
         User user = userArrayList.get(position);
 
         holder.username.setText(user.getUser().getUsername());
-//        Log.w("TAG", user.getUser().getUsername());
+        Log.w("username", user.getUser().getUsername());
         holder.type.setText(String.valueOf(user.getUser().getType()));
         holder.email.setText(user.getUser().getEmail());
 

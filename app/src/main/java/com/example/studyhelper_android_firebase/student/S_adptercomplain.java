@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Paint;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,9 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Complain;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -43,7 +38,7 @@ public class S_adptercomplain extends RecyclerView.Adapter<S_adptercomplain.Hold
     @Override
     public HolderComplain onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
 
-        View view= LayoutInflater.from(context).inflate(R.layout.sitem,parent,false);
+        View view= LayoutInflater.from(context).inflate(R.layout.cardview_complaint,parent,false);
         return new HolderComplain(view);
     }
 

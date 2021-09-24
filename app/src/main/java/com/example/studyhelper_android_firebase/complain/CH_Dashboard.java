@@ -71,7 +71,7 @@ public class CH_Dashboard extends Fragment {
     }
 
     private void EventChangeListener() {
-        db.collection("complain").orderBy("date", Query.Direction.ASCENDING)
+        db.collection("complain").orderBy("date", Query.Direction.DESCENDING)
                 .addSnapshotListener((value, error) -> {
                     if(error != null) {
                         //dismiss progress dialog

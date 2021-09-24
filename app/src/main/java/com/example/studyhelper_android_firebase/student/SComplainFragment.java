@@ -104,9 +104,9 @@ public class SComplainFragment extends Fragment {
                     .add(c)
                     .addOnSuccessListener(documentReference -> {
                         Toast.makeText(root.getContext().getApplicationContext(), "Complaint Added Successfully!!!",Toast.LENGTH_LONG).show();
-//                        Intent i=new Intent(v.getContext(), SComplainFragment.class);
-//                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                        v.getContext().startActivity(i);
+                        Intent i=new Intent(v.getContext(), SComplainFragment.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        v.getContext().startActivity(i);
                     })
                     .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
         });

@@ -1,6 +1,8 @@
 package com.example.studyhelper_android_firebase.complain;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -54,7 +56,12 @@ public class Adapter_activeUser extends RecyclerView.Adapter<Adapter_activeUser.
 
         holder.btn_banUser.setOnClickListener(v -> {
             DocumentReference userRef = db.collection("users").document(user.getId());
-            userRef.update("status", "inactive")
+            //confirmation dialog box
+            AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
+            alertDialog.setTitle("Ban User");
+            alertDialog.setMessage("Are you sure you want to Ban user " + user.getUsername());
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> userRef
+                    .update("status", "inactive")
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
@@ -70,7 +77,9 @@ public class Adapter_activeUser extends RecyclerView.Adapter<Adapter_activeUser.
                         public void onFailure(@NonNull Exception e) {
                             Toast.makeText(context.getApplicationContext(), "User Deactivation unsuccessfully!!!",Toast.LENGTH_LONG).show();
                         }
-                    });
+                    }));
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id) -> dialog.dismiss());
+            alertDialog.show();
         });
     }
 
