@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.studyhelper_android_firebase.classes.User;
@@ -54,7 +55,14 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         Button login = findViewById(R.id.cirLoginButton);
+        TextView signup = findViewById(R.id.signup);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        signup.setOnClickListener(v->{
+            final Context context = this;
+            Intent intent = new Intent(context, Register.class);
+            startActivity(intent);
+        });
 
         ArrayList<User> userList = new ArrayList<>();
         db.collection("users")
@@ -120,11 +128,6 @@ public class Login extends AppCompatActivity {
 //            mContext.startActivity(i);
 //        });
 
-    }
-    public void registerAccount(View view) {
-        final Context context = this;
-        Intent intent = new Intent(context, Register.class);
-        startActivity(intent);
     }
 
 }

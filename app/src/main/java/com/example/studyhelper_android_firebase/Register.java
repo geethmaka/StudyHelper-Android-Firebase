@@ -49,8 +49,8 @@ public class Register extends AppCompatActivity {
         reg_pw = findViewById(R.id.reg_pw);
 
         radioGroup = (RadioGroup) findViewById(R.id.radio);
-        int selectedId = radioGroup.getCheckedRadioButtonId();
-        radioButton = (RadioButton) findViewById(selectedId);
+//        int selectedId = radioGroup.getCheckedRadioButtonId();
+//        radioButton = (RadioButton) findViewById(selectedId);
         reg_btn = findViewById(R.id.reg_btn);
 
 

@@ -54,6 +54,9 @@
             android:name=".complain.ComplainMain"
             android:exported="true" />
         <activity
+            android:name=".Register"
+            android:exported="true" />
+        <activity
             android:name=".LoadingActivity"
             android:exported="true">
             <intent-filter>
