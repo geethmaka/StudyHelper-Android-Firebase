@@ -8,12 +8,17 @@
     <fragment
         android:id="@+id/viewCourses"
         android:name="com.example.studyhelper_android_firebase.course.ViewCourses"
-        android:label="fragment_view_courses"
+        android:label="All Courses"
         tools:layout="@layout/fragment_view_courses" />
     <fragment
         android:id="@+id/addCourses"
         android:name="com.example.studyhelper_android_firebase.course.AddCourses"
-        android:label="fragment_add_courses"
+        android:label="Add a new course"
         tools:layout="@layout/fragment_add_courses" />
+    <fragment
+        android:id="@+id/HandleFiles"
+        android:name="com.example.studyhelper_android_firebase.course.FileHandling"
+        android:label="Manage Files"
+        tools:layout="@layout/fragment_file_handling" />
 
 </navigation>
