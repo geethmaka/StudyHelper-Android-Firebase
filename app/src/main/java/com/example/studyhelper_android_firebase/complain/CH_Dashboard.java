@@ -93,7 +93,6 @@ public class CH_Dashboard extends Fragment {
                         if(progressDialog.isShowing())
                             progressDialog.dismiss();
                     }
-
                 });
     }
 }

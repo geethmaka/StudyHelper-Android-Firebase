@@ -41,7 +41,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:textStyle="bold"/>
 
             <!--                <TextView-->
             <!--                    android:id="@+id/tv_complain_type"-->
