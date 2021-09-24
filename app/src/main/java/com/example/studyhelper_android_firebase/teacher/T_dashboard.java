@@ -1,13 +1,17 @@
 package com.example.studyhelper_android_firebase.teacher;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,14 +19,21 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Course;
 import com.example.studyhelper_android_firebase.classes.Link;
+import com.example.studyhelper_android_firebase.classes.Pdf;
+import com.example.studyhelper_android_firebase.classes.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,7 +41,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
  * create an instance of this fragment.
  */
 public class T_dashboard extends Fragment {
-
+    ArrayList<User> userArrayList;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -62,6 +73,8 @@ public class T_dashboard extends Fragment {
         return fragment;
     }
 
+    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+    String id =preferences.getString("uid","");
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +92,58 @@ public class T_dashboard extends Fragment {
 
         return root;
 
-    }
-}
 
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        EditText username, mobile, email;
+        ImageButton update;
+
+
+        username = root.findViewById(R.id.name);
+        mobile = root.findViewById(R.id.mobile);
+        email = root.findViewById(R.id.email);
+        update = root.findViewById(R.id.update_btn);
+        db.collection("users").get( "username","mobile","email")
+                .addSnapshotListener((value, error) -> {
+                    username.setText(user.getUsername());
+                    mobile.setText((int) user.getMobile());
+                    email.setText(user.getEmail());
+
+                    update.setOnClickListener(v -> {
+                        AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
+                        alertDialog.setTitle("Update");
+                        alertDialog.setMessage("Are you sure you want to update this link");
+                        alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) -> db.collection("user").document(user.getId()).
+
+                                update("username", holder.username.getText().toString(), "mobile", holder.mobile.getText().toString(), "email", holder.email.getText().toString())
+                                .addOnSuccessListener(aVoid -> {
+                                    Log.d("TAG", "DocumentSnapshot successfully updated!" + user.getId());
+
+                                    holder.username.setText(holder.username.getText().toString());
+                                    holder.mobile.setText(holder.mobile.getText().toString());
+                                    holder.email.setText(holder.email.getText().toString());
+                                })
+                                .addOnSuccessListener(aVoid -> {
+                                    Intent i = new Intent(v.getContext(), Links_added.class);
+                                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    v.getContext().startActivity(i);
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                    }
+                                }));
+                        alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                            }
+
+                        });
+                        alertDialog.show();
+                    });
+
+
+//            TextView btn_banUser = itemView.findViewById(R.id.btn_banUser);
+                });
+    }
+
+}
