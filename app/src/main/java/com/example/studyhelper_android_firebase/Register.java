@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.studyhelper_android_firebase.classes.User;;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 ;
 
 
@@ -30,8 +32,8 @@ public class Register extends AppCompatActivity {
     private RadioGroup radioGroup;
     private RadioButton radioButton;
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference db;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();;
+
     User user;
 
 
@@ -62,7 +64,6 @@ public class Register extends AppCompatActivity {
 
 
         reg_btn.setOnClickListener(v -> {
-            db = database.getReference().child("User");
             //input data
 
             //validate data
@@ -114,9 +115,10 @@ public class Register extends AppCompatActivity {
                         reg_email.getText().toString().trim()
 
                 );
-                //insert into the database...
-                database.getReference().child("User/" + user.getId()).setValue(user);
-                //feedback to the user
+                db.collection("users")
+                        .add(user)
+                        .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))
+                        .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
                 Toast.makeText(getApplicationContext(),"Data Saved Successfully",Toast.LENGTH_LONG).show();
 
 

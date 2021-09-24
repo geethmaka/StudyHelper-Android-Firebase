@@ -39,8 +39,12 @@
                 android:id="@+id/tv_complain_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="284dp"
                 android:textSize="20sp"
-                tools:layout_editor_absoluteX="5dp" />
+                app:layout_constraintEnd_toStartOf="@+id/tv_status"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <!--                <TextView-->
             <!--                    android:id="@+id/tv_complain_type"-->
@@ -55,8 +59,9 @@
 
             <TextView
                 android:id="@+id/tv_status"
-                android:layout_width="74dp"
+                android:layout_width="0dp"
                 android:layout_height="27dp"
+                android:layout_marginEnd="11dp"
                 android:background="@drawable/ch_pending_layout"
                 android:paddingStart="6sp"
                 android:paddingTop="2sp"
@@ -64,8 +69,9 @@
                 android:paddingBottom="2sp"
                 android:text="@string/pending"
                 android:textSize="15sp"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="289dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_complain_name"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
