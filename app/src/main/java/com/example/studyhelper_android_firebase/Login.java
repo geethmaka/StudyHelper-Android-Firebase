@@ -2,6 +2,7 @@ package com.example.studyhelper_android_firebase;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import com.example.studyhelper_android_firebase.complain.ComplainMain;
 
 import com.example.studyhelper_android_firebase.course.Course_manager_home;
 import com.example.studyhelper_android_firebase.student.StudentMainActivity;
+import com.example.studyhelper_android_firebase.student.Student_complaint;
 import com.example.studyhelper_android_firebase.teacher.TeacherMainActivity;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -109,5 +111,20 @@ public class Login extends AppCompatActivity {
 //            if(!userFound){
 //                Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();}
         });
+//        Context mContext = getContext();
+//        Button scomplains = root.findViewById(R.id.scomplains);
+//
+//        scomplains.setOnClickListener(view -> {
+//            Intent i = new Intent(mContext, Student_complaint.class);
+//            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            mContext.startActivity(i);
+//        });
+
     }
+    public void registerAccount(View view) {
+        final Context context = this;
+        Intent intent = new Intent(context, Register.class);
+        startActivity(intent);
+    }
+
 }
