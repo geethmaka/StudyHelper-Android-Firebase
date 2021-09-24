@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/iconround"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyHelperAndroidFirebase">
-              <activity
+        <activity
             android:name=".Added_complain_T"
             android:exported="true" />
         <activity

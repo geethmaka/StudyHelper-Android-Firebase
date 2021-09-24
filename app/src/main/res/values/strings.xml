@@ -111,6 +111,8 @@
     <string name="Files">Files</string>
     <string name="Add">Add</string>
     <string name="CoursePrompt">Stream</string>
+    <string name="name">Name</string>
+    <string name="mobile_number">Mobile Number</string>
     <string-array name="StreamArray">
         <item>Select Stream</item>
         <item>Maths</item>

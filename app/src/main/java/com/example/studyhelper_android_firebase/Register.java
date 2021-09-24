@@ -12,30 +12,23 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.studyhelper_android_firebase.classes.User;;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.example.studyhelper_android_firebase.classes.iUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-;
-
-
 
 
 public class Register extends AppCompatActivity {
 
     //UI Views
-    private EditText reg_name,reg_mn,reg_email,reg_pw;
-    private Spinner reg_Stream;
-    private Button reg_btn;
-    private RadioGroup radioGroup;
-    private RadioButton radioButton;
+    EditText reg_name,reg_mn,reg_email,reg_pw;
+    Spinner reg_Stream;
+    Button reg_btn;
+    RadioGroup radioGroup;
+    RadioButton radioButton;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();;
 
-    User user;
-
+    iUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +43,9 @@ public class Register extends AppCompatActivity {
         reg_email = findViewById(R.id.reg_email);
         reg_pw = findViewById(R.id.reg_pw);
 
-        radioGroup = (RadioGroup) findViewById(R.id.radio);
-//        int selectedId = radioGroup.getCheckedRadioButtonId();
-//        radioButton = (RadioButton) findViewById(selectedId);
+        radioGroup = (RadioGroup) findViewById(R.id.reg_rediogrp);
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+        radioButton = (RadioButton) findViewById(selectedId);
         reg_btn = findViewById(R.id.reg_btn);
 
 
@@ -61,32 +54,24 @@ public class Register extends AppCompatActivity {
         progressDialog.setTitle("Please wait");
         progressDialog.setCanceledOnTouchOutside(false);
 
-
-
         reg_btn.setOnClickListener(v -> {
-            //input data
-
             //validate data
             if (TextUtils.isEmpty(reg_name.getText().toString())) {
                 Toast.makeText(this, "Enter Name...", Toast.LENGTH_SHORT).show();
                 return;
             }
-
             else if (TextUtils.isEmpty(radioButton.getText().toString())) {
                 Toast.makeText(this, "Enter Steam Name...", Toast.LENGTH_SHORT).show();
                 return;
             }
-
             else if (TextUtils.isEmpty(reg_Stream.getSelectedItem().toString())) {
                 Toast.makeText(this, "Enter Steam Name...", Toast.LENGTH_SHORT).show();
                 return;
             }
-
             else if (TextUtils.isEmpty(reg_mn.getText().toString())) {
                 Toast.makeText(this, "Enter Phone Number...", Toast.LENGTH_SHORT).show();
                 return;
             }
-
             else if (!Patterns.EMAIL_ADDRESS.matcher(reg_email.getText().toString()).matches()) {
                 Toast.makeText(this, "Invalid Email Address...", Toast.LENGTH_SHORT).show();
                 return;
@@ -105,7 +90,7 @@ public class Register extends AppCompatActivity {
             }
             else {
                 //take inputs from the user and then to this instance (user) of the User.
-                user = new User(
+                user = new iUser(
                         reg_name.getText().toString().trim(),
                         radioButton.getText().toString(),
                         reg_Stream.getSelectedItem().toString(),
@@ -117,15 +102,17 @@ public class Register extends AppCompatActivity {
                 );
                 db.collection("users")
                         .add(user)
-                        .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))
+                        .addOnSuccessListener(documentReference -> {
+                            Toast.makeText(getApplicationContext(),"Successfully Registered!!!",Toast.LENGTH_LONG).show();
+                            Intent i = new Intent(this, Login.class);
+                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            this.startActivity(i);
+                        })
                         .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
-                Toast.makeText(getApplicationContext(),"Data Saved Successfully",Toast.LENGTH_LONG).show();
-
-
             }
 
         });
 
-  }
+    }
 
 }

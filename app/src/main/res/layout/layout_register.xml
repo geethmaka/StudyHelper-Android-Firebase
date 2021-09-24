@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/loginCard"
     app:cardCornerRadius="@dimen/loginCardRadius"
     android:elevation="5dp"
@@ -25,57 +26,60 @@
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
+
             <EditText
                 android:id="@+id/reg_name"
                 style="@style/modifiedEditText"
+                android:hint="@string/name"
                 android:inputType="text"
                 android:maxLines="1"
-                android:hint="Name"/>
+                tools:ignore="SpeakableTextPresentCheck"
+                android:textSize="18sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent">
+
             <RadioGroup
                 android:id="@+id/reg_rediogrp"
-                android:layout_width="337dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15sp"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal">
+                android:background="@color/primaryTextColor"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/reg_rediobtns"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="20sp"
-                    android:buttonTint="@color/white"
-                    android:text="Student"
-                    android:textColor="@color/status_blue"
-                    android:textSize="20sp"/>
+                    android:buttonTint="@color/black"
+                    android:text="@string/student"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:checked="true"/>
 
                 <RadioButton
                     android:id="@+id/reg_rediobtnt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20sp"
-                    android:buttonTint="@color/white"
-                    android:text="Teacher"
-                    android:textColor="@color/status_blue"
-                    android:textSize="20sp"/>
+                    android:layout_marginStart="20sp"
+                    android:buttonTint="@color/black"
+                    android:text="@string/teacher"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
             </RadioGroup>
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <Spinner
             android:id="@+id/reg_Stream"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_marginTop="10dp"
             android:entries="@array/reg_st_arrays"
             android:prompt="@string/reg_st"
-            android:textColor="@color/status_blue">
-
+            android:textColor="@color/status_blue"
+            android:textSize="18sp">
         </Spinner>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -86,7 +90,8 @@
                 style="@style/modifiedEditText"
                 android:inputType="text"
                 android:maxLines="1"
-                android:hint="Mobile Number"/>
+                android:hint="@string/mobile_number"
+                android:textSize="18sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -97,7 +102,8 @@
                 style="@style/modifiedEditText"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:hint="@string/login_email_hint"/>
+                android:hint="@string/login_email_hint"
+                android:textSize="18sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -108,14 +114,16 @@
                 style="@style/modifiedEditText"
                 android:hint="@string/login_password_hint"
                 android:maxLines="1"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword"
+                android:textSize="18sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/reg_btn"
             style="@style/loginButton"
             android:layout_gravity="center"
-            android:text="Register" />
+            android:text="@string/register"
+            android:layout_marginTop="10sp"/>
 
         <TextView
             style="@style/parent"
@@ -123,7 +131,8 @@
             android:textStyle="bold"
             android:textColor="@color/primaryTextColor"
             android:text="@string/signup_login_hint"
-            android:layout_marginTop="@dimen/loginViewsMargin"/>
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:textSize="15sp"/>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
