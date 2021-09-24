@@ -6,10 +6,10 @@
         android:icon="@drawable/ic_dashboard"/>
 
     <item android:id="@+id/addCourses"
-        android:title="@string/Teacher_Pdf"
+        android:title="@string/Add"
         android:icon="@drawable/ic_baseline_insert_drive_file_24"/>
 
-    <item android:id="@+id/updateCourses"
-        android:title="@string/Teacher_complain"
+    <item android:id="@+id/HandleFiles"
+        android:title="@string/Files"
         android:icon="@drawable/ic_complain"/>
 </menu>

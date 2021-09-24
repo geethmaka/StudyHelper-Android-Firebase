@@ -108,7 +108,8 @@
     <!-- Course -->
     <string name="AddNewCourse">Add New Course</string>
     <string name="Availability">Availability</string>
-
+    <string name="Files">Files</string>
+    <string name="Add">Add</string>
     <string name="CoursePrompt">Stream</string>
     <string-array name="StreamArray">
         <item>Select Stream</item>
