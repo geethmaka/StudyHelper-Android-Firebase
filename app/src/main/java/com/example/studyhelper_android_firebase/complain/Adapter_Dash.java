@@ -49,7 +49,6 @@ public class Adapter_Dash extends RecyclerView.Adapter<Adapter_Dash.ViewHolder> 
                         DocumentSnapshot document = task.getResult();
                         if (document.exists()) {
                             Complain c = document.toObject(Complain.class);
-                            Log.d("id",c.getUserID());
                             db.collection("users")
                                     .document(c.getUserID())
                                     .get()

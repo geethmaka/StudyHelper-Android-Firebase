@@ -28,12 +28,11 @@
             android:layout_height="480dp"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="80dp"
             android:layout_marginRight="30dp"
             android:orientation="vertical">
 
-            <include
-                layout="@layout/complain_cv_complain_menu"/>
+            <include layout="@layout/complain_cv_complain_menu" />
 
         </LinearLayout>
     </RelativeLayout>
