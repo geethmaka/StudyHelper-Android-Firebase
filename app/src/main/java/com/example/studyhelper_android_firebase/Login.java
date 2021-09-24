@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class Login extends AppCompatActivity {
 
-    public void saveSession(SharedPreferences.Editor editor,String email,String pw,String uid){
+    public void saveSession(SharedPreferences.Editor editor,String email,String pw,String uid,String stream){
 
         // below two lines will put values for
         // email and password in shared preferences.
@@ -34,6 +34,7 @@ public class Login extends AppCompatActivity {
         editor.putString("email", email);
         editor.putString("password",pw);
         editor.putString("uid",uid);
+        editor.putString("stream",stream);
 
         // to save our data with key and value.
         editor.commit();
@@ -78,12 +79,12 @@ public class Login extends AppCompatActivity {
                 if ((Email.getText().toString().equals(u.getUser().getEmail())) && (Password.getText().toString().equals(u.getUser().getPassword()))) {
                     if(u.getUser().getType().equals("Teacher")){
                         userFound=true;
-                        saveSession(editor,u.getUser().getEmail(), u.getUser().getPassword(), u.getId());
+                        saveSession(editor,u.getUser().getEmail(), u.getUser().getPassword(), u.getId(),"");
                         gotoIntent(TeacherMainActivity.class);
                         break;
                     }else if(u.getUser().getType().equals("Student")){
                         userFound=true;
-                        saveSession(editor,u.getUser().getEmail(), u.getUser().getPassword(), u.getId());
+                        saveSession(editor,u.getUser().getEmail(), u.getUser().getPassword(), u.getId(),u.getUser().getStream());
                         gotoIntent(StudentMainActivity.class);
                         break;
                     }
