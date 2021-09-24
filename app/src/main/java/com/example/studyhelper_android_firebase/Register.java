@@ -8,8 +8,6 @@ import android.util.Log;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,10 +19,8 @@ public class Register extends AppCompatActivity {
 
     //UI Views
     EditText reg_name,reg_mn,reg_email,reg_pw;
-    Spinner reg_Stream;
+    Spinner reg_Stream, reg_type;
     Button reg_btn;
-    RadioGroup radioGroup;
-    RadioButton radioButton;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();;
 
@@ -39,15 +35,13 @@ public class Register extends AppCompatActivity {
 
         reg_name = findViewById(R.id.reg_name);
         reg_mn = findViewById(R.id.reg_mn);
+        reg_type = findViewById(R.id.reg_type);
         reg_Stream = findViewById(R.id.reg_Stream);
         reg_email = findViewById(R.id.reg_email);
         reg_pw = findViewById(R.id.reg_pw);
 
-        radioGroup = (RadioGroup) findViewById(R.id.reg_rediogrp);
-        int selectedId = radioGroup.getCheckedRadioButtonId();
-        radioButton = (RadioButton) findViewById(selectedId);
-        reg_btn = findViewById(R.id.reg_btn);
 
+        reg_btn = findViewById(R.id.reg_btn);
 
         //Initialize permission arry
         ProgressDialog progressDialog = new ProgressDialog(this);
@@ -60,7 +54,7 @@ public class Register extends AppCompatActivity {
                 Toast.makeText(this, "Enter Name...", Toast.LENGTH_SHORT).show();
                 return;
             }
-            else if (TextUtils.isEmpty(radioButton.getText().toString())) {
+            else if (TextUtils.isEmpty(reg_type.getSelectedItem().toString())) {
                 Toast.makeText(this, "Enter Steam Name...", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -92,8 +86,8 @@ public class Register extends AppCompatActivity {
                 //take inputs from the user and then to this instance (user) of the User.
                 user = new iUser(
                         reg_name.getText().toString().trim(),
-                        radioButton.getText().toString(),
-                        reg_Stream.getSelectedItem().toString(),
+                        reg_type.getSelectedItem().toString(),
+                        reg_Stream.getSelectedItem().toString().trim(),
                         "active",
                         reg_pw.getText().toString().trim(),
                         Long.parseLong(reg_mn.getText().toString().trim()),

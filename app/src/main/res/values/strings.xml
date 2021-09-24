@@ -19,6 +19,10 @@
         <item>Science Stream</item>
         <item>Commerce Stream</item>
     </string-array>
+    <string-array name="reg_type_arrays">
+        <item>Student</item>
+        <item>Teacher</item>
+    </string-array>
 
     <!-- Teacher Management -->
     <string name="No_of_links">No_Links</string>

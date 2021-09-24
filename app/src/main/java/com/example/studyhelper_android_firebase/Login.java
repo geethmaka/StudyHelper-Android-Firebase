@@ -112,12 +112,11 @@ public class Login extends AppCompatActivity {
             }else if((Email.getText().toString().equals("c")) && (Password.getText().toString().equals("c"))){
                 Intent start = new Intent(this, Course_manager_home.class);
                 startActivity(start);
-            }else{
-                Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
             }
 
 //            if(!userFound){
-//                Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();}
+//                Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+//            }
         });
 //        Context mContext = getContext();
 //        Button scomplains = root.findViewById(R.id.scomplains);
