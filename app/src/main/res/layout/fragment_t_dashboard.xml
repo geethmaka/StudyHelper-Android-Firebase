@@ -11,7 +11,6 @@
 
         <LinearLayout
             style="@style/parent"
-            android:layout_weight="3"
             android:background="@drawable/profile_up"
             android:orientation="vertical" />
     </LinearLayout>
@@ -41,7 +40,10 @@
         android:orientation="vertical">
 
 
-        <include layout="@layout/teacher_buttons" />
+        <include
+            layout="@layout/teacher_buttons"
+            android:layout_width="355dp"
+            android:layout_height="49dp" />
 
     </LinearLayout>
 
