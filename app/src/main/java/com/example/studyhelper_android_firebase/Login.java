@@ -29,6 +29,18 @@ import java.util.ArrayList;
 
 public class Login extends AppCompatActivity {
 
+    public boolean isCurUserLoggedIn(){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String id =preferences.getString("uid","");
+        Log.d("keyy",id);
+
+        if(id.equals("")||id.equals(null)){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
     public void saveSession(SharedPreferences.Editor editor,String email,String pw,String uid,String stream){
 
         // below two lines will put values for
