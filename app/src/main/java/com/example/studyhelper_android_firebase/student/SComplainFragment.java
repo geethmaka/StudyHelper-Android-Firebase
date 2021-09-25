@@ -11,15 +11,17 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+
 import androidx.fragment.app.Fragment;
+
 import com.example.studyhelper_android_firebase.R;
+
 import android.util.Log;
 import android.widget.Toast;
 
 import com.example.studyhelper_android_firebase.classes.IComplain;
-import com.example.studyhelper_android_firebase.complain.NewComplaint;
-import com.example.studyhelper_android_firebase.teacher.T_complains;
 import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -87,24 +89,24 @@ public class SComplainFragment extends Fragment {
 
         uploadButton.setOnClickListener((View v) -> {
 
-            Spinner cType =  root.findViewById(R.id.stype);
+            Spinner cType = root.findViewById(R.id.stype);
             EditText massage = root.findViewById(R.id.smassage);
 
             Date currentTime = Calendar.getInstance().getTime();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
             sdf.format(currentTime);
 
-    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
-    String id =preferences.getString("uid","");
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
+            String id = preferences.getString("uid", "");
 
 
-           IComplain c =new IComplain(id,cType.getSelectedItem().toString(),"Pending",sdf.format(currentTime).toString(),massage.getText().toString());
+            IComplain c = new IComplain(id, cType.getSelectedItem().toString(), "Pending", sdf.format(currentTime).toString(), massage.getText().toString());
 
             db.collection("complain")
                     .add(c)
                     .addOnSuccessListener(documentReference -> {
-                        Toast.makeText(root.getContext().getApplicationContext(), "Complaint Added Successfully!!!",Toast.LENGTH_LONG).show();
-                        Intent i=new Intent(v.getContext(), SComplainFragment.class);
+                        Toast.makeText(root.getContext().getApplicationContext(), "Complaint Added Successfully!!!", Toast.LENGTH_LONG).show();
+                        Intent i = new Intent(v.getContext(), SComplainFragment.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         v.getContext().startActivity(i);
                     })

@@ -1,9 +1,11 @@
 package com.example.studyhelper_android_firebase.teacher;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -40,11 +42,13 @@ public class TeacherMainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, teacher_navController);
 
     }
-        public void gotoTmLink(View view) {
-            final Context context = this;
-            Intent intent = new Intent(context,Teacher_popup_Link.class);
-            startActivity(intent);
-        }
+
+    public void gotoTmLink(View view) {
+        final Context context = this;
+        Intent intent = new Intent(context, Teacher_popup_Link.class);
+        startActivity(intent);
+    }
+
     public void gotoTmPdf(View view) {
         final Context context = this;
         Intent intent = new Intent(context, Teacher_popup_Pdf.class);
@@ -56,8 +60,6 @@ public class TeacherMainActivity extends AppCompatActivity {
         Intent intent = new Intent(context, Added_complain_T.class);
         startActivity(intent);
     }
-
-
 
 
 //
@@ -116,18 +118,14 @@ public class TeacherMainActivity extends AppCompatActivity {
 //                    }
 //                });
 
-    }
+}
 //        Teacher_recycleView=findViewById(R.id.recyclerView);
 //        Teacher_recycleView.setLayoutManager(context:this);
 //
 //        teacher_adapter=new Teacher_adapter(c this, getTeacherList());
 
 
-
-
-
-
-    //@Override
+//@Override
 //public boolean onCreateOptionsMenu(Menu menu) {
 //    MenuInflater inflater = getMenuInflater();
 //    inflater.inflate(R.menu.options_menu, menu);

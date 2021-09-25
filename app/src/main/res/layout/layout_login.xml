@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -21,40 +20,42 @@
             style="@style/headerTextPrimary"
             android:text="Login"
             android:layout_marginTop="@dimen/loginViewsMargin"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputEmail"
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin">
+
             <EditText
                 android:id="@+id/editTextEmail"
                 style="@style/modifiedEditText"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:hint="@string/login_email_hint"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputPassword"
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin">
+
             <EditText
                 android:id="@+id/editTextPassword"
                 style="@style/modifiedEditText"
                 android:hint="@string/login_password_hint"
                 android:maxLines="1"
                 android:inputType="textPassword"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-<!--        <TextView-->
-<!--            style="@style/viewParent"-->
-<!--            android:text="Forgot Password?"-->
-<!--            android:textSize="@dimen/newsMoreTextSize"-->
-<!--            android:layout_gravity="end"-->
-<!--            android:layout_marginTop="10dp"/>-->
+        <!--        <TextView-->
+        <!--            style="@style/viewParent"-->
+        <!--            android:text="Forgot Password?"-->
+        <!--            android:textSize="@dimen/newsMoreTextSize"-->
+        <!--            android:layout_gravity="end"-->
+        <!--            android:layout_marginTop="10dp"/>-->
 
         <Button
             android:id="@+id/cirLoginButton"
@@ -62,7 +63,7 @@
             android:text="Login"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/loginViewsMargin"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/signup"
@@ -71,7 +72,7 @@
             android:textStyle="bold"
             android:text="@string/login_signup_hint"
             android:layout_marginTop="@dimen/loginViewsMargin"
-            android:textSize="15sp"/>
+            android:textSize="15sp" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

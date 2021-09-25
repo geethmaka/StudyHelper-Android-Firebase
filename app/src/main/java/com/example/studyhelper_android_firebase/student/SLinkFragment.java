@@ -16,9 +16,6 @@ import android.view.ViewGroup;
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Course;
 import com.example.studyhelper_android_firebase.classes.Link;
-import com.example.studyhelper_android_firebase.classes.Pdf;
-import com.example.studyhelper_android_firebase.course.RecyclerViewAdapter;
-import com.example.studyhelper_android_firebase.teacher.LinkAdapter;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -100,14 +97,14 @@ public class SLinkFragment extends Fragment {
                     .addOnCompleteListener(t -> {
                         if (t.isSuccessful()) {
                             for (QueryDocumentSnapshot document : t.getResult()) {
-                                Link l=new Link(document.getId(),document.toObject(Link.class));
+                                Link l = new Link(document.getId(), document.toObject(Link.class));
 
-                                if(CourseList.contains(l.getObj().getSubject())){
+                                if (CourseList.contains(l.getObj().getSubject())) {
                                     linkList.add(l);
                                 }
 
                             }
-                            StudentLinkAdapter lAdapter = new StudentLinkAdapter(linkList,requireActivity().getApplicationContext());
+                            StudentLinkAdapter lAdapter = new StudentLinkAdapter(linkList, requireActivity().getApplicationContext());
                             recyclerView.setAdapter(lAdapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity().getApplicationContext()));
                         } else {

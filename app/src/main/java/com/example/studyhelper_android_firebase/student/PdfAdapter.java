@@ -1,12 +1,10 @@
 package com.example.studyhelper_android_firebase.student;
 
 import com.example.studyhelper_android_firebase.R;
-import com.example.studyhelper_android_firebase.classes.Course;
 import com.example.studyhelper_android_firebase.classes.Pdf;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +24,7 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
     private Context mContext;
 
     public PdfAdapter(ArrayList<Pdf> courses, Context mContext) {
-        this.pdfList= courses;
+        this.pdfList = courses;
         this.mInflater = LayoutInflater.from(mContext);
         this.mContext = mContext;
     }

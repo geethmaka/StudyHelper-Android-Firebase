@@ -1,12 +1,9 @@
 package com.example.studyhelper_android_firebase.complain;
 
-import static java.lang.Math.floor;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,19 +17,12 @@ import android.widget.TextView;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Complain;
-import com.example.studyhelper_android_firebase.classes.Course;
-import com.example.studyhelper_android_firebase.course.RecyclerViewAdapter;
-import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class CH_Dashboard extends Fragment {
     //creating an instance of the database
@@ -92,9 +82,9 @@ public class CH_Dashboard extends Fragment {
                 .addOnCompleteListener(task -> {
                     int total = 0;
                     if (task.isSuccessful()) {
-                        for(QueryDocumentSnapshot dc : task.getResult()){
+                        for (QueryDocumentSnapshot dc : task.getResult()) {
                             Complain c = dc.toObject(Complain.class);
-                            total ++;
+                            total++;
                         }
                         Log.d("total", String.valueOf(total));
                         String stringtot = String.valueOf(total);
@@ -104,20 +94,18 @@ public class CH_Dashboard extends Fragment {
                                 .addOnCompleteListener(task1 -> {
                                     int pending = 0;
                                     if (task.isSuccessful()) {
-                                        for(QueryDocumentSnapshot dc : task.getResult()){
+                                        for (QueryDocumentSnapshot dc : task.getResult()) {
                                             Complain c = dc.toObject(Complain.class);
                                             if (c.getStatus().equals("Pending")) {
-                                                pending ++;
+                                                pending++;
                                             }
                                         }
-                                        per_pending.setText(String.valueOf(pending));
-                                        pd_resolved.setProgress(pending);
-                                        Log.d("total", String.valueOf(pending));
+                                        //taking the pending percentage
                                         int finalTotal = Integer.parseInt(stringtot);
-                                        Log.d("finaltotal", String.valueOf(finalTotal));
-                                        double perc;
-                                        perc = (pending/finalTotal)*100;
-                                        Log.d("perc", String.valueOf(perc));
+                                        int p_per =  Math.round((float)pending / finalTotal*100);
+                                        per_pending.setText(String.valueOf(p_per));
+                                        Log.d("per",String.valueOf(p_per));
+                                        pd_pending.setProgress(p_per);
                                     } else {
                                         Log.d("TAG", "Error getting documents: ", task1.getException());
                                     }
@@ -128,17 +116,17 @@ public class CH_Dashboard extends Fragment {
                                 .addOnCompleteListener(task2 -> {
                                     int resolved = 0;
                                     if (task.isSuccessful()) {
-                                        for(QueryDocumentSnapshot dc : task.getResult()){
+                                        for (QueryDocumentSnapshot dc : task.getResult()) {
                                             Complain c = dc.toObject(Complain.class);
                                             if (c.getStatus().equals("Resolved")) {
-                                                resolved ++;
+                                                resolved++;
                                             }
                                         }
-                                        per_resolved.setText(String.valueOf(resolved));
-                                        pd_pending.setProgress(resolved);
-//                                        Log.d("total", String.valueOf(resolved));
+                                        //getting the resolved complaint percentage
                                         int finalTotal = Integer.parseInt(stringtot);
-//                                        Log.d("finaltotal", String.valueOf(finalTotal));
+                                        int r_per =  Math.round((float)resolved / finalTotal*100);
+                                       per_resolved.setText(String.valueOf(r_per));
+                                        pd_resolved.setProgress(r_per);
                                     } else {
                                         Log.d("TAG", "Error getting documents: ", task2.getException());
                                     }

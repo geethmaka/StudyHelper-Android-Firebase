@@ -6,5 +6,5 @@
         android:id="@+id/Logout"
         android:title="@string/opt_Logout"
         app:showAsAction="never"
-        android:onClick="logout"/>
+        android:onClick="logout" />
 </menu>

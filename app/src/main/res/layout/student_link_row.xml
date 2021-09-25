@@ -11,29 +11,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:textSize="18dp"
-        android:text="subject" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:textSize="18dp"
-        android:text="title" />
-    </LinearLayout>
-    <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
         <TextView
-        android:id="@+id/linkTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textSize="18dp"
+            android:text="subject" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="200dp"
+            android:textSize="18dp"
+            android:text="title" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:autoLink="web"
-        android:text="TextView" />
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/linkTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:autoLink="web"
+            android:text="TextView" />
     </LinearLayout>
 
 </LinearLayout>

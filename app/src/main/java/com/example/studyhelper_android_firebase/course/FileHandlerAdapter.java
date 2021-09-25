@@ -1,17 +1,12 @@
 package com.example.studyhelper_android_firebase.course;
 
 import com.example.studyhelper_android_firebase.R;
-import com.example.studyhelper_android_firebase.classes.Course;
 import com.example.studyhelper_android_firebase.classes.Pdf;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,7 +60,6 @@ public class FileHandlerAdapter extends RecyclerView.Adapter<FileHandlerAdapter.
             StorageReference desertRef = storageRef.child(animal);
 
             Toast.makeText(view.getContext(), desertRef.getPath(), Toast.LENGTH_SHORT).show();
-
 
 
 // Delete the file

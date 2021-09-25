@@ -1,13 +1,10 @@
 package com.example.studyhelper_android_firebase.student;
 
 import com.example.studyhelper_android_firebase.R;
-import com.example.studyhelper_android_firebase.classes.Course;
 import com.example.studyhelper_android_firebase.classes.Link;
-import com.example.studyhelper_android_firebase.classes.Pdf;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +24,7 @@ public class StudentLinkAdapter extends RecyclerView.Adapter<StudentLinkAdapter.
     private Context mContext;
 
     public StudentLinkAdapter(ArrayList<Link> courses, Context mContext) {
-        this.linkList= courses;
+        this.linkList = courses;
         this.mInflater = LayoutInflater.from(mContext);
         this.mContext = mContext;
     }

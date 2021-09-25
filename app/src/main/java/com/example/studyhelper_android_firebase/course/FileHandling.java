@@ -12,14 +12,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Switch;
 
 import com.example.studyhelper_android_firebase.R;
-import com.example.studyhelper_android_firebase.classes.Course;
-import com.example.studyhelper_android_firebase.classes.ICourse;
 import com.example.studyhelper_android_firebase.classes.Pdf;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -91,10 +85,10 @@ public class FileHandling extends Fragment {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
-                            Pdf pdfWithId=new Pdf(document.getId(),document.toObject(Pdf.class));
+                            Pdf pdfWithId = new Pdf(document.getId(), document.toObject(Pdf.class));
                             pdfList.add(pdfWithId);
                         }
-                        FileHandlerAdapter mAdapter = new FileHandlerAdapter(pdfList,requireActivity().getApplicationContext());
+                        FileHandlerAdapter mAdapter = new FileHandlerAdapter(pdfList, requireActivity().getApplicationContext());
                         recyclerView.setAdapter(mAdapter);
                         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity().getApplicationContext()));
                     } else {

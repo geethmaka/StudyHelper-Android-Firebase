@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,10 +17,7 @@ import android.view.ViewGroup;
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Link;
 import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -62,6 +58,7 @@ public class Links_added extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     RecyclerView recyclerView;
     ArrayList<Link> linkArrayList;
@@ -83,18 +80,17 @@ public class Links_added extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_links_added, container, false);
 
-        Context current=this.getContext();
-        recyclerView=root.findViewById(R.id.uploadLinkRecycle);
+        Context current = this.getContext();
+        recyclerView = root.findViewById(R.id.uploadLinkRecycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(current));
 
-        linkArrayList= new ArrayList<Link>();
-        linkAdapter= new LinkAdapter(linkArrayList, this.getContext());
+        linkArrayList = new ArrayList<Link>();
+        linkAdapter = new LinkAdapter(linkArrayList, this.getContext());
         recyclerView.setAdapter(linkAdapter);
         EventChangeListener();
 
         return root;
-
 
 
     }
@@ -102,21 +98,21 @@ public class Links_added extends Fragment {
     private void EventChangeListener() {
         db.collection("link")
                 .addSnapshotListener((value, error) -> {
-                    if(error != null) {
+                    if (error != null) {
                         //dismiss progress dialog
 //                            if(progressDialog.isShowing())
 //                                progressDialog.dismiss();
-                        Log.e("Firestore Error",error.getMessage());
+                        Log.e("Firestore Error", error.getMessage());
                         return;
                     }
 
                     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
-                    String id =preferences.getString("uid","");
+                    String id = preferences.getString("uid", "");
 
                     //fetching the data from the firestore database
-                    for(DocumentChange dc : value.getDocumentChanges()){
-                        Link l = new Link(dc.getDocument().getId(),dc.getDocument().toObject(Link.class));
-                        if(dc.getType() == DocumentChange.Type.ADDED && id.equals(l.getObj().getTid())) {
+                    for (DocumentChange dc : value.getDocumentChanges()) {
+                        Link l = new Link(dc.getDocument().getId(), dc.getDocument().toObject(Link.class));
+                        if (dc.getType() == DocumentChange.Type.ADDED && id.equals(l.getObj().getTid())) {
                             linkArrayList.add(l);
                         }
                         linkAdapter.notifyDataSetChanged();

@@ -17,9 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Complain;
 import com.example.studyhelper_android_firebase.classes.User;
-import com.example.studyhelper_android_firebase.course.UpdateCourse;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -93,17 +90,17 @@ public class Adapter_newComplaint extends RecyclerView.Adapter<Adapter_newCompla
             DocumentReference complainRef = db.collection("complain").document(complain.getComplainId());
 
             complainRef.update("status", "Resolved")
-                    .addOnSuccessListener(aVoid ->{
-                        Toast.makeText(context.getApplicationContext(), "Complaint Resolve Successful!!!",Toast.LENGTH_LONG).show();
-                        Intent i=new Intent(this.context.getApplicationContext(), NewComplaint.class);
+                    .addOnSuccessListener(aVoid -> {
+                        Toast.makeText(context.getApplicationContext(), "Complaint Resolve Successful!!!", Toast.LENGTH_LONG).show();
+                        Intent i = new Intent(this.context.getApplicationContext(), NewComplaint.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         this.context.startActivity(i);
-                        ((Activity)context).finish();
+                        ((Activity) context).finish();
                     })
 
-                    .addOnFailureListener(e ->{
+                    .addOnFailureListener(e -> {
                         Log.w("TAG", "Error updating status", e);
-                        Toast.makeText(context.getApplicationContext(), "Error!!!",Toast.LENGTH_LONG).show();
+                        Toast.makeText(context.getApplicationContext(), "Error!!!", Toast.LENGTH_LONG).show();
                     });
         });
     }

@@ -11,6 +11,7 @@ public class IComplain {
     public IComplain() {
         // Default constructor needed for call to DataSnapshot.getValue(User.class
     }
+
     public IComplain(String userId, String type, String status, String date, String content) {
         this.userID = userId;
         this.Type = type;

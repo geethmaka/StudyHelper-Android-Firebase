@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.ICourse;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -75,16 +74,16 @@ public class UpdateCourse extends AppCompatActivity {
             AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
             alertDialog.setTitle("hi");
             alertDialog.setMessage("this is my app");
-            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> db.collection("courses").document(id)
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) -> db.collection("courses").document(id)
                     .delete()
                     .addOnSuccessListener(aVoid -> {
-                        Intent i=new Intent(v.getContext(),ViewCourses.class);
+                        Intent i = new Intent(v.getContext(), ViewCourses.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         v.getContext().startActivity(i);
                     })
                     .addOnFailureListener(e -> {
                     }));
-            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id1) -> dialog.dismiss());
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "No", (dialog, id1) -> dialog.dismiss());
             alertDialog.show();
         });
     }
