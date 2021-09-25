@@ -1,14 +1,26 @@
 package com.example.studyhelper_android_firebase.student;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.studyhelper_android_firebase.R;
+import com.example.studyhelper_android_firebase.teacher.T_dashboard;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,7 +72,58 @@ public class SProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_s_profile, container, false);
+
+        View root = inflater.inflate(R.layout.fragment_s_profile, container, false);
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Button update = root.findViewById(R.id.supdate);
+
+
+        update.setOnClickListener((View v) -> {
+
+            EditText username = root.findViewById(R.id.sname);
+            EditText mobile = root.findViewById(R.id.smn);
+            EditText  email = root.findViewById(R.id.semail);
+            EditText  stream = root.findViewById(R.id.sstream);
+
+
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
+            String id =preferences.getString("uid","");
+
+            AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
+            alertDialog.setTitle("Update");
+            alertDialog.setMessage("Are you sure you want to update this link");
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) -> db.collection("user").document(id).
+
+                    update("username", username.getText().toString(), "mobile", mobile.getText().toString(), "email",email.getText().toString())
+                    .addOnSuccessListener(aVoid -> {
+                        Log.d("TAG", "DocumentSnapshot successfully updated!" + id);
+
+                        username.setText(username.getText().toString());
+                        mobile.setText(mobile.getText().toString());
+                        email.setText(email.getText().toString());
+                        stream.setText(stream.getText().toString());
+
+                    })
+                    .addOnSuccessListener(aVoid -> {
+                        Intent i = new Intent(v.getContext(), SProfileFragment.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        v.getContext().startActivity(i);
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                        }
+                    }));
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.dismiss();
+                }
+
+            });
+            alertDialog.show();
+        });
+
+        return  root;
     }
 }
