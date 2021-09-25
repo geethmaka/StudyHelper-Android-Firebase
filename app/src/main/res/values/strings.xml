@@ -15,6 +15,8 @@
 
     <!--Registation -->
     <string name="reg_st">Type</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="name">Name</string>
     <string-array name="reg_st_arrays">
         <item>Science Stream</item>
         <item>Commerce Stream</item>
