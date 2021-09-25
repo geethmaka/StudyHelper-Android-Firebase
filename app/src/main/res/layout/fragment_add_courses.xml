@@ -37,7 +37,7 @@
                 android:layout_marginTop="68dp"
                 android:text="@string/AddNewCourse"
                 android:textColor="@color/status_blue"
-                android:textSize="34sp" />
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/addButton"
@@ -47,7 +47,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="96dp"
-                android:layout_marginTop="525dp"
+                android:layout_marginTop="410dp"
                 android:text="Add"
 
                 />
@@ -59,9 +59,8 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="225dp"
-                android:layout_marginEnd="31dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="180dp"
                 android:hint="Subject"
                 android:inputType="text"
                 android:maxLines="1" />
@@ -73,7 +72,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="80dp"
-                android:layout_marginTop="340dp"
+                android:layout_marginTop="250dp"
                 android:entries="@array/StreamArray" />
 
             <Switch
@@ -83,7 +82,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="139dp"
-                android:layout_marginBottom="213dp"
+                android:layout_marginBottom="313dp"
                 android:text="Switch" />
 
 

@@ -95,7 +95,8 @@ public class SProfileFragment extends Fragment {
             alertDialog.setMessage("Are you sure you want to update this link");
             alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) -> db.collection("user").document(id).
 
-                    update("username", username.getText().toString(), "mobile", mobile.getText().toString(), "email",email.getText().toString())
+                    update("username", username.getText().toString(), "mobile", mobile.getText().toString(), "email",email.getText().toString()
+                            ,"stream",stream.getText().toString())
                     .addOnSuccessListener(aVoid -> {
                         Log.d("TAG", "DocumentSnapshot successfully updated!" + id);
 
