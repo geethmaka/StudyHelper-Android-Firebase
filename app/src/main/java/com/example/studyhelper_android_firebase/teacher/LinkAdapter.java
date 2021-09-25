@@ -13,12 +13,14 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studyhelper_android_firebase.R;
+import com.example.studyhelper_android_firebase.Teacher_popup_Pdf;
 import com.example.studyhelper_android_firebase.classes.Link;
 import com.example.studyhelper_android_firebase.course.ViewCourses;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -68,6 +70,7 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
 
                         update("subject",  holder.subject.getText().toString(), "title",holder.title.getText().toString(), "date", holder.date.getDate(),"time",holder.time.getText().toString())
                         .addOnSuccessListener(aVoid ->{ Log.d("TAG", "DocumentSnapshot successfully updated!"+link.getId());
+
                             holder.subject.setText(link.getObj().getSubject());
                             holder.title.setText(holder.title.getText().toString());
                             holder.date.setDate(holder.date.getDate());
@@ -77,6 +80,7 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
                             Intent i=new Intent(v.getContext(), Links_added.class);
                             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             v.getContext().startActivity(i);
+
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
@@ -90,6 +94,7 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
 
                 });
                 alertDialog.show();
+
             });
 
             holder.deleteLink.setOnClickListener((View v) -> {
