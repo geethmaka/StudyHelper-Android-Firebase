@@ -58,7 +58,7 @@
                 android:id="@+id/reg_Stream"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:entries="@array/reg_st_arrays"
+                android:entries="@array/StreamArray"
                 android:prompt="@string/reg_st"
                 android:textColor="@color/status_blue"
                 android:layout_marginLeft="10sp"
