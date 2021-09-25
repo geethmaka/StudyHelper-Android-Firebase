@@ -29,11 +29,11 @@
 
             <EditText
                 android:id="@+id/reg_name"
-                style="@style/modifiedEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:hint="@string/name"
                 android:inputType="text"
                 android:maxLines="1"
-                tools:ignore="SpeakableTextPresentCheck"
                 android:textSize="18sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,7 +73,8 @@
             android:layout_marginTop="@dimen/signup_text_margin_top">
             <EditText
                 android:id="@+id/reg_mn"
-                style="@style/modifiedEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:inputType="text"
                 android:maxLines="1"
                 android:hint="@string/mobile_number"
@@ -85,7 +86,8 @@
             android:layout_marginTop="@dimen/signup_text_margin_top">
             <EditText
                 android:id="@+id/reg_email"
-                style="@style/modifiedEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:hint="@string/login_email_hint"
@@ -97,7 +99,8 @@
             android:layout_marginTop="@dimen/signup_text_margin_top">
             <EditText
                 android:id="@+id/reg_pw"
-                style="@style/modifiedEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:hint="@string/login_password_hint"
                 android:maxLines="1"
                 android:inputType="textPassword"
@@ -118,7 +121,8 @@
             android:textColor="@color/primaryTextColor"
             android:text="@string/signup_login_hint"
             android:layout_marginTop="@dimen/loginViewsMargin"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:onClick="gotoLogin"/>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

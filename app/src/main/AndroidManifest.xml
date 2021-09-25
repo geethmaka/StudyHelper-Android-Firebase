@@ -51,14 +51,26 @@
         </activity>
         <activity
             android:name=".Teacher_popup_Pdf"
-            android:exported="true" />
+            android:exported="true" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.studyhelper_android_firebase.teacher.TeacherMainActivity"/>
+        </activity>
         <activity
             android:name=".course.UpdateCourse"
             android:exported="true"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.studyhelper_android_firebase.course.Course_manager_home"/>
+        </activity>
         <activity
             android:name=".teacher.Teacher_popup_Link"
-            android:exported="true" />
+            android:exported="true" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.studyhelper_android_firebase.teacher.TeacherMainActivity"/>
+        </activity>
         <activity
             android:name=".teacher.TeacherMainActivity"
             android:exported="true" />
@@ -67,7 +79,11 @@
             android:exported="true" />
         <activity
             android:name=".student.Student_complaint"
-            android:exported="true" />
+            android:exported="true" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.studyhelper_android_firebase.student.StudentMainActivity"/>
+        </activity>
         <activity
             android:name=".course.Course_manager_home"
             android:exported="true" />
