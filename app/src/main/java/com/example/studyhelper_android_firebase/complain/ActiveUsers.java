@@ -67,15 +67,14 @@ public class ActiveUsers extends AppCompatActivity {
                         if(dc.getType() == DocumentChange.Type.ADDED && n.getUser().getStatus().equals("active")) {
                                 userArrayList.add(n);
                         }
-                        //initialize the adapter
-                        userAdapter = new Adapter_activeUser(this,userArrayList);
-                        recyclerView.setAdapter(userAdapter);
-                        userAdapter.notifyDataSetChanged();
-
                         //dismiss progress dialog
                         if(progressDialog.isShowing())
                             progressDialog.dismiss();
                     }
+                    //initialize the adapter
+                    userAdapter = new Adapter_activeUser(this,userArrayList);
+                    recyclerView.setAdapter(userAdapter);
+                    userAdapter.notifyDataSetChanged();
                 });
     }
 

@@ -9,11 +9,11 @@
     <item
         android:id="@+id/SLinkFragment"
         android:title="Profile"
-        android:icon="@drawable/ic_sprofile"/>
+        android:icon="@drawable/ic_scomplain"/>
     <item
         android:id="@+id/SProfileFragment"
         android:title="Complain"
-        android:icon="@drawable/ic_scomplain"
+        android:icon="@drawable/ic_sprofile"
         />
     <item
         android:id="@+id/SComplainFragment"
