@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.studyhelper_android_firebase">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,6 +16,8 @@
         android:theme="@style/Theme.StudyHelperAndroidFirebase">
         <activity
             android:name=".Added_complain_T"
+        <activity
+            android:name=".teacher.Added_complain_T"
             android:exported="true" />
         <activity
             android:name=".complain.ResolvedComplaints"

@@ -100,7 +100,7 @@
     <string name="inactive_users">Inactive Users</string>
     <string name="btn_ban">Ban User</string>
     <string name="btn_delete">Remove</string>
-    <string name="search">Search User :</string>
+    <string name="search">Search User</string>
     <string name="btn_resolved">Mark as Resolved</string>
     <string name="msg_hint">Type your message</string>
     <string name="btn_com_delete">Delete Resolved Complains</string>
@@ -115,8 +115,12 @@
     <string name="Files">Files</string>
     <string name="Add">Add</string>
     <string name="CoursePrompt">Stream</string>
-    <string name="name">Name</string>
-    <string name="mobile_number">Mobile Number</string>
+    <string name="complaints">complaints</string>
+    <string name="submit">Submit</string>
+    <string name="message">message</string>
+    <string name="date">Date :- </string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
     <string-array name="StreamArray">
         <item>Select Stream</item>
         <item>Maths</item>

@@ -23,6 +23,6 @@
     <fragment
         android:id="@+id/t_complains"
         android:name="com.example.studyhelper_android_firebase.teacher.T_complains"
-        android:label="fragment_t_complains"
+        android:label="Complains"
         tools:layout="@layout/fragment_t_complains" />
 </navigation>

@@ -1,77 +1,62 @@
-package com.example.studyhelper_android_firebase.complain;
+package com.example.studyhelper_android_firebase.teacher;
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Complain;
+import com.example.studyhelper_android_firebase.complain.Adapter_newComplaint;
 import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-public class CH_Dashboard extends Fragment {
+public class Added_complain_T extends AppCompatActivity {
+
     //creating an instance of the database
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     //defining the variables
     ProgressDialog progressDialog;
     ArrayList<Complain> complainArrayList;
-    Adapter_Dash dashAdapter;
-
-    public CH_Dashboard() {
-        // Required empty public constructor
-    }
+    Adapter_newComplaint complainAdapter;
+    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+    String id =preferences.getString("uid","");
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_ch_dashboard, container, false);
-        //get the current context
-        Context current = this.getContext();
+        setContentView(R.layout.t_added_complain);
 
         //creating progress dialog until fetching the data
-        progressDialog = new ProgressDialog(getContext());
+        progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Fetching the Data...");
         progressDialog.show();
 
         //defining the variables;
-        RecyclerView recyclerView = root.findViewById(R.id.RVcomplain);
+        RecyclerView recyclerView = findViewById(R.id.RVcomplainT);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(current,RecyclerView.HORIZONTAL, false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //initialize the array list
         complainArrayList = new ArrayList<Complain>();
         //initialize the adapter
-        dashAdapter = new Adapter_Dash(this.getContext(),complainArrayList);
-        recyclerView.setAdapter(dashAdapter);
+        complainAdapter = new Adapter_newComplaint(this,complainArrayList);
+        recyclerView.setAdapter(complainAdapter);
 
         EventChangeListener();
-        return root;
     }
 
     private void EventChangeListener() {
-        db.collection("complain").orderBy("date", Query.Direction.DESCENDING)
+
+        db.collection("complain")
                 .addSnapshotListener((value, error) -> {
                     if(error != null) {
                         //dismiss progress dialog
@@ -80,19 +65,20 @@ public class CH_Dashboard extends Fragment {
                         Log.e("Firestore Error",error.getMessage());
                         return;
                     }
-
                     //fetching the data from the firestore database
                     for(DocumentChange dc : value.getDocumentChanges()){
-                        Complain c = new Complain(dc.getDocument().getId(),dc.getDocument().toObject(Complain.class));
-
-                        if(dc.getType() == DocumentChange.Type.ADDED && c.getComplain().getStatus().equals("Pending")) {
-                            complainArrayList.add(c);
+                        if(dc.getType() == DocumentChange.Type.ADDED) {
+                            Complain c = new Complain(dc.getDocument().getId(),dc.getDocument().toObject(Complain.class));
+                            if(c.getComplain().getUserID().equals(id)) {
+                                complainArrayList.add(c);
+                            }
                         }
-                        dashAdapter.notifyDataSetChanged();
+                        complainAdapter.notifyDataSetChanged();
                         //dismiss progress dialog
                         if(progressDialog.isShowing())
                             progressDialog.dismiss();
                     }
+
                 });
     }
 }

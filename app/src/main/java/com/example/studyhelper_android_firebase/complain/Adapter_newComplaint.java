@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,6 +47,8 @@ public class Adapter_newComplaint extends RecyclerView.Adapter<Adapter_newCompla
     public void onBindViewHolder(@NonNull Adapter_newComplaint.ViewHolder holder, int position) {
         Complain complain = complainArrayList.get(position);
 
+        //getting the date
+        holder.date.setText(complain.getComplain().getDate());
         //getting the username from the database giving the userid in complain
         db.collection("complain")
                 .document(complain.getComplainId())
@@ -79,23 +82,28 @@ public class Adapter_newComplaint extends RecyclerView.Adapter<Adapter_newCompla
                         Log.d("TAG", "get failed with ", task.getException());
                     }
                 });
-
+        //getting the status
         holder.status.setText(complain.getComplain().getStatus());
+        //getting the complain content
         holder.complain.setText(complain.getComplain().getContent());
 
+        //adding onclick function to the ban user button
         holder.btn_cResolve.setOnClickListener(v -> {
             DocumentReference complainRef = db.collection("complain").document(complain.getComplainId());
 
             complainRef.update("status", "Resolved")
                     .addOnSuccessListener(aVoid ->{
+                        Toast.makeText(context.getApplicationContext(), "Complaint Resolve Successful!!!",Toast.LENGTH_LONG).show();
                         Intent i=new Intent(this.context.getApplicationContext(), NewComplaint.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         this.context.startActivity(i);
                     })
 
-                    .addOnFailureListener(e -> Log.w("TAG", "Error updating status", e));
+                    .addOnFailureListener(e ->{
+                        Log.w("TAG", "Error updating status", e);
+                        Toast.makeText(context.getApplicationContext(), "Error!!!",Toast.LENGTH_LONG).show();
+                    });
         });
-
     }
 
     @Override
@@ -108,6 +116,7 @@ public class Adapter_newComplaint extends RecyclerView.Adapter<Adapter_newCompla
         TextView username;
         TextView status;
         TextView complain;
+        TextView date;
         Button btn_cResolve;
 
         public ViewHolder(@NonNull View itemView) {
@@ -115,6 +124,7 @@ public class Adapter_newComplaint extends RecyclerView.Adapter<Adapter_newCompla
             username = itemView.findViewById(R.id.tv_complain_name);
             status = itemView.findViewById(R.id.tv_status);
             complain = itemView.findViewById(R.id.user_complain);
+            date = itemView.findViewById(R.id.tv_date);
             btn_cResolve = itemView.findViewById(R.id.btn_complain_resolve);
         }
     }

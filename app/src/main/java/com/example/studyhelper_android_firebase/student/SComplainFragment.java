@@ -14,8 +14,11 @@ import android.widget.Spinner;
 import androidx.fragment.app.Fragment;
 import com.example.studyhelper_android_firebase.R;
 import android.util.Log;
+import android.widget.Toast;
+
 import com.example.studyhelper_android_firebase.classes.IComplain;
 import com.example.studyhelper_android_firebase.complain.NewComplaint;
+import com.example.studyhelper_android_firebase.teacher.T_complains;
 import com.google.firebase.firestore.FirebaseFirestore;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -99,7 +102,12 @@ public class SComplainFragment extends Fragment {
 
             db.collection("complain")
                     .add(c)
-                    .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))
+                    .addOnSuccessListener(documentReference -> {
+                        Toast.makeText(root.getContext().getApplicationContext(), "Complaint Added Successfully!!!",Toast.LENGTH_LONG).show();
+                        Intent i=new Intent(v.getContext(), SComplainFragment.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        v.getContext().startActivity(i);
+                    })
                     .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
         });
 
