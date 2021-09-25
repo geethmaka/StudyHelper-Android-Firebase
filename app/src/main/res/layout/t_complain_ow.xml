@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@color/btn_shade"
+        android:paddingLeft="8sp"
+        android:paddingRight="8sp"
+        android:paddingTop="1sp"
+        android:paddingBottom="1sp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            tools:layout_editor_absoluteY="1dp">
+
+            <!--            <LinearLayout-->
+            <!--                android:id="@+id/linearLayout2"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                tools:layout_editor_absoluteX="5dp">-->
+
+            <TextView
+                android:id="@+id/tv_complain_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="284dp"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_status"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tv_complain_type"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:textSize="15sp"-->
+            <!--                    app:layout_constraintLeft_toLeftOf="parent"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent"-->
+            <!--                    android:text="H.G.Geethamaka"/>-->
+
+            <!--            </LinearLayout>-->
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="0dp"
+                android:layout_height="27dp"
+                android:layout_marginEnd="11dp"
+                android:background="@drawable/ch_pending_layout"
+                android:paddingStart="6sp"
+                android:paddingTop="2sp"
+                android:paddingEnd="6sp"
+                android:paddingBottom="2sp"
+                android:text="@string/pending"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_complain_name"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:paddingTop="2sp"
+            android:paddingStart="6sp"
+            android:paddingEnd="5dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/user_complain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="17sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingTop="5sp"
+            android:paddingBottom="3sp"
+            android:paddingStart="3sp"
+            android:paddingEnd="2sp">
+
+            <android.widget.Button
+                android:id="@+id/btn_complain_resolve"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/btn_red"
+                style="@style/loginButton"
+                android:text="Delete"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

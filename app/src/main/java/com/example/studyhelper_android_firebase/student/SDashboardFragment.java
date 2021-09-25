@@ -91,25 +91,25 @@ public class SDashboardFragment extends Fragment {
                 }
 
             }
-                    db.collection("pdf")
-                            .get()
-                            .addOnCompleteListener(t -> {
-                                if (t.isSuccessful()) {
-                                    for (QueryDocumentSnapshot document : t.getResult()) {
-                                        Pdf p=new Pdf(document.getId(),document.toObject(Pdf.class));
+            db.collection("pdf")
+                    .get()
+                    .addOnCompleteListener(t -> {
+                        if (t.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : t.getResult()) {
+                                Pdf p = new Pdf(document.getId(), document.toObject(Pdf.class));
 
-                                        if(CourseList.contains(p.getObj().getSubject())){
-                                            pdfArrayList.add(p);
-                                        }
-
-                                    }
-                        PdfAdapter mAdapter = new PdfAdapter(pdfArrayList,requireActivity().getApplicationContext());
-                        recyclerView.setAdapter(mAdapter);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity().getApplicationContext()));
-                                } else {
-                                    Log.d("TAG", "Error getting documents: ", task.getException());
+                                if (CourseList.contains(p.getObj().getSubject())) {
+                                    pdfArrayList.add(p);
                                 }
-                            });
+
+                            }
+                            PdfAdapter mAdapter = new PdfAdapter(pdfArrayList, requireActivity().getApplicationContext());
+                            recyclerView.setAdapter(mAdapter);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity().getApplicationContext()));
+                        } else {
+                            Log.d("TAG", "Error getting documents: ", task.getException());
+                        }
+                    });
         });
         return root;
     }

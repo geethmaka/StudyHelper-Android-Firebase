@@ -26,6 +26,7 @@ android:layout_height="match_parent">
         style="@style/parent"
         android:layout_marginTop="@dimen/signup_text_margin_top">
         <EditText
+            android:id="@+id/sname"
             style="@style/modifiedEditText"
             android:inputType="text"
             android:maxLines="1"
@@ -36,6 +37,7 @@ android:layout_height="match_parent">
         style="@style/parent"
         android:layout_marginTop="@dimen/signup_text_margin_top">
         <EditText
+            android:id="@+id/smn"
             style="@style/modifiedEditText"
             android:inputType="text"
             android:maxLines="1"
@@ -46,6 +48,7 @@ android:layout_height="match_parent">
         style="@style/parent"
         android:layout_marginTop="@dimen/signup_text_margin_top">
         <EditText
+            android:id="@+id/sstream"
             style="@style/modifiedEditText"
             android:inputType="text"
             android:maxLines="1"
@@ -56,6 +59,8 @@ android:layout_height="match_parent">
         style="@style/parent"
         android:layout_marginTop="@dimen/signup_text_margin_top">
         <EditText
+
+            android:id="@+id/semail"
             style="@style/modifiedEditText"
             android:inputType="textEmailAddress"
             android:maxLines="1"
@@ -68,6 +73,7 @@ android:layout_height="match_parent">
 
 
     <Button
+        android:id="@+id/supdate"
         style="@style/loginButton"
         android:layout_gravity="center"
         android:text="Update" />

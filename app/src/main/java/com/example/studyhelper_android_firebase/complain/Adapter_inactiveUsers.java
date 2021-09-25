@@ -1,5 +1,6 @@
 package com.example.studyhelper_android_firebase.complain;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -66,6 +67,7 @@ public class Adapter_inactiveUsers extends RecyclerView.Adapter<Adapter_inactive
                             Intent i=new Intent(v.getContext(), InactiveUsers.class);
                             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             v.getContext().startActivity(i);
+                            ((Activity)context).finish();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

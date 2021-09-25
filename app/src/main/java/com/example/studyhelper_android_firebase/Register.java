@@ -1,39 +1,32 @@
 package com.example.studyhelper_android_firebase;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.studyhelper_android_firebase.classes.User;;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-;
-
-
+import com.example.studyhelper_android_firebase.classes.iUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class Register extends AppCompatActivity {
 
     //UI Views
-    private EditText reg_name,reg_mn,reg_email,reg_pw;
-    private Spinner reg_Stream;
-    private Button reg_btn;
-    private RadioGroup radioGroup;
-    private RadioButton radioButton;
+    EditText reg_name,reg_mn,reg_email,reg_pw;
+    Spinner reg_Stream, reg_type;
+    Button reg_btn;
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference db;
-    User user;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();;
 
+    iUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,48 +37,37 @@ public class Register extends AppCompatActivity {
 
         reg_name = findViewById(R.id.reg_name);
         reg_mn = findViewById(R.id.reg_mn);
+        reg_type = findViewById(R.id.reg_type);
         reg_Stream = findViewById(R.id.reg_Stream);
         reg_email = findViewById(R.id.reg_email);
         reg_pw = findViewById(R.id.reg_pw);
 
-        radioGroup = (RadioGroup) findViewById(R.id.radio);
-        int selectedId = radioGroup.getCheckedRadioButtonId();
-        radioButton = (RadioButton) findViewById(selectedId);
-        reg_btn = findViewById(R.id.reg_btn);
 
+        reg_btn = findViewById(R.id.reg_btn);
 
         //Initialize permission arry
         ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Please wait");
         progressDialog.setCanceledOnTouchOutside(false);
 
-
-
         reg_btn.setOnClickListener(v -> {
-            db = database.getReference().child("User");
-            //input data
-
             //validate data
             if (TextUtils.isEmpty(reg_name.getText().toString())) {
                 Toast.makeText(this, "Enter Name...", Toast.LENGTH_SHORT).show();
                 return;
             }
-
-            else if (TextUtils.isEmpty(radioButton.getText().toString())) {
+            else if (TextUtils.isEmpty(reg_type.getSelectedItem().toString())) {
                 Toast.makeText(this, "Enter Steam Name...", Toast.LENGTH_SHORT).show();
                 return;
             }
-
             else if (TextUtils.isEmpty(reg_Stream.getSelectedItem().toString())) {
                 Toast.makeText(this, "Enter Steam Name...", Toast.LENGTH_SHORT).show();
                 return;
             }
-
             else if (TextUtils.isEmpty(reg_mn.getText().toString())) {
                 Toast.makeText(this, "Enter Phone Number...", Toast.LENGTH_SHORT).show();
                 return;
             }
-
             else if (!Patterns.EMAIL_ADDRESS.matcher(reg_email.getText().toString()).matches()) {
                 Toast.makeText(this, "Invalid Email Address...", Toast.LENGTH_SHORT).show();
                 return;
@@ -104,26 +86,34 @@ public class Register extends AppCompatActivity {
             }
             else {
                 //take inputs from the user and then to this instance (user) of the User.
-                user = new User(
+                user = new iUser(
                         reg_name.getText().toString().trim(),
-                        radioButton.getText().toString(),
-                        reg_Stream.getSelectedItem().toString(),
+                        reg_type.getSelectedItem().toString(),
+                        reg_Stream.getSelectedItem().toString().trim(),
                         "active",
                         reg_pw.getText().toString().trim(),
                         Long.parseLong(reg_mn.getText().toString().trim()),
                         reg_email.getText().toString().trim()
 
                 );
-                //insert into the database...
-                database.getReference().child("User/" + user.getId()).setValue(user);
-                //feedback to the user
-                Toast.makeText(getApplicationContext(),"Data Saved Successfully",Toast.LENGTH_LONG).show();
-
-
+                db.collection("users")
+                        .add(user)
+                        .addOnSuccessListener(documentReference -> {
+                            Toast.makeText(getApplicationContext(),"Successfully Registered!!!",Toast.LENGTH_LONG).show();
+                            Intent i = new Intent(this, Login.class);
+                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            this.startActivity(i);
+                        })
+                        .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
             }
 
         });
 
-  }
+    }
 
+    public void gotoLogin(View view) {
+        final Context context = this;
+        Intent intent = new Intent(context, Login.class);
+        startActivity(intent);
+    }
 }

@@ -1,8 +1,12 @@
 package com.example.studyhelper_android_firebase.teacher;
 
+import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,12 +17,18 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studyhelper_android_firebase.R;
+import com.example.studyhelper_android_firebase.Teacher_popup_Pdf;
 import com.example.studyhelper_android_firebase.classes.Link;
 import com.example.studyhelper_android_firebase.course.ViewCourses;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -35,6 +45,7 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
     ArrayList<Link> linkArrayList;
 
 
+
     public LinkAdapter(ArrayList<Link> linkArrayList, Context context) {
         this.context = context;
         this.linkArrayList = linkArrayList;
@@ -48,8 +59,9 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
             return new LinkViewHolder(v);
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.O)
         @Override
-        public void onBindViewHolder (@NonNull LinkAdapter.LinkViewHolder holder,int position){
+        public void onBindViewHolder (@NonNull LinkViewHolder holder,int position){
 
             Link link = linkArrayList.get(position);
             FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -67,16 +79,30 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
                 alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> db.collection("link").document(link.getId()).
 
                         update("subject",  holder.subject.getText().toString(), "title",holder.title.getText().toString(), "date", holder.date.getDate(),"time",holder.time.getText().toString())
-                        .addOnSuccessListener(aVoid ->{ Log.d("TAG", "DocumentSnapshot successfully updated!"+link.getId());
+                        .addOnSuccessListener(aVoid -> {
+                            Log.d("TAG", "DocumentSnapshot successfully updated!" + link.getId());
+
                             holder.subject.setText(link.getObj().getSubject());
                             holder.title.setText(holder.title.getText().toString());
                             holder.date.setDate(holder.date.getDate());
                             holder.time.setText(holder.time.getText().toString());
-                            holder.link.setText(holder.link.getText().toString());})
-                        .addOnSuccessListener(aVoid -> {
-                            Intent i=new Intent(v.getContext(), Links_added.class);
-                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            v.getContext().startActivity(i);
+                            holder.link.setText(holder.link.getText().toString());
+
+
+//                            Intent i=new Intent(v.getContext(), Links_added.class);
+//                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                            v.getContext().startActivity(i);
+//                            ((Activity)context).finish();
+//                            androidx.fragment.app.FragmentManager fragmentManager = ((FragmentActivity) context).getSupportFragmentManager();
+//                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                            Bundle bundle = new Bundle();
+//                            bundle.putSerializable("vehicleInfo", Links_added.get(position));
+//                            Links_added fragment_links_added = new Links_added();
+//                            fragment_links_added.setArguments(bundle);
+//                            fragmentTransaction.replace(R.id.teacherfragmentContainer, fragment_links_added);
+//                            fragmentTransaction.addToBackStack(fragment_links_added.getTag());
+//                            fragmentTransaction.commit();
+
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
@@ -90,6 +116,7 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
 
                 });
                 alertDialog.show();
+
             });
 
             holder.deleteLink.setOnClickListener((View v) -> {
@@ -104,6 +131,7 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
                                 Intent i=new Intent(v.getContext(), Links_added.class);
                                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 v.getContext().startActivity(i);
+                                ((Activity)context).finish();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -123,7 +151,11 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
 
         }
 
-        @Override
+    private FragmentManager getFragmentManager() {
+        return null;
+    }
+
+    @Override
         public int getItemCount () {
             return linkArrayList.size();
         }

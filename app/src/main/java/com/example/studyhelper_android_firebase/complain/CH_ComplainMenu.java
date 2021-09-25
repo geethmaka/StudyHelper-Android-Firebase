@@ -29,7 +29,7 @@ public class CH_ComplainMenu extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_ch_complain, container, false);
+        View root = inflater.inflate(R.layout.fragment_ch_menu, container, false);
 
         Context mContext = getContext();
 

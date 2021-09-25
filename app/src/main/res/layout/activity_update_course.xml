@@ -37,17 +37,17 @@
                 android:layout_marginTop="69dp"
                 android:text="Update Details"
                 android:textColor="@color/status_blue"
-                android:textSize="34sp" />
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/updateButton"
                 style="@style/loginButton"
-                android:layout_width="103dp"
-                android:layout_height="67dp"
+                android:layout_width="105dp"
+                android:layout_height="55dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="77dp"
-                android:layout_marginTop="547dp"
+                android:layout_marginStart="65dp"
+                android:layout_marginTop="371dp"
                 android:text="Update"
 
                 />
@@ -55,12 +55,12 @@
             <Button
                 android:id="@+id/deleteButton"
                 style="@style/loginButton"
-                android:layout_width="103dp"
-                android:layout_height="67dp"
+                android:layout_width="105dp"
+                android:layout_height="55dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="223dp"
-                android:layout_marginTop="547dp"
+                android:layout_marginStart="241dp"
+                android:layout_marginTop="373dp"
                 android:text="Delete"
 
                 />
@@ -72,9 +72,9 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="225dp"
-                android:layout_marginEnd="31dp"
+                android:layout_marginStart="41dp"
+                android:layout_marginTop="147dp"
+                android:layout_marginEnd="30dp"
                 android:hint="Subject"
                 android:inputType="text"
                 android:maxLines="1" />
@@ -85,8 +85,8 @@
                 android:layout_height="44dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="340dp"
+                android:layout_marginStart="85dp"
+                android:layout_marginTop="221dp"
                 android:entries="@array/StreamArray" />
 
             <Switch
@@ -95,8 +95,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="120dp"
-                android:layout_marginBottom="220dp"
+                android:layout_marginStart="128dp"
+                android:layout_marginBottom="366dp"
                 android:text="@string/Availability"
                 android:textSize="20dp" />
 

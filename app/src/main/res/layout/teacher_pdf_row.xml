@@ -12,75 +12,70 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:background="@color/white">
+        android:background="@drawable/cardview">
 
 
         <TextView
             android:id="@+id/pdf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="56dp"
-            android:layout_marginBottom="28dp"
             android:text="@string/Sub_name"
             android:textSize="22dp"
-            app:layout_constraintBottom_toTopOf="@+id/pdf2"
-            app:layout_constraintEnd_toStartOf="@+id/pdf1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.063"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/pdf1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="44dp"
-            android:layout_marginBottom="10dp"
             android:text="@string/subject"
             android:textSize="22dp"
-            app:layout_constraintBottom_toTopOf="@+id/editpdf"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/pdf"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/pdf2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="21dp"
-            android:layout_marginEnd="43dp"
-            android:layout_marginBottom="62dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:layout_marginBottom="44dp"
             android:text="@string/Title_sub"
             android:textSize="22dp"
             app:layout_constraintBottom_toTopOf="@+id/updatepdf"
-            app:layout_constraintEnd_toStartOf="@+id/editpdf"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.058"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pdf" />
 
         <TextView
             android:id="@+id/pdflink"
-            android:layout_width="82dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="160dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Pdf"
             android:textSize="22dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/updatepdf"
+            app:layout_constraintHorizontal_bias="0.291"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.64" />
 
-        <TextView
+        <EditText
             android:id="@+id/editpdf"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginEnd="72dp"
-            android:layout_marginBottom="186dp"
+            android:layout_width="133dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="40dp"
             android:ems="10"
             android:gravity="center"
             android:inputType="text"
             android:text="@string/edit_title"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.587"
             app:layout_constraintStart_toEndOf="@+id/pdf2"
             app:layout_constraintTop_toBottomOf="@+id/pdf1" />
 
@@ -88,27 +83,27 @@
             android:id="@+id/edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
             android:layout_marginTop="64dp"
-            android:layout_marginBottom="112dp"
+            android:layout_marginEnd="38dp"
+            android:layout_marginBottom="65dp"
             android:background="@drawable/btn_transp"
-            app:layout_constraintBottom_toTopOf="@+id/updatepdf"
-            app:layout_constraintStart_toEndOf="@+id/pdf1"
+            app:layout_constraintBottom_toBottomOf="@+id/editpdf"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/updatepdf"
-            android:layout_width="362dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="66dp"
+            android:layout_width="269dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="28dp"
             android:ems="10"
             android:gravity="center"
             android:inputType="text"
             android:text="@string/pdfUpload"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit"
+            app:layout_constraintTop_toBottomOf="@+id/editpdf"
+            app:layout_constraintVertical_bias="0.297"
             tools:ignore="TouchTargetSizeCheck" />
 
         <ImageButton
@@ -116,11 +111,12 @@
             android:layout_width="51dp"
             android:layout_height="38dp"
 
-            android:layout_marginBottom="16dp"
-            android:background="@color/btn2_r"
+            android:background="@color/delete"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.938"
             app:srcCompat="@drawable/ic_baseline_delete_24" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

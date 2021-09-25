@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.studyhelper_android_firebase.classes.User;
@@ -54,7 +55,14 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         Button login = findViewById(R.id.cirLoginButton);
+        TextView signup = findViewById(R.id.signup);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        signup.setOnClickListener(v->{
+            final Context context = this;
+            Intent intent = new Intent(context, Register.class);
+            startActivity(intent);
+        });
 
         ArrayList<User> userList = new ArrayList<>();
         db.collection("users")
@@ -104,12 +112,11 @@ public class Login extends AppCompatActivity {
             }else if((Email.getText().toString().equals("c")) && (Password.getText().toString().equals("c"))){
                 Intent start = new Intent(this, Course_manager_home.class);
                 startActivity(start);
-            }else{
-                Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
             }
 
 //            if(!userFound){
-//                Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();}
+//                Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+//            }
         });
 //        Context mContext = getContext();
 //        Button scomplains = root.findViewById(R.id.scomplains);
@@ -121,10 +128,6 @@ public class Login extends AppCompatActivity {
 //        });
 
     }
-    public void registerAccount(View view) {
-        final Context context = this;
-        Intent intent = new Intent(context, Register.class);
-        startActivity(intent);
-    }
+
 
 }

@@ -1,10 +1,12 @@
 package com.example.studyhelper_android_firebase.complain;
 
+import static java.lang.Math.floor;
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,25 +15,39 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Complain;
+import com.example.studyhelper_android_firebase.classes.Course;
+import com.example.studyhelper_android_firebase.course.RecyclerViewAdapter;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class CH_Dashboard extends Fragment {
     //creating an instance of the database
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     //defining the variables
-    ProgressDialog progressDialog;
     ArrayList<Complain> complainArrayList;
     Adapter_Dash dashAdapter;
+    RecyclerView recyclerView;
+
+    ProgressDialog progressDialog;
+    ProgressBar pd_pending;
+    ProgressBar pd_resolved;
+    TextView per_pending;
+    TextView per_resolved;
+
 
     public CH_Dashboard() {
         // Required empty public constructor
@@ -49,21 +65,99 @@ public class CH_Dashboard extends Fragment {
         View root = inflater.inflate(R.layout.fragment_ch_dashboard, container, false);
         //get the current context
         Context current = this.getContext();
+        showprogress();
 
-        //creating progress dialog until fetching the data
-        progressDialog = new ProgressDialog(getContext());
-        progressDialog.setCancelable(false);
-        progressDialog.setMessage("Fetching the Data...");
-        progressDialog.show();
+        /*
+        displaying the overview
+         */
+        //assigning the progress bars
+        pd_pending = root.findViewById(R.id.PB_pending);
+        pd_resolved = root.findViewById(R.id.PB_resolved);
+        //assigning the text views
+        per_pending = root.findViewById(R.id.tv_pending_perc);
+        per_resolved = root.findViewById(R.id.tv_resolved_perc);
+
+//        pd_pending.setProgress(20);
+//        pd_resolved.setProgress(100);
+
+//        int pending = getCount("Pending");
+//        int resolved = getCount("Resolved");
+//        getCount("Resolved");
+//        getCount("Pending");
+//        Log.d("count", String.valueOf(getCount("Pending")));
+//        Log.d("count", String.valueOf(getCount("Resolved")));
+
+        db.collection("complain")
+                .get()
+                .addOnCompleteListener(task -> {
+                    int total = 0;
+                    if (task.isSuccessful()) {
+                        for(QueryDocumentSnapshot dc : task.getResult()){
+                            Complain c = dc.toObject(Complain.class);
+                            total ++;
+                        }
+                        Log.d("total", String.valueOf(total));
+                        String stringtot = String.valueOf(total);
+
+                        db.collection("complain")
+                                .get()
+                                .addOnCompleteListener(task1 -> {
+                                    int pending = 0;
+                                    if (task.isSuccessful()) {
+                                        for(QueryDocumentSnapshot dc : task.getResult()){
+                                            Complain c = dc.toObject(Complain.class);
+                                            if (c.getStatus().equals("Pending")) {
+                                                pending ++;
+                                            }
+                                        }
+                                        per_pending.setText(String.valueOf(pending));
+                                        pd_resolved.setProgress(pending);
+                                        Log.d("total", String.valueOf(pending));
+                                        int finalTotal = Integer.parseInt(stringtot);
+                                        Log.d("finaltotal", String.valueOf(finalTotal));
+                                        double perc;
+                                        perc = (pending/finalTotal)*100;
+                                        Log.d("perc", String.valueOf(perc));
+                                    } else {
+                                        Log.d("TAG", "Error getting documents: ", task1.getException());
+                                    }
+                                });
+
+                        db.collection("complain")
+                                .get()
+                                .addOnCompleteListener(task2 -> {
+                                    int resolved = 0;
+                                    if (task.isSuccessful()) {
+                                        for(QueryDocumentSnapshot dc : task.getResult()){
+                                            Complain c = dc.toObject(Complain.class);
+                                            if (c.getStatus().equals("Resolved")) {
+                                                resolved ++;
+                                            }
+                                        }
+                                        per_resolved.setText(String.valueOf(resolved));
+                                        pd_pending.setProgress(resolved);
+//                                        Log.d("total", String.valueOf(resolved));
+                                        int finalTotal = Integer.parseInt(stringtot);
+//                                        Log.d("finaltotal", String.valueOf(finalTotal));
+                                    } else {
+                                        Log.d("TAG", "Error getting documents: ", task2.getException());
+                                    }
+                                });
+
+                    } else {
+                        Log.d("TAG", "Error getting documents: ", task.getException());
+                    }
+                });
+
 
         //defining the variables;
-        RecyclerView recyclerView = root.findViewById(R.id.RVcomplain);
+        recyclerView = root.findViewById(R.id.RVcomplain);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(current,RecyclerView.HORIZONTAL, false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(current, RecyclerView.HORIZONTAL, false));
         //initialize the array list
         complainArrayList = new ArrayList<Complain>();
         //initialize the adapter
-        dashAdapter = new Adapter_Dash(this.getContext(),complainArrayList);
+        dashAdapter = new Adapter_Dash(this.getContext(), complainArrayList);
         recyclerView.setAdapter(dashAdapter);
 
         EventChangeListener();
@@ -73,26 +167,83 @@ public class CH_Dashboard extends Fragment {
     private void EventChangeListener() {
         db.collection("complain").orderBy("date", Query.Direction.DESCENDING)
                 .addSnapshotListener((value, error) -> {
-                    if(error != null) {
+                    if (error != null) {
                         //dismiss progress dialog
-                        if(progressDialog.isShowing())
+                        if (progressDialog.isShowing())
                             progressDialog.dismiss();
-                        Log.e("Firestore Error",error.getMessage());
+                        Log.e("Firestore Error", error.getMessage());
                         return;
                     }
 
                     //fetching the data from the firestore database
-                    for(DocumentChange dc : value.getDocumentChanges()){
-                        Complain c = new Complain(dc.getDocument().getId(),dc.getDocument().toObject(Complain.class));
+                    for (DocumentChange dc : value.getDocumentChanges()) {
+                        Complain c = new Complain(dc.getDocument().getId(), dc.getDocument().toObject(Complain.class));
 
-                        if(dc.getType() == DocumentChange.Type.ADDED && c.getComplain().getStatus().equals("Pending")) {
+                        if (dc.getType() == DocumentChange.Type.ADDED && c.getComplain().getStatus().equals("Pending")) {
                             complainArrayList.add(c);
                         }
                         dashAdapter.notifyDataSetChanged();
                         //dismiss progress dialog
-                        if(progressDialog.isShowing())
+                        if (progressDialog.isShowing())
                             progressDialog.dismiss();
                     }
                 });
     }
+
+    private void showprogress() {
+        //creating progress dialog until fetching the data
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Fetching the Data...");
+        progressDialog.show();
+    }
+
+    //getting the count of
+//    private int getCount(String type) {
+//        //getting the count from the database
+//        db.collection("complain")
+//                .get()
+//                .continueWith(new Continuation<QuerySnapshot, Integer>() {
+//                    @Override
+//                    public Integer then(@NonNull Task<QuerySnapshot> task) throws Exception {
+//                        int count = 0;
+//                        for (DocumentSnapshot dc : task.getResult()) {
+//                            Complain c = dc.toObject(Complain.class);
+//                            if (c.getStatus().equals(type)) {
+//                                count ++;
+//                            }
+//                        }
+////                        Log.d("count", String.valueOf(count));
+////                        String name = ((Object)count).getClass().getName();
+////                        Log.d("count", String.valueOf(count));
+////                        Log.d("count", name);
+//                        return count;
+//                    }
+//                });
+//        return 0;
+//    }
 }
+
+
+//    private int getCount(String type) {
+//        AtomicInteger count = new AtomicInteger();
+//        int result = 0;
+//        //getting the count from the database
+//        db.collection("complain")
+//                .addSnapshotListener((value, error) -> {
+//                    if(error != null) {
+//                        Log.e("Firestore Error",error.getMessage());
+//                        return;
+//                    }
+//                    //reading data from the firestore database
+//                    for(DocumentChange dc : value.getDocumentChanges()){
+//                        Complain c = new Complain(dc.getDocument().getId(),dc.getDocument().toObject(Complain.class));
+//                        if(dc.getType() == DocumentChange.Type.ADDED && c.getComplain().getStatus().equals(type)) {
+//                            complainArrayList.add(c);
+//                        }
+//                    }
+//                    count.set(complainArrayList.size());
+//                });
+//        result = count.intValue();
+//        return result;
+//    }

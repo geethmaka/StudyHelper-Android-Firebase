@@ -75,7 +75,7 @@ public class SLinkFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_sdashboard, container, false);
+        View root = inflater.inflate(R.layout.fragment_slink, container, false);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         ArrayList<Link> linkList = new ArrayList<>();
@@ -107,8 +107,8 @@ public class SLinkFragment extends Fragment {
                                 }
 
                             }
-                            StudentLinkAdapter mAdapter = new StudentLinkAdapter(linkList,requireActivity().getApplicationContext());
-                            recyclerView.setAdapter(mAdapter);
+                            StudentLinkAdapter lAdapter = new StudentLinkAdapter(linkList,requireActivity().getApplicationContext());
+                            recyclerView.setAdapter(lAdapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity().getApplicationContext()));
                         } else {
                             Log.d("TAG", "Error getting documents: ", task.getException());

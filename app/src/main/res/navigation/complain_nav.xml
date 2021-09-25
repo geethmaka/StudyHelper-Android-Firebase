@@ -14,7 +14,7 @@
         android:id="@+id/CH_ComplainFragment"
         android:name="com.example.studyhelper_android_firebase.complain.CH_ComplainMenu"
         android:label="@string/complaint_menu"
-        tools:layout="@layout/fragment_ch_complain" />
+        tools:layout="@layout/fragment_ch_menu" />
     <fragment
         android:id="@+id/CH_ReportFragment"
         android:name="com.example.studyhelper_android_firebase.complain.CH_ReportFragment"

@@ -1,5 +1,6 @@
 package com.example.studyhelper_android_firebase.complain;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -97,6 +98,7 @@ public class Adapter_newComplaint extends RecyclerView.Adapter<Adapter_newCompla
                         Intent i=new Intent(this.context.getApplicationContext(), NewComplaint.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         this.context.startActivity(i);
+                        ((Activity)context).finish();
                     })
 
                     .addOnFailureListener(e ->{

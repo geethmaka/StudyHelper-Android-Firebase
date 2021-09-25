@@ -14,9 +14,11 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,16 +28,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.studyhelper_android_firebase.classes.IPdf;
 import com.example.studyhelper_android_firebase.classes.Pdf;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.OnProgressListener;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
+//creating teacher pdf class
 public class Teacher_popup_Pdf extends AppCompatActivity {
 
     TextView notifyPdf;
@@ -44,11 +50,12 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
     ProgressDialog progressDialog;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_popup_pdf);
-
+        //database connection
         storage=FirebaseStorage.getInstance();
 
         Button selectPdf=findViewById(R.id.selectPdf);
@@ -64,6 +71,7 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
                         notifyPdf.setText("A file is selected"+data.getData().getLastPathSegment());
                     }
                 });
+        //select pdf button function
         selectPdf.setOnClickListener(v -> {
 
             if(ContextCompat.checkSelfPermission(Teacher_popup_Pdf.this, Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
@@ -85,6 +93,8 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
             if (pdfUri!=null){
 
                 uploadPdf(pdfUri);
+
+
 
             }
             else
@@ -115,17 +125,22 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
         }).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Uri downloadUri = task.getResult();
-                Toast.makeText(Teacher_popup_Pdf.this,"File successfully uploaded"+downloadUri,Toast.LENGTH_LONG).show();
+                Toast.makeText(Teacher_popup_Pdf.this,"File successfully uploaded   :"+downloadUri,Toast.LENGTH_LONG).show();
                 Spinner Subject =findViewById(R.id.spinnerpdf);
                 TextView Title =findViewById(R.id.editTextPdf);
 
-                Pdf pdf=new Pdf(Subject.getSelectedItem().toString(),Title.getText().toString(),downloadUri.toString());
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                String id =preferences.getString("uid","");
+
+                IPdf pdf=new IPdf(id,Subject.getSelectedItem().toString(),Title.getText().toString(),downloadUri.toString());
                 db.collection("pdf")
                         .add(pdf)
                         .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))
                         .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
+
             } else {
             }
+
         });
     }
 
