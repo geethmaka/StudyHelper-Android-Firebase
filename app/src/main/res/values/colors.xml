@@ -24,6 +24,8 @@
 
     <!--colros for card-->
     <color name="whiteCardColor">#fff</color>
+    <color name="delete">#ff5a00</color>
+    <color name="update">#00a5ff</color>
 
     <!--complain handling-->
     <color name="a100">#B2EBF2</color>

@@ -35,7 +35,7 @@ import com.google.firebase.storage.FirebaseStorage;
 
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
+//creating teacher pdf class
 public class Teacher_popup_Pdf extends AppCompatActivity {
 
     TextView notifyPdf;
@@ -44,11 +44,12 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
     ProgressDialog progressDialog;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_popup_pdf);
-
+        //database connection
         storage=FirebaseStorage.getInstance();
 
         Button selectPdf=findViewById(R.id.selectPdf);
@@ -64,6 +65,7 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
                         notifyPdf.setText("A file is selected"+data.getData().getLastPathSegment());
                     }
                 });
+        //select pdf button function
         selectPdf.setOnClickListener(v -> {
 
             if(ContextCompat.checkSelfPermission(Teacher_popup_Pdf.this, Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
@@ -85,6 +87,8 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
             if (pdfUri!=null){
 
                 uploadPdf(pdfUri);
+
+
 
             }
             else

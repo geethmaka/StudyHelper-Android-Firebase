@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import android.view.View;
 
+import androidx.test.rule.ActivityTestRule;
+
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.teacher.TeacherMainActivity;
 
@@ -15,8 +17,8 @@ import org.junit.Test;
 public class ComplainMainTest {
 
     @Rule
-    public  ActivityTestRule<ComplainMain> complainMain=new ActivityTestRule<ComplainMain>(ComplainMain.class);
-    private  ComplainMain.cpMainActivity = null;
+    public ActivityTestRule<ComplainMain> complainMain=new ActivityTestRule<ComplainMain>(ComplainMain.class);
+    private  ComplainMain cpMainActivity = null;
 
     @Before
     public void setUp() throws Exception {
