@@ -31,9 +31,12 @@ import android.widget.Toast;
 import com.example.studyhelper_android_firebase.classes.IPdf;
 import com.example.studyhelper_android_firebase.classes.Pdf;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.OnProgressListener;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 
 import com.google.firebase.storage.StorageReference;
@@ -122,7 +125,7 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
         }).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Uri downloadUri = task.getResult();
-                Toast.makeText(Teacher_popup_Pdf.this,"File successfully uploaded"+downloadUri,Toast.LENGTH_LONG).show();
+                Toast.makeText(Teacher_popup_Pdf.this,"File successfully uploaded   :"+downloadUri,Toast.LENGTH_LONG).show();
                 Spinner Subject =findViewById(R.id.spinnerpdf);
                 TextView Title =findViewById(R.id.editTextPdf);
 
@@ -134,8 +137,10 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
                         .add(pdf)
                         .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))
                         .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
+
             } else {
             }
+
         });
     }
 

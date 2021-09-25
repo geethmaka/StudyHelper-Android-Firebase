@@ -6,6 +6,7 @@ import android.view.View;
 
 import androidx.test.rule.ActivityTestRule;
 
+import com.example.studyhelper_android_firebase.Login;
 import com.example.studyhelper_android_firebase.LoginTest;
 import com.example.studyhelper_android_firebase.R;
 
@@ -18,13 +19,16 @@ public class TeacherMainActivityTest {
 
     @Rule
     public ActivityTestRule<TeacherMainActivity> teacherMainActivity=new ActivityTestRule<TeacherMainActivity>(TeacherMainActivity.class);
+    public ActivityTestRule<Login> loginActivity=new ActivityTestRule<Login>(Login.class);
     private  TeacherMainActivity tMainActivity = null;
+    private Login lActivity=null;
 
     @Before
     public void setUp() throws Exception {
-        tMainActivity=teacherMainActivity.getActivity();
-    }
+        tMainActivity = teacherMainActivity.getActivity();
+        lActivity = loginActivity.getActivity();
 
+        }
 
     @Test
     public  void  testLaunch(){
@@ -36,5 +40,6 @@ public class TeacherMainActivityTest {
     public void tearDown() throws Exception {
 
         tMainActivity=null;
+
     }
 }
