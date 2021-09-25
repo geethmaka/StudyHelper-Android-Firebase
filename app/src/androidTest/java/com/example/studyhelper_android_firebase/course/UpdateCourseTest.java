@@ -49,21 +49,6 @@ public class UpdateCourseTest {
                 }
         );
 
-//        Button updateBtn = view.findViewById(R.id.updateButton);
-//        updateBtn.performClick();
-//        assertTrue(uActivity.checkForEmpty(subjectName.getText().toString(),stream.getSelectedItem().toString()));
-
-
-//        uActivity.runOnUiThread(() -> {
-//            View view = uActivity.findViewById(R.id.updateDetailsLayout);
-//            EditText subjectName = view.findViewById(R.id.updateSubject);
-//            Spinner stream = view.findViewById(R.id.updateStream);
-//            subjectName.setText("c");
-//            stream.setSelection(2);
-//            Button updateBtn = view.findViewById(R.id.updateButton);
-//            updateBtn.performClick();
-//            assertTrue(uActivity.checkForEmpty(subjectName.getText().toString(),stream.getSelectedItem().toString()));
-//        });
     }
 
     @After
