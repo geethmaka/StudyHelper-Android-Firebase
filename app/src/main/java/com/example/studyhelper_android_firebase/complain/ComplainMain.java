@@ -5,12 +5,15 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
+import com.example.studyhelper_android_firebase.Login;
 import com.example.studyhelper_android_firebase.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -43,5 +46,16 @@ public class ComplainMain extends AppCompatActivity {
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void logout(MenuItem item) {
+        SharedPreferences myPrefs = getSharedPreferences("uid", MODE_PRIVATE);
+        SharedPreferences.Editor editor = myPrefs.edit();
+        editor.clear();
+        editor.commit();
+        Intent i = new Intent(this, Login.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        this.startActivity(i);
+        finish();
     }
 }

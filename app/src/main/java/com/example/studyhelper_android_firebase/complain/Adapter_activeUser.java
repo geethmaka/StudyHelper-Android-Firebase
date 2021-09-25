@@ -1,5 +1,6 @@
 package com.example.studyhelper_android_firebase.complain;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -71,6 +72,7 @@ public class Adapter_activeUser extends RecyclerView.Adapter<Adapter_activeUser.
                             Intent i=new Intent(v.getContext(), ActiveUsers.class);
                             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             v.getContext().startActivity(i);
+                            ((Activity)context).finish();
                         }
                     })
 
