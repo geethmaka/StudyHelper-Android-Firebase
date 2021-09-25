@@ -16,19 +16,39 @@
         android:theme="@style/Theme.StudyHelperAndroidFirebase">
         <activity
             android:name=".teacher.Added_complain_T"
-            android:exported="true" />
+            android:exported="true" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.studyhelper_android_firebase.teacher.TeacherMainActivity"/>
+        </activity>
         <activity
             android:name=".complain.ResolvedComplaints"
-            android:exported="true" />
+            android:exported="true" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.studyhelper_android_firebase.complain.ComplainMain"/>
+        </activity>
         <activity
             android:name=".complain.InactiveUsers"
-            android:exported="true" />
+            android:exported="true" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.studyhelper_android_firebase.complain.ComplainMain"/>
+        </activity>
         <activity
             android:name=".complain.ActiveUsers"
-            android:exported="true" />
+            android:exported="true" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.studyhelper_android_firebase.complain.ComplainMain"/>
+        </activity>
         <activity
             android:name=".complain.NewComplaint"
-            android:exported="true" />
+            android:exported="true" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.studyhelper_android_firebase.complain.ComplainMain"/>
+        </activity>
         <activity
             android:name=".Teacher_popup_Pdf"
             android:exported="true" />

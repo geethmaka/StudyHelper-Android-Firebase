@@ -1,5 +1,6 @@
 package com.example.studyhelper_android_firebase.student;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -61,7 +62,9 @@ public class S_adptercomplain extends RecyclerView.Adapter<S_adptercomplain.Hold
                     .addOnSuccessListener(aVoid ->{ Log.d("TAG", "DocumentSnapshot successfully updated!"+cp.getComplainId());
                     Intent i=new Intent(view.getContext(), Student_complaint.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        view.getContext().startActivity(i);})
+                        view.getContext().startActivity(i);
+                        ((Activity)context).finish();
+                    })
                     .addOnFailureListener(e -> Log.w("TAG", "Error updating document", e));
         });
 
