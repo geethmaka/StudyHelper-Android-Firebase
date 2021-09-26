@@ -14,8 +14,8 @@ public class ILink {
     public ILink() {
     }
 
-    public ILink(String id, String subject, String title, Long date, String time, String link) {
-        tid = id;
+    public ILink(String id,String subject, String title, Long date, String time, String link) {
+        tid=id;
         Subject = subject;
         Title = title;
         Date = date;
@@ -24,10 +24,8 @@ public class ILink {
 
     }
 
-    //getters and setters
-    public String getTId() {
-        return tid;
-    }
+//getters and setters
+public String getTId(){return tid;}
 
     public String getSubject() {
         return Subject;

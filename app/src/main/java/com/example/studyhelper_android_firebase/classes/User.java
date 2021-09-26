@@ -42,12 +42,12 @@ public class User {
         this.email = email;
     }
 
-    public User(String id, User user) {
-        this.id = id;
-        this.user = user;
+    public User(String id,User user){
+        this.id=id;
+        this.user=user;
     }
 
-    public User(String username, Long mobile, String email) {
+    public User(String username,  Long mobile, String email) {
 
         this.username = username;
         this.mobile = mobile;
@@ -55,7 +55,7 @@ public class User {
 
     }
 
-    public User(String username, Long mobile, String email, String stream) {
+    public User(String username,  Long mobile, String email, String stream) {
 
         this.username = username;
         this.mobile = mobile;
@@ -65,7 +65,7 @@ public class User {
 
     }
 
-    public User getUser() {
+    public User getUser(){
         return this.user;
     }
 

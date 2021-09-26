@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
@@ -18,6 +19,8 @@ import android.widget.EditText;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.User;
+import com.example.studyhelper_android_firebase.teacher.T_dashboard;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -79,12 +82,12 @@ public class SProfileFragment extends Fragment {
         Button update = root.findViewById(R.id.supdate);
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
-        String id = preferences.getString("uid", "");
+        String id =preferences.getString("uid","");
 
         EditText username = root.findViewById(R.id.sname);
         EditText mobile = root.findViewById(R.id.smn);
-        EditText email = root.findViewById(R.id.semail);
-        EditText stream = root.findViewById(R.id.sstream);
+        EditText  email = root.findViewById(R.id.semail);
+        EditText  stream = root.findViewById(R.id.sstream);
 
         //showing the data in the profile
         DocumentReference docRef = db.collection("users").document(id);
@@ -111,8 +114,8 @@ public class SProfileFragment extends Fragment {
             alertDialog.setTitle("Update");
             alertDialog.setMessage("Are you sure you want to update this link");
             alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) -> db.collection("users").document(id)
-                    .update("username", username.getText().toString(), "mobile", mobile.getText(), "email", email.getText().toString()
-                            , "stream", stream.getText().toString())
+                        .update("username", username.getText().toString(), "mobile", mobile.getText(), "email",email.getText().toString()
+                            ,"stream",stream.getText().toString())
                     .addOnSuccessListener(aVoid -> {
                         Log.d("TAG", "DocumentSnapshot successfully updated!" + id);
                         Intent i = new Intent(v.getContext(), SProfileFragment.class);
@@ -125,6 +128,6 @@ public class SProfileFragment extends Fragment {
             alertDialog.show();
         });
 
-        return root;
+        return  root;
     }
 }

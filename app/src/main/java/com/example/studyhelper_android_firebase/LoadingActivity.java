@@ -10,7 +10,7 @@ import android.view.WindowManager;
 import android.widget.ProgressBar;
 
 public class LoadingActivity extends AppCompatActivity {
-    private static int SPLASH_TIME_OUT = 2000;
+    private static  int SPLASH_TIME_OUT = 2000;
     private ProgressBar progressBar;
 
     @Override
@@ -22,7 +22,7 @@ public class LoadingActivity extends AppCompatActivity {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i < 10; i++) {
+                for(int i =0; i<10; i++){
                     progressBar.incrementProgressBy(20);
                     SystemClock.sleep(100);
                 }
@@ -41,6 +41,6 @@ public class LoadingActivity extends AppCompatActivity {
                 startActivity(startIntent);
                 finish();
             }
-        }, SPLASH_TIME_OUT);
+        },SPLASH_TIME_OUT);
     }
 }

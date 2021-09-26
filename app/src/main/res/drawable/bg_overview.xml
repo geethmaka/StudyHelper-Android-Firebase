@@ -5,14 +5,14 @@
 
     <gradient
         android:endColor="#F1F1F1"
-        android:startColor="#F1F1F1" />
+        android:startColor="#F1F1F1"/>
     <corners
         android:topLeftRadius="10dp"
         android:topRightRadius="10dp"
         android:bottomLeftRadius="10dp"
-        android:bottomRightRadius="10dp" />
+        android:bottomRightRadius="10dp"/>
     <stroke
         android:width="0.1dp"
-        android:color="#707070" />
+        android:color="#707070"/>
 
 </shape>
