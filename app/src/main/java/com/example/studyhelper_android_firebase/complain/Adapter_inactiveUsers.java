@@ -63,7 +63,7 @@ public class Adapter_inactiveUsers extends RecyclerView.Adapter<Adapter_inactive
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Toast.makeText(context.getApplicationContext(), "The user is Deleted Successfully!!!",Toast.LENGTH_LONG).show();
+                            Toast.makeText(context.getApplicationContext(), "User Removed Successfully!!!",Toast.LENGTH_LONG).show();
                             Intent i=new Intent(v.getContext(), InactiveUsers.class);
                             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             v.getContext().startActivity(i);

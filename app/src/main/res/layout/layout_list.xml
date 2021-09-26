@@ -6,15 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="10dp"
-    >
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:background="@color/btn_shade"
+        android:background="@drawable/bg_overview"
         android:paddingLeft="8sp"
         android:paddingRight="8sp"
         android:paddingTop="1sp"
@@ -31,7 +30,7 @@
 
             <TextView
                 android:id="@+id/courseName"
-                android:layout_width="82dp"
+                android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginLeft="30dp"
                 android:text="Canada"
@@ -40,9 +39,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     </LinearLayout>
-
-
 
 </LinearLayout>

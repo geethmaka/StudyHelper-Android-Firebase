@@ -22,7 +22,6 @@ public class ComplainMainTest {
 
     @Before
     public void setUp() throws Exception {
-
         cpMainActivity=complainMain.getActivity();
     }
 

@@ -8,8 +8,8 @@
         />
     <item
         android:id="@+id/SLinkFragment"
-        android:title="Profile"
-        android:icon="@drawable/ic_scomplain"/>
+        android:title="Links"
+        android:icon="@drawable/ic_add_pdf"/>
     <item
         android:id="@+id/SProfileFragment"
         android:title="Complain"
