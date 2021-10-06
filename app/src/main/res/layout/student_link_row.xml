@@ -23,18 +23,27 @@
             android:orientation="vertical"
             tools:ignore="MissingConstraints">
 
-                <TextView
+            <TextView
+                android:id="@+id/linksubject"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="10dp"
                     android:textSize="18dp"
                     android:text="subject" />
 
             <TextView
+                android:id="@+id/linkTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="100dp"
                 android:text="title"
+                android:textSize="18dp" />
+            <TextView
+                android:id="@+id/linklink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:text="link"
                 android:textSize="18dp" />
 
         </LinearLayout>
@@ -47,13 +56,13 @@
             tools:ignore="MissingConstraints">
 
             <TextView
-                android:id="@+id/linkTitle"
+                android:id="@+id/linkdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:autoLink="web"
                 android:textSize="15sp"
-                android:text="TextView" />
+                android:text="date" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
