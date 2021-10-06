@@ -8,17 +8,17 @@
     <fragment
         android:id="@+id/t_dashboard"
         android:name="com.example.studyhelper_android_firebase.teacher.T_dashboard"
-        android:label="fragment_t_dashboard"
+        android:label="Dashboard"
         tools:layout="@layout/fragment_t_dashboard" />
     <fragment
         android:id="@+id/pdfs_added"
         android:name="com.example.studyhelper_android_firebase.teacher.Pdfs_added"
-        android:label="fragment_pdfs_added"
+        android:label="PDF"
         tools:layout="@layout/fragment_pdfs_added" />
     <fragment
         android:id="@+id/links_added"
         android:name="com.example.studyhelper_android_firebase.teacher.Links_added"
-        android:label="fragment_links_added"
+        android:label="Links"
         tools:layout="@layout/fragment_links_added" />
     <fragment
         android:id="@+id/t_complains"

@@ -1,5 +1,6 @@
 package com.example.studyhelper_android_firebase.teacher;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -50,9 +51,9 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.PdfViewHolder> {
 
         Pdf pdf = pdfArrayList.get(position);
 
-        holder.subject.setText(pdf.subject);
-        holder.Title.setText(pdf.title);
-        holder.pdf.setText(pdf.pdf);
+        holder.subject.setText(pdf.getObj().getSubject());
+        holder.Title.setText(pdf.getObj().getTitle());
+        holder.pdf.setText(pdf.getObj().getPdf());
 
         String animal = pdfArrayList.get(position).getObj().getTitle();
         String id = pdfArrayList.get(position).getId();
@@ -71,6 +72,7 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.PdfViewHolder> {
 // Delete the file
             desertRef.delete().addOnSuccessListener(aVoid -> db.collection("pdf").document(id)
                     .delete()).addOnFailureListener(exception -> Log.d("err", String.valueOf(exception)));
+            ((Activity)context).finish();
         });
     }
     @Override

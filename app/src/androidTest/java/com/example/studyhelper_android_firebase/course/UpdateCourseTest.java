@@ -43,14 +43,24 @@ public class UpdateCourseTest {
             Spinner stream = view.findViewById(R.id.updateStream);
             subjectName.setText("c");
             stream.setSelection(2);
-//            Button updateBtn = view.findViewById(R.id.updateButton);
-//            updateBtn.performClick();
             assertFalse(updateActivity.getActivity().checkForEmpty(subjectName.getText().toString(),stream.getSelectedItem().toString()));
+                }
+        );
+    }
+    @Test
+    public void UpdateLaunch() {
+        Intent intent = new Intent();
+        intent.putExtra("id", "Nnfo4UpuBdywmujNtSVf");
+
+        updateActivity.launchActivity(intent).runOnUiThread(()->{
+            View view = updateActivity.getActivity().findViewById(R.id.relativeLayout);
+            assertNotNull(view);
                 }
         );
 
     }
 
+    }
     @After
     public void tearDown() throws Exception {
 

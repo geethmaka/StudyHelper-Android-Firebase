@@ -31,9 +31,12 @@ import android.widget.Toast;
 import com.example.studyhelper_android_firebase.classes.IPdf;
 import com.example.studyhelper_android_firebase.classes.Pdf;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.OnProgressListener;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 
 import com.google.firebase.storage.StorageReference;
@@ -70,34 +73,24 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
                 });
         //select pdf button function
         selectPdf.setOnClickListener(v -> {
-
             if(ContextCompat.checkSelfPermission(Teacher_popup_Pdf.this, Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
 
                 Intent intent = new Intent();
                 intent.setType("application/pdf");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 someActivityResultLauncher.launch(intent);
-
             }
             else
                 ActivityCompat.requestPermissions(Teacher_popup_Pdf.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},9);
-
         });
 
         uploadButton.setOnClickListener((View v) -> {
-
-
             if (pdfUri!=null){
-
                 uploadPdf(pdfUri);
-
-
-
             }
             else
                 Toast.makeText(Teacher_popup_Pdf.this,"Select a pdf",Toast.LENGTH_SHORT).show();
         });
-
     }
 
     private void uploadPdf(Uri pdfUri) {
@@ -122,7 +115,7 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
         }).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Uri downloadUri = task.getResult();
-                Toast.makeText(Teacher_popup_Pdf.this,"File successfully uploaded"+downloadUri,Toast.LENGTH_LONG).show();
+                Toast.makeText(Teacher_popup_Pdf.this,"File successfully uploaded   :"+downloadUri,Toast.LENGTH_LONG).show();
                 Spinner Subject =findViewById(R.id.spinnerpdf);
                 TextView Title =findViewById(R.id.editTextPdf);
 
@@ -134,8 +127,10 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
                         .add(pdf)
                         .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))
                         .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
+
             } else {
             }
+
         });
     }
 

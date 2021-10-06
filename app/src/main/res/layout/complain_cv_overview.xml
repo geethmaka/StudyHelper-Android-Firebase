@@ -42,6 +42,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="12dp"
                 android:focusable="false"
+                android:max="100"
                 android:progressDrawable="@drawable/pending_progressbar" />
 
             <TextView
@@ -49,8 +50,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_pending_perc"
                 android:layout_marginStart="15dp"
-                android:layout_gravity="center_vertical"
-                android:text="23" />
+                android:layout_gravity="center_vertical"/>
 
         </LinearLayout>
 
@@ -83,6 +83,7 @@
                 android:focusable="false"
                 android:layout_width="315dp"
                 android:layout_height="10dp"
+                android:max="100"
                 android:layout_marginStart="12dp"
                 android:layout_gravity="center_vertical"
                 android:progressDrawable="@drawable/resolved_progressbar"/>
@@ -92,8 +93,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_resolved_perc"
                 android:layout_marginStart="15dp"
-                android:layout_gravity="center_vertical"
-                android:text="28"/>
+                android:layout_gravity="center_vertical"/>
 
         </LinearLayout>
 

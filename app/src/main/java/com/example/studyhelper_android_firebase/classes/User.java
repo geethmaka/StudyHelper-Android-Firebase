@@ -55,6 +55,16 @@ public class User {
 
     }
 
+    public User(String username,  Long mobile, String email, String stream) {
+
+        this.username = username;
+        this.mobile = mobile;
+        this.email = email;
+        this.stream = stream;
+
+
+    }
+
     public User getUser(){
         return this.user;
     }

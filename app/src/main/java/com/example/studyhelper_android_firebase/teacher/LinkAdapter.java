@@ -1,8 +1,12 @@
 package com.example.studyhelper_android_firebase.teacher;
 
+import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,7 +20,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studyhelper_android_firebase.R;
@@ -37,6 +45,7 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
     ArrayList<Link> linkArrayList;
 
 
+
     public LinkAdapter(ArrayList<Link> linkArrayList, Context context) {
         this.context = context;
         this.linkArrayList = linkArrayList;
@@ -50,8 +59,9 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
             return new LinkViewHolder(v);
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.O)
         @Override
-        public void onBindViewHolder (@NonNull LinkAdapter.LinkViewHolder holder,int position){
+        public void onBindViewHolder (@NonNull LinkViewHolder holder,int position){
 
             Link link = linkArrayList.get(position);
             FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -66,21 +76,18 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
                 AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
                 alertDialog.setTitle("Update");
                 alertDialog.setMessage("Are you sure you want to update this link");
-                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> db.collection("link").document(link.getId()).
-
-                        update("subject",  holder.subject.getText().toString(), "title",holder.title.getText().toString(), "date", holder.date.getDate(),"time",holder.time.getText().toString())
-                        .addOnSuccessListener(aVoid ->{ Log.d("TAG", "DocumentSnapshot successfully updated!"+link.getId());
-
+                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) ->
+                        db.collection("link").document(link.getId())
+                                .update("subject",  holder.subject.getText().toString(),
+                                        "title",holder.title.getText().toString(),
+                                        "date", holder.date.getDate(),"time",holder.time.getText().toString())
+                        .addOnSuccessListener(aVoid -> {
+                            Log.d("TAG", "DocumentSnapshot successfully updated!" + link.getId());
                             holder.subject.setText(link.getObj().getSubject());
                             holder.title.setText(holder.title.getText().toString());
                             holder.date.setDate(holder.date.getDate());
                             holder.time.setText(holder.time.getText().toString());
-                            holder.link.setText(holder.link.getText().toString());})
-                        .addOnSuccessListener(aVoid -> {
-                            Intent i=new Intent(v.getContext(), Links_added.class);
-                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            v.getContext().startActivity(i);
-
+                            holder.link.setText(holder.link.getText().toString());
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
@@ -101,7 +108,8 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
                 AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
                 alertDialog.setTitle("Delete");
                 alertDialog.setMessage("Are you sure you want to delete this link");
-                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> db.collection("link").document(link.getId())
+                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) ->
+                        db.collection("link").document(link.getId())
                         .delete()
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
@@ -109,6 +117,7 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
                                 Intent i=new Intent(v.getContext(), Links_added.class);
                                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 v.getContext().startActivity(i);
+                                ((Activity)context).finish();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -128,7 +137,11 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
 
         }
 
-        @Override
+    private FragmentManager getFragmentManager() {
+        return null;
+    }
+
+    @Override
         public int getItemCount () {
             return linkArrayList.size();
         }

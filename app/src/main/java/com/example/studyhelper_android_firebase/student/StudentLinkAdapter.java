@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -61,7 +62,7 @@ public class StudentLinkAdapter extends RecyclerView.Adapter<StudentLinkAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        LinearLayout parentLayout;
+        CardView parentLayout;
         TextView myTextView;
 
         public ViewHolder(@NonNull View itemView) {

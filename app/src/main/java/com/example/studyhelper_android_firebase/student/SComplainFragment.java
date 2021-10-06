@@ -1,6 +1,7 @@
 package com.example.studyhelper_android_firebase.student;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import com.example.studyhelper_android_firebase.R;
 import android.util.Log;
@@ -79,39 +82,46 @@ public class SComplainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
         View root = inflater.inflate(R.layout.fragment_s_complain, container, false);
+        Context mContext = getContext();
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Button uploadButton = root.findViewById(R.id.scomplaintadd);
 
-        uploadButton.setOnClickListener((View v) -> {
+        Spinner cType =  root.findViewById(R.id.stype);
+        EditText message = root.findViewById(R.id.smassage);
 
-            Spinner cType =  root.findViewById(R.id.stype);
-            EditText massage = root.findViewById(R.id.smassage);
+        Date currentTime = Calendar.getInstance().getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        sdf.format(currentTime);
 
-            Date currentTime = Calendar.getInstance().getTime();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-            sdf.format(currentTime);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
+        String id =preferences.getString("uid","");
 
-    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
-    String id =preferences.getString("uid","");
+        if(message.getText() == null){
+            Toast.makeText(mContext,"Please Enter a complaint",Toast.LENGTH_LONG).show();
+        }
+        else {
+            uploadButton.setOnClickListener((View v) -> {
+                IComplain c = new IComplain(id, cType.getSelectedItem().toString(), "Pending", sdf.format(currentTime).toString(), message.getText().toString());
+                AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
+                alertDialog.setTitle("Delete User confirmation");
+                alertDialog.setMessage("Do you want to Delete the User");
+                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) ->
+                db.collection("complain")
+                        .add(c)
+                        .addOnSuccessListener(documentReference -> {
+                            Toast.makeText(root.getContext().getApplicationContext(), "Complaint Added Successfully!!!", Toast.LENGTH_LONG).show();
+                            Intent i = new Intent(v.getContext(), SComplainFragment.class);
+                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            v.getContext().startActivity(i);
+                        })
+                        .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e)));
+                alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id1) -> dialog.dismiss());
+                alertDialog.show();
+            });
+        }
 
-
-           IComplain c =new IComplain(id,cType.getSelectedItem().toString(),"Pending",sdf.format(currentTime).toString(),massage.getText().toString());
-
-            db.collection("complain")
-                    .add(c)
-                    .addOnSuccessListener(documentReference -> {
-                        Toast.makeText(root.getContext().getApplicationContext(), "Complaint Added Successfully!!!",Toast.LENGTH_LONG).show();
-                        Intent i=new Intent(v.getContext(), SComplainFragment.class);
-                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        v.getContext().startActivity(i);
-                    })
-                    .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
-        });
-
-        Context mContext = getContext();
         Button scomplains = root.findViewById(R.id.scomplains);
 
         scomplains.setOnClickListener(view -> {

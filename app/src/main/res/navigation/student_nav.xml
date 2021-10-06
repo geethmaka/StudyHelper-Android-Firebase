@@ -8,21 +8,21 @@
     <fragment
         android:id="@+id/sdashboardFragment"
         android:name="com.example.studyhelper_android_firebase.student.SDashboardFragment"
-        android:label="fragment_sdashboard"
+        android:label="Library"
         tools:layout="@layout/fragment_sdashboard" />
     <fragment
         android:id="@+id/SLinkFragment"
         android:name="com.example.studyhelper_android_firebase.student.SLinkFragment"
-        android:label="fragment_s_complain"
+        android:label="Link"
         tools:layout="@layout/fragment_slink" />
     <fragment
         android:id="@+id/SProfileFragment"
         android:name="com.example.studyhelper_android_firebase.student.SProfileFragment"
-        android:label="fragment_s_profile"
+        android:label="Profile"
         tools:layout="@layout/fragment_s_profile" />
     <fragment
         android:id="@+id/SComplainFragment"
         android:name="com.example.studyhelper_android_firebase.student.SComplainFragment"
-        android:label="fragment_s_complain"
+        android:label="Complain"
         tools:layout="@layout/fragment_s_complain" />
 </navigation>
