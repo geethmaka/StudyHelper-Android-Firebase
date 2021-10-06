@@ -90,8 +90,8 @@ public class UpdateCourse extends AppCompatActivity {
 
         deleteButton.setOnClickListener((View v) -> {
             AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
-            alertDialog.setTitle("hi");
-            alertDialog.setMessage("this is my app");
+            alertDialog.setTitle("Confirm Delete");
+            alertDialog.setMessage("Are you sure want to Delete?");
             alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) -> db.collection("courses").document(id)
                     .delete()
                     .addOnSuccessListener(aVoid -> {

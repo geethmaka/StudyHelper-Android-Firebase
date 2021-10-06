@@ -1,5 +1,6 @@
 package com.example.studyhelper_android_firebase.complain;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -49,7 +50,6 @@ public class Adapter_inactiveUsers extends RecyclerView.Adapter<Adapter_inactive
         User user = userArrayList.get(position);
 
         holder.username.setText(user.getUser().getUsername());
-        Log.w("username", user.getUser().getUsername());
         holder.type.setText(String.valueOf(user.getUser().getType()));
         holder.email.setText(user.getUser().getEmail());
 
@@ -58,14 +58,16 @@ public class Adapter_inactiveUsers extends RecyclerView.Adapter<Adapter_inactive
             alertDialog.setTitle("Delete User confirmation");
             alertDialog.setMessage("Do you want to Delete the User");
             alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) ->
-                    db.collection("users").document(user.getId()).delete()
+                    db.collection("users").document(user.getId())
+                            .delete()
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Toast.makeText(context.getApplicationContext(), "The user is Deleted Successfully!!!",Toast.LENGTH_LONG).show();
+                            Toast.makeText(context.getApplicationContext(), "User Removed Successfully!!!",Toast.LENGTH_LONG).show();
                             Intent i=new Intent(v.getContext(), InactiveUsers.class);
                             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             v.getContext().startActivity(i);
+                            ((Activity)context).finish();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

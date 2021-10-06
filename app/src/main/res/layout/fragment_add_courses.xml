@@ -18,26 +18,24 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
-            android:layout_width="370dp"
-            android:layout_height="680dp"
-            android:background="@color/white">
-
-            <!--<Switch
-                    android:id="@+id/addAvailability"
-                    android:layout_width="wrap_content"
-                    android:layout_height="152dp" />-->
-
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50sp"
+            android:layout_marginTop="50sp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:background="@drawable/bg_overview">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="62dp"
-                android:layout_marginTop="68dp"
+                android:layout_marginStart="75dp"
+                android:layout_marginTop="65dp"
                 android:text="@string/AddNewCourse"
                 android:textColor="@color/status_blue"
-                android:textSize="34sp" />
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/addButton"
@@ -47,21 +45,21 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="96dp"
-                android:layout_marginTop="525dp"
+                android:layout_marginTop="410dp"
                 android:text="Add"
 
                 />
 
             <EditText
                 android:id="@+id/addSubject"
-                android:layout_width="299dp"
+                android:layout_width="305dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="225dp"
-                android:layout_marginEnd="31dp"
+                android:layout_marginStart="34dp"
+                android:layout_marginTop="179dp"
+                android:layout_marginEnd="32dp"
                 android:hint="Subject"
                 android:inputType="text"
                 android:maxLines="1" />
@@ -72,8 +70,8 @@
                 android:layout_height="44dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="340dp"
+                android:layout_marginStart="71dp"
+                android:layout_marginTop="258dp"
                 android:entries="@array/StreamArray" />
 
             <Switch
@@ -82,9 +80,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="139dp"
-                android:layout_marginBottom="213dp"
-                android:text="Switch" />
+                android:layout_marginStart="132dp"
+                android:layout_marginBottom="267dp"
+                android:text="@string/Availability" />
 
 
         </RelativeLayout>

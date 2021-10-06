@@ -13,14 +13,25 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
+
 import com.example.studyhelper_android_firebase.R;
+import com.example.studyhelper_android_firebase.Teacher_popup_Pdf;
 import com.example.studyhelper_android_firebase.classes.ILink;
+import com.example.studyhelper_android_firebase.classes.Link;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 //create teacher link class
 public class Teacher_popup_Link extends Activity {
 
-    public boolean checkForEmpty(String subject,String title, Long date, String time,String link,String amPm) {
-        if ((!title.equals("") && (!date.equals("")) && (!amPm.equals(""))&&(!time.equals(""))&&(!link.equals("")) && (!subject.equals("")))) {
+    public boolean checkForEmpty(String title, String subject,String time,String link) {
+        if ((!title.equals("") && (!subject.equals("Subject"))&&(!time.equals(""))&&(!link.equals("")))) {
             return false;
         } else {
             return true;

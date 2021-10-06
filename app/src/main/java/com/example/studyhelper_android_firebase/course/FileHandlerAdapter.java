@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -85,7 +86,7 @@ public class FileHandlerAdapter extends RecyclerView.Adapter<FileHandlerAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        LinearLayout parentLayout;
+        CardView parentLayout;
         TextView myTextView;
         Button delete;
 

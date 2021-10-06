@@ -1,5 +1,6 @@
 package com.example.studyhelper_android_firebase.complain;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -26,6 +27,15 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 
 public class Adapter_newComplaint extends RecyclerView.Adapter<Adapter_newComplaint.ViewHolder> {
+    //Test case
+    public boolean checkForEmpty(String subject, String stream) {
+        if ((!subject.equals("") && (!stream.equals("Subject")))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     //creating an instance of the database
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Context context;
@@ -90,13 +100,13 @@ public class Adapter_newComplaint extends RecyclerView.Adapter<Adapter_newCompla
         //adding onclick function to the ban user button
         holder.btn_cResolve.setOnClickListener(v -> {
             DocumentReference complainRef = db.collection("complain").document(complain.getComplainId());
-
             complainRef.update("status", "Resolved")
                     .addOnSuccessListener(aVoid ->{
-                        Toast.makeText(context.getApplicationContext(), "Complaint Resolve Successful!!!",Toast.LENGTH_LONG).show();
+                        Toast.makeText(context.getApplicationContext(), "Complaint Marked Resolved Successful!!!",Toast.LENGTH_LONG).show();
                         Intent i=new Intent(this.context.getApplicationContext(), NewComplaint.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         this.context.startActivity(i);
+                        ((Activity)context).finish();
                     })
 
                     .addOnFailureListener(e ->{

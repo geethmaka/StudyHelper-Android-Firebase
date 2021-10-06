@@ -20,6 +20,7 @@
         <TextView
             style="@style/headerTextPrimary"
             android:layout_marginTop="@dimen/loginViewsMargin"
+            android:textSize="25dp"
             android:text="@string/teacher_details" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -30,6 +31,7 @@
                 android:id="@+id/name"
                 style="@style/modifiedEditText"
                 android:hint="Name"
+                android:textSize="18dp"
                 android:inputType="text"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -42,6 +44,7 @@
                 android:id="@+id/mobile"
                 style="@style/modifiedEditText"
                 android:hint="Mobile Number"
+                android:textSize="18dp"
                 android:inputType="text"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -55,6 +58,7 @@
                 style="@style/modifiedEditText"
                 android:hint="@string/login_email_hint"
                 android:inputType="textEmailAddress"
+                android:textSize="18dp"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 

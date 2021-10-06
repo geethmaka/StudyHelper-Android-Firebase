@@ -7,7 +7,6 @@ import android.view.View;
 import androidx.test.rule.ActivityTestRule;
 
 import com.example.studyhelper_android_firebase.R;
-import com.example.studyhelper_android_firebase.teacher.TeacherMainActivity;
 
 import org.junit.After;
 import org.junit.Before;
@@ -22,17 +21,15 @@ public class ComplainMainTest {
 
     @Before
     public void setUp() throws Exception {
-
         cpMainActivity=complainMain.getActivity();
     }
 
    @Test
     public void testLaunch(){
 
-       View view= cpMainActivity.findViewById(R.layout.fragment_ch_dashboard);
+       View view= cpMainActivity.findViewById(R.id.complainMain);
        assertNotNull(view);
     }
-
 
     @After
     public void tearDown() throws Exception {

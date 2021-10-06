@@ -1,5 +1,7 @@
 package com.example.studyhelper_android_firebase.complain;
 
+import static java.lang.Math.floor;
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -18,12 +20,15 @@ import android.widget.TextView;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Complain;
+import com.example.studyhelper_android_firebase.classes.Course;
+import com.example.studyhelper_android_firebase.course.RecyclerViewAdapter;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -62,6 +67,8 @@ public class CH_Dashboard extends Fragment {
         Context current = this.getContext();
         showprogress();
 
+        Cal cal = new Cal();
+
         /*
         displaying the overview
          */
@@ -72,15 +79,69 @@ public class CH_Dashboard extends Fragment {
         per_pending = root.findViewById(R.id.tv_pending_perc);
         per_resolved = root.findViewById(R.id.tv_resolved_perc);
 
-        pd_pending.setProgress(20);
-        pd_resolved.setProgress(100);
+        db.collection("complain")
+                .get()
+                .addOnCompleteListener(task -> {
+                    int total = 0;
+                    if (task.isSuccessful()) {
+                        for(QueryDocumentSnapshot dc : task.getResult()){
+                            Complain c = dc.toObject(Complain.class);
+                            total ++;
+                        }
+                        String stringtot = String.valueOf(total);
 
-//        int pending = getCount("Pending");
-//        int resolved = getCount("Resolved");
-//        getCount("Resolved");
-//        getCount("Pending");
-//        Log.d("count", String.valueOf(getCount("Pending")));
-//        Log.d("count", String.valueOf(getCount("Resolved")));
+                        db.collection("complain")
+                                .get()
+                                .addOnCompleteListener(task1 -> {
+                                    int pending = 0;
+                                    if (task.isSuccessful()) {
+                                        for(QueryDocumentSnapshot dc : task.getResult()){
+                                            Complain c = dc.toObject(Complain.class);
+                                            if (c.getStatus().equals("Pending")) {
+                                                pending ++;
+                                            }
+                                        }
+                                        //taking the pending percentage
+                                        int finalTotal = Integer.parseInt(stringtot);
+
+                                        //getting the percentage value
+                                        int p_per = cal.getPercentage(pending,finalTotal);
+
+                                        per_pending.setText(String.valueOf(p_per));
+                                        pd_pending.setProgress(p_per);
+                                    } else {
+                                        Log.d("TAG", "Error getting documents: ", task1.getException());
+                                    }
+                                });
+
+                        db.collection("complain")
+                                .get()
+                                .addOnCompleteListener(task2 -> {
+                                    int resolved = 0;
+                                    if (task.isSuccessful()) {
+                                        for(QueryDocumentSnapshot dc : task.getResult()){
+                                            Complain c = dc.toObject(Complain.class);
+                                            if (c.getStatus().equals("Resolved")) {
+                                                resolved ++;
+                                            }
+                                        }
+                                        //getting the resolved complaint percentage
+                                        int finalTotal = Integer.parseInt(stringtot);
+
+                                        //getting the percentage value
+                                        int r_per = cal.getPercentage(resolved,finalTotal);
+
+                                        per_resolved.setText(String.valueOf(r_per));
+                                        pd_resolved.setProgress(r_per);
+                                    } else {
+                                        Log.d("TAG", "Error getting documents: ", task2.getException());
+                                    }
+                                });
+
+                    } else {
+                        Log.d("TAG", "Error getting documents: ", task.getException());
+                    }
+                });
 
 
         //defining the variables;
@@ -143,7 +204,6 @@ public class CH_Dashboard extends Fragment {
 //                        for (DocumentSnapshot dc : task.getResult()) {
 //                            Complain c = dc.toObject(Complain.class);
 //                            if (c.getStatus().equals(type)) {
-////                            complainArrayList.add(c);
 //                                count ++;
 //                            }
 //                        }
