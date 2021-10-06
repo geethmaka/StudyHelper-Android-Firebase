@@ -12,9 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.studyhelper_android_firebase.classes.iUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -22,12 +20,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class Register extends AppCompatActivity {
 
     //UI Views
-    EditText reg_name, reg_mn, reg_email, reg_pw;
+    EditText reg_name,reg_mn,reg_email,reg_pw;
     Spinner reg_Stream, reg_type;
     Button reg_btn;
 
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-    ;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();;
 
     iUser user;
 
@@ -58,28 +55,36 @@ public class Register extends AppCompatActivity {
             if (TextUtils.isEmpty(reg_name.getText().toString())) {
                 Toast.makeText(this, "Enter Name...", Toast.LENGTH_SHORT).show();
                 return;
-            } else if (TextUtils.isEmpty(reg_type.getSelectedItem().toString())) {
+            }
+            else if (TextUtils.isEmpty(reg_type.getSelectedItem().toString())) {
                 Toast.makeText(this, "Enter Steam Name...", Toast.LENGTH_SHORT).show();
                 return;
-            } else if (TextUtils.isEmpty(reg_Stream.getSelectedItem().toString())) {
+            }
+            else if (TextUtils.isEmpty(reg_Stream.getSelectedItem().toString())) {
                 Toast.makeText(this, "Enter Steam Name...", Toast.LENGTH_SHORT).show();
                 return;
-            } else if (TextUtils.isEmpty(reg_mn.getText().toString())) {
+            }
+            else if (TextUtils.isEmpty(reg_mn.getText().toString())) {
                 Toast.makeText(this, "Enter Phone Number...", Toast.LENGTH_SHORT).show();
                 return;
-            } else if (!Patterns.EMAIL_ADDRESS.matcher(reg_email.getText().toString()).matches()) {
+            }
+            else if (!Patterns.EMAIL_ADDRESS.matcher(reg_email.getText().toString()).matches()) {
                 Toast.makeText(this, "Invalid Email Address...", Toast.LENGTH_SHORT).show();
                 return;
-            } else if (TextUtils.isEmpty(reg_email.getText().toString())) {
+            }
+            else if (TextUtils.isEmpty(reg_email.getText().toString())) {
                 Toast.makeText(this, "Enter the email Address...", Toast.LENGTH_SHORT).show();
                 return;
-            } else if (reg_pw.getText().toString().length() < 6) {
+            }
+            else if (reg_pw.getText().toString().length() < 6) {
                 Toast.makeText(this, "Password must be at least 6 characters long...", Toast.LENGTH_SHORT).show();
                 return;
-            } else if (TextUtils.isEmpty(reg_pw.getText().toString())) {
+            }
+            else if (TextUtils.isEmpty(reg_pw.getText().toString())) {
                 Toast.makeText(this, "Enter Password...", Toast.LENGTH_SHORT).show();
                 return;
-            } else {
+            }
+            else {
                 //take inputs from the user and then to this instance (user) of the User.
                 user = new iUser(
                         reg_name.getText().toString().trim(),
@@ -94,7 +99,7 @@ public class Register extends AppCompatActivity {
                 db.collection("users")
                         .add(user)
                         .addOnSuccessListener(documentReference -> {
-                            Toast.makeText(getApplicationContext(), "Successfully Registered!!!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"Successfully Registered!!!",Toast.LENGTH_LONG).show();
                             Intent i = new Intent(this, Login.class);
                             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             this.startActivity(i);

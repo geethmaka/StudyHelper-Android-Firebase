@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Course;
 import com.example.studyhelper_android_firebase.classes.Pdf;
+import com.example.studyhelper_android_firebase.course.RecyclerViewAdapter;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 

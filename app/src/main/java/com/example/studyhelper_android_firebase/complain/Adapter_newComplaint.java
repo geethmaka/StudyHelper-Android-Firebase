@@ -17,6 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Complain;
 import com.example.studyhelper_android_firebase.classes.User;
+import com.example.studyhelper_android_firebase.course.UpdateCourse;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -24,6 +27,15 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 
 public class Adapter_newComplaint extends RecyclerView.Adapter<Adapter_newComplaint.ViewHolder> {
+    //Test case
+    public boolean checkForEmpty(String subject, String stream) {
+        if ((!subject.equals("") && (!stream.equals("Subject")))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     //creating an instance of the database
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Context context;
@@ -88,19 +100,18 @@ public class Adapter_newComplaint extends RecyclerView.Adapter<Adapter_newCompla
         //adding onclick function to the ban user button
         holder.btn_cResolve.setOnClickListener(v -> {
             DocumentReference complainRef = db.collection("complain").document(complain.getComplainId());
-
             complainRef.update("status", "Resolved")
-                    .addOnSuccessListener(aVoid -> {
-                        Toast.makeText(context.getApplicationContext(), "Complaint Resolve Successful!!!", Toast.LENGTH_LONG).show();
-                        Intent i = new Intent(this.context.getApplicationContext(), NewComplaint.class);
+                    .addOnSuccessListener(aVoid ->{
+                        Toast.makeText(context.getApplicationContext(), "Complaint Marked Resolved Successful!!!",Toast.LENGTH_LONG).show();
+                        Intent i=new Intent(this.context.getApplicationContext(), NewComplaint.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         this.context.startActivity(i);
-                        ((Activity) context).finish();
+                        ((Activity)context).finish();
                     })
 
-                    .addOnFailureListener(e -> {
+                    .addOnFailureListener(e ->{
                         Log.w("TAG", "Error updating status", e);
-                        Toast.makeText(context.getApplicationContext(), "Error!!!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(context.getApplicationContext(), "Error!!!",Toast.LENGTH_LONG).show();
                     });
         });
     }

@@ -25,7 +25,8 @@
         android:orientation="vertical">
 
 
-        <include layout="@layout/teacher_details" />
+        <include
+            layout="@layout/teacher_details"/>
 
     </LinearLayout>
 
@@ -45,6 +46,7 @@
             android:layout_height="49dp" />
 
     </LinearLayout>
+
 
 
 </RelativeLayout>

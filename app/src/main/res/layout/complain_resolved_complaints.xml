@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".complain.CH_ComplainMenu">
+    tools:context=".complain.ResolvedComplaints"
+    android:id="@+id/resolved_complaints">
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,7 +18,7 @@
         android:textSize="24sp"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RVresolvedComplaints"

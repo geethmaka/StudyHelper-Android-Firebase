@@ -1,12 +1,17 @@
 package com.example.studyhelper_android_firebase.course;
 
 import com.example.studyhelper_android_firebase.R;
+import com.example.studyhelper_android_firebase.classes.Course;
 import com.example.studyhelper_android_firebase.classes.Pdf;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -62,6 +68,7 @@ public class FileHandlerAdapter extends RecyclerView.Adapter<FileHandlerAdapter.
             Toast.makeText(view.getContext(), desertRef.getPath(), Toast.LENGTH_SHORT).show();
 
 
+
 // Delete the file
             desertRef.delete().addOnSuccessListener(aVoid -> {
                 db.collection("pdf").document(id)
@@ -79,7 +86,7 @@ public class FileHandlerAdapter extends RecyclerView.Adapter<FileHandlerAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        LinearLayout parentLayout;
+        CardView parentLayout;
         TextView myTextView;
         Button delete;
 

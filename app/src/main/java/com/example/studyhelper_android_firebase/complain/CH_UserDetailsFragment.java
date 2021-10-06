@@ -67,7 +67,7 @@ public class CH_UserDetailsFragment extends Fragment {
         //initialize the array list
         userArrayList = new ArrayList<User>();
         //initialize the adapter
-        userAdapter = new Adapter_activeUser(this.getContext(), userArrayList);
+        userAdapter = new Adapter_activeUser(this.getContext(),userArrayList);
         recyclerView.setAdapter(userAdapter);
 
         EventChangeListener();
@@ -79,24 +79,24 @@ public class CH_UserDetailsFragment extends Fragment {
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                        if (error != null) {
+                        if(error != null) {
                             //dismiss progress dialog
-                            if (progressDialog.isShowing())
+                            if(progressDialog.isShowing())
                                 progressDialog.dismiss();
-                            Log.e("Firestore Error", error.getMessage());
+                            Log.e("Firestore Error",error.getMessage());
                             return;
                         }
 
                         //fetching the data from the firestore database
-                        for (DocumentChange dc : value.getDocumentChanges()) {
-                            if (dc.getType() == DocumentChange.Type.ADDED) {
+                        for(DocumentChange dc : value.getDocumentChanges()){
+                            if(dc.getType() == DocumentChange.Type.ADDED) {
                                 User n = new User(dc.getDocument().getId(), dc.getDocument().toObject(User.class));
                                 //get the status through if condition
                                 userArrayList.add(n);
                             }
                             userAdapter.notifyDataSetChanged();
                             //dismiss progress dialog
-                            if (progressDialog.isShowing())
+                            if(progressDialog.isShowing())
                                 progressDialog.dismiss();
                         }
 

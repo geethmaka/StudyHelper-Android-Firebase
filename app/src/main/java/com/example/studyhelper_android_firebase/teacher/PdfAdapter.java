@@ -26,9 +26,9 @@ import java.util.ArrayList;
 public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.PdfViewHolder> {
 
     Context context;
-    ArrayList<Pdf> pdfArrayList;
+    ArrayList<Pdf>pdfArrayList;
 
-    public PdfAdapter(ArrayList<Pdf> pdfArrayList, Context context) {
+    public PdfAdapter(ArrayList<Pdf> pdfArrayList,Context context ) {
         this.context = context;
         this.pdfArrayList = pdfArrayList;
     }
@@ -37,7 +37,7 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.PdfViewHolder> {
     @Override
     public PdfViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(context).inflate(R.layout.teacher_pdf_row, parent, false);
+        View v= LayoutInflater.from(context).inflate(R.layout.teacher_pdf_row,parent, false);
 
 
         return new PdfViewHolder(v);
@@ -68,22 +68,24 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.PdfViewHolder> {
             Toast.makeText(v.getContext(), desertRef.getPath(), Toast.LENGTH_SHORT).show();
 
 
+
 // Delete the file
             desertRef.delete().addOnSuccessListener(aVoid -> db.collection("pdf").document(id)
                     .delete()).addOnFailureListener(exception -> Log.d("err", String.valueOf(exception)));
-            ((Activity) context).finish();
+            ((Activity)context).finish();
         });
     }
-
     @Override
     public int getItemCount() {
         return pdfArrayList.size();
     }
 
-    public static class PdfViewHolder extends RecyclerView.ViewHolder {
+    public static class PdfViewHolder extends RecyclerView.ViewHolder{
         TextView subject;
-        EditText Title, pdf;
+        EditText Title,pdf;
         ImageButton deletePdf;
+
+
 
 
         public PdfViewHolder(@NonNull View itemView) {
@@ -91,7 +93,7 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.PdfViewHolder> {
             subject = itemView.findViewById(R.id.pdf1);
             Title = itemView.findViewById(R.id.editpdf);
             pdf = itemView.findViewById(R.id.updatepdf);
-            deletePdf = itemView.findViewById(R.id.delete);
+            deletePdf=itemView.findViewById(R.id.delete);
 //            TextView btn_banUser = itemView.findViewById(R.id.btn_banUser);
         }
     }

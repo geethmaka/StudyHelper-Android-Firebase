@@ -32,7 +32,7 @@ public class Adapter_Dash extends RecyclerView.Adapter<Adapter_Dash.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_dashboard, parent, false);
+        View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_dashboard,parent,false);
         return new ViewHolder(v);
     }
 

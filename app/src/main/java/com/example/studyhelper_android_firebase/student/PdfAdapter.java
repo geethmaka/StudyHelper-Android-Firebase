@@ -1,21 +1,20 @@
 package com.example.studyhelper_android_firebase.student;
 
 import com.example.studyhelper_android_firebase.R;
+import com.example.studyhelper_android_firebase.classes.Course;
 import com.example.studyhelper_android_firebase.classes.Pdf;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -28,7 +27,7 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
     private Context mContext;
 
     public PdfAdapter(ArrayList<Pdf> courses, Context mContext) {
-        this.pdfList = courses;
+        this.pdfList= courses;
         this.mInflater = LayoutInflater.from(mContext);
         this.mContext = mContext;
     }
@@ -45,17 +44,14 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull PdfAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         //loading data
-        FirebaseStorage storage = FirebaseStorage.getInstance();
 
-//        String subject = courseList.get(position).getCourse().getSubject();
+        String subject = pdfList.get(position).getObj().getTitle();
 //        String Cid = courseList.get(position).getId();
 
-        Pdf pdf = pdfList.get(position);
+        holder.myTextView.setText(subject);
 
-        holder.myTextView.setText(pdf.getObj().getTitle());
+        holder.parentLayout.setOnClickListener(view -> {
 
-        holder.download.setOnClickListener(view -> {
-            StorageReference httpsReference = storage.getReferenceFromUrl(pdf.getObj().getPdf());
         });
     }
 
@@ -65,16 +61,14 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        LinearLayout parentLayout;
+        CardView parentLayout;
         TextView myTextView;
-        Button download;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             myTextView = itemView.findViewById(R.id.pdfTitle);
             parentLayout = itemView.findViewById(R.id.studentPdfLayout);
-            download = itemView.findViewById(R.id.button3);
         }
     }
 }

@@ -3,10 +3,13 @@ package com.example.studyhelper_android_firebase.course;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.test.rule.ActivityTestRule;
 
+import com.example.studyhelper_android_firebase.Login;
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.ICourse;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -20,8 +23,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.Toast;
+
+import org.junit.Before;
+import org.junit.Rule;
 
 public class UpdateCourse extends AppCompatActivity {
+
+    public boolean checkForEmpty(String subject, String stream) {
+        if ((!subject.equals("") && (!stream.equals("Subject")))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,22 +73,25 @@ public class UpdateCourse extends AppCompatActivity {
 
         updateButton.setOnClickListener((View v) -> {
             DocumentReference washingtonRef = db.collection("courses").document(id);
-
-            washingtonRef
-                    .update("subject", subject.getText().toString(), "stream", stream.getSelectedItem().toString(), "availability", availability.isChecked())
-                    .addOnSuccessListener(aVoid -> Log.d("TAG", "DocumentSnapshot successfully updated!"))
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w("TAG", "Error updating document", e);
-                        }
-                    });
+            if (!checkForEmpty(subject.getText().toString(), stream.getSelectedItem().toString())) {
+                washingtonRef
+                        .update("subject", subject.getText().toString(), "stream", stream.getSelectedItem().toString(), "availability", availability.isChecked())
+                        .addOnSuccessListener(aVoid -> Log.d("TAG", "DocumentSnapshot successfully updated!"))
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w("TAG", "Error updating document", e);
+                            }
+                        });
+            }else{
+                Toast.makeText(this, "Please fill all the fields!", Toast.LENGTH_SHORT).show();
+            }
         });
 
         deleteButton.setOnClickListener((View v) -> {
             AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
-            alertDialog.setTitle("hi");
-            alertDialog.setMessage("this is my app");
+            alertDialog.setTitle("Confirm Delete");
+            alertDialog.setMessage("Are you sure want to Delete?");
             alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) -> db.collection("courses").document(id)
                     .delete()
                     .addOnSuccessListener(aVoid -> {

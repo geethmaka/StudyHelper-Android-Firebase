@@ -15,6 +15,7 @@ import com.example.studyhelper_android_firebase.classes.Complain;
 import com.example.studyhelper_android_firebase.complain.Adapter_newComplaint;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
 
@@ -27,7 +28,7 @@ public class Added_complain_T extends AppCompatActivity {
     ArrayList<Complain> complainArrayList;
     Adapter_newComplaint complainAdapter;
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-    String id = preferences.getString("uid", "");
+    String id =preferences.getString("uid","");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,7 @@ public class Added_complain_T extends AppCompatActivity {
         //initialize the array list
         complainArrayList = new ArrayList<Complain>();
         //initialize the adapter
-        complainAdapter = new Adapter_newComplaint(this, complainArrayList);
+        complainAdapter = new Adapter_newComplaint(this,complainArrayList);
         recyclerView.setAdapter(complainAdapter);
 
         EventChangeListener();
@@ -57,24 +58,24 @@ public class Added_complain_T extends AppCompatActivity {
 
         db.collection("complain")
                 .addSnapshotListener((value, error) -> {
-                    if (error != null) {
+                    if(error != null) {
                         //dismiss progress dialog
-                        if (progressDialog.isShowing())
+                        if(progressDialog.isShowing())
                             progressDialog.dismiss();
-                        Log.e("Firestore Error", error.getMessage());
+                        Log.e("Firestore Error",error.getMessage());
                         return;
                     }
                     //fetching the data from the firestore database
-                    for (DocumentChange dc : value.getDocumentChanges()) {
-                        if (dc.getType() == DocumentChange.Type.ADDED) {
-                            Complain c = new Complain(dc.getDocument().getId(), dc.getDocument().toObject(Complain.class));
-                            if (c.getComplain().getUserID().equals(id)) {
+                    for(DocumentChange dc : value.getDocumentChanges()){
+                        if(dc.getType() == DocumentChange.Type.ADDED) {
+                            Complain c = new Complain(dc.getDocument().getId(),dc.getDocument().toObject(Complain.class));
+                            if(c.getComplain().getUserID().equals(id)) {
                                 complainArrayList.add(c);
                             }
                         }
                         complainAdapter.notifyDataSetChanged();
                         //dismiss progress dialog
-                        if (progressDialog.isShowing())
+                        if(progressDialog.isShowing())
                             progressDialog.dismiss();
                     }
 
