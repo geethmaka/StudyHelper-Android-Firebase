@@ -63,7 +63,9 @@ public class T_complains extends Fragment {
 
         //getting the user id from the shared preference
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
-        String id =preferences.getString("uid","l");
+        String id =preferences.getString("uid","");
+        String email =preferences.getString("email","");
+        Log.d("email",email);
         String type = cType.getSelectedItem().toString();
 //        String content = message.getText().toString();
         String date = sdf.format(currentTime).toString();
@@ -89,7 +91,7 @@ public class T_complains extends Fragment {
                         db.collection("complain")
                                 .add(c)
                                 .addOnSuccessListener(documentReference -> {
-                                    services.sendMail(id);
+                                    services.sendMail(email,"Study-Helper Complaint Confirmation","Complain added");
                                     Toast.makeText(mContext, "Complaint Added Successfully!!!", Toast.LENGTH_LONG).show();
                                     Intent i = new Intent(v.getContext(), Student_complaint.class);
                                     i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
