@@ -27,7 +27,7 @@ public class Teacher_popup_LinkTest {
     }
 
     @Test
-    public void testUpdate() throws Throwable {
+    public void testUploadLink() throws Throwable {
         Intent intent = new Intent();
         intent.putExtra("uid", "VUORF7G4KHXZNcsX6W7Q");
 

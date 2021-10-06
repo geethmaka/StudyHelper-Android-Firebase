@@ -1,15 +1,6 @@
 package com.example.studyhelper_android_firebase;
 
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -27,22 +18,29 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.studyhelper_android_firebase.classes.IPdf;
-import com.example.studyhelper_android_firebase.classes.Pdf;
-
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
-
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.OnProgressListener;
-import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
-
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 //creating teacher pdf class
 public class Teacher_popup_Pdf extends AppCompatActivity {
+
+    public boolean checkForEmpty(String title, String subject,String notify) {
+        if ((!title.equals("") && (!subject.equals("Subject"))&&(!notify.equals("")))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     TextView notifyPdf;
     FirebaseStorage storage;

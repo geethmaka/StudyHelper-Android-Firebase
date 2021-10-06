@@ -1,25 +1,21 @@
 package com.example.studyhelper_android_firebase.course;
 
 
-import androidx.annotation.NonNull;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-
+import com.example.studyhelper_android_firebase.Login;
 import com.example.studyhelper_android_firebase.R;
-import com.example.studyhelper_android_firebase.classes.Course;
-import com.example.studyhelper_android_firebase.classes.User;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class Course_manager_home extends AppCompatActivity {
@@ -37,4 +33,31 @@ public class Course_manager_home extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, course_navController);
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.ch_options, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.Logout:
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void logout(MenuItem item) {
+        SharedPreferences myPrefs = getSharedPreferences("uid", MODE_PRIVATE);
+        SharedPreferences.Editor editor = myPrefs.edit();
+        editor.clear();
+        editor.commit();
+        Intent i = new Intent(this, Login.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        this.startActivity(i);
+        finish();
+    }
+
 }
