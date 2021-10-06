@@ -3,25 +3,20 @@ package com.example.studyhelper_android_firebase.teacher;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Link;
 import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -66,6 +61,7 @@ public class Links_added extends Fragment {
     RecyclerView recyclerView;
     ArrayList<Link> linkArrayList;
     LinkAdapter linkAdapter;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

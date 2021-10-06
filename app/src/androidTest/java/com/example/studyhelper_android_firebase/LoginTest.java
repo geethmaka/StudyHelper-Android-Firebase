@@ -26,6 +26,11 @@ public class LoginTest {
     }
 
     @Test
+    public void loadLogin(){
+        View view = lActivity.findViewById(R.id.loginLayout);
+        assertNotNull("Login Loaded",view);
+    }
+    @Test
     public void testLaunch() {
         lActivity.runOnUiThread(() -> {
             View view = lActivity.findViewById(R.id.loginLayout);
@@ -35,7 +40,7 @@ public class LoginTest {
             pass.setText("c");
             Button loginBtn = view.findViewById(R.id.cirLoginButton);
             loginBtn.performClick();
-            assertTrue(lActivity.isCurUserLoggedIn());
+            assertFalse(lActivity.isCurUserLoggedIn());
         });
     }
 

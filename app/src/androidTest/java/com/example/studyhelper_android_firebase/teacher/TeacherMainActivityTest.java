@@ -2,6 +2,7 @@ package com.example.studyhelper_android_firebase.teacher;
 
 import static org.junit.Assert.*;
 
+import android.content.Intent;
 import android.view.View;
 
 import androidx.test.rule.ActivityTestRule;
@@ -18,23 +19,23 @@ import org.junit.Test;
 public class TeacherMainActivityTest {
 
     @Rule
-    public ActivityTestRule<TeacherMainActivity> teacherMainActivity=new ActivityTestRule<TeacherMainActivity>(TeacherMainActivity.class);
-    public ActivityTestRule<Login> loginActivity=new ActivityTestRule<Login>(Login.class);
+    public ActivityTestRule<TeacherMainActivity> teacherMainActivity=new ActivityTestRule<TeacherMainActivity>(TeacherMainActivity.class,true, false);
     private  TeacherMainActivity tMainActivity = null;
-    private Login lActivity=null;
 
     @Before
     public void setUp() throws Exception {
         tMainActivity = teacherMainActivity.getActivity();
-        lActivity = loginActivity.getActivity();
-
         }
 
     @Test
     public  void  testLaunch(){
 
-        View view= tMainActivity.findViewById(R.layout.teacher_details);
-        assertNotNull(view);
+        Intent intent = new Intent();
+        teacherMainActivity.launchActivity(intent).runOnUiThread(() -> {
+                    View view = teacherMainActivity.getActivity().findViewById(R.id.tmbottomNav);
+                    assertNotNull(view);
+                }
+        );
     }
     @After
     public void tearDown() throws Exception {

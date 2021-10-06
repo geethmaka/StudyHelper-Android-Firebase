@@ -12,21 +12,30 @@ import com.example.studyhelper_android_firebase.R;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 public class Course_manager_homeTest {
+    @Rule
     public ActivityTestRule<Course_manager_home> courseTest = new ActivityTestRule<Course_manager_home>(Course_manager_home.class);
     private Course_manager_home activity = null;
+
     @Before
     public void setUp() throws Exception {
-        activity= courseTest.getActivity();
+        activity = courseTest.getActivity();
     }
 
     @Test
-    public void testLaunch(){
-View view = activity.findViewById(R.layout.course_manager_home);
-assertNotNull(view);
+    public void testLaunch() {
+        View view = activity.findViewById(R.layout.course_manager_home);
+        assertNotNull(view);
     }
+
+    @Test
+    public void dataLoadedTest() {
+//        assertNotNull(courseTest.getActivity().);
+    }
+
     @After
     public void tearDown() throws Exception {
     }
