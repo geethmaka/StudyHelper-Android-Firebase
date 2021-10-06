@@ -15,6 +15,8 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+
+import com.example.studyhelper_android_firebase.ComTest;
 import com.example.studyhelper_android_firebase.R;
 import android.util.Log;
 import android.widget.Toast;
@@ -86,9 +88,11 @@ public class SComplainFragment extends Fragment {
         Context mContext = getContext();
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+        ComTest isnull = new ComTest();
         Button uploadButton = root.findViewById(R.id.scomplaintadd);
 
         Spinner cType =  root.findViewById(R.id.stype);
+        //get the content of the message
         EditText message = root.findViewById(R.id.smassage);
 
         Date currentTime = Calendar.getInstance().getTime();
@@ -98,32 +102,38 @@ public class SComplainFragment extends Fragment {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
         String id =preferences.getString("uid","");
 
-        if(message.getText() == null){
-            Toast.makeText(mContext,"Please Enter a complaint",Toast.LENGTH_LONG).show();
-        }
-        else {
-            uploadButton.setOnClickListener((View v) -> {
+        //inserting the complaint to the database
+        uploadButton.setOnClickListener((View v) -> {
+            String content = String.valueOf(message.getText());
+            //if the content is null is the message
+            if(!isnull.nullContent(content)){
+                Toast.makeText(mContext,"Please Enter a complaint",Toast.LENGTH_LONG).show();
+            }
+            else {
                 IComplain c = new IComplain(id, cType.getSelectedItem().toString(), "Pending", sdf.format(currentTime).toString(), message.getText().toString());
+                //prompting an confirmation dialog box
                 AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
                 alertDialog.setTitle("Delete User confirmation");
                 alertDialog.setMessage("Do you want to Delete the User");
-                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) ->
-                db.collection("complain")
-                        .add(c)
-                        .addOnSuccessListener(documentReference -> {
-                            Toast.makeText(root.getContext().getApplicationContext(), "Complaint Added Successfully!!!", Toast.LENGTH_LONG).show();
-                            Intent i = new Intent(v.getContext(), SComplainFragment.class);
-                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            v.getContext().startActivity(i);
-                        })
-                        .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e)));
-                alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id1) -> dialog.dismiss());
+                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) ->
+                        //adding the complaint to the database
+                        db.collection("complain")
+                                .add(c)
+                                .addOnSuccessListener(documentReference -> {
+                                    Toast.makeText(root.getContext().getApplicationContext(), "Complaint Added Successfully!!!", Toast.LENGTH_LONG).show();
+                                    Intent i = new Intent(v.getContext(), Student_complaint.class);
+                                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    v.getContext().startActivity(i);
+                                })
+                                .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e)));
+                //if "NO" is selected
+                alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "No", (dialog, id1) -> dialog.dismiss());
                 alertDialog.show();
-            });
-        }
+            }
+        });
 
+        //redirect to scomplain activity
         Button scomplains = root.findViewById(R.id.scomplains);
-
         scomplains.setOnClickListener(view -> {
             Intent i = new Intent(mContext, Student_complaint.class);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

@@ -50,7 +50,6 @@ public class Adapter_inactiveUsers extends RecyclerView.Adapter<Adapter_inactive
         User user = userArrayList.get(position);
 
         holder.username.setText(user.getUser().getUsername());
-        Log.w("username", user.getUser().getUsername());
         holder.type.setText(String.valueOf(user.getUser().getType()));
         holder.email.setText(user.getUser().getEmail());
 
