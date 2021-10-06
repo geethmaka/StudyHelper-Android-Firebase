@@ -73,34 +73,24 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
                 });
         //select pdf button function
         selectPdf.setOnClickListener(v -> {
-
             if(ContextCompat.checkSelfPermission(Teacher_popup_Pdf.this, Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
 
                 Intent intent = new Intent();
                 intent.setType("application/pdf");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 someActivityResultLauncher.launch(intent);
-
             }
             else
                 ActivityCompat.requestPermissions(Teacher_popup_Pdf.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},9);
-
         });
 
         uploadButton.setOnClickListener((View v) -> {
-
-
             if (pdfUri!=null){
-
                 uploadPdf(pdfUri);
-
-
-
             }
             else
                 Toast.makeText(Teacher_popup_Pdf.this,"Select a pdf",Toast.LENGTH_SHORT).show();
         });
-
     }
 
     private void uploadPdf(Uri pdfUri) {

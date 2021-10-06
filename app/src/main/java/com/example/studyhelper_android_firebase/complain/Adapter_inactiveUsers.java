@@ -59,7 +59,8 @@ public class Adapter_inactiveUsers extends RecyclerView.Adapter<Adapter_inactive
             alertDialog.setTitle("Delete User confirmation");
             alertDialog.setMessage("Do you want to Delete the User");
             alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) ->
-                    db.collection("users").document(user.getId()).delete()
+                    db.collection("users").document(user.getId())
+                            .delete()
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {

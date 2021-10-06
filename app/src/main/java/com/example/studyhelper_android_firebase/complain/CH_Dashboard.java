@@ -110,14 +110,12 @@ public class CH_Dashboard extends Fragment {
                                                 pending ++;
                                             }
                                         }
-                                        per_pending.setText(String.valueOf(pending));
-                                        pd_resolved.setProgress(pending);
-                                        Log.d("total", String.valueOf(pending));
+                                        //taking the pending percentage
                                         int finalTotal = Integer.parseInt(stringtot);
-                                        Log.d("finaltotal", String.valueOf(finalTotal));
-                                        double perc;
-                                        perc = (pending/finalTotal)*100;
-                                        Log.d("perc", String.valueOf(perc));
+                                        int p_per =  Math.round((float)pending / finalTotal*100);
+                                        per_pending.setText(String.valueOf(p_per));
+                                        Log.d("per",String.valueOf(p_per));
+                                        pd_pending.setProgress(p_per);
                                     } else {
                                         Log.d("TAG", "Error getting documents: ", task1.getException());
                                     }
@@ -134,11 +132,11 @@ public class CH_Dashboard extends Fragment {
                                                 resolved ++;
                                             }
                                         }
-                                        per_resolved.setText(String.valueOf(resolved));
-                                        pd_pending.setProgress(resolved);
-//                                        Log.d("total", String.valueOf(resolved));
+                                        //getting the resolved complaint percentage
                                         int finalTotal = Integer.parseInt(stringtot);
-//                                        Log.d("finaltotal", String.valueOf(finalTotal));
+                                        int r_per =  Math.round((float)resolved / finalTotal*100);
+                                        per_resolved.setText(String.valueOf(r_per));
+                                        pd_resolved.setProgress(r_per);
                                     } else {
                                         Log.d("TAG", "Error getting documents: ", task2.getException());
                                     }
