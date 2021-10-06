@@ -46,14 +46,16 @@ public class StudentLinkAdapter extends RecyclerView.Adapter<StudentLinkAdapter.
     public void onBindViewHolder(@NonNull StudentLinkAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         //loading data
 
-//        String subject = courseList.get(position).getCourse().getSubject();
-//        String Cid = courseList.get(position).getId();
+        String subject = linkList.get(position).getObj().getTitle();
+//       String Cid = linkList.get(position).getId();
 
-//        holder.myTextView.setText(subject);
+       holder.linktitle.setText(subject);
 
-        holder.parentLayout.setOnClickListener(view -> {
+       holder.parentLayout.setOnClickListener(view -> {
 
         });
+
+
     }
 
     @Override
@@ -63,12 +65,18 @@ public class StudentLinkAdapter extends RecyclerView.Adapter<StudentLinkAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         CardView parentLayout;
-        TextView myTextView;
+        TextView linktitle;
+        TextView linksubject;
+        TextView linklink;
+        TextView linkdate;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            myTextView = itemView.findViewById(R.id.linkTitle);
+            linktitle = itemView.findViewById(R.id.linkTitle);
+            linksubject = itemView.findViewById(R.id.linksubject);
+            linklink = itemView.findViewById(R.id.linklink);
+            linkdate = itemView.findViewById(R.id.linkdate);
             parentLayout = itemView.findViewById(R.id.studentLinkLayout);
         }
     }

@@ -85,9 +85,6 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.PdfViewHolder> {
         EditText Title,pdf;
         ImageButton deletePdf;
 
-
-
-
         public PdfViewHolder(@NonNull View itemView) {
             super(itemView);
             subject = itemView.findViewById(R.id.pdf1);
