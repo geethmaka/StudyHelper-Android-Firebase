@@ -47,6 +47,17 @@ public class Teacher_popup_LinkTest {
 
     }
 
+    @Test
+    public void testLaunch() {
+        Intent intent = new Intent();
+        intent.putExtra("uid", "VUORF7G4KHXZNcsX6W7Q");
+
+        linkActivity.launchActivity(intent).runOnUiThread(() -> {
+                    View view = linkActivity.getActivity().findViewById(R.id.link_heading);
+                    assertNotNull(view);
+                }
+        );
+    }
     @After
     public void tearDown() throws Exception {
 

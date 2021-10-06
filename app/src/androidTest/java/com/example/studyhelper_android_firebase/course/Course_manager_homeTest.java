@@ -12,9 +12,11 @@ import com.example.studyhelper_android_firebase.R;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 public class Course_manager_homeTest {
+    @Rule
     public ActivityTestRule<Course_manager_home> courseTest = new ActivityTestRule<Course_manager_home>(Course_manager_home.class);
     private Course_manager_home activity = null;
 
