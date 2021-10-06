@@ -21,6 +21,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.studyhelper_android_firebase.ComTest;
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.IComplain;
 import com.example.studyhelper_android_firebase.complain.InactiveUsers;
@@ -49,6 +50,7 @@ public class T_complains extends Fragment {
         Context mContext = getContext();
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+        ComTest isnull = new ComTest();
         Button submit = root.findViewById(R.id.scomplaintadd);
         Button scomplains = root.findViewById(R.id.scomplains);
 
@@ -65,34 +67,40 @@ public class T_complains extends Fragment {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
         String id =preferences.getString("uid","l");
         String type = cType.getSelectedItem().toString();
-        String content = message.getText().toString();
+//        String content = message.getText().toString();
         String date = sdf.format(currentTime).toString();
 
-        if(message.getText() == null){
-            Toast.makeText(mContext,"Please Enter a complaint message",Toast.LENGTH_LONG).show();
-        }
-        else{
-            IComplain c =new IComplain(id, type, "Pending",date, content);
-            //add a complain to the system
-            submit.setOnClickListener((View v) -> {
-                AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
-                alertDialog.setTitle("Delete User confirmation");
-                alertDialog.setMessage("Do you want to Delete the User");
-                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) ->
-                //add the complain to the database
-                db.collection("complain")
-                        .add(c)
-                        .addOnSuccessListener(documentReference -> {
-                            Toast.makeText(mContext, "Complaint Added Successfully!!!",Toast.LENGTH_LONG).show();
-                            Intent i=new Intent(v.getContext(), Added_complain_T.class);
-                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(i);
-                        })
-                        .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e)));
-                alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id1) -> dialog.dismiss());
+
+        //add a complain to the system
+        submit.setOnClickListener((View v) -> {
+            String content = message.getText().toString();
+            System.out.println(content);
+            //if message content is null
+//            Log.d("TAG", "Error adding document", String.valueOf(isnull.nullContent(content)));
+            if(!isnull.nullContent(content)){
+                Toast.makeText(mContext,"Please Enter a complaint message",Toast.LENGTH_LONG).show();
+            }
+            else {
+                IComplain c =new IComplain(id, type, "Pending",date, content);
+                //prompting an confirmation dialog box
+                AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create();
+                alertDialog.setTitle("Complain confirmation");
+                alertDialog.setMessage("Do you want to Add the Complain");
+                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) ->
+                        //add the complain to the database
+                        db.collection("complain")
+                                .add(c)
+                                .addOnSuccessListener(documentReference -> {
+                                    Toast.makeText(mContext, "Complaint Added Successfully!!!", Toast.LENGTH_LONG).show();
+                                    Intent i = new Intent(v.getContext(), Student_complaint.class);
+                                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(i);
+                                })
+                                .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e)));
+                alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "No", (dialog, id1) -> dialog.dismiss());
                 alertDialog.show();
-            });
-        }
+            }
+        });
 
         //go to Added_complain_T
         scomplains.setOnClickListener(view -> {

@@ -67,6 +67,8 @@ public class CH_Dashboard extends Fragment {
         Context current = this.getContext();
         showprogress();
 
+        Cal cal = new Cal();
+
         /*
         displaying the overview
          */
@@ -77,16 +79,6 @@ public class CH_Dashboard extends Fragment {
         per_pending = root.findViewById(R.id.tv_pending_perc);
         per_resolved = root.findViewById(R.id.tv_resolved_perc);
 
-//        pd_pending.setProgress(20);
-//        pd_resolved.setProgress(100);
-
-//        int pending = getCount("Pending");
-//        int resolved = getCount("Resolved");
-//        getCount("Resolved");
-//        getCount("Pending");
-//        Log.d("count", String.valueOf(getCount("Pending")));
-//        Log.d("count", String.valueOf(getCount("Resolved")));
-
         db.collection("complain")
                 .get()
                 .addOnCompleteListener(task -> {
@@ -96,7 +88,6 @@ public class CH_Dashboard extends Fragment {
                             Complain c = dc.toObject(Complain.class);
                             total ++;
                         }
-                        Log.d("total", String.valueOf(total));
                         String stringtot = String.valueOf(total);
 
                         db.collection("complain")
@@ -112,9 +103,11 @@ public class CH_Dashboard extends Fragment {
                                         }
                                         //taking the pending percentage
                                         int finalTotal = Integer.parseInt(stringtot);
-                                        int p_per =  Math.round((float)pending / finalTotal*100);
+
+                                        //getting the percentage value
+                                        int p_per = cal.getPercentage(pending,finalTotal);
+
                                         per_pending.setText(String.valueOf(p_per));
-                                        Log.d("per",String.valueOf(p_per));
                                         pd_pending.setProgress(p_per);
                                     } else {
                                         Log.d("TAG", "Error getting documents: ", task1.getException());
@@ -134,7 +127,10 @@ public class CH_Dashboard extends Fragment {
                                         }
                                         //getting the resolved complaint percentage
                                         int finalTotal = Integer.parseInt(stringtot);
-                                        int r_per =  Math.round((float)resolved / finalTotal*100);
+
+                                        //getting the percentage value
+                                        int r_per = cal.getPercentage(resolved,finalTotal);
+
                                         per_resolved.setText(String.valueOf(r_per));
                                         pd_resolved.setProgress(r_per);
                                     } else {
