@@ -5,13 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.preference.PreferenceManager;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,10 +15,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+
 import com.example.studyhelper_android_firebase.ComTest;
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.IComplain;
-import com.example.studyhelper_android_firebase.complain.InactiveUsers;
+import com.example.studyhelper_android_firebase.services.Services;
 import com.example.studyhelper_android_firebase.student.Student_complaint;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -48,6 +45,7 @@ public class T_complains extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_t_complains, container, false);
         Context mContext = getContext();
+        Services services = new Services();
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         ComTest isnull = new ComTest();
@@ -91,6 +89,7 @@ public class T_complains extends Fragment {
                         db.collection("complain")
                                 .add(c)
                                 .addOnSuccessListener(documentReference -> {
+                                    services.sendMail(id);
                                     Toast.makeText(mContext, "Complaint Added Successfully!!!", Toast.LENGTH_LONG).show();
                                     Intent i = new Intent(v.getContext(), Student_complaint.class);
                                     i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
