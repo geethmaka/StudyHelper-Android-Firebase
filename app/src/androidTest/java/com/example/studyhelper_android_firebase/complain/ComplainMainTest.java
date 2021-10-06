@@ -29,7 +29,7 @@ public class ComplainMainTest {
    @Test
     public void testLaunch(){
 
-       View view= cpMainActivity.findViewById(R.layout.fragment_ch_dashboard);
+       View view= cpMainActivity.findViewById(R.layout.complain_main);
        assertNotNull(view);
     }
 

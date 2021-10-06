@@ -44,10 +44,10 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull PdfAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         //loading data
 
-//        String subject = courseList.get(position).getCourse().getSubject();
+        String subject = pdfList.get(position).getObj().getTitle();
 //        String Cid = courseList.get(position).getId();
 
-//        holder.myTextView.setText(subject);
+        holder.myTextView.setText(subject);
 
         holder.parentLayout.setOnClickListener(view -> {
 
