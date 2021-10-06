@@ -19,6 +19,7 @@
         android:padding="@dimen/loginViewsMargin">
 
         <TextView
+            android:id="@+id/regheading"
             style="@style/headerTextPrimary"
             android:text="@string/register"
             android:layout_marginTop="@dimen/loginViewsMargin"/>
