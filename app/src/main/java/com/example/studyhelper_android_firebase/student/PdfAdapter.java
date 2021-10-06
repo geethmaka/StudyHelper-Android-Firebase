@@ -2,12 +2,16 @@ package com.example.studyhelper_android_firebase.student;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Pdf;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -41,14 +45,17 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull PdfAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         //loading data
+        FirebaseStorage storage = FirebaseStorage.getInstance();
 
 //        String subject = courseList.get(position).getCourse().getSubject();
 //        String Cid = courseList.get(position).getId();
 
-//        holder.myTextView.setText(subject);
+        Pdf pdf = pdfList.get(position);
 
-        holder.parentLayout.setOnClickListener(view -> {
+        holder.myTextView.setText(pdf.getObj().getTitle());
 
+        holder.download.setOnClickListener(view -> {
+            StorageReference httpsReference = storage.getReferenceFromUrl(pdf.getObj().getPdf());
         });
     }
 
@@ -60,12 +67,14 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         LinearLayout parentLayout;
         TextView myTextView;
+        Button download;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             myTextView = itemView.findViewById(R.id.pdfTitle);
             parentLayout = itemView.findViewById(R.id.studentPdfLayout);
+            download = itemView.findViewById(R.id.button3);
         }
     }
 }
