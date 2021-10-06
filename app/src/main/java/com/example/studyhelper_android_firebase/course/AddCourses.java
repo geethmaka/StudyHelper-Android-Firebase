@@ -81,7 +81,8 @@ public class AddCourses extends Fragment {
             Switch availability = root.findViewById(R.id.addAvailability);
 
 
-            ICourse c = new ICourse(subject.getText().toString(), stream.getSelectedItem().toString(), availability.isChecked());
+
+            ICourse c = new ICourse(subject.getText().toString(),stream.getSelectedItem().toString() , availability.isChecked());
 
             db.collection("courses")
                     .add(c)

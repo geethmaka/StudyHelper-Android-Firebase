@@ -23,11 +23,11 @@ public class ComplainMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.complain_main);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //Control the bottom navigation bar
         BottomNavigationView complain_bottomNavigationView = findViewById(R.id.chbottomNav);
-        NavController complain_navController = Navigation.findNavController(this, R.id.chfragmentContainerView);
+        NavController complain_navController = Navigation.findNavController(this,R.id.chfragmentContainerView);
         NavigationUI.setupWithNavController(complain_bottomNavigationView, complain_navController);
         NavigationUI.setupActionBarWithNavController(this, complain_navController);
     }

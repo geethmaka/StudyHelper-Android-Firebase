@@ -8,12 +8,14 @@
                 android:centerColor="@color/harbor_grey"
                 android:centerY="1.0"
                 android:endColor="@color/harbor_grey"
-                android:angle="270" />
+                android:angle="270"
+                />
             <corners
                 android:bottomLeftRadius="50dp"
                 android:bottomRightRadius="50dp"
                 android:topLeftRadius="50dp"
-                android:topRightRadius="50dp" />
+                android:topRightRadius="50dp"
+                />
         </shape>
     </item>
 
@@ -26,12 +28,14 @@
                     android:centerColor="@color/primaryTextColor"
                     android:centerY="1.0"
                     android:endColor="@color/primaryTextColor"
-                    android:angle="270" />
+                    android:angle="270"
+                    />
                 <corners
                     android:bottomLeftRadius="50dp"
                     android:bottomRightRadius="50dp"
                     android:topLeftRadius="50dp"
-                    android:topRightRadius="50dp" />
+                    android:topRightRadius="50dp"
+                    />
             </shape>
         </clip>
     </item>

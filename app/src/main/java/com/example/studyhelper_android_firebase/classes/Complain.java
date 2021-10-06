@@ -35,9 +35,8 @@ public class Complain {
 
     public Complain(String type, String date, String complain) {
         this.type = type;
-        this.date = date;
-        this.content = complain;
-    }
+       this.date = date;
+       this.content = complain; }
 
     public Complain(String ID, Complain complain) {
         this.complainId = ID;

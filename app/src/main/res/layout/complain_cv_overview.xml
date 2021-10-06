@@ -40,7 +40,7 @@
                 android:layout_width="315dp"
                 android:layout_height="10sp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="12dp"
                 android:focusable="false"
                 android:max="100"
                 android:progressDrawable="@drawable/pending_progressbar" />
@@ -50,13 +50,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_pending_perc"
                 android:layout_marginStart="15dp"
-                android:layout_gravity="center_vertical" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="%"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"/>
 
         </LinearLayout>
 
@@ -83,7 +77,6 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:gravity="">
-
             <ProgressBar
                 android:id="@+id/PB_resolved"
                 style="?android:attr/progressBarStyleHorizontal"
@@ -91,22 +84,16 @@
                 android:layout_width="315dp"
                 android:layout_height="10dp"
                 android:max="100"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="12dp"
                 android:layout_gravity="center_vertical"
-                android:progressDrawable="@drawable/resolved_progressbar" />
+                android:progressDrawable="@drawable/resolved_progressbar"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_resolved_perc"
                 android:layout_marginStart="15dp"
-                android:layout_gravity="center_vertical" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="%"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"/>
 
         </LinearLayout>
 

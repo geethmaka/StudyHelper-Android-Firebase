@@ -25,7 +25,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private Context mContext;
 
     public RecyclerViewAdapter(ArrayList<Course> courses, Context mContext) {
-        this.courseList = courses;
+        this.courseList= courses;
         this.mInflater = LayoutInflater.from(mContext);
         this.mContext = mContext;
     }
@@ -49,7 +49,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.myTextView.setText(subject);
 
         holder.parentLayout.setOnClickListener(view -> {
-            Intent i = new Intent(mContext, UpdateCourse.class);
+            Intent i=new Intent(mContext,UpdateCourse.class);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             i.putExtra("id", Cid);
             mContext.startActivity(i);

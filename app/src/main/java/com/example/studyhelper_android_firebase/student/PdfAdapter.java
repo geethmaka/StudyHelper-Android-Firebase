@@ -1,10 +1,12 @@
 package com.example.studyhelper_android_firebase.student;
 
 import com.example.studyhelper_android_firebase.R;
+import com.example.studyhelper_android_firebase.classes.Course;
 import com.example.studyhelper_android_firebase.classes.Pdf;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -24,7 +27,7 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
     private Context mContext;
 
     public PdfAdapter(ArrayList<Pdf> courses, Context mContext) {
-        this.pdfList = courses;
+        this.pdfList= courses;
         this.mInflater = LayoutInflater.from(mContext);
         this.mContext = mContext;
     }
@@ -42,10 +45,10 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull PdfAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         //loading data
 
-//        String subject = courseList.get(position).getCourse().getSubject();
+        String subject = pdfList.get(position).getObj().getTitle();
 //        String Cid = courseList.get(position).getId();
 
-//        holder.myTextView.setText(subject);
+        holder.myTextView.setText(subject);
 
         holder.parentLayout.setOnClickListener(view -> {
 
@@ -58,7 +61,7 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        LinearLayout parentLayout;
+        CardView parentLayout;
         TextView myTextView;
 
         public ViewHolder(@NonNull View itemView) {

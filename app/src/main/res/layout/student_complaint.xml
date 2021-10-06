@@ -14,5 +14,5 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/cardview_complaint" />
+        tools:listitem="@layout/cardview_complaint"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

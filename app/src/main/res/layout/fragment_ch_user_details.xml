@@ -22,7 +22,7 @@
             android:layout_marginStart="2dp"
             android:layout_marginTop="3sp"
             android:text="@string/search"
-            android:textSize="18sp" />
+            android:textSize="18sp"/>
 
         <SearchView
             android:id="@+id/user_search"
@@ -34,11 +34,11 @@
 
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RVcomplain"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RVcomplain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="1dp" />
 
 </LinearLayout>

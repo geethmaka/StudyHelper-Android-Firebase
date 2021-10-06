@@ -66,62 +66,62 @@
                 android:id="@+id/user_complain"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="17sp" />
+                android:textSize="17sp"/>
 
         </LinearLayout>
 
-        <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:background="@drawable/ch_complain_reply_layout"-->
-        <!--            android:orientation="horizontal"-->
-        <!--            android:paddingStart="4sp"-->
-        <!--            android:paddingEnd="4dp">-->
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/ch_complain_reply_layout"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:paddingStart="4sp"-->
+<!--            android:paddingEnd="4dp">-->
 
-        <!--            <EditText-->
-        <!--                android:id="@+id/et_reply_msg"-->
-        <!--                android:layout_width="180sp"-->
-        <!--                android:layout_height="match_parent"-->
-        <!--                android:layout_marginStart="4sp"-->
-        <!--                android:hint="@string/msg_hint"-->
-        <!--                android:textSize="14sp"-->
-        <!--                app:layout_constraintEnd_toStartOf="@+id/imageButton"-->
-        <!--                app:layout_constraintStart_toStartOf="parent"-->
-        <!--                tools:ignore="TouchTargetSizeCheck"-->
-        <!--                tools:layout_editor_absoluteY="5dp" />-->
+<!--            <EditText-->
+<!--                android:id="@+id/et_reply_msg"-->
+<!--                android:layout_width="180sp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginStart="4sp"-->
+<!--                android:hint="@string/msg_hint"-->
+<!--                android:textSize="14sp"-->
+<!--                app:layout_constraintEnd_toStartOf="@+id/imageButton"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                tools:ignore="TouchTargetSizeCheck"-->
+<!--                tools:layout_editor_absoluteY="5dp" />-->
 
-        <!--            <ImageButton-->
-        <!--                android:id="@+id/imageButton"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="match_parent"-->
-        <!--                android:layout_marginEnd="10dp"-->
-        <!--                android:background="@drawable/btn_transp"-->
-        <!--                app:layout_constraintEnd_toEndOf="parent"-->
-        <!--                app:srcCompat="@drawable/ic_msg_send"-->
-        <!--                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"-->
-        <!--                tools:layout_editor_absoluteY="10dp" />-->
+<!--            <ImageButton-->
+<!--                android:id="@+id/imageButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:background="@drawable/btn_transp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:srcCompat="@drawable/ic_msg_send"-->
+<!--                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"-->
+<!--                tools:layout_editor_absoluteY="10dp" />-->
 
-        <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-        <!--        <LinearLayout-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:gravity="center_horizontal"-->
-        <!--            android:paddingTop="5sp"-->
-        <!--            android:paddingBottom="5sp"-->
-        <!--            android:paddingStart="2sp"-->
-        <!--            android:paddingEnd="2sp">-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:paddingTop="5sp"-->
+<!--            android:paddingBottom="5sp"-->
+<!--            android:paddingStart="2sp"-->
+<!--            android:paddingEnd="2sp">-->
 
-        <!--            <android.widget.Button-->
-        <!--                android:id="@+id/btn_complain_resolve"-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="match_parent"-->
-        <!--                android:background="@drawable/button1"-->
-        <!--                android:text="@string/btn_resolved"-->
-        <!--                android:textSize="20dp"-->
-        <!--                android:textAllCaps="false"/>-->
+<!--            <android.widget.Button-->
+<!--                android:id="@+id/btn_complain_resolve"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="@drawable/button1"-->
+<!--                android:text="@string/btn_resolved"-->
+<!--                android:textSize="20dp"-->
+<!--                android:textAllCaps="false"/>-->
 
-        <!--        </LinearLayout>-->
+<!--        </LinearLayout>-->
 
     </LinearLayout>
 
