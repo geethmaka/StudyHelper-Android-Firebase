@@ -1,22 +1,26 @@
 package com.example.studyhelper_android_firebase.teacher;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
-
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
+
+import com.example.studyhelper_android_firebase.Login;
+import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.Teacher_popup_Pdf;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.example.studyhelper_android_firebase.R;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class TeacherMainActivity extends AppCompatActivity {
@@ -40,11 +44,13 @@ public class TeacherMainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, teacher_navController);
 
     }
-        public void gotoTmLink(View view) {
-            final Context context = this;
-            Intent intent = new Intent(context,Teacher_popup_Link.class);
-            startActivity(intent);
-        }
+
+    public void gotoTmLink(View view) {
+        final Context context = this;
+        Intent intent = new Intent(context, Teacher_popup_Link.class);
+        startActivity(intent);
+    }
+
     public void gotoTmPdf(View view) {
         final Context context = this;
         Intent intent = new Intent(context, Teacher_popup_Pdf.class);
@@ -57,8 +63,33 @@ public class TeacherMainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.ch_options, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.Logout:
 
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void logout(MenuItem item) {
+        SharedPreferences myPrefs = getSharedPreferences("uid", MODE_PRIVATE);
+        SharedPreferences.Editor editor = myPrefs.edit();
+        editor.clear();
+        editor.commit();
+        Intent i = new Intent(this, Login.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        this.startActivity(i);
+        finish();
+    }
+}
 
 //
 //
@@ -116,7 +147,7 @@ public class TeacherMainActivity extends AppCompatActivity {
 //                    }
 //                });
 
-    }
+
 //        Teacher_recycleView=findViewById(R.id.recyclerView);
 //        Teacher_recycleView.setLayoutManager(context:this);
 //
