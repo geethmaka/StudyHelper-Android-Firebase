@@ -79,10 +79,7 @@ public class S_adptercomplain extends RecyclerView.Adapter<S_adptercomplain.Hold
                         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         v.getContext().startActivity(i);
                     })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                        }
+                    .addOnFailureListener(e -> {
                     }));
             alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id) -> dialog.dismiss());
             alertDialog.show();

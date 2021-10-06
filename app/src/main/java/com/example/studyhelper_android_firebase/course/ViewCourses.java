@@ -35,7 +35,6 @@ public class ViewCourses extends Fragment{
     private String mParam2;
 
     public ViewCourses() {
-        // Required empty public constructor
     }
 
     // TODO: Rename and change types and number of parameters

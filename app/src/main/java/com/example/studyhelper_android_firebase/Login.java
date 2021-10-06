@@ -32,7 +32,7 @@ public class Login extends AppCompatActivity {
     public boolean isCurUserLoggedIn(){
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String id =preferences.getString("uid","");
-        Log.d("keyy",id);
+
 
         if(id.equals("")||id.equals(null)){
             return false;

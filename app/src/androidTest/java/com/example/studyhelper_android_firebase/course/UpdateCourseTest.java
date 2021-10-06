@@ -23,7 +23,7 @@ import org.mockito.Mock;
 
 public class UpdateCourseTest {
     @Rule
-    public ActivityTestRule<UpdateCourse> updateActivity = new ActivityTestRule<UpdateCourse>(UpdateCourse.class,true,false);
+    public ActivityTestRule<UpdateCourse> updateActivity = new ActivityTestRule<UpdateCourse>(UpdateCourse.class, true, false);
     private UpdateCourse uActivity = null;
 
 
@@ -37,33 +37,41 @@ public class UpdateCourseTest {
         Intent intent = new Intent();
         intent.putExtra("id", "Nnfo4UpuBdywmujNtSVf");
 
-        updateActivity.launchActivity(intent).runOnUiThread(()->{
-            View view =updateActivity.getActivity().findViewById(R.id.updateDetailsLayout);
-            EditText subjectName = view.findViewById(R.id.updateSubject);
-            Spinner stream = view.findViewById(R.id.updateStream);
-            subjectName.setText("c");
-            stream.setSelection(2);
-//            Button updateBtn = view.findViewById(R.id.updateButton);
-//            updateBtn.performClick();
-            assertFalse(updateActivity.getActivity().checkForEmpty(subjectName.getText().toString(),stream.getSelectedItem().toString()));
+        updateActivity.launchActivity(intent).runOnUiThread(() -> {
+                    View view = updateActivity.getActivity().findViewById(R.id.updateDetailsLayout);
+                    EditText subjectName = view.findViewById(R.id.updateSubject);
+                    Spinner stream = view.findViewById(R.id.updateStream);
+                    subjectName.setText("test");
+                    stream.setSelection(2);
+                    assertFalse(updateActivity.getActivity().checkForEmpty(subjectName.getText().toString(), stream.getSelectedItem().toString()));
+                }
+        );
+    }
+
+    @Test
+    public void UpdateLaunch() {
+        Intent intent = new Intent();
+        intent.putExtra("id", "Nnfo4UpuBdywmujNtSVf");
+
+        updateActivity.launchActivity(intent).runOnUiThread(() -> {
+                    View view = updateActivity.getActivity().findViewById(R.id.relativeLayout);
+                    assertNotNull(view);
                 }
         );
 
-//        Button updateBtn = view.findViewById(R.id.updateButton);
-//        updateBtn.performClick();
-//        assertTrue(uActivity.checkForEmpty(subjectName.getText().toString(),stream.getSelectedItem().toString()));
+    }
 
+    @Test
+    public void testDataLoaded() {
+        Intent intent = new Intent();
+        intent.putExtra("id", "Nnfo4UpuBdywmujNtSVf");
 
-//        uActivity.runOnUiThread(() -> {
-//            View view = uActivity.findViewById(R.id.updateDetailsLayout);
-//            EditText subjectName = view.findViewById(R.id.updateSubject);
-//            Spinner stream = view.findViewById(R.id.updateStream);
-//            subjectName.setText("c");
-//            stream.setSelection(2);
-//            Button updateBtn = view.findViewById(R.id.updateButton);
-//            updateBtn.performClick();
-//            assertTrue(uActivity.checkForEmpty(subjectName.getText().toString(),stream.getSelectedItem().toString()));
-//        });
+        updateActivity.launchActivity(intent).runOnUiThread(() -> {
+                    EditText text = updateActivity.getActivity().findViewById(R.id.updateSubject);
+                    assertNotNull(text.getText());
+                }
+        );
+
     }
 
     @After

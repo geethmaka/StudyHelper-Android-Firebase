@@ -77,10 +77,8 @@ public class SLinkFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_slink, container, false);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-
         ArrayList<Link> linkList = new ArrayList<>();
         ArrayList<String> CourseList = new ArrayList<>();
-
         RecyclerView recyclerView = root.findViewById(R.id.studentLinkRecyler);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         String stream = preferences.getString("stream", "");

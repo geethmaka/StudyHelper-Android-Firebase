@@ -30,6 +30,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 //create teacher link class
 public class Teacher_popup_Link extends Activity {
 
+    public boolean checkForEmpty(String title, String subject,String time,String link) {
+        if ((!title.equals("") && (!subject.equals("Subject"))&&(!time.equals(""))&&(!link.equals("")))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
