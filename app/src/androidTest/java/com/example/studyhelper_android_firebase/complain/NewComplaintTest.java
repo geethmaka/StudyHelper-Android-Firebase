@@ -1,7 +1,5 @@
 package com.example.studyhelper_android_firebase.complain;
 
-import static org.junit.Assert.assertNull;
-
 import android.view.View;
 
 import androidx.test.rule.ActivityTestRule;
@@ -28,8 +26,8 @@ public class NewComplaintTest extends TestCase {
 
     @Test
     public void testLaunch(){
-        View view= nComplain.findViewById(R.id.resolved_complaints);
-        assertNull(view);
+        View view= nComplain.findViewById(R.layout.complain_new_complain);
+        assertNotNull(view);
     }
 
     @After
