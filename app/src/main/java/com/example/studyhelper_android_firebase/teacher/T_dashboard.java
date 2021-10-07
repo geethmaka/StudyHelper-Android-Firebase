@@ -137,7 +137,7 @@ public class T_dashboard extends Fragment {
             AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
             alertDialog.setTitle("Update");
             alertDialog.setMessage("Are you sure you want to update this link");
-            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) -> db.collection("user").document(id).
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) -> db.collection("users").document(id).
 
                     update("username", username.getText().toString(), "mobile", mobile.getText().toString(), "email", email.getText().toString())
                     .addOnSuccessListener(aVoid -> {
