@@ -65,7 +65,7 @@ public class AddCourses extends Fragment {
     }
 
     public boolean checkForEmpty(String subject, String stream) {
-        if ((!subject.equals("") && (!stream.equals("Subject")))) {
+        if ((!subject.equals("") && (!stream.equals("Select Stream")))) {
             return false;
         } else {
             return true;
@@ -83,13 +83,6 @@ public class AddCourses extends Fragment {
         Spinner stream = root.findViewById(R.id.addStream);
         String s = stream.getSelectedItem().toString();
 
-//        if(s == null) {
-//            Toast.makeText(getApplicationContext(),"Please select steam",Toast.LENGTH_LONG).show();}
-//        else if(TextUtils.isEmpty(Title.getText().toString()))
-//            Toast.makeText(getApplicationContext(),"Please enter title",Toast.LENGTH_LONG).show();
-//        else {
-//
-//        }
 
         addButton.setOnClickListener((View v) -> {
 
@@ -101,7 +94,11 @@ public class AddCourses extends Fragment {
 
                 db.collection("courses")
                         .add(c)
-                        .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))
+                        .addOnSuccessListener(documentReference -> {
+                            Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());
+                            Toast.makeText(getContext(), "Course Added Successfully!", Toast.LENGTH_SHORT).show();
+
+                        })
                         .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
             } else {
                 Toast.makeText(getContext(), "Please fill all the fields!", Toast.LENGTH_SHORT).show();
