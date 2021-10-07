@@ -17,7 +17,7 @@ public class CalTest {
     }
 
     @Before
-    public void setUp(){
+    public void setUp() {
 
     }
 
@@ -27,8 +27,8 @@ public class CalTest {
         int input2 = 60;
         int expected = 50;
         int output;
-        output = cal.getPercentage(input1,input2);
-        assertEquals(expected,output);
+        output = cal.getPercentage(input1, input2);
+        assertEquals(expected, output);
     }
 
     @After
@@ -36,7 +36,7 @@ public class CalTest {
     }
 
     @AfterClass
-    public static  void clearAll() {
+    public static void clearAll() {
         cal = null;
     }
 }

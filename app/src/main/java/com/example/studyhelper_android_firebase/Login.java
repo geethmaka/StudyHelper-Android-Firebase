@@ -29,33 +29,33 @@ import java.util.ArrayList;
 
 public class Login extends AppCompatActivity {
 
-    public boolean isCurUserLoggedIn(){
+    public boolean isCurUserLoggedIn() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        String id =preferences.getString("uid","");
+        String id = preferences.getString("uid", "");
 
 
-        if(id.equals("")||id.equals(null)){
+        if (id.equals("") || id.equals(null)) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
 
-    public void saveSession(SharedPreferences.Editor editor,String email,String pw,String uid,String stream){
+    public void saveSession(SharedPreferences.Editor editor, String email, String pw, String uid, String stream) {
 
         // below two lines will put values for
         // email and password in shared preferences.
 
         editor.putString("email", email);
-        editor.putString("password",pw);
-        editor.putString("uid",uid);
-        editor.putString("stream",stream);
+        editor.putString("password", pw);
+        editor.putString("uid", uid);
+        editor.putString("stream", stream);
 
         // to save our data with key and value.
         editor.commit();
     }
 
-    public void gotoIntent(Class destination){
+    public void gotoIntent(Class destination) {
         Intent start = new Intent(this, destination);
         start.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(start);
@@ -70,7 +70,7 @@ public class Login extends AppCompatActivity {
         TextView signup = findViewById(R.id.signup);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        signup.setOnClickListener(v->{
+        signup.setOnClickListener(v -> {
             final Context context = this;
             Intent intent = new Intent(context, Register.class);
             startActivity(intent);
@@ -82,7 +82,7 @@ public class Login extends AppCompatActivity {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
-                            User u=new User(document.getId(),document.toObject(User.class));
+                            User u = new User(document.getId(), document.toObject(User.class));
                             userList.add(u);
                         }
                     } else {
@@ -97,48 +97,43 @@ public class Login extends AppCompatActivity {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
             SharedPreferences.Editor editor = preferences.edit();
             boolean userFound = false;
-            for(User u : userList){
+            for (User u : userList) {
                 if ((Email.getText().toString().equals(u.getUser().getEmail())) && (Password.getText().toString().equals(u.getUser().getPassword()))) {
-                    if(u.getUser().getType().equals("Teacher")){
-                        userFound=true;
-                        saveSession(editor,u.getUser().getEmail(), u.getUser().getPassword(), u.getId(),"");
+                    if (u.getUser().getType().equals("Teacher")) {
+                        userFound = true;
+                        saveSession(editor, u.getUser().getEmail(), u.getUser().getPassword(), u.getId(), "");
                         gotoIntent(TeacherMainActivity.class);
                         break;
-                    }else if(u.getUser().getType().equals("Student")){
-                        userFound=true;
-                        saveSession(editor,u.getUser().getEmail(), u.getUser().getPassword(), u.getId(),u.getUser().getStream());
+                    } else if (u.getUser().getType().equals("Student")) {
+                        userFound = true;
+                        saveSession(editor, u.getUser().getEmail(), u.getUser().getPassword(), u.getId(), u.getUser().getStream());
                         gotoIntent(StudentMainActivity.class);
                         break;
                     }
                 }
             }
             if ((Email.getText().toString().equals("t")) && (Password.getText().toString().equals("t"))) {
+                userFound = true;
                 Intent start = new Intent(this, TeacherMainActivity.class);
                 startActivity(start);
             } else if ((Email.getText().toString().equals("ch")) && (Password.getText().toString().equals("ch"))) {
+                userFound = true;
                 Intent start = new Intent(this, ComplainMain.class);
                 startActivity(start);
             } else if ((Email.getText().toString().equals("s")) && (Password.getText().toString().equals("s"))) {
+                userFound = true;
                 Intent start = new Intent(this, StudentMainActivity.class);
                 startActivity(start);
-            }else if((Email.getText().toString().equals("c")) && (Password.getText().toString().equals("c"))){
+            } else if ((Email.getText().toString().equals("c")) && (Password.getText().toString().equals("c"))) {
+                userFound = true;
                 Intent start = new Intent(this, Course_manager_home.class);
                 startActivity(start);
             }
 
-            if(!userFound){
+            if (!userFound) {
                 Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
             }
         });
-//        Context mContext = getContext();
-//        Button scomplains = root.findViewById(R.id.scomplains);
-//
-//        scomplains.setOnClickListener(view -> {
-//            Intent i = new Intent(mContext, Student_complaint.class);
-//            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            mContext.startActivity(i);
-//        });
-
     }
 
 

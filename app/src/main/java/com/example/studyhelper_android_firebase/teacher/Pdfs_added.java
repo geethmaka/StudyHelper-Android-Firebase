@@ -58,6 +58,7 @@ public class Pdfs_added extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
     //firebase connection
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -103,6 +104,7 @@ public class Pdfs_added extends Fragment {
 
 
     }
+
     //dispaly pdfs from database
     private void EventChangeListener() {
         db.collection("pdf")

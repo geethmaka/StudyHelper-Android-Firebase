@@ -4,7 +4,7 @@ public class Cal {
     //getting the percentage
     public int getPercentage(int count, int total) {
         int per = 0;
-        per = Math.round((float) count/total * 100);
+        per = Math.round((float) count / total * 100);
         return per;
     }
 }

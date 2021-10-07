@@ -35,16 +35,14 @@
 
     <string-array name="stream_subj">
         <item>Subject</item>
-        <item>Physics</item>
-        <item>Combined Maths</item>
-        <item>Chemistry</item>
-        <item>IT</item>
-        <item>Biology</item>
-        <item>Agriculture</item>
-        <item>Zoology</item>
         <item>Accounting</item>
-        <item>Business and Management</item>
+        <item>Biology</item>
         <item>Econ</item>
+        <item>Physics</item>
+        <item>Commerce</item>
+        <item>Chemistry</item>
+        <item>Maths</item>
+        <item>Zoology</item>
     </string-array>
 
     <string-array name="stream_time">
@@ -125,10 +123,8 @@
     <string name="update">Update</string>
     <string-array name="StreamArray">
         <item>Select Stream</item>
-        <item>Maths</item>
-        <item>Bio</item>
+        <item>Science</item>
         <item>Art</item>
         <item>Commerce</item>
-        <item>Common</item>
     </string-array>
 </resources>

@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/viewCourses"
+    <item
+        android:id="@+id/viewCourses"
         android:title="@string/Teacher_dashboard"
-        android:icon="@drawable/ic_dashboard"/>
+        android:icon="@drawable/ic_dashboard" />
 
-    <item android:id="@+id/addCourses"
+    <item
+        android:id="@+id/addCourses"
         android:title="@string/Add"
-        android:icon="@drawable/ic_baseline_insert_drive_file_24"/>
+        android:icon="@drawable/ic_baseline_insert_drive_file_24" />
 
-    <item android:id="@+id/HandleFiles"
+    <item
+        android:id="@+id/HandleFiles"
         android:title="@string/Files"
-        android:icon="@drawable/ic_complain"/>
+        android:icon="@drawable/ic_complain" />
 </menu>

@@ -4,11 +4,12 @@
     <item
         android:id="@+id/CH_DashboardFragment"
         android:title="@string/nav_Dashboard"
-        android:icon="@drawable/ic_dashboard"/>
+        android:icon="@drawable/ic_dashboard" />
     <item
         android:id="@+id/CH_ComplainFragment"
         android:title="@string/complaint_menu"
         android:icon="@drawable/ic_complain"/>
+  
 <!--    <item-->
 <!--        android:id="@+id/CH_ReportFragment"-->
 <!--        android:title="@string/nav_Reports"-->

@@ -27,12 +27,12 @@
 
             <TextView
                 android:id="@+id/fileName"
-                android:layout_width="82dp"
+                android:layout_width="237dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:text="Canada"
                 android:textColor="#000"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 

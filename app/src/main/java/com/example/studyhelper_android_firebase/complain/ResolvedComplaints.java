@@ -44,7 +44,7 @@ public class ResolvedComplaints extends AppCompatActivity {
         //initialize the array list
         complainArrayList = new ArrayList<Complain>();
         //initialize the adapter
-        complainAdapter = new Adapter_ResolvedComplaint(this,complainArrayList);
+        complainAdapter = new Adapter_ResolvedComplaint(this, complainArrayList);
         recyclerView.setAdapter(complainAdapter);
 
         EventChangeListener();
@@ -53,25 +53,25 @@ public class ResolvedComplaints extends AppCompatActivity {
     private void EventChangeListener() {
         db.collection("complain").orderBy("date", Query.Direction.DESCENDING)
                 .addSnapshotListener((value, error) -> {
-                    if(error != null) {
+                    if (error != null) {
                         //dismiss progress dialog
-                        if(progressDialog.isShowing())
+                        if (progressDialog.isShowing())
                             progressDialog.dismiss();
-                        Log.e("Firestore Error",error.getMessage());
+                        Log.e("Firestore Error", error.getMessage());
                         return;
                     }
 
                     //fetching the data from the firestore database
-                    for(DocumentChange dc : value.getDocumentChanges()){
-                        if(dc.getType() == DocumentChange.Type.ADDED) {
-                            Complain c = new Complain(dc.getDocument().getId(),dc.getDocument().toObject(Complain.class));
-                            if(c.getComplain().getStatus().equals("Resolved")) {
+                    for (DocumentChange dc : value.getDocumentChanges()) {
+                        if (dc.getType() == DocumentChange.Type.ADDED) {
+                            Complain c = new Complain(dc.getDocument().getId(), dc.getDocument().toObject(Complain.class));
+                            if (c.getComplain().getStatus().equals("Resolved")) {
                                 complainArrayList.add(c);
                             }
                         }
                         complainAdapter.notifyDataSetChanged();
                         //dismiss progress dialog
-                        if(progressDialog.isShowing())
+                        if (progressDialog.isShowing())
                             progressDialog.dismiss();
                     }
 

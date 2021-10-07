@@ -51,7 +51,7 @@ public class SComplainFragment extends Fragment {
         ComTest isnull = new ComTest();
         Button uploadButton = root.findViewById(R.id.scomplaintadd);
 
-        Spinner cType =  root.findViewById(R.id.stype);
+        Spinner cType = root.findViewById(R.id.stype);
         //get the content of the message
         EditText message = root.findViewById(R.id.smassage);
 
@@ -60,17 +60,16 @@ public class SComplainFragment extends Fragment {
         sdf.format(currentTime);
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
-        String id =preferences.getString("uid","");
-        String email =preferences.getString("email","");
+        String id = preferences.getString("uid", "");
+        String email = preferences.getString("email", "");
 
         //inserting the complaint to the database
         uploadButton.setOnClickListener((View v) -> {
             String content = String.valueOf(message.getText());
             //if the content is null is the message
-            if(!isnull.nullContent(content)){
-                Toast.makeText(mContext,"Please Enter a complaint",Toast.LENGTH_LONG).show();
-            }
-            else {
+            if (!isnull.nullContent(content)) {
+                Toast.makeText(mContext, "Please Enter a complaint", Toast.LENGTH_LONG).show();
+            } else {
                 IComplain c = new IComplain(id, cType.getSelectedItem().toString(), "Pending", sdf.format(currentTime).toString(), message.getText().toString());
                 //prompting an confirmation dialog box
                 AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
@@ -83,7 +82,7 @@ public class SComplainFragment extends Fragment {
                                 .addOnSuccessListener(documentReference -> {
                                     //sending confirmation email
                                     String body = "Hello, \nWe have received your complaint successfully.Our team will resolve your problem as soon as possible. Thank you for keeping trust on us.\n\nThankyou,\nStudy-Helper.";
-                                    services.sendMail(email,"Study-Helper Complaint Confirmation",body);
+                                    services.sendMail(email, "Study-Helper Complaint Confirmation", body);
 
                                     Toast.makeText(root.getContext().getApplicationContext(), "Complaint Added Successfully!!!", Toast.LENGTH_LONG).show();
                                     Intent i = new Intent(v.getContext(), Student_complaint.class);

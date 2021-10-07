@@ -5,11 +5,10 @@
     android:orientation="vertical"
     style="@style/loginParent"
     tools:context=".Login">
-    <ScrollView
-        style="@style/parent">
 
-        <RelativeLayout
-            style="@style/parent">
+    <ScrollView style="@style/parent">
+
+        <RelativeLayout style="@style/parent">
 
 
             <LinearLayout
@@ -47,9 +46,9 @@
                     style="@style/headerText"
                     android:layout_gravity="center"
                     android:text="Study Helper"
-                    android:layout_marginTop="40dp"/>
-                <include
-                    layout="@layout/layout_login"/>
+                    android:layout_marginTop="40dp" />
+
+                <include layout="@layout/layout_login" />
 
             </LinearLayout>
         </RelativeLayout>

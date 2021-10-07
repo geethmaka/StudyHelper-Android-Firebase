@@ -43,7 +43,7 @@ public class Adapter_activeUser extends RecyclerView.Adapter<Adapter_activeUser.
     @NonNull
     @Override
     public Adapter_activeUser.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_active_user,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_active_user, parent, false);
         return new ViewHolder(v);
     }
 
@@ -63,45 +63,44 @@ public class Adapter_activeUser extends RecyclerView.Adapter<Adapter_activeUser.
             AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
             alertDialog.setTitle("Ban User");
             alertDialog.setMessage("Are you sure you want to Ban user " + user.getUsername());
-            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> userRef
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) -> userRef
                     .update("status", "inactive")
                     .addOnSuccessListener(aVoid -> {
-                        db.collection("users").document(user.getId())
-                            .get()
-                            .addOnCompleteListener(task1 -> {
-                                if (task1.isSuccessful()) {
-                                    DocumentSnapshot doc = task1.getResult();
-                                    if (doc.exists()) {
-                                        User u = doc.toObject(User.class);
-                                        Services services = new Services();
-                                        //sending a mail to the user
-                                        String email = u.getEmail();
-                                        Log.d("TAG",email);
-                                        String username = u.getUsername();
-                                        String subject = "You acount have been banned from Study helper";
-                                        String content = "Hello " + username + ",\nYour Study helper account has been banned due to violation of our guidelines.Email us to 'acc.manager@studyhelper.com' if you have any inquiries.\n\nThank you.";
-                                        services.sendMail(email,subject,content);
+                        userRef
+                                .get()
+                                .addOnCompleteListener(task1 -> {
+                                    if (task1.isSuccessful()) {
+                                        DocumentSnapshot doc = task1.getResult();
+                                        if (doc.exists()) {
+                                            User u = doc.toObject(User.class);
+                                            Services services = new Services();
+                                            //sending a mail to the user
+                                            String email = u.getEmail();
+                                            String username = u.getUsername();
+                                            String subject = "You acount have been banned from Study helper";
+                                            String content = "Hello " + username + ",\nYour Study helper account has been banned due to violation of our guidelines.Email us to 'acc.manager@studyhelper.com' if you have any inquiries.\n\nThank you.";
+                                            services.sendMail(email, subject, content);
+                                        } else {
+                                            Log.d("TAG", "No such document");
+                                        }
                                     } else {
-                                        Log.d("TAG", "No such document");
+                                        Log.d("TAG", "get failed with ", task1.getException());
                                     }
-                                } else {
-                                    Log.d("TAG", "get failed with ", task1.getException());
-                                }
-                            });
+                                });
                         //display toast for success
-                        Toast.makeText(context.getApplicationContext(), "User Deactivated Successfully!!!",Toast.LENGTH_LONG).show();
+                        Toast.makeText(context.getApplicationContext(), "User Deactivated Successfully!!!", Toast.LENGTH_LONG).show();
                         //redirect to ActiveUsers
-                        Intent i=new Intent(v.getContext(), ActiveUsers.class);
+                        Intent i = new Intent(v.getContext(), ActiveUsers.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         v.getContext().startActivity(i);
-                        ((Activity)context).finish();
+                        ((Activity) context).finish();
                     })
 
                     .addOnFailureListener(e -> {
                         //display toast for unsuccessful
-                        Toast.makeText(context.getApplicationContext(), "User Deactivation unsuccessfully!!!",Toast.LENGTH_LONG).show();
+                        Toast.makeText(context.getApplicationContext(), "User Deactivation unsuccessfully!!!", Toast.LENGTH_LONG).show();
                     }));
-            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id) -> dialog.dismiss());
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "No", (dialog, id) -> dialog.dismiss());
             alertDialog.show();
         });
     }
@@ -125,16 +124,15 @@ public class Adapter_activeUser extends RecyclerView.Adapter<Adapter_activeUser.
 
             //getting the text user typed inside the search view
             //checking the input is null if then show the whole list
-            if(constraint == null || constraint.length() == 0) {
+            if (constraint == null || constraint.length() == 0) {
                 //display the entire list
                 filteredUserList.addAll(userArrayList);
-            }
-            else {  //if there are text inside the search view
+            } else {  //if there are text inside the search view
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
                 //filtering the data
-                for(User user : userArrayList) {
-                    if(user.getUser().getUsername().toLowerCase().contains(filterPattern))
+                for (User user : userArrayList) {
+                    if (user.getUser().getUsername().toLowerCase().contains(filterPattern))
                         filteredUserList.add(user);
                 }
             }
@@ -148,7 +146,7 @@ public class Adapter_activeUser extends RecyclerView.Adapter<Adapter_activeUser.
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
             searchArrayList.clear();
-            searchArrayList.addAll((ArrayList<User>)results.values);
+            searchArrayList.addAll((ArrayList<User>) results.values);
             notifyDataSetChanged();
         }
     };

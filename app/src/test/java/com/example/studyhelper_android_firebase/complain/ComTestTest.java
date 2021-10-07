@@ -27,12 +27,12 @@ public class ComTestTest {
     @Test
     public void NullDetails() {
         isNull = com.nullContent("message");
-        assertTrue(String.valueOf(true),isNull);
+        assertTrue(String.valueOf(true), isNull);
     }
 
     @After
     public void tearDown() throws Exception {
-        isNull= Boolean.parseBoolean(null);
+        isNull = Boolean.parseBoolean(null);
     }
 
     @AfterClass

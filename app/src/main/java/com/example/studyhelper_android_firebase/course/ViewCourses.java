@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ViewCourses extends Fragment{
+public class ViewCourses extends Fragment {
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -65,7 +65,7 @@ public class ViewCourses extends Fragment{
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_view_courses, container, false);
 
-        ArrayList<Course>courseList = new ArrayList<>();
+        ArrayList<Course> courseList = new ArrayList<>();
 
 
         Context currentContext = this.getContext();
@@ -79,10 +79,10 @@ public class ViewCourses extends Fragment{
                     if (task.isSuccessful()) {
                         Log.d("TAG", "Error getting documents: ", task.getException());
                         for (QueryDocumentSnapshot document : task.getResult()) {
-                            Course courseWithId=new Course(document.getId(),document.toObject(Course.class));
+                            Course courseWithId = new Course(document.getId(), document.toObject(Course.class));
                             courseList.add(courseWithId);
                         }
-                        RecyclerViewAdapter mAdapter = new RecyclerViewAdapter(courseList,requireActivity().getApplicationContext());
+                        RecyclerViewAdapter mAdapter = new RecyclerViewAdapter(courseList, requireActivity().getApplicationContext());
                         recyclerView.setAdapter(mAdapter);
                         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity().getApplicationContext()));
                     } else {

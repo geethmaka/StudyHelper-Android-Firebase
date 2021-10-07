@@ -91,10 +91,10 @@ public class FileHandling extends Fragment {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
-                            Pdf pdfWithId=new Pdf(document.getId(),document.toObject(Pdf.class));
+                            Pdf pdfWithId = new Pdf(document.getId(), document.toObject(Pdf.class));
                             pdfList.add(pdfWithId);
                         }
-                        FileHandlerAdapter mAdapter = new FileHandlerAdapter(pdfList,requireActivity().getApplicationContext());
+                        FileHandlerAdapter mAdapter = new FileHandlerAdapter(getActivity(), pdfList, requireActivity().getApplicationContext());
                         recyclerView.setAdapter(mAdapter);
                         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity().getApplicationContext()));
                     } else {

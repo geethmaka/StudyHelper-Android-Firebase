@@ -16,7 +16,7 @@ import javax.mail.internet.MimeMessage;
 
 public class Services {
 
-    public void sendMail(String id,String subject,String content) {
+    public void sendMail(String id, String subject, String content) {
         //needed variables
         String fromEmail = "distributionsmd5@gmail.com"; // sender email
         String password = "smddistributor123@";
