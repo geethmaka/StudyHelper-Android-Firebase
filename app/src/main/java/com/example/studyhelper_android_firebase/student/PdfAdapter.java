@@ -76,7 +76,7 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
             request.setTitle(subject)
                     .setDescription("File is downloading...")
                     .setDestinationInExternalFilesDir(mContext,
-                            "Downloads","ll.pdf")
+                            Environment.DIRECTORY_DOWNLOADS,subject+".pdf")
                     .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
             //Enqueue the download.The download will start automatically once the download manager is ready
             // to execute it and connectivity is available.
