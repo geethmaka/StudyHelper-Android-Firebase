@@ -66,7 +66,7 @@ public class Adapter_activeUser extends RecyclerView.Adapter<Adapter_activeUser.
             alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> userRef
                     .update("status", "inactive")
                     .addOnSuccessListener(aVoid -> {
-                        userRef
+                        db.collection("users").document(user.getId())
                             .get()
                             .addOnCompleteListener(task1 -> {
                                 if (task1.isSuccessful()) {
@@ -76,6 +76,7 @@ public class Adapter_activeUser extends RecyclerView.Adapter<Adapter_activeUser.
                                         Services services = new Services();
                                         //sending a mail to the user
                                         String email = u.getEmail();
+                                        Log.d("TAG",email);
                                         String username = u.getUsername();
                                         String subject = "You acount have been banned from Study helper";
                                         String content = "Hello " + username + ",\nYour Study helper account has been banned due to violation of our guidelines.Email us to 'acc.manager@studyhelper.com' if you have any inquiries.\n\nThank you.";
