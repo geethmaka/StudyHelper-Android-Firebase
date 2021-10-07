@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.studyhelper_android_firebase.classes.iUser;
+import com.example.studyhelper_android_firebase.services.Services;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
@@ -107,10 +108,19 @@ public class Register extends AppCompatActivity {
                 db.collection("users")
                         .add(user)
                         .addOnSuccessListener(documentReference -> {
+
+                            String mail = reg_email.getText().toString().trim();
+                            String sub = "Wellcome to Study Helper";
+                            String message = "wellcome";
+
+                            Services registermaseg = new Services();
+                            registermaseg.sendMail(mail,sub,message);
+
                             Toast.makeText(getApplicationContext(),"Successfully Registered!!!",Toast.LENGTH_LONG).show();
                             Intent i = new Intent(this, Login.class);
                             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             this.startActivity(i);
+
                         })
                         .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
             }
