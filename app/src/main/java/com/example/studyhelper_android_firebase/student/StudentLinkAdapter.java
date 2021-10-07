@@ -6,6 +6,8 @@ import com.example.studyhelper_android_firebase.classes.Link;
 import com.example.studyhelper_android_firebase.classes.Pdf;
 
 import android.annotation.SuppressLint;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -50,9 +52,13 @@ public class StudentLinkAdapter extends RecyclerView.Adapter<StudentLinkAdapter.
 //       String Cid = linkList.get(position).getId();
 
        holder.linktitle.setText(subject);
+       holder.linklink.setText(linkList.get(position).getObj().getLink());
+       holder.linkdate.setText(linkList.get(position).getObj().getTime());
 
        holder.parentLayout.setOnClickListener(view -> {
-
+           ClipboardManager clipboard = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+           ClipData clip = ClipData.newPlainText("label", linkList.get(position).getObj().getLink());
+           clipboard.setPrimaryClip(clip);
         });
 
 
