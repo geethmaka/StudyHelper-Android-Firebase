@@ -61,11 +61,10 @@ public class T_complains extends Fragment {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         sdf.format(currentTime);
 
-        //getting the user id from the shared preference
+        //getting the user id and email from the shared preference
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
         String id =preferences.getString("uid","");
         String email =preferences.getString("email","");
-        Log.d("email",email);
         String type = cType.getSelectedItem().toString();
 //        String content = message.getText().toString();
         String date = sdf.format(currentTime).toString();
@@ -76,7 +75,6 @@ public class T_complains extends Fragment {
             String content = message.getText().toString();
             System.out.println(content);
             //if message content is null
-//            Log.d("TAG", "Error adding document", String.valueOf(isnull.nullContent(content)));
             if(!isnull.nullContent(content)){
                 Toast.makeText(mContext,"Please Enter a complaint message",Toast.LENGTH_LONG).show();
             }
@@ -91,7 +89,10 @@ public class T_complains extends Fragment {
                         db.collection("complain")
                                 .add(c)
                                 .addOnSuccessListener(documentReference -> {
-                                    services.sendMail(email,"Study-Helper Complaint Confirmation","Complain added");
+                                    //sending confirmation email
+                                    String body = "Hello, \nWe have received your complaint successfully.Our team will resolve your problem as soon as possible. Thank you for keeping trust on us.\n\nThankyou,\nStudy-Helper.";
+                                    services.sendMail(email,"Study-Helper Complaint Confirmation",body);
+                                    //successfull message
                                     Toast.makeText(mContext, "Complaint Added Successfully!!!", Toast.LENGTH_LONG).show();
                                     Intent i = new Intent(v.getContext(), Student_complaint.class);
                                     i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
