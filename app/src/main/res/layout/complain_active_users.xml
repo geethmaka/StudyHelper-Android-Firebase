@@ -8,6 +8,7 @@
     tools:context=".complain.CH_ComplainMenu">
 
     <TextView
+        android:id="@+id/tv_activeUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"

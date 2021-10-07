@@ -26,6 +26,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.studyhelper_android_firebase.classes.IPdf;
+import com.example.studyhelper_android_firebase.services.Services;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -123,8 +124,21 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
                 IPdf pdf=new IPdf(id,Subject.getSelectedItem().toString(),Title.getText().toString(),downloadUri.toString());
                 db.collection("pdf")
                         .add(pdf)
-                        .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))
+                        .addOnSuccessListener(documentReference ->{
+
+                                Services services = new Services();
+                //sending a mail to the user
+                String email ="geethmaka@gmail.com";
+                String subject = "Teacher added pdf";
+                String title=Subject.getSelectedItem().toString();
+                String content = "Teacher id:"+id+" added a pdf to "+title+"";
+                services.sendMail(email,subject,content);
+
+                                Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());})
+
+
                         .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
+
 
             } else {
             }

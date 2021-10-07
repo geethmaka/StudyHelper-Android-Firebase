@@ -1,16 +1,8 @@
 package com.example.studyhelper_android_firebase.complain;
 
-import static java.lang.Math.floor;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,21 +10,18 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Complain;
-import com.example.studyhelper_android_firebase.classes.Course;
-import com.example.studyhelper_android_firebase.course.RecyclerViewAdapter;
-import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class CH_Dashboard extends Fragment {
     //creating an instance of the database
@@ -158,6 +147,7 @@ public class CH_Dashboard extends Fragment {
         return root;
     }
 
+    //getting data from the database
     private void EventChangeListener() {
         db.collection("complain").orderBy("date", Query.Direction.DESCENDING)
                 .addSnapshotListener((value, error) -> {
@@ -192,52 +182,4 @@ public class CH_Dashboard extends Fragment {
         progressDialog.show();
     }
 
-    //getting the count of
-//    private int getCount(String type) {
-//        //getting the count from the database
-//        db.collection("complain")
-//                .get()
-//                .continueWith(new Continuation<QuerySnapshot, Integer>() {
-//                    @Override
-//                    public Integer then(@NonNull Task<QuerySnapshot> task) throws Exception {
-//                        int count = 0;
-//                        for (DocumentSnapshot dc : task.getResult()) {
-//                            Complain c = dc.toObject(Complain.class);
-//                            if (c.getStatus().equals(type)) {
-//                                count ++;
-//                            }
-//                        }
-////                        Log.d("count", String.valueOf(count));
-////                        String name = ((Object)count).getClass().getName();
-////                        Log.d("count", String.valueOf(count));
-////                        Log.d("count", name);
-//                        return count;
-//                    }
-//                });
-//        return 0;
-//    }
 }
-
-
-//    private int getCount(String type) {
-//        AtomicInteger count = new AtomicInteger();
-//        int result = 0;
-//        //getting the count from the database
-//        db.collection("complain")
-//                .addSnapshotListener((value, error) -> {
-//                    if(error != null) {
-//                        Log.e("Firestore Error",error.getMessage());
-//                        return;
-//                    }
-//                    //reading data from the firestore database
-//                    for(DocumentChange dc : value.getDocumentChanges()){
-//                        Complain c = new Complain(dc.getDocument().getId(),dc.getDocument().toObject(Complain.class));
-//                        if(dc.getType() == DocumentChange.Type.ADDED && c.getComplain().getStatus().equals(type)) {
-//                            complainArrayList.add(c);
-//                        }
-//                    }
-//                    count.set(complainArrayList.size());
-//                });
-//        result = count.intValue();
-//        return result;
-//    }

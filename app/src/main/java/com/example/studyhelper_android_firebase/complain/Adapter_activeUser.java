@@ -20,10 +20,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.User;
-import com.example.studyhelper_android_firebase.course.ViewCourses;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.example.studyhelper_android_firebase.services.Services;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -57,6 +56,7 @@ public class Adapter_activeUser extends RecyclerView.Adapter<Adapter_activeUser.
         holder.type.setText(String.valueOf(user.getUser().getType()));
         holder.email.setText(user.getUser().getEmail());
 
+        //setting action to the button
         holder.btn_banUser.setOnClickListener(v -> {
             DocumentReference userRef = db.collection("users").document(user.getId());
             //confirmation dialog box
@@ -65,22 +65,40 @@ public class Adapter_activeUser extends RecyclerView.Adapter<Adapter_activeUser.
             alertDialog.setMessage("Are you sure you want to Ban user " + user.getUsername());
             alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) -> userRef
                     .update("status", "inactive")
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            Toast.makeText(context.getApplicationContext(), "User Deactivated Successfully!!!",Toast.LENGTH_LONG).show();
-                            Intent i=new Intent(v.getContext(), ActiveUsers.class);
-                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            v.getContext().startActivity(i);
-                            ((Activity)context).finish();
-                        }
+                    .addOnSuccessListener(aVoid -> {
+                        userRef
+                            .get()
+                            .addOnCompleteListener(task1 -> {
+                                if (task1.isSuccessful()) {
+                                    DocumentSnapshot doc = task1.getResult();
+                                    if (doc.exists()) {
+                                        User u = doc.toObject(User.class);
+                                        Services services = new Services();
+                                        //sending a mail to the user
+                                        String email = u.getEmail();
+                                        String username = u.getUsername();
+                                        String subject = "You acount have been banned from Study helper";
+                                        String content = "Hello " + username + ",\nYour Study helper account has been banned due to violation of our guidelines.Email us to 'acc.manager@studyhelper.com' if you have any inquiries.\n\nThank you.";
+                                        services.sendMail(email,subject,content);
+                                    } else {
+                                        Log.d("TAG", "No such document");
+                                    }
+                                } else {
+                                    Log.d("TAG", "get failed with ", task1.getException());
+                                }
+                            });
+                        //display toast for success
+                        Toast.makeText(context.getApplicationContext(), "User Deactivated Successfully!!!",Toast.LENGTH_LONG).show();
+                        //redirect to ActiveUsers
+                        Intent i=new Intent(v.getContext(), ActiveUsers.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        v.getContext().startActivity(i);
+                        ((Activity)context).finish();
                     })
 
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(context.getApplicationContext(), "User Deactivation unsuccessfully!!!",Toast.LENGTH_LONG).show();
-                        }
+                    .addOnFailureListener(e -> {
+                        //display toast for unsuccessful
+                        Toast.makeText(context.getApplicationContext(), "User Deactivation unsuccessfully!!!",Toast.LENGTH_LONG).show();
                     }));
             alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id) -> dialog.dismiss());
             alertDialog.show();

@@ -1,6 +1,7 @@
 package com.example.studyhelper_android_firebase.complain;
 
 public class Cal {
+    //getting the percentage
     public int getPercentage(int count, int total) {
         int per = 0;
         per = Math.round((float) count/total * 100);

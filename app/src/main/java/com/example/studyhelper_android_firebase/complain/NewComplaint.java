@@ -1,12 +1,12 @@
 package com.example.studyhelper_android_firebase.complain;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Complain;
@@ -65,6 +65,7 @@ public class NewComplaint extends AppCompatActivity {
                         if(dc.getType() == DocumentChange.Type.ADDED) {
                             Complain c = new Complain(dc.getDocument().getId(),dc.getDocument().toObject(Complain.class));
                             if(c.getComplain().getStatus().equals("Pending")) {
+                                //adding data from the database to Arraylist
                                 complainArrayList.add(c);
                             }
                         }

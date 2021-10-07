@@ -3,13 +3,25 @@ package com.example.studyhelper_android_firebase.student;
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Course;
 import com.example.studyhelper_android_firebase.classes.Pdf;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import android.annotation.SuppressLint;
+import android.app.DownloadManager;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Environment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,6 +29,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +57,8 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull PdfAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+
         //loading data
 
         String subject = pdfList.get(position).getObj().getTitle();
@@ -50,8 +66,21 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
 
         holder.myTextView.setText(subject);
 
-        holder.parentLayout.setOnClickListener(view -> {
-
+        holder.download.setOnClickListener(view -> {
+            DownloadManager manager;
+            manager = (DownloadManager) mContext.getSystemService(mContext.DOWNLOAD_SERVICE);
+            Uri uri = Uri.parse(pdfList.get(position).getObj().getPdf());
+            DownloadManager.Request request = new DownloadManager.Request(uri);
+            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
+            request.allowScanningByMediaScanner();
+            request.setTitle(subject)
+                    .setDescription("File is downloading...")
+                    .setDestinationInExternalFilesDir(mContext,
+                            "Downloads","ll.pdf")
+                    .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+            //Enqueue the download.The download will start automatically once the download manager is ready
+            // to execute it and connectivity is available.
+            long reference =manager.enqueue(request);
         });
     }
 
@@ -60,15 +89,18 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
         return pdfList.size();
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         CardView parentLayout;
         TextView myTextView;
+        Button download;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             myTextView = itemView.findViewById(R.id.pdfTitle);
             parentLayout = itemView.findViewById(R.id.studentPdfLayout);
+            download = itemView.findViewById(R.id.button3);
         }
     }
 }
