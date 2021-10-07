@@ -8,9 +8,10 @@
     <item
         android:id="@+id/CH_ComplainFragment"
         android:title="@string/complaint_menu"
-        android:icon="@drawable/ic_complain" />
-    <item
-        android:id="@+id/CH_ReportFragment"
-        android:title="@string/nav_Reports"
-        android:icon="@drawable/ic_report" />
+        android:icon="@drawable/ic_complain"/>
+  
+<!--    <item-->
+<!--        android:id="@+id/CH_ReportFragment"-->
+<!--        android:title="@string/nav_Reports"-->
+<!--        android:icon="@drawable/ic_report"/>-->
 </menu>
