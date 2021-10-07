@@ -2,13 +2,7 @@ package com.example.studyhelper_android_firebase.services;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
-import android.util.Log;
 
-import com.example.studyhelper_android_firebase.classes.User;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-
-import java.util.ArrayList;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -21,15 +15,11 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class Services {
-    //creating an instance of the database
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public void sendMail(String id,String subject,String content) {
         //needed variables
-//        String toEmail = "smdnipun@gmail.com"; // receiver email
         String fromEmail = "distributionsmd5@gmail.com"; // sender email
         String password = "smddistributor123@";
-
 
         //initialize properties
         Properties properties = new Properties();
@@ -71,7 +61,6 @@ public class Services {
     private class SendMail extends AsyncTask<Message, String, String> {
         //initialize progress dialog
         private ProgressDialog progressDialog;
-
 
         @Override
         protected String doInBackground(Message... messages) {
