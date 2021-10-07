@@ -113,15 +113,19 @@ public class Login extends AppCompatActivity {
                 }
             }
             if ((Email.getText().toString().equals("t")) && (Password.getText().toString().equals("t"))) {
+                userFound=true;
                 Intent start = new Intent(this, TeacherMainActivity.class);
                 startActivity(start);
             } else if ((Email.getText().toString().equals("ch")) && (Password.getText().toString().equals("ch"))) {
+                userFound=true;
                 Intent start = new Intent(this, ComplainMain.class);
                 startActivity(start);
             } else if ((Email.getText().toString().equals("s")) && (Password.getText().toString().equals("s"))) {
+                userFound=true;
                 Intent start = new Intent(this, StudentMainActivity.class);
                 startActivity(start);
             }else if((Email.getText().toString().equals("c")) && (Password.getText().toString().equals("c"))){
+                userFound=true;
                 Intent start = new Intent(this, Course_manager_home.class);
                 startActivity(start);
             }
@@ -130,15 +134,6 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
             }
         });
-//        Context mContext = getContext();
-//        Button scomplains = root.findViewById(R.id.scomplains);
-//
-//        scomplains.setOnClickListener(view -> {
-//            Intent i = new Intent(mContext, Student_complaint.class);
-//            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            mContext.startActivity(i);
-//        });
-
     }
 
 

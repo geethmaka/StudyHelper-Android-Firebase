@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -62,7 +63,13 @@ public void onCreate(Bundle savedInstanceState) {
         mParam2 = getArguments().getString(ARG_PARAM2);
     }
 }
-
+    public boolean checkForEmpty(String subject, String stream) {
+        if ((!subject.equals("") && (!stream.equals("Subject")))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 @Override
 public View onCreateView(LayoutInflater inflater, ViewGroup container,
                          Bundle savedInstanceState) {
@@ -87,14 +94,17 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container,
         EditText subject = root.findViewById(R.id.addSubject);
         Switch availability = root.findViewById(R.id.addAvailability);
 
+        if (!checkForEmpty(subject.getText().toString(), stream.getSelectedItem().toString())) {
+            ICourse c = new ICourse(subject.getText().toString(),stream.getSelectedItem().toString() , availability.isChecked());
 
+            db.collection("courses")
+                    .add(c)
+                    .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))
+                    .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
+        }else{
+            Toast.makeText(getContext(), "Please fill all the fields!", Toast.LENGTH_SHORT).show();
+        }
 
-        ICourse c = new ICourse(subject.getText().toString(),stream.getSelectedItem().toString() , availability.isChecked());
-
-        db.collection("courses")
-                .add(c)
-                .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))
-                .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
     });
 
     return root;
