@@ -111,7 +111,7 @@ public class Register extends AppCompatActivity {
 
                             String mail = reg_email.getText().toString().trim();
                             String sub = "Wellcome to Study Helper";
-                            String message = "wellcome";
+                            String message = "you have successfully registered";
 
                             Services registermaseg = new Services();
                             registermaseg.sendMail(mail,sub,message);
