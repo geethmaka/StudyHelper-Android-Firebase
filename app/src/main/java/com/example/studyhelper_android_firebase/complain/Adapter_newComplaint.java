@@ -17,9 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Complain;
 import com.example.studyhelper_android_firebase.classes.User;
-import com.example.studyhelper_android_firebase.course.UpdateCourse;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.example.studyhelper_android_firebase.services.Services;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -61,37 +59,37 @@ public class Adapter_newComplaint extends RecyclerView.Adapter<Adapter_newCompla
         holder.date.setText(complain.getComplain().getDate());
         //getting the username from the database giving the userid in complain
         db.collection("complain")
-                .document(complain.getComplainId())
-                .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
-                            Complain c = document.toObject(Complain.class);
-                            db.collection("users")
-                                    .document(c.getUserID())
-                                    .get()
-                                    .addOnCompleteListener(task1 -> {
-                                        if (task1.isSuccessful()) {
-                                            DocumentSnapshot doc = task1.getResult();
-                                            if (doc.exists()) {
-                                                User u = doc.toObject(User.class);
-                                                //setting the username
-                                                holder.username.setText(u.getUsername());
-                                            } else {
-                                                Log.d("TAG", "No such document");
-                                            }
+            .document(complain.getComplainId())
+            .get()
+            .addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Complain c = document.toObject(Complain.class);
+                        db.collection("users")
+                                .document(c.getUserID())
+                                .get()
+                                .addOnCompleteListener(task1 -> {
+                                    if (task1.isSuccessful()) {
+                                        DocumentSnapshot doc = task1.getResult();
+                                        if (doc.exists()) {
+                                            User u = doc.toObject(User.class);
+                                            //setting the username
+                                            holder.username.setText(u.getUsername());
                                         } else {
-                                            Log.d("TAG", "get failed with ", task.getException());
+                                            Log.d("TAG", "No such document");
                                         }
-                                    });
-                        } else {
-                            Log.d("TAG", "No such document");
-                        }
+                                    } else {
+                                        Log.d("TAG", "get failed with ", task.getException());
+                                    }
+                                });
                     } else {
-                        Log.d("TAG", "get failed with ", task.getException());
+                        Log.d("TAG", "No such document");
                     }
-                });
+                } else {
+                    Log.d("TAG", "get failed with ", task.getException());
+                }
+            });
         //getting the status
         holder.status.setText(complain.getComplain().getStatus());
         //getting the complain content
@@ -101,18 +99,55 @@ public class Adapter_newComplaint extends RecyclerView.Adapter<Adapter_newCompla
         holder.btn_cResolve.setOnClickListener(v -> {
             DocumentReference complainRef = db.collection("complain").document(complain.getComplainId());
             complainRef.update("status", "Resolved")
-                    .addOnSuccessListener(aVoid ->{
-                        Toast.makeText(context.getApplicationContext(), "Complaint Marked Resolved Successful!!!",Toast.LENGTH_LONG).show();
-                        Intent i=new Intent(this.context.getApplicationContext(), NewComplaint.class);
-                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        this.context.startActivity(i);
-                        ((Activity)context).finish();
-                    })
+                .addOnSuccessListener(aVoid ->{
+                    complainRef.get()
+                        .addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                DocumentSnapshot document = task.getResult();
+                                if (document.exists()) {
+                                    Complain c = document.toObject(Complain.class);
+                                    db.collection("users")
+                                            .document(c.getUserID())
+                                            .get()
+                                            .addOnCompleteListener(task1 -> {
+                                                if (task1.isSuccessful()) {
+                                                    DocumentSnapshot doc = task1.getResult();
+                                                    if (doc.exists()) {
+                                                        User u = doc.toObject(User.class);
+                                                        Services services = new Services();
+                                                        //sending a mail to the user
+                                                        String email = u.getEmail();
+                                                        String username = u.getUsername();
+                                                        String subject = "Notify Complaint Resolved";
+                                                        String content = "Hello " + username + ",\nThank you for your patience we have resolved your complaint.\n\nThank you.";
+                                                        services.sendMail(email,subject,content);
+                                                    } else {
+                                                        Log.d("TAG", "No such document");
+                                                    }
+                                                } else {
+                                                    Log.d("TAG", "get failed with ", task.getException());
+                                                }
+                                            });
+                                } else {
+                                    Log.d("TAG", "No such document");
+                                }
+                            } else {
+                                Log.d("TAG", "get failed with ", task.getException());
+                            }
+                        });
+                    //toast sucessfull message
+                    Toast.makeText(context.getApplicationContext(), "Complaint Marked Resolved Successful!!!",Toast.LENGTH_LONG).show();
+                    //redirect to NewComplaint class
+                    Intent i=new Intent(this.context.getApplicationContext(), NewComplaint.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    this.context.startActivity(i);
+                    ((Activity)context).finish();
+                })
 
-                    .addOnFailureListener(e ->{
-                        Log.w("TAG", "Error updating status", e);
-                        Toast.makeText(context.getApplicationContext(), "Error!!!",Toast.LENGTH_LONG).show();
-                    });
+                .addOnFailureListener(e ->{
+                    Log.w("TAG", "Error updating status", e);
+                    Toast.makeText(context.getApplicationContext(), "Error!!!",Toast.LENGTH_LONG).show();
+                });
         });
     }
 

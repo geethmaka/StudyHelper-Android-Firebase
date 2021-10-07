@@ -1,15 +1,15 @@
 package com.example.studyhelper_android_firebase.complain;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.User;
@@ -46,6 +46,9 @@ public class ActiveUsers extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         //initialize the array list
         userArrayList = new ArrayList<User>();
+        //initialize the adapter
+        userAdapter = new Adapter_activeUser(this,userArrayList);
+        recyclerView.setAdapter(userAdapter);
 
         EventChangeListener();
     }

@@ -1,5 +1,7 @@
 package com.example.studyhelper_android_firebase.complain;
 
+import static org.junit.Assert.*;
+
 import android.content.Intent;
 import android.view.View;
 
@@ -13,33 +15,34 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-public class NewComplaintTest {
+public class ActiveUsersTest {
 
     @Rule
-    public ActivityTestRule<NewComplaint> newComplain = new ActivityTestRule<NewComplaint>(NewComplaint.class,true, false);
-    private  NewComplaint nComplain = null;
+    public ActivityTestRule<ActiveUsers> activeUsers = new ActivityTestRule<ActiveUsers>(ActiveUsers.class,true,false);
+    private ActiveUsers active = null;
 
     @Before
     public void setUp() throws Exception {
-        nComplain=newComplain.getActivity();
+        active = activeUsers.getActivity();
     }
 
     @Test
     public void testLaunch() {
         Intent intent = new Intent();
 
-        newComplain.launchActivity(intent).runOnUiThread(() -> {
-                View view = newComplain.getActivity().findViewById(R.id.newcomp);
-                Assert.assertNotNull(view);
-        });
+        activeUsers.launchActivity(intent).runOnUiThread(() -> {
+                    View view = activeUsers.getActivity().findViewById(R.id.tv_activeUser);
+                    Assert.assertNotNull(view);
+                }
+        );
     }
 
     @Test
     public void testRecycleView() {
         Intent intent = new Intent();
 
-        newComplain.launchActivity(intent).runOnUiThread(() -> {
-                    View view = newComplain.getActivity().findViewById(R.id.RVnewComplains);
+        activeUsers.launchActivity(intent).runOnUiThread(() -> {
+                    View view = activeUsers.getActivity().findViewById(R.id.RVactiveUser);
                     Assert.assertNotNull(view);
                 }
         );
@@ -47,7 +50,6 @@ public class NewComplaintTest {
 
     @After
     public void tearDown() throws Exception {
-        nComplain=null;
+        active = null;
     }
-
 }

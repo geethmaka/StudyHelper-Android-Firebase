@@ -18,9 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.User;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -58,23 +55,21 @@ public class Adapter_inactiveUsers extends RecyclerView.Adapter<Adapter_inactive
             alertDialog.setTitle("Delete User confirmation");
             alertDialog.setMessage("Do you want to Delete the User");
             alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) ->
-                    db.collection("users").document(user.getId())
-                            .delete()
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Toast.makeText(context.getApplicationContext(), "User Removed Successfully!!!",Toast.LENGTH_LONG).show();
-                            Intent i=new Intent(v.getContext(), InactiveUsers.class);
-                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            v.getContext().startActivity(i);
-                            ((Activity)context).finish();
-                        }
+                db.collection("users").document(user.getId()).delete()
+                    .addOnSuccessListener(aVoid -> {
+                        //toast successful message
+                        Toast.makeText(context.getApplicationContext(), "User Removed Successfully!!!",Toast.LENGTH_LONG).show();
+                        //redirect to the same activity
+                        Intent i=new Intent(v.getContext(), InactiveUsers.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        v.getContext().startActivity(i);
+                        ((Activity)context).finish();
                     })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                        }
-                    }));
+                    .addOnFailureListener(e-> {
+                       Log.w("TAG", "Error updating status", e);
+                        Toast.makeText(context.getApplicationContext(), "Error!!!",Toast.LENGTH_LONG).show();
+                    })
+            );
             alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id1) -> dialog.dismiss());
             alertDialog.show();
         });
