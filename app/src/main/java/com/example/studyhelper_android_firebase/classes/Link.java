@@ -32,9 +32,10 @@ public class Link {
     }
 //getters and setters
 
-    public String getTid(){
+    public String getTid() {
         return Tid;
     }
+
     public Link getObj() {
         return obj;
     }

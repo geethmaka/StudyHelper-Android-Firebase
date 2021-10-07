@@ -18,7 +18,7 @@ import org.junit.Test;
 public class InactiveUsersTest {
 
     @Rule
-    public ActivityTestRule<InactiveUsers> inactiveUser = new ActivityTestRule<InactiveUsers>(InactiveUsers.class,true,false);
+    public ActivityTestRule<InactiveUsers> inactiveUser = new ActivityTestRule<InactiveUsers>(InactiveUsers.class, true, false);
     public InactiveUsers inactive = null;
 
     @Before

@@ -41,7 +41,7 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
     private Context mContext;
 
     public PdfAdapter(ArrayList<Pdf> courses, Context mContext) {
-        this.pdfList= courses;
+        this.pdfList = courses;
         this.mInflater = LayoutInflater.from(mContext);
         this.mContext = mContext;
     }
@@ -76,11 +76,11 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
             request.setTitle(subject)
                     .setDescription("File is downloading...")
                     .setDestinationInExternalFilesDir(mContext,
-                            Environment.DIRECTORY_DOWNLOADS,subject+".pdf")
+                            Environment.DIRECTORY_DOWNLOADS, subject + ".pdf")
                     .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
             //Enqueue the download.The download will start automatically once the download manager is ready
             // to execute it and connectivity is available.
-            long reference =manager.enqueue(request);
+            long reference = manager.enqueue(request);
         });
     }
 

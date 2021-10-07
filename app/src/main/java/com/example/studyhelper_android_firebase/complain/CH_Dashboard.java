@@ -73,9 +73,9 @@ public class CH_Dashboard extends Fragment {
                 .addOnCompleteListener(task -> {
                     int total = 0;
                     if (task.isSuccessful()) {
-                        for(QueryDocumentSnapshot dc : task.getResult()){
+                        for (QueryDocumentSnapshot dc : task.getResult()) {
                             Complain c = dc.toObject(Complain.class);
-                            total ++;
+                            total++;
                         }
                         String stringtot = String.valueOf(total);
 
@@ -84,17 +84,17 @@ public class CH_Dashboard extends Fragment {
                                 .addOnCompleteListener(task1 -> {
                                     int pending = 0;
                                     if (task.isSuccessful()) {
-                                        for(QueryDocumentSnapshot dc : task.getResult()){
+                                        for (QueryDocumentSnapshot dc : task.getResult()) {
                                             Complain c = dc.toObject(Complain.class);
                                             if (c.getStatus().equals("Pending")) {
-                                                pending ++;
+                                                pending++;
                                             }
                                         }
                                         //taking the pending percentage
                                         int finalTotal = Integer.parseInt(stringtot);
 
                                         //getting the percentage value
-                                        int p_per = cal.getPercentage(pending,finalTotal);
+                                        int p_per = cal.getPercentage(pending, finalTotal);
 
                                         per_pending.setText(String.valueOf(p_per));
                                         pd_pending.setProgress(p_per);
@@ -108,17 +108,17 @@ public class CH_Dashboard extends Fragment {
                                 .addOnCompleteListener(task2 -> {
                                     int resolved = 0;
                                     if (task.isSuccessful()) {
-                                        for(QueryDocumentSnapshot dc : task.getResult()){
+                                        for (QueryDocumentSnapshot dc : task.getResult()) {
                                             Complain c = dc.toObject(Complain.class);
                                             if (c.getStatus().equals("Resolved")) {
-                                                resolved ++;
+                                                resolved++;
                                             }
                                         }
                                         //getting the resolved complaint percentage
                                         int finalTotal = Integer.parseInt(stringtot);
 
                                         //getting the percentage value
-                                        int r_per = cal.getPercentage(resolved,finalTotal);
+                                        int r_per = cal.getPercentage(resolved, finalTotal);
 
                                         per_resolved.setText(String.valueOf(r_per));
                                         pd_resolved.setProgress(r_per);

@@ -5,15 +5,19 @@ public class ICourse {
     private String stream;
     private boolean availability;
 
-    public ICourse(){}
+    public ICourse() {
+    }
+
     public ICourse(String subject, String stream, boolean availability) {
         this.subject = subject;
         this.stream = stream;
         this.availability = availability;
     }
+
     public String getSubject() {
         return subject;
     }
+
     public String getStream() {
         return stream;
     }

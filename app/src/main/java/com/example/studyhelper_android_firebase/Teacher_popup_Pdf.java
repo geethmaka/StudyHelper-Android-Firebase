@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -34,6 +35,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //creating teacher pdf class
 public class Teacher_popup_Pdf extends AppCompatActivity {
     //check emtiness for testcases
@@ -44,6 +48,7 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
             return true;
         }
     }
+
     //declare variables
     TextView notifyPdf;
     FirebaseStorage storage;
@@ -153,7 +158,8 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
 
         });
     }
-//check storage permisson
+
+    //check storage permisson
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
@@ -164,6 +170,7 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
         } else
             Toast.makeText(Teacher_popup_Pdf.this, "please proivde permission..", Toast.LENGTH_SHORT).show();
     }
+
     //check pdf select or not
     private void selectPdf() {
         ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(

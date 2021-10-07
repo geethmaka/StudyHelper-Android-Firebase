@@ -28,7 +28,7 @@ public class RegisterTest {
     @Test
     public void testLaunchheading() {
         rActivity.runOnUiThread(() -> {
-            View view  = RegisterActivity.getActivity().findViewById(R.id.regheading);
+            View view = RegisterActivity.getActivity().findViewById(R.id.regheading);
             assertNotNull(view);
         });
     }
@@ -36,7 +36,7 @@ public class RegisterTest {
     @Test
     public void testLaunchname() {
         rActivity.runOnUiThread(() -> {
-            View view  = RegisterActivity.getActivity().findViewById(R.id.reg_name);
+            View view = RegisterActivity.getActivity().findViewById(R.id.reg_name);
             assertNotNull(view);
         });
     }
@@ -52,7 +52,7 @@ public class RegisterTest {
     @Test
     public void testLaunchspinnerstream() {
         rActivity.runOnUiThread(() -> {
-            View view  = RegisterActivity.getActivity().findViewById(R.id.reg_Stream);
+            View view = RegisterActivity.getActivity().findViewById(R.id.reg_Stream);
             assertNotNull(view);
         });
     }
@@ -60,7 +60,7 @@ public class RegisterTest {
     @Test
     public void testLaunchmn() {
         rActivity.runOnUiThread(() -> {
-            View view  = RegisterActivity.getActivity().findViewById(R.id.reg_mn);
+            View view = RegisterActivity.getActivity().findViewById(R.id.reg_mn);
             assertNotNull(view);
         });
     }
@@ -68,7 +68,7 @@ public class RegisterTest {
     @Test
     public void testLaunchemail() {
         rActivity.runOnUiThread(() -> {
-            View view  = RegisterActivity.getActivity().findViewById(R.id.reg_email);
+            View view = RegisterActivity.getActivity().findViewById(R.id.reg_email);
             assertNotNull(view);
         });
     }
@@ -76,7 +76,7 @@ public class RegisterTest {
     @Test
     public void testLaunchpw() {
         rActivity.runOnUiThread(() -> {
-            View view  = RegisterActivity.getActivity().findViewById(R.id.reg_pw);
+            View view = RegisterActivity.getActivity().findViewById(R.id.reg_pw);
             assertNotNull(view);
         });
     }
@@ -84,7 +84,7 @@ public class RegisterTest {
     @Test
     public void testLaunchbtn() {
         rActivity.runOnUiThread(() -> {
-            View view  = RegisterActivity.getActivity().findViewById(R.id.reg_btn);
+            View view = RegisterActivity.getActivity().findViewById(R.id.reg_btn);
             assertNotNull(view);
         });
     }
@@ -96,20 +96,20 @@ public class RegisterTest {
         intent.putExtra("uid", "VUORF7G4KHXZNcsX6W7Q");
 
         rActivity.runOnUiThread(() -> {
-            View view = rActivity.findViewById(R.id.register);
-            EditText reg_name =  rActivity.findViewById(R.id.reg_name);
-            EditText reg_mn = rActivity. findViewById(R.id.reg_mn);
-            Spinner reg_type =  rActivity.findViewById(R.id.reg_type);
-            Spinner reg_Stream =  rActivity.findViewById(R.id.reg_Stream);
-            EditText reg_email =  rActivity.findViewById(R.id.reg_email);
-            EditText reg_pw =  rActivity.findViewById(R.id.reg_pw);
-            reg_name.setText("test");
-            reg_mn.setText("test");
-            reg_type.setSelection(1);
-            reg_Stream.setSelection(1);
-            reg_email.setText("test");
-            reg_pw.setText("test");
-            assertFalse(rActivity.checkForEmpty(reg_name.getText().toString(),reg_mn.getText().toString(), reg_type.getSelectedItem().toString(), reg_Stream.getSelectedItem().toString(), reg_email.getText().toString(), reg_pw.getText().toString()));
+                    View view = rActivity.findViewById(R.id.register);
+                    EditText reg_name = rActivity.findViewById(R.id.reg_name);
+                    EditText reg_mn = rActivity.findViewById(R.id.reg_mn);
+                    Spinner reg_type = rActivity.findViewById(R.id.reg_type);
+                    Spinner reg_Stream = rActivity.findViewById(R.id.reg_Stream);
+                    EditText reg_email = rActivity.findViewById(R.id.reg_email);
+                    EditText reg_pw = rActivity.findViewById(R.id.reg_pw);
+                    reg_name.setText("test");
+                    reg_mn.setText("test");
+                    reg_type.setSelection(1);
+                    reg_Stream.setSelection(1);
+                    reg_email.setText("test");
+                    reg_pw.setText("test");
+                    assertFalse(rActivity.checkForEmpty(reg_name.getText().toString(), reg_mn.getText().toString(), reg_type.getSelectedItem().toString(), reg_Stream.getSelectedItem().toString(), reg_email.getText().toString(), reg_pw.getText().toString()));
                 }
         );
 

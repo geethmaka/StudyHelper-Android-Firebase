@@ -33,6 +33,7 @@ public class Course_manager_home extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, course_navController);
 
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

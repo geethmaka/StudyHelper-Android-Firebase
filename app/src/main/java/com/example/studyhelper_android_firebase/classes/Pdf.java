@@ -4,9 +4,9 @@ import java.io.File;
 
 public class Pdf {
 
-     public String subject;
-     public String title;
-     public String pdf;
+    public String subject;
+    public String title;
+    public String pdf;
     private String id;
 
     private String Tid;
@@ -27,26 +27,23 @@ public class Pdf {
     }
 
 
-
-
-
-    public Pdf(String id, Pdf obj){
-         this.id=id;
-         this.obj=obj;
-     }
+    public Pdf(String id, Pdf obj) {
+        this.id = id;
+        this.obj = obj;
+    }
 
     public Pdf() {
     }
 
-    public Pdf(String subject, String title, String pdf,Pdf obj,String id) {
+    public Pdf(String subject, String title, String pdf, Pdf obj, String id) {
         this.subject = subject;
         this.title = title;
         this.pdf = pdf;
-        this.obj=obj;
-        this.id=id;
+        this.obj = obj;
+        this.id = id;
     }
 
-    public Pdf(String  subject, String title, String pdf) {
+    public Pdf(String subject, String title, String pdf) {
     }
 
     public String getSubject() {

@@ -87,9 +87,9 @@ public class FileHandlerAdapter extends RecyclerView.Adapter<FileHandlerAdapter.
             alertDialog.setTitle("Confirm Delete");
             alertDialog.setMessage("Are you sure want to Delete?");
 
-            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID)->{
-                desertRef.delete().addOnSuccessListener(aVoid->{
-                    db.collection("pdf").document(id).delete().addOnCompleteListener(del->{
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) -> {
+                desertRef.delete().addOnSuccessListener(aVoid -> {
+                    db.collection("pdf").document(id).delete().addOnCompleteListener(del -> {
                         db.collection("users").get().addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
                                 for (QueryDocumentSnapshot document : task.getResult()) {
@@ -105,7 +105,7 @@ public class FileHandlerAdapter extends RecyclerView.Adapter<FileHandlerAdapter.
                             }
                         });
                     });
-                }).addOnFailureListener(exception->{
+                }).addOnFailureListener(exception -> {
                     Log.d("err", String.valueOf(exception));
                 });
             });

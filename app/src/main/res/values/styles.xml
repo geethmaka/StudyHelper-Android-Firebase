@@ -58,11 +58,13 @@
         <item name="android:textColor">@color/whiteTextColor</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="btnStyleLeft" parent="viewParent">
         <item name="android:background">@drawable/btn_half_left</item>
         <item name="android:textColor">@color/whiteTextColor</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="btnStyleRight" parent="viewParent">
         <item name="android:background">@drawable/btn_half_right</item>
         <item name="android:textColor">@color/whiteTextColor</item>

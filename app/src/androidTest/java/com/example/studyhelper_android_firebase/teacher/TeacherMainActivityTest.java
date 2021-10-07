@@ -19,16 +19,16 @@ import org.junit.Test;
 public class TeacherMainActivityTest {
 
     @Rule
-    public ActivityTestRule<TeacherMainActivity> teacherMainActivity=new ActivityTestRule<TeacherMainActivity>(TeacherMainActivity.class,true, false);
-    private  TeacherMainActivity tMainActivity = null;
+    public ActivityTestRule<TeacherMainActivity> teacherMainActivity = new ActivityTestRule<TeacherMainActivity>(TeacherMainActivity.class, true, false);
+    private TeacherMainActivity tMainActivity = null;
 
     @Before
     public void setUp() throws Exception {
         tMainActivity = teacherMainActivity.getActivity();
-        }
+    }
 
     @Test
-    public  void  testLaunch(){
+    public void testLaunch() {
 
         Intent intent = new Intent();
         teacherMainActivity.launchActivity(intent).runOnUiThread(() -> {
@@ -37,10 +37,11 @@ public class TeacherMainActivityTest {
                 }
         );
     }
+
     @After
     public void tearDown() throws Exception {
 
-        tMainActivity=null;
+        tMainActivity = null;
 
     }
 }

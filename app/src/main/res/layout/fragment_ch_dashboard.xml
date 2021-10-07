@@ -17,7 +17,7 @@
         android:textSize="24sp"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
         android:orientation="vertical"
         android:layout_marginTop="10dp">
 
-        <include layout="@layout/complain_cv_overview"/>
+        <include layout="@layout/complain_cv_overview" />
 
     </LinearLayout>
 
@@ -45,13 +45,13 @@
             android:layout_marginBottom="20dp"
             android:text="@string/New_complain"
             android:textSize="24dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/RVcomplain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"/>
+            android:orientation="vertical" />
 
     </LinearLayout>
 

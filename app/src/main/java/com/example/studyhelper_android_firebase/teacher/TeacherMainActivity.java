@@ -1,4 +1,5 @@
 package com.example.studyhelper_android_firebase.teacher;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -44,6 +45,7 @@ public class TeacherMainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, teacher_navController);
 
     }
+
     //intents for page navigation
     public void gotoTmLink(View view) {
         final Context context = this;
@@ -78,6 +80,7 @@ public class TeacherMainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     //logout from teacher
     public void logout(MenuItem item) {
         SharedPreferences myPrefs = getSharedPreferences("uid", MODE_PRIVATE);
@@ -154,11 +157,7 @@ public class TeacherMainActivity extends AppCompatActivity {
 //        teacher_adapter=new Teacher_adapter(c this, getTeacherList());
 
 
-
-
-
-
-    //@Override
+//@Override
 //public boolean onCreateOptionsMenu(Menu menu) {
 //    MenuInflater inflater = getMenuInflater();
 //    inflater.inflate(R.menu.options_menu, menu);

@@ -18,7 +18,7 @@ import org.junit.Test;
 public class ActiveUsersTest {
 
     @Rule
-    public ActivityTestRule<ActiveUsers> activeUsers = new ActivityTestRule<ActiveUsers>(ActiveUsers.class,true,false);
+    public ActivityTestRule<ActiveUsers> activeUsers = new ActivityTestRule<ActiveUsers>(ActiveUsers.class, true, false);
     private ActiveUsers active = null;
 
     @Before

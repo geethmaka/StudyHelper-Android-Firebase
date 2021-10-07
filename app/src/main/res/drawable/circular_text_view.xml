@@ -3,7 +3,6 @@
     android:thickness="3dp"
     android:useLevel="false"
     android:shape="ring">
-    <solid
-        android:color="@color/black"/>
+    <solid android:color="@color/black" />
 
 </shape>
