@@ -6,8 +6,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
-import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,30 +13,22 @@ import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studyhelper_android_firebase.R;
-import com.example.studyhelper_android_firebase.Teacher_popup_Pdf;
 import com.example.studyhelper_android_firebase.classes.Link;
-import com.example.studyhelper_android_firebase.course.ViewCourses;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
-
+//Link adapter class
 public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder> {
 
     Context context;
@@ -72,10 +62,13 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
             holder.time.setText(link.getObj().getTime());
             holder.link.setText(link.getObj().getLink());
 
+            //update link function
             holder.updateLink.setOnClickListener(v ->{
+                //Alert box
                 AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
                 alertDialog.setTitle("Update");
                 alertDialog.setMessage("Are you sure you want to update this link");
+                //check alert box result and update
                 alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) ->
                         db.collection("link").document(link.getId())
                                 .update("subject",  holder.subject.getText().toString(),
@@ -103,11 +96,13 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
                 alertDialog.show();
 
             });
-
+            //delete link function
             holder.deleteLink.setOnClickListener((View v) -> {
+                //Alert box
                 AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
                 alertDialog.setTitle("Delete");
                 alertDialog.setMessage("Are you sure you want to delete this link");
+                //check alert box result and delete
                 alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) ->
                         db.collection("link").document(link.getId())
                         .delete()
@@ -145,7 +140,7 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.LinkViewHolder
         public int getItemCount () {
             return linkArrayList.size();
         }
-
+    //LinkViewHolder class
     public static class LinkViewHolder extends RecyclerView.ViewHolder{
         TextView subject;
         EditText title,link,time;

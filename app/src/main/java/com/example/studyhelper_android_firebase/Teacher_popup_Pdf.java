@@ -27,9 +27,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.studyhelper_android_firebase.classes.IPdf;
 import com.example.studyhelper_android_firebase.services.Services;
-import com.example.studyhelper_android_firebase.teacher.Links_added;
 import com.example.studyhelper_android_firebase.teacher.Pdfs_added;
-import com.example.studyhelper_android_firebase.teacher.Teacher_popup_Link;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -38,7 +36,7 @@ import com.google.firebase.storage.UploadTask;
 
 //creating teacher pdf class
 public class Teacher_popup_Pdf extends AppCompatActivity {
-
+    //check emtiness for testcases
     public boolean checkForEmpty(String title, String subject, String notify) {
         if ((!title.equals("") && (!subject.equals("Subject")) && (!notify.equals("")))) {
             return false;
@@ -46,7 +44,7 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
             return true;
         }
     }
-
+    //declare variables
     TextView notifyPdf;
     FirebaseStorage storage;
     Uri pdfUri;
@@ -74,8 +72,9 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
                         notifyPdf.setText("A file is selected" + data.getData().getLastPathSegment());
                     }
                 });
-        //select pdf button function
+        //select pdf function
         selectPdf.setOnClickListener(v -> {
+            //check storage permission
             if (ContextCompat.checkSelfPermission(Teacher_popup_Pdf.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
 
                 Intent intent = new Intent();
@@ -85,7 +84,7 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
             } else
                 ActivityCompat.requestPermissions(Teacher_popup_Pdf.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 9);
         });
-
+        //check pdf added or not
         uploadButton.setOnClickListener((View v) -> {
             if (pdfUri != null) {
                 uploadPdf(pdfUri);
@@ -94,6 +93,7 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
         });
     }
 
+    //upload pdf function
     private void uploadPdf(Uri pdfUri) {
 
         progressDialog = new ProgressDialog(this);
@@ -113,6 +113,7 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
             }
 
             return ref.getDownloadUrl();
+            //insert data into database
         }).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Uri downloadUri = task.getResult();
@@ -129,7 +130,7 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
                         .addOnSuccessListener(documentReference -> {
 
                             Services services = new Services();
-                            //sending a mail to the user
+                            //sending a mail to the course manager
                             String email = "geethmaka@gmail.com";
                             String subject = "Teacher added pdf";
                             String title = Subject.getSelectedItem().toString();
@@ -152,7 +153,7 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
 
         });
     }
-
+//check storage permisson
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
@@ -163,7 +164,7 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
         } else
             Toast.makeText(Teacher_popup_Pdf.this, "please proivde permission..", Toast.LENGTH_SHORT).show();
     }
-
+    //check pdf select or not
     private void selectPdf() {
         ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),

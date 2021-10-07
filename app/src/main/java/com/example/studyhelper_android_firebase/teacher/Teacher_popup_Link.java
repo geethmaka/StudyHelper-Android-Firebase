@@ -13,19 +13,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
-
 import com.example.studyhelper_android_firebase.R;
-import com.example.studyhelper_android_firebase.Teacher_popup_Pdf;
 import com.example.studyhelper_android_firebase.classes.ILink;
-import com.example.studyhelper_android_firebase.classes.Link;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 //create teacher link class
 public class Teacher_popup_Link extends Activity {
@@ -47,7 +36,7 @@ public class Teacher_popup_Link extends Activity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Button uploadButton = findViewById(R.id.btn_uploadlink);
         uploadButton.setOnClickListener((View v) -> {
-
+            //implement variables
             Spinner Subject =findViewById(R.id.spinner);
             EditText Title =findViewById(R.id.link_title);
             CalendarView Date =findViewById(R.id.calendarView);
@@ -57,6 +46,7 @@ public class Teacher_popup_Link extends Activity {
             String time=Time.getText().toString()+AmPm.getSelectedItem().toString();
             String Name= Subject.getSelectedItem().toString();
             Long date=Date.getDate();
+            //check emptiness of fields
             if(Name == null) {
                 Toast.makeText(getApplicationContext(),"Please select subject",Toast.LENGTH_LONG).show();}
             else if(TextUtils.isEmpty(Title.getText().toString()))
@@ -70,12 +60,13 @@ public class Teacher_popup_Link extends Activity {
             else {
 
             }
+            //get user id from shared preference
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
             String id =preferences.getString("uid","");
 
             ILink link=new ILink(id,Subject.getSelectedItem().toString(),Title.getText().toString(),Date.getDate(),time,Link.getText().toString());
 
-
+             //insert into database
             db.collection("link")
                     .add(link)
                     .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))

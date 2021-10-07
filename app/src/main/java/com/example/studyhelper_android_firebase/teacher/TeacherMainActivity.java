@@ -44,7 +44,7 @@ public class TeacherMainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, teacher_navController);
 
     }
-
+    //intents for page navigation
     public void gotoTmLink(View view) {
         final Context context = this;
         Intent intent = new Intent(context, Teacher_popup_Link.class);
@@ -78,7 +78,7 @@ public class TeacherMainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    //logout from teacher
     public void logout(MenuItem item) {
         SharedPreferences myPrefs = getSharedPreferences("uid", MODE_PRIVATE);
         SharedPreferences.Editor editor = myPrefs.edit();
