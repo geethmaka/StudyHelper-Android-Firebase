@@ -1,6 +1,8 @@
 package com.example.studyhelper_android_firebase.teacher;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +13,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.Pdf;
+import com.example.studyhelper_android_firebase.course.ViewCourses;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -65,11 +69,25 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.PdfViewHolder> {
 // Create a reference to the file to delete
             StorageReference desertRef = storageRef.child(p);
 // Delete the file
-            desertRef.delete().addOnSuccessListener(aVoid -> {
-                db.collection("pdf").document(id)
-                        .delete();
-                Toast.makeText(v.getContext(), "File Deleted successfully!", Toast.LENGTH_SHORT).show();
-            }).addOnFailureListener(exception -> Log.d("err", String.valueOf(exception)));
+            AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
+            alertDialog.setTitle("Confirm Delete");
+            alertDialog.setMessage("Are you sure want to Delete?");
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) -> {
+                desertRef.delete().addOnSuccessListener(aVoid -> {
+                    db.collection("pdf").document(id)
+                            .delete();
+                    Toast.makeText(v.getContext(), "File Deleted successfully!", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(context, TeacherMainActivity.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(i);
+                }).addOnFailureListener(exception -> Log.d("err", String.valueOf(exception)));
+            });
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "No", (dialog, id1) -> dialog.dismiss());
+            alertDialog.show();
+
+
+
+
         });
     }
 
