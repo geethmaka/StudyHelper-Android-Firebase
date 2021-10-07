@@ -35,14 +35,14 @@
                 android:id="@+id/linkTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
+                android:layout_marginStart="10dp"
                 android:text="title"
                 android:textSize="18dp" />
             <TextView
                 android:id="@+id/linklink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
+                android:layout_marginStart="10dp"
                 android:text="link"
                 android:textSize="18dp" />
 
