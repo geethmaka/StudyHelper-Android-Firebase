@@ -96,6 +96,10 @@ public class FileHandlerAdapter extends RecyclerView.Adapter<FileHandlerAdapter.
                                     User u = new User(document.getId(), document.toObject(User.class));
                                     if (u.getId().equals(tid)) {
                                         services.sendMail(u.getUser().getEmail(), "Study-Helper File Deletion Notice", "We are sorry to inform that your file has been deleted.");
+                                        Toast.makeText(mContext, "File Deleted successfully!", Toast.LENGTH_SHORT).show();
+                                        Intent i = new Intent(mContext, Course_manager_home.class);
+                                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        mContext.startActivity(i);
                                         break;
                                     }
                                 }
