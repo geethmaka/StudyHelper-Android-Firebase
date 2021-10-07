@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -112,15 +113,26 @@ public class SProfileFragment extends Fragment {
         update.setOnClickListener((View v) -> {
             AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
             alertDialog.setTitle("Update");
-            alertDialog.setMessage("Are you sure you want to update this link");
+            alertDialog.setMessage("Are you sure you want to update");
             alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) -> db.collection("users").document(id)
-                        .update("username", username.getText().toString(), "mobile", mobile.getText(), "email",email.getText().toString()
+                        .update("username", username.getText().toString(), "mobile", Long.parseLong(mobile.getText().toString()), "email",email.getText().toString()
                             ,"stream",stream.getText().toString())
                     .addOnSuccessListener(aVoid -> {
+
+//                        Fragment currentFragment = getFragmentManager().findFragmentById(R.id.SProfileFragment);
+                        Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.SProfileFragment);
+                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                        fragmentTransaction.detach(currentFragment);
+                        fragmentTransaction.attach(currentFragment);
+                        fragmentTransaction.commit();
+
+
+
                         Log.d("TAG", "DocumentSnapshot successfully updated!" + id);
-                        Intent i = new Intent(v.getContext(), SProfileFragment.class);
-                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        v.getContext().startActivity(i);
+
+//                        Intent i = new Intent(v.getContext(), SProfileFragment.class);
+//                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                        v.getContext().startActivity(i);
                     })
                     .addOnFailureListener(e -> {
                     }));
