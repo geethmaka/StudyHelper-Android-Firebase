@@ -14,10 +14,19 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.studyhelper_android_firebase.classes.iUser;
+import com.example.studyhelper_android_firebase.services.Services;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class Register extends AppCompatActivity {
+
+    public boolean checkForEmpty(String reg_name, String reg_mn,String reg_type,String reg_Stream,String reg_email,String reg_pw) {
+        if ((!reg_name.equals("") && (!reg_mn.equals(""))&&(!reg_type.equals(""))&&(!reg_Stream.equals(""))&&(!reg_email.equals(""))&&(!reg_pw.equals("")))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     //UI Views
     EditText reg_name,reg_mn,reg_email,reg_pw;
@@ -99,10 +108,19 @@ public class Register extends AppCompatActivity {
                 db.collection("users")
                         .add(user)
                         .addOnSuccessListener(documentReference -> {
+
+                            String mail = reg_email.getText().toString().trim();
+                            String sub = "Wellcome to Study Helper";
+                            String message = "wellcome";
+
+                            Services registermaseg = new Services();
+                            registermaseg.sendMail(mail,sub,message);
+
                             Toast.makeText(getApplicationContext(),"Successfully Registered!!!",Toast.LENGTH_LONG).show();
                             Intent i = new Intent(this, Login.class);
                             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             this.startActivity(i);
+
                         })
                         .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
             }
