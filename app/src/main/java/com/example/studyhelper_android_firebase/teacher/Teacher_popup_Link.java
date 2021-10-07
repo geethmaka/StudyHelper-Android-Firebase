@@ -1,6 +1,7 @@
 package com.example.studyhelper_android_firebase.teacher;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.studyhelper_android_firebase.R;
 import com.example.studyhelper_android_firebase.classes.ILink;
+import com.example.studyhelper_android_firebase.course.UpdateCourse;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 //create teacher link class
@@ -70,9 +72,14 @@ public class Teacher_popup_Link extends Activity {
             //insert into database
             db.collection("link")
                     .add(link)
-                    .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))
+                    .addOnSuccessListener(documentReference -> {
+                        Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());
+                    })
                     .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
             Toast.makeText(Teacher_popup_Link.this, "Successfully inserted", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this, UpdateCourse.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            this.startActivity(i);
         });
 
 
