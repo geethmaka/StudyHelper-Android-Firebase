@@ -6,6 +6,8 @@ import com.example.studyhelper_android_firebase.classes.Link;
 import com.example.studyhelper_android_firebase.classes.Pdf;
 
 import android.annotation.SuppressLint;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -13,12 +15,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -28,7 +34,7 @@ public class StudentLinkAdapter extends RecyclerView.Adapter<StudentLinkAdapter.
     private Context mContext;
 
     public StudentLinkAdapter(ArrayList<Link> courses, Context mContext) {
-        this.linkList= courses;
+        this.linkList = courses;
         this.mInflater = LayoutInflater.from(mContext);
         this.mContext = mContext;
     }
@@ -49,10 +55,20 @@ public class StudentLinkAdapter extends RecyclerView.Adapter<StudentLinkAdapter.
         String subject = linkList.get(position).getObj().getTitle();
 //       String Cid = linkList.get(position).getId();
 
-       holder.linktitle.setText(subject);
+        holder.linktitle.setText(subject);
+        holder.linksubject.setText(linkList.get(position).getObj().getSubject());
+        holder.linklink.setText(linkList.get(position).getObj().getLink());
+        holder.linkTime.setText(linkList.get(position).getObj().getTime());
+        Date date = new Date(linkList.get(position).getObj().getDate());
 
-       holder.parentLayout.setOnClickListener(view -> {
-
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        String strDate = dateFormat.format(date);
+        holder.linkdate.setText(strDate);
+        holder.parentLayout.setOnClickListener(view -> {
+            ClipboardManager clipboard = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText("label", linkList.get(position).getObj().getLink());
+            clipboard.setPrimaryClip(clip);
+            Toast.makeText(mContext, "Link Copied", Toast.LENGTH_SHORT).show();
         });
 
 
@@ -69,6 +85,7 @@ public class StudentLinkAdapter extends RecyclerView.Adapter<StudentLinkAdapter.
         TextView linksubject;
         TextView linklink;
         TextView linkdate;
+        TextView linkTime;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,6 +95,7 @@ public class StudentLinkAdapter extends RecyclerView.Adapter<StudentLinkAdapter.
             linklink = itemView.findViewById(R.id.linklink);
             linkdate = itemView.findViewById(R.id.linkdate);
             parentLayout = itemView.findViewById(R.id.studentLinkLayout);
+            linkTime= itemView.findViewById(R.id.timelable);
         }
     }
 }
