@@ -19,6 +19,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Register extends AppCompatActivity {
 
+    public boolean checkForEmpty(String reg_name, String reg_mn,String reg_type,String reg_Stream,String reg_email,String reg_pw) {
+        if ((!reg_name.equals("") && (!reg_mn.equals(""))&&(!reg_type.equals(""))&&(!reg_Stream.equals(""))&&(!reg_email.equals(""))&&(!reg_pw.equals("")))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     //UI Views
     EditText reg_name,reg_mn,reg_email,reg_pw;
     Spinner reg_Stream, reg_type;

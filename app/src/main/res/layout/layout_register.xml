@@ -11,7 +11,8 @@
     android:layout_marginBottom="@dimen/loginViewsMargin"
     android:background="@color/whiteCardColor"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/register">
 
     <LinearLayout
         style="@style/linearParent"

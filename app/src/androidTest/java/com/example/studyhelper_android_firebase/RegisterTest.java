@@ -89,22 +89,31 @@ public class RegisterTest {
         });
     }
 
-//    @Test
-//    public void testUploadPdf() throws Throwable {
-//
-//        rActivity.runOnUiThread(() -> {
-//                    View view = rActivity.getActivity().findViewById(R.id.pdfUploder);
-//                    EditText title = view.findViewById(R.id.editTextPdf);
-//                    Spinner subject = view.findViewById(R.id.spinnerpdf);
-//                    TextView notify=view.findViewById(R.id.notifyPdf);
-//                    title.setText("test");
-//                    subject.setSelection(2);
-//                    notify.setText("test");
-//                    assertFalse(rActivity.getActivity().checkForEmpty(title.getText().toString(), subject.getSelectedItem().toString() ,notify.getText().toString()));
-//                }
-//        );
-//
-//    }
+
+    @Test
+    public void testUploadLink() throws Throwable {
+        Intent intent = new Intent();
+        intent.putExtra("uid", "VUORF7G4KHXZNcsX6W7Q");
+
+        rActivity.runOnUiThread(() -> {
+            View view = rActivity.findViewById(R.id.register);
+            EditText reg_name =  rActivity.findViewById(R.id.reg_name);
+            EditText reg_mn = rActivity. findViewById(R.id.reg_mn);
+            Spinner reg_type =  rActivity.findViewById(R.id.reg_type);
+            Spinner reg_Stream =  rActivity.findViewById(R.id.reg_Stream);
+            EditText reg_email =  rActivity.findViewById(R.id.reg_email);
+            EditText reg_pw =  rActivity.findViewById(R.id.reg_pw);
+            reg_name.setText("test");
+            reg_mn.setText("test");
+            reg_type.setSelection(1);
+            reg_Stream.setSelection(1);
+            reg_email.setText("test");
+            reg_pw.setText("test");
+            assertFalse(rActivity.checkForEmpty(reg_name.getText().toString(),reg_mn.getText().toString(), reg_type.getSelectedItem().toString(), reg_Stream.getSelectedItem().toString(), reg_email.getText().toString(), reg_pw.getText().toString()));
+                }
+        );
+
+    }
 
 
     @After
