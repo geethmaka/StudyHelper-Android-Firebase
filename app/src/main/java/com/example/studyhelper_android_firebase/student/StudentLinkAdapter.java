@@ -95,7 +95,7 @@ public class StudentLinkAdapter extends RecyclerView.Adapter<StudentLinkAdapter.
             linklink = itemView.findViewById(R.id.linklink);
             linkdate = itemView.findViewById(R.id.linkdate);
             parentLayout = itemView.findViewById(R.id.studentLinkLayout);
-            linkTime= itemView.findViewById(R.id.timelable);
+            linkTime = itemView.findViewById(R.id.timelable);
         }
     }
 }

@@ -37,7 +37,7 @@ public class Adapter_inactiveUsers extends RecyclerView.Adapter<Adapter_inactive
     @NonNull
     @Override
     public Adapter_inactiveUsers.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_inactive_user,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.complain_cv_inactive_user, parent, false);
         return new ViewHolder(v);
     }
 
@@ -55,23 +55,23 @@ public class Adapter_inactiveUsers extends RecyclerView.Adapter<Adapter_inactive
             AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
             alertDialog.setTitle("Delete User confirmation");
             alertDialog.setMessage("Do you want to Delete the User");
-            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Yes", (dialog, ID) ->
-                db.collection("users").document(user.getId()).delete()
-                    .addOnSuccessListener(aVoid -> {
-                        //toast successful message
-                        Toast.makeText(context.getApplicationContext(), "User Removed Successfully!!!",Toast.LENGTH_LONG).show();
-                        //redirect to the same activity
-                        Intent i=new Intent(v.getContext(), InactiveUsers.class);
-                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        v.getContext().startActivity(i);
-                        ((Activity)context).finish();
-                    })
-                    .addOnFailureListener(e-> {
-                        Log.w("TAG", "Error updating status", e);
-                        Toast.makeText(context.getApplicationContext(), "Error!!!",Toast.LENGTH_LONG).show();
-                    })
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) ->
+                    db.collection("users").document(user.getId()).delete()
+                            .addOnSuccessListener(aVoid -> {
+                                //toast successful message
+                                Toast.makeText(context.getApplicationContext(), "User Removed Successfully!!!", Toast.LENGTH_LONG).show();
+                                //redirect to the same activity
+                                Intent i = new Intent(v.getContext(), InactiveUsers.class);
+                                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                v.getContext().startActivity(i);
+                                ((Activity) context).finish();
+                            })
+                            .addOnFailureListener(e -> {
+                                Log.w("TAG", "Error updating status", e);
+                                Toast.makeText(context.getApplicationContext(), "Error!!!", Toast.LENGTH_LONG).show();
+                            })
             );
-            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id1) -> dialog.dismiss());
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "No", (dialog, id1) -> dialog.dismiss());
             alertDialog.show();
         });
     }

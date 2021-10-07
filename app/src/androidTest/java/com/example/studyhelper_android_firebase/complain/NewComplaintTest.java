@@ -16,12 +16,12 @@ import org.junit.Test;
 public class NewComplaintTest {
 
     @Rule
-    public ActivityTestRule<NewComplaint> newComplain = new ActivityTestRule<NewComplaint>(NewComplaint.class,true, false);
-    private  NewComplaint nComplain = null;
+    public ActivityTestRule<NewComplaint> newComplain = new ActivityTestRule<NewComplaint>(NewComplaint.class, true, false);
+    private NewComplaint nComplain = null;
 
     @Before
     public void setUp() throws Exception {
-        nComplain=newComplain.getActivity();
+        nComplain = newComplain.getActivity();
     }
 
     @Test
@@ -29,8 +29,8 @@ public class NewComplaintTest {
         Intent intent = new Intent();
 
         newComplain.launchActivity(intent).runOnUiThread(() -> {
-                View view = newComplain.getActivity().findViewById(R.id.newcomp);
-                Assert.assertNotNull(view);
+            View view = newComplain.getActivity().findViewById(R.id.newcomp);
+            Assert.assertNotNull(view);
         });
     }
 
@@ -47,7 +47,7 @@ public class NewComplaintTest {
 
     @After
     public void tearDown() throws Exception {
-        nComplain=null;
+        nComplain = null;
     }
 
 }

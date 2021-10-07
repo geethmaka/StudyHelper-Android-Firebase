@@ -30,7 +30,7 @@
                 android:textColor="#039BE5"
                 android:textSize="25sp"
                 android:paddingTop="20sp"
-                android:paddingBottom="20sp"/>
+                android:paddingBottom="20sp" />
 
             <Spinner
                 android:id="@+id/stype"
@@ -56,7 +56,7 @@
                 android:layout_marginStart="30sp"
                 android:paddingTop="20sp"
                 android:paddingBottom="20sp"
-                android:gravity="center"/>
+                android:gravity="center" />
 
             <Button
                 android:id="@+id/scomplaintadd"
@@ -64,7 +64,7 @@
                 android:layout_gravity="center"
                 android:text="@string/submit"
                 android:layout_marginTop="20sp"
-                android:layout_marginBottom="20sp"/>
+                android:layout_marginBottom="20sp" />
 
             <Button
                 android:id="@+id/scomplains"
@@ -73,7 +73,7 @@
                 android:onClick="gotoTmComplain"
                 android:text="@string/complaints"
                 android:layout_marginTop="20sp"
-                android:layout_marginBottom="20sp"/>
+                android:layout_marginBottom="20sp" />
 
         </LinearLayout>
     </RelativeLayout>

@@ -35,12 +35,12 @@ public class Teacher_popup_PdfTest {
                     View view = pdfActivity.getActivity().findViewById(R.id.pdfUploder);
                     EditText title = view.findViewById(R.id.editTextPdf);
                     Spinner subject = view.findViewById(R.id.spinnerpdf);
-                    TextView notify=view.findViewById(R.id.notifyPdf);
+                    TextView notify = view.findViewById(R.id.notifyPdf);
                     title.setText("test");
                     subject.setSelection(2);
                     notify.setText("test");
 
-                    assertFalse(pdfActivity.getActivity().checkForEmpty(title.getText().toString(), subject.getSelectedItem().toString() ,notify.getText().toString()));
+                    assertFalse(pdfActivity.getActivity().checkForEmpty(title.getText().toString(), subject.getSelectedItem().toString(), notify.getText().toString()));
                 }
         );
 

@@ -27,7 +27,7 @@ public class Student_complaintTest {
     @Test
     public void testLaunchdate() {
         csActivity.runOnUiThread(() -> {
-            View view  = ComplainActivity.getActivity().findViewById(R.id.btn_scvupdate);
+            View view = ComplainActivity.getActivity().findViewById(R.id.btn_scvupdate);
             assertNotNull(view);
         });
     }

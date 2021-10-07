@@ -14,8 +14,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:menu="@menu/sbottom_menu"
-        />
+        app:menu="@menu/sbottom_menu" />
 
     <fragment
         android:id="@+id/sfragmentContainerView"

@@ -26,7 +26,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class UpdateCourse extends AppCompatActivity {
 
     public boolean checkForEmpty(String subject, String stream) {
-        if ((!subject.equals("") && (!stream.equals("Subject")))) {
+        if ((!subject.equals("") && (!stream.equals("Select Stream")))) {
             return false;
         } else {
             return true;
@@ -43,15 +43,15 @@ public class UpdateCourse extends AppCompatActivity {
         Button deleteButton = findViewById(R.id.deleteButton);
         EditText subject = findViewById(R.id.updateSubject);
         Spinner stream = findViewById(R.id.updateStream);
-        String Stream= stream.getSelectedItem().toString();
+        String Stream = stream.getSelectedItem().toString();
 
-        if(Stream == null) {
-            Toast.makeText(getApplicationContext(),"Please select stream",Toast.LENGTH_LONG).show();}
-        else if(TextUtils.isEmpty(subject.getText().toString()))
-            Toast.makeText(getApplicationContext(),"Please enter subject",Toast.LENGTH_LONG).show();
-        else {
-
-        }
+//        if(Stream == null) {
+//            Toast.makeText(getApplicationContext(),"Please select stream",Toast.LENGTH_LONG).show();}
+//        else if(TextUtils.isEmpty(subject.getText().toString()))
+//            Toast.makeText(getApplicationContext(),"Please enter subject",Toast.LENGTH_LONG).show();
+//        else {
+//
+//        }
 
         Intent intent = getIntent();
 
@@ -80,14 +80,17 @@ public class UpdateCourse extends AppCompatActivity {
             if (!checkForEmpty(subject.getText().toString(), stream.getSelectedItem().toString())) {
                 washingtonRef
                         .update("subject", subject.getText().toString(), "stream", stream.getSelectedItem().toString(), "availability", availability.isChecked())
-                        .addOnSuccessListener(aVoid -> Log.d("TAG", "DocumentSnapshot successfully updated!"))
+                        .addOnSuccessListener(aVoid -> {
+                            Log.d("TAG", "DocumentSnapshot successfully updated!");
+                            Toast.makeText(getApplicationContext(), "successfully updated!", Toast.LENGTH_LONG).show();
+                        })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Log.w("TAG", "Error updating document", e);
                             }
                         });
-            }else{
+            } else {
                 Toast.makeText(this, "Please fill all the fields!", Toast.LENGTH_SHORT).show();
             }
         });

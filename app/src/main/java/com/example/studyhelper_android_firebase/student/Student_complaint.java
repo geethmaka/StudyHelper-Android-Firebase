@@ -41,7 +41,7 @@ public class Student_complaint extends AppCompatActivity {
         //initialize the array list
         complainArrayList = new ArrayList<Complain>();
         //initialize the adapter
-        complainAdapter = new S_adptercomplain(this,complainArrayList);
+        complainAdapter = new S_adptercomplain(this, complainArrayList);
         recyclerView.setAdapter(complainAdapter);
 
         EventChangeListener();
@@ -51,19 +51,19 @@ public class Student_complaint extends AppCompatActivity {
         db.collection("complain")
                 .orderBy("date", Query.Direction.DESCENDING)
                 .addSnapshotListener((value, error) -> {
-                    if(error != null) {
+                    if (error != null) {
                         //dismiss progress dialog
-                        Log.e("Firestore Error",error.getMessage());
+                        Log.e("Firestore Error", error.getMessage());
                         return;
                     }
 
                     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-                    String id =preferences.getString("uid","l");
+                    String id = preferences.getString("uid", "l");
 
                     //fetching the data from the firestore database
-                    for(DocumentChange dc : value.getDocumentChanges()){
-                        Complain c = new Complain(dc.getDocument().getId(),dc.getDocument().toObject(Complain.class));
-                        if(dc.getType() == DocumentChange.Type.ADDED && c.getComplain().getUserID().equals(id)) {
+                    for (DocumentChange dc : value.getDocumentChanges()) {
+                        Complain c = new Complain(dc.getDocument().getId(), dc.getDocument().toObject(Complain.class));
+                        if (dc.getType() == DocumentChange.Type.ADDED && c.getComplain().getUserID().equals(id)) {
 
                             complainArrayList.add(c);
                         }

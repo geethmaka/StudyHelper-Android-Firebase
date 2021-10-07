@@ -14,6 +14,7 @@ import com.google.firebase.storage.StorageReference;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,7 +26,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -36,11 +42,13 @@ public class FileHandlerAdapter extends RecyclerView.Adapter<FileHandlerAdapter.
     private List<Pdf> PdfList;
     private LayoutInflater mInflater;
     private Context mContext;
+    private FragmentActivity c;
 
-    public FileHandlerAdapter(ArrayList<Pdf> PdfList, Context mContext) {
+    public FileHandlerAdapter(FragmentActivity c, ArrayList<Pdf> PdfList, Context mContext) {
         this.PdfList = PdfList;
         this.mInflater = LayoutInflater.from(mContext);
         this.mContext = mContext;
+        this.c = c;
     }
 
     @NonNull
@@ -61,8 +69,10 @@ public class FileHandlerAdapter extends RecyclerView.Adapter<FileHandlerAdapter.
         //loading data
 //
         String animal = PdfList.get(position).getObj().getTitle();
-        String tid=PdfList.get(position).getObj().getTid();
+        String tid = PdfList.get(position).getObj().getTid();
         String id = PdfList.get(position).getId();
+
+        holder.myTextView.setText(PdfList.get(position).getObj().getTitle());
 
         holder.delete.setOnClickListener(view -> {
 // Create a storage reference from our app
@@ -71,32 +81,37 @@ public class FileHandlerAdapter extends RecyclerView.Adapter<FileHandlerAdapter.
 // Create a reference to the file to delete
             StorageReference desertRef = storageRef.child(animal);
 
-            Toast.makeText(view.getContext(), desertRef.getPath(), Toast.LENGTH_SHORT).show();
-
 
 // Delete the file
-            desertRef.delete().addOnSuccessListener(aVoid -> {
-                db.collection("pdf").document(id)
-                        .delete().addOnCompleteListener(del->{
-                            db.collection("users").get().addOnCompleteListener(task->{
-                                if (task.isSuccessful()) {
-                                    for (QueryDocumentSnapshot document : task.getResult()) {
-                                        User u=new User(document.getId(),document.toObject(User.class));
-                                        Log.d("emeeeeeeail",u.getUser().getEmail());
-                                        if(u.getId().equals(tid)){
-                                            services.sendMail(u.getUser().getEmail(),"Study-Helper File Deletion Notice","We are sorry to inform that your file has been deleted.");
-                                            break;
-                                        }
+            AlertDialog alertDialog = new AlertDialog.Builder(view.getContext()).create(); //Read Update
+            alertDialog.setTitle("Confirm Delete");
+            alertDialog.setMessage("Are you sure want to Delete?");
+
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", (dialog, ID) -> {
+                desertRef.delete().addOnSuccessListener(aVoid -> {
+                    db.collection("pdf").document(id).delete().addOnCompleteListener(del -> {
+                        db.collection("users").get().addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    User u = new User(document.getId(), document.toObject(User.class));
+                                    if (u.getId().equals(tid)) {
+                                        services.sendMail(u.getUser().getEmail(), "Study-Helper File Deletion Notice", "We are sorry to inform that your file has been deleted.");
+                                        break;
                                     }
-                                } else {
-                                    Log.d("TAG", "Error getting documents: ", task.getException());
                                 }
-                            });
-//                    services.sendMail(email,"Study-Helper Complaint Confirmation","pako");
+
+                            } else {
+                                Log.d("TAG", "Error getting documents: ", task.getException());
+                            }
+                        });
+                    });
+                }).addOnFailureListener(exception -> {
+                    Log.d("err", String.valueOf(exception));
                 });
-            }).addOnFailureListener(exception -> {
-                Log.d("err", String.valueOf(exception));
             });
+
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "No", (dialog, id1) -> dialog.dismiss());
+            alertDialog.show();
         });
     }
 

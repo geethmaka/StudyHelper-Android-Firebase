@@ -25,7 +25,7 @@ public class StudentMainActivity extends AppCompatActivity {
 
         //Control the bottom navigation bar
         BottomNavigationView student_bottomNavigationView = findViewById(R.id.studentbottomNaviagtionview);
-        NavController student_navController = Navigation.findNavController(this,R.id.sfragmentContainerView);
+        NavController student_navController = Navigation.findNavController(this, R.id.sfragmentContainerView);
         NavigationUI.setupWithNavController(student_bottomNavigationView, student_navController);
         NavigationUI.setupActionBarWithNavController(this, student_navController);
     }

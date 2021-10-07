@@ -16,24 +16,24 @@ import org.junit.Test;
 public class ComplainMainTest {
 
     @Rule
-    public ActivityTestRule<ComplainMain> complainMain=new ActivityTestRule<ComplainMain>(ComplainMain.class);
-    private  ComplainMain cpMainActivity = null;
+    public ActivityTestRule<ComplainMain> complainMain = new ActivityTestRule<ComplainMain>(ComplainMain.class);
+    private ComplainMain cpMainActivity = null;
 
     @Before
     public void setUp() throws Exception {
-        cpMainActivity=complainMain.getActivity();
+        cpMainActivity = complainMain.getActivity();
     }
 
-   @Test
-    public void testLaunch(){
+    @Test
+    public void testLaunch() {
 
-       View view= cpMainActivity.findViewById(R.id.complainMain);
-       assertNotNull(view);
+        View view = cpMainActivity.findViewById(R.id.complainMain);
+        assertNotNull(view);
     }
 
     @After
     public void tearDown() throws Exception {
-        cpMainActivity=null;
+        cpMainActivity = null;
     }
 
 }

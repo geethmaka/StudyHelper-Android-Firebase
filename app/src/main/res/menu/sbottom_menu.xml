@@ -4,20 +4,17 @@
     <item
         android:id="@+id/sdashboardFragment"
         android:title="DashBoard"
-        android:icon="@drawable/ic_sdashboard"
-        />
+        android:icon="@drawable/ic_sdashboard" />
     <item
         android:id="@+id/SLinkFragment"
         android:title="Links"
-        android:icon="@drawable/ic_add_pdf"/>
+        android:icon="@drawable/ic_add_pdf" />
     <item
         android:id="@+id/SProfileFragment"
         android:title="Complain"
-        android:icon="@drawable/ic_sprofile"
-        />
+        android:icon="@drawable/ic_sprofile" />
     <item
         android:id="@+id/SComplainFragment"
         android:title="Complain"
-        android:icon="@drawable/ic_scomplain"
-        />
+        android:icon="@drawable/ic_scomplain" />
 </menu>
