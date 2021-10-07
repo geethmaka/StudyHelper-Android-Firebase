@@ -1,22 +1,9 @@
 package com.example.studyhelper_android_firebase.course;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.test.rule.ActivityTestRule;
-
-import com.example.studyhelper_android_firebase.Login;
-import com.example.studyhelper_android_firebase.R;
-import com.example.studyhelper_android_firebase.classes.ICourse;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -25,8 +12,16 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
-import org.junit.Before;
-import org.junit.Rule;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.studyhelper_android_firebase.R;
+import com.example.studyhelper_android_firebase.classes.ICourse;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class UpdateCourse extends AppCompatActivity {
 
@@ -48,6 +43,15 @@ public class UpdateCourse extends AppCompatActivity {
         Button deleteButton = findViewById(R.id.deleteButton);
         EditText subject = findViewById(R.id.updateSubject);
         Spinner stream = findViewById(R.id.updateStream);
+        String Stream= stream.getSelectedItem().toString();
+
+        if(Stream == null) {
+            Toast.makeText(getApplicationContext(),"Please select stream",Toast.LENGTH_LONG).show();}
+        else if(TextUtils.isEmpty(subject.getText().toString()))
+            Toast.makeText(getApplicationContext(),"Please enter subject",Toast.LENGTH_LONG).show();
+        else {
+
+        }
 
         Intent intent = getIntent();
 

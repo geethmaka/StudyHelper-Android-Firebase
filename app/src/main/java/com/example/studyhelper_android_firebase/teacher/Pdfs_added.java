@@ -3,13 +3,6 @@ package com.example.studyhelper_android_firebase.teacher;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,23 +11,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.studyhelper_android_firebase.R;
-import com.example.studyhelper_android_firebase.classes.Link;
-import com.example.studyhelper_android_firebase.classes.Pdf;
-import com.example.studyhelper_android_firebase.classes.User;
-import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.studyhelper_android_firebase.R;
+import com.example.studyhelper_android_firebase.classes.Pdf;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -74,13 +58,15 @@ public class Pdfs_added extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
+    //firebase connection
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+
     RecyclerView recyclerView;
     ArrayList<Pdf> pdfArrayList;
     PdfAdapter pdfAdapter;
     Button update;
     EditText title, pdf;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -117,7 +103,7 @@ public class Pdfs_added extends Fragment {
 
 
     }
-
+    //dispaly pdfs from database
     private void EventChangeListener() {
         db.collection("pdf")
                 .addSnapshotListener((value, error) -> {
