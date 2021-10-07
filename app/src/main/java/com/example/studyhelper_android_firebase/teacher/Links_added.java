@@ -57,6 +57,7 @@ public class Links_added extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     RecyclerView recyclerView;
     ArrayList<Link> linkArrayList;
@@ -79,18 +80,17 @@ public class Links_added extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_links_added, container, false);
 
-        Context current=this.getContext();
-        recyclerView=root.findViewById(R.id.uploadLinkRecycle);
+        Context current = this.getContext();
+        recyclerView = root.findViewById(R.id.uploadLinkRecycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(current));
 
-        linkArrayList= new ArrayList<Link>();
-        linkAdapter= new LinkAdapter(linkArrayList, this.getContext());
+        linkArrayList = new ArrayList<Link>();
+        linkAdapter = new LinkAdapter(linkArrayList, this.getContext());
         recyclerView.setAdapter(linkAdapter);
         EventChangeListener();
 
         return root;
-
 
 
     }
@@ -98,21 +98,21 @@ public class Links_added extends Fragment {
     private void EventChangeListener() {
         db.collection("link")
                 .addSnapshotListener((value, error) -> {
-                    if(error != null) {
+                    if (error != null) {
                         //dismiss progress dialog
 //                            if(progressDialog.isShowing())
 //                                progressDialog.dismiss();
-                        Log.e("Firestore Error",error.getMessage());
+                        Log.e("Firestore Error", error.getMessage());
                         return;
                     }
 
-                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
-                    String id =preferences.getString("uid","");
+                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    String id = preferences.getString("uid", "");
 
                     //fetching the data from the firestore database
-                    for(DocumentChange dc : value.getDocumentChanges()){
-                        Link l = new Link(dc.getDocument().getId(),dc.getDocument().toObject(Link.class));
-                        if(dc.getType() == DocumentChange.Type.ADDED && id.equals(l.getObj().getTid())) {
+                    for (DocumentChange dc : value.getDocumentChanges()) {
+                        Link l = new Link(dc.getDocument().getId(), dc.getDocument().toObject(Link.class));
+                        if (dc.getType() == DocumentChange.Type.ADDED && id.equals(l.getObj().getTid())) {
                             linkArrayList.add(l);
                         }
                         linkAdapter.notifyDataSetChanged();

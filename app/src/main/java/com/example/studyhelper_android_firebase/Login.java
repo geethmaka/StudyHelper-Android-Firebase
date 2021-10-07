@@ -126,9 +126,9 @@ public class Login extends AppCompatActivity {
                 startActivity(start);
             }
 
-//            if(!userFound){
-//                Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
-//            }
+            if(!userFound){
+                Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+            }
         });
 //        Context mContext = getContext();
 //        Button scomplains = root.findViewById(R.id.scomplains);
