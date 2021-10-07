@@ -135,7 +135,7 @@ public class Adapter_newComplaint extends RecyclerView.Adapter<Adapter_newCompla
                                 Log.d("TAG", "get failed with ", task.getException());
                             }
                         });
-                    //toast sucessfull message
+                    //toast successful message
                     Toast.makeText(context.getApplicationContext(), "Complaint Marked Resolved Successful!!!",Toast.LENGTH_LONG).show();
                     //redirect to NewComplaint class
                     Intent i=new Intent(this.context.getApplicationContext(), NewComplaint.class);
@@ -145,6 +145,7 @@ public class Adapter_newComplaint extends RecyclerView.Adapter<Adapter_newCompla
                 })
 
                 .addOnFailureListener(e ->{
+                    //toast unsuccessful message
                     Log.w("TAG", "Error updating status", e);
                     Toast.makeText(context.getApplicationContext(), "Error!!!",Toast.LENGTH_LONG).show();
                 });

@@ -3,13 +3,12 @@ package com.example.studyhelper_android_firebase.complain;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.studyhelper_android_firebase.R;
 
@@ -38,24 +37,28 @@ public class CH_ComplainMenu extends Fragment {
         Button btn_inactive = root.findViewById(R.id.btn_Inactive_user);
         Button btn_cResolved = root.findViewById(R.id.btn_cResolved);
 
+        //redirecting to NewComplaint
         btn_cPending.setOnClickListener(view -> {
             Intent i = new Intent(mContext, NewComplaint.class);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             mContext.startActivity(i);
         });
 
+        //redirecting to ActiveUsers
         btn_active.setOnClickListener(view -> {
             Intent i = new Intent(mContext, ActiveUsers.class);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             mContext.startActivity(i);
         });
 
+        //redirecting to InactiveUsers
         btn_inactive.setOnClickListener(view -> {
             Intent i = new Intent(mContext, InactiveUsers.class);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             mContext.startActivity(i);
         });
 
+        //redirecting to ResolvedComplaints
         btn_cResolved.setOnClickListener(view -> {
             Intent i = new Intent(mContext, ResolvedComplaints.class);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

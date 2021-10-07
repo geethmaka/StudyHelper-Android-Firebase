@@ -147,6 +147,7 @@ public class CH_Dashboard extends Fragment {
         return root;
     }
 
+    //getting data from the database
     private void EventChangeListener() {
         db.collection("complain").orderBy("date", Query.Direction.DESCENDING)
                 .addSnapshotListener((value, error) -> {

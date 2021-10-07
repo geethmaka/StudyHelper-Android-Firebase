@@ -1,10 +1,5 @@
 package com.example.studyhelper_android_firebase.complain;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,6 +7,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.WindowManager;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 
 import com.example.studyhelper_android_firebase.Login;
 import com.example.studyhelper_android_firebase.R;
@@ -48,6 +48,7 @@ public class ComplainMain extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //logout function
     public void logout(MenuItem item) {
         SharedPreferences myPrefs = getSharedPreferences("uid", MODE_PRIVATE);
         SharedPreferences.Editor editor = myPrefs.edit();
