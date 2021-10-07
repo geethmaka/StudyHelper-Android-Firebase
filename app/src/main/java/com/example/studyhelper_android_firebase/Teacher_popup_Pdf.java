@@ -29,6 +29,7 @@ import androidx.core.content.ContextCompat;
 import com.example.studyhelper_android_firebase.classes.IPdf;
 import com.example.studyhelper_android_firebase.services.Services;
 import com.example.studyhelper_android_firebase.teacher.Pdfs_added;
+import com.example.studyhelper_android_firebase.teacher.TeacherMainActivity;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -102,7 +103,7 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
     private void uploadPdf(Uri pdfUri) {
 
         progressDialog = new ProgressDialog(this);
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.setTitle("Uploading File");
         progressDialog.setProgress(0);
         progressDialog.show();
@@ -145,7 +146,7 @@ public class Teacher_popup_Pdf extends AppCompatActivity {
                             Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());
                             progressDialog.setProgress(100);
                             progressDialog.dismiss();
-                            Intent intent = new Intent(getApplicationContext(), Pdfs_added.class);
+                            Intent intent = new Intent(getApplicationContext(), TeacherMainActivity.class);
                             startActivity(intent);
                         })
 
