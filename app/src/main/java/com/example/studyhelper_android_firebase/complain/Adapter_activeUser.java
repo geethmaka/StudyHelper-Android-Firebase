@@ -56,6 +56,7 @@ public class Adapter_activeUser extends RecyclerView.Adapter<Adapter_activeUser.
         holder.type.setText(String.valueOf(user.getUser().getType()));
         holder.email.setText(user.getUser().getEmail());
 
+        //setting action to the button
         holder.btn_banUser.setOnClickListener(v -> {
             DocumentReference userRef = db.collection("users").document(user.getId());
             //confirmation dialog box
@@ -86,7 +87,9 @@ public class Adapter_activeUser extends RecyclerView.Adapter<Adapter_activeUser.
                                     Log.d("TAG", "get failed with ", task1.getException());
                                 }
                             });
+                        //display toast for success
                         Toast.makeText(context.getApplicationContext(), "User Deactivated Successfully!!!",Toast.LENGTH_LONG).show();
+                        //redirect to ActiveUsers
                         Intent i=new Intent(v.getContext(), ActiveUsers.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         v.getContext().startActivity(i);
@@ -94,6 +97,7 @@ public class Adapter_activeUser extends RecyclerView.Adapter<Adapter_activeUser.
                     })
 
                     .addOnFailureListener(e -> {
+                        //display toast for unsuccessful
                         Toast.makeText(context.getApplicationContext(), "User Deactivation unsuccessfully!!!",Toast.LENGTH_LONG).show();
                     }));
             alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"No", (dialog, id) -> dialog.dismiss());

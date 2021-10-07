@@ -50,6 +50,7 @@ public class Adapter_inactiveUsers extends RecyclerView.Adapter<Adapter_inactive
         holder.type.setText(String.valueOf(user.getUser().getType()));
         holder.email.setText(user.getUser().getEmail());
 
+        //setting action for the button
         holder.btn_deleteUser.setOnClickListener((View v) -> {
             AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
             alertDialog.setTitle("Delete User confirmation");
@@ -66,7 +67,7 @@ public class Adapter_inactiveUsers extends RecyclerView.Adapter<Adapter_inactive
                         ((Activity)context).finish();
                     })
                     .addOnFailureListener(e-> {
-                       Log.w("TAG", "Error updating status", e);
+                        Log.w("TAG", "Error updating status", e);
                         Toast.makeText(context.getApplicationContext(), "Error!!!",Toast.LENGTH_LONG).show();
                     })
             );
